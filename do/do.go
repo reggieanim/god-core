@@ -1,10 +1,20 @@
 package do
 
-import "fmt"
+import (
+	"fmt"
+	"reflect"
+)
 
-type arguments []interface{}
+func Do(data interface{}) interface{} {
+	var out []interface{}
+	switch reflect.TypeOf(data).Kind() {
+	case reflect.Slice:
+		s := reflect.ValueOf(data)
+		for i := 0; i < s.Len(); i++ {
+			out = append(out, s.Index(i).Interface())
+		}
 
-func Do(data ...arguments) error {
-	fmt.Println(data)
-	return nil
+	}
+	fmt.Printf("{function: Do, args: %v, output: %v}\n", data, out)
+	return out
 }
