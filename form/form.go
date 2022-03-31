@@ -10,12 +10,6 @@ import (
 )
 
 type instructions interface{}
-type fields struct {
-	description string
-	value       string
-	field       string
-	kind        string
-}
 
 var out []interface{}
 
@@ -44,20 +38,26 @@ func runForm(ins instructions, page *rod.Page) {
 		log.Fatalln("Wrong instructions format in run form")
 	}
 	validate(mapData)
-	data := helpers.CastTo(mapData)
+	data := helpers.CastToForm(mapData)
 	switch data.Kind {
 	case "text":
 		text(data, page)
+	case "select":
+		inputSelect(data, page)
 	}
 }
 
-func text(data helpers.Instructions, page *rod.Page) {
+func text(data helpers.FormInstructions, page *rod.Page) {
 	if data.ShdType {
 		val := []rune(data.Value)
 		page.MustElement(data.Field).Press(val...)
-		out = append(out, data.Description)
+		out = append(out, data)
 	} else {
 		page.MustElement(data.Field).Input(data.Value)
 	}
+}
 
+func inputSelect(data helpers.FormInstructions, page *rod.Page) {
+	page.MustElement(data.Field).MustSelect(data.Value)
+	out = append(out, data)
 }

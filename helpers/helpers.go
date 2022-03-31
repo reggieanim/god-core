@@ -1,6 +1,6 @@
 package helpers
 
-type Instructions struct {
+type FormInstructions struct {
 	Description string
 	Field       string
 	Value       string
@@ -8,7 +8,7 @@ type Instructions struct {
 	Kind        string
 }
 
-func CastTo(data map[string]interface{}) Instructions {
+func CastToForm(data map[string]interface{}) FormInstructions {
 	des := data["description"].(string)
 	fild := data["field"].(string)
 	val := data["value"].(string)
@@ -17,7 +17,7 @@ func CastTo(data map[string]interface{}) Instructions {
 		shdType = false
 	}
 	kind := data["kind"].(string)
-	return Instructions{
+	return FormInstructions{
 		des,
 		fild,
 		val,

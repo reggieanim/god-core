@@ -1,42 +1,15 @@
 {
-    "startingUrl": "https://regiew.com/post/-Mz7En5xMidwVobeilrv",
+    "startingUrl": "https://duckduckgo.com",
     "headless": false,
     "instructions": [
         "do",
         [
             "form",
             {
-                "description": "Filling Reginald",
+                "description": "Type God coder",
                 "kind": "text",
-                "field": "#standard-textarea",
-                "value": "Reginald",
-                "shdType": true
-            }
-        ],
-        [
-            "form",
-            {
-                "description": "Filling Tetteh",
-                "kind": "text",
-                "field": "#standard-textarea",
-                "value": "Tetteh",
-                "shdType": true
-            },
-            {
-                "description": "Filling Tetteh",
-                "kind": "text",
-                "field": "#standard-textarea",
-                "value": "Tetteh",
-                "shdType": true
-            }
-        ],
-        [
-            "form",
-            {
-                "description": "Filling Anim",
-                "kind": "text",
-                "field": "#standard-textarea",
-                "value": "Anim",
+                "field": "#search_form_input_homepage",
+                "value": "God coder",
                 "shdType": true
             }
         ]
