@@ -1,27 +1,44 @@
 {
+    "startingUrl": "https://regiew.com/post/-Mz7En5xMidwVobeilrv",
+    "headless": false,
     "instructions": [
-            "do",
-            [
-                "drawline",
-                {
-                    "x": 0,
-                    "y": 0
-                },
-                {
-                    "x": 1,
-                    "y": 1
-                }
-            ],
-            [
-                "drawline",
-                {
-                    "x": 0,
-                    "y": 0
-                },
-                {
-                    "x": 1,
-                    "y": 1
-                }
-            ]
+        "do",
+        [
+            "form",
+            {
+                "description": "Filling Reginald",
+                "kind": "text",
+                "field": "#standard-textarea",
+                "value": "Reginald",
+                "shdType": true
+            }
+        ],
+        [
+            "form",
+            {
+                "description": "Filling Tetteh",
+                "kind": "text",
+                "field": "#standard-textarea",
+                "value": "Tetteh",
+                "shdType": true
+            },
+            {
+                "description": "Filling Tetteh",
+                "kind": "text",
+                "field": "#standard-textarea",
+                "value": "Tetteh",
+                "shdType": true
+            }
+        ],
+        [
+            "form",
+            {
+                "description": "Filling Anim",
+                "kind": "text",
+                "field": "#standard-textarea",
+                "value": "Anim",
+                "shdType": true
+            }
+        ]
     ]
 }

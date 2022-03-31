@@ -3,18 +3,17 @@ package do
 import (
 	"fmt"
 	"reflect"
+
+	"github.com/go-rod/rod"
 )
 
-func Do(data interface{}) interface{} {
-	var out []interface{}
+func Do(data interface{}, page *rod.Page) interface{} {
+	fmt.Println("finalising")
 	switch reflect.TypeOf(data).Kind() {
 	case reflect.Slice:
-		s := reflect.ValueOf(data)
-		for i := 0; i < s.Len(); i++ {
-			out = append(out, s.Index(i).Interface())
-		}
-
+		args := data.([]interface{})
+		return args[len(args)-1]
+	default:
+		return data
 	}
-	fmt.Printf("{function: Do, args: %v, output: %v}\n", data, out)
-	return out
 }
