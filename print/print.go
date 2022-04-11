@@ -1,23 +1,32 @@
 package print
 
 import (
+	"bytes"
+	"encoding/json"
 	"fmt"
+	"log"
 	"reflect"
 
 	"github.com/go-rod/rod"
 )
 
+// Print in json output of nested fns
 func Print(data interface{}, page *rod.Page) interface{} {
-	fmt.Println("data", data)
-	args := data.([]interface{})
-	fmt.Println("args", len(args[0].([]interface{})))
-	for _, v := range args {
-		if reflect.TypeOf(v).Kind() == reflect.Slice {
-			v := v.([]interface{})
-			fmt.Printf("Printing value: %v\n", v[1:])
-		} else {
-			fmt.Printf("Printing value: %v\n", v)
+	if reflect.TypeOf(data).Kind() == reflect.Slice {
+		args, ok := data.([]interface{})
+		if !ok {
+			log.Fatal("cannot parse args")
 		}
+		s, _ := json.Marshal(args)
+		val, _ := prettyprint(s)
+		fmt.Println("Printing:.", string(val))
+		return args
 	}
-	return args
+	return data
+}
+
+func prettyprint(b []byte) ([]byte, error) {
+	var out bytes.Buffer
+	err := json.Indent(&out, b, "", "  ")
+	return out.Bytes(), err
 }

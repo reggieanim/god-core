@@ -23,13 +23,13 @@ func main() {
 func parseIns(browser *rod.Page) func(data interface{}) interface{} {
 	return func(data interface{}) interface{} {
 		// var out []interface{}
-
 		switch reflect.TypeOf(data).Kind() {
 		case reflect.Slice:
 			out := data.([]interface{})
 			args := make([]interface{}, 0)
 			args = append(args, out[1:]...)
 			fn := fmt.Sprint(out[0])
+			fmt.Printf("Compiling function %v with args %v \n", fn, args)
 			return fns.Fns[fn](Map(args, parseIns(browser)), browser)
 		}
 		if reflect.TypeOf(data).Kind() != reflect.Slice {
@@ -50,6 +50,7 @@ func Map(vs interface{}, f func(interface{}) interface{}) interface{} {
 			out = append(out, res)
 		}
 	}
+
 	return out
 }
 
@@ -78,6 +79,7 @@ func launchBrowser() {
 	if err != nil {
 		panic(err)
 	}
-	result := parseIns(browser)(instructions["instructions"])
-	fmt.Println("Performed actions successfully", result)
+	defer browser.Close()
+	parseIns(browser)(instructions["instructions"])
+	fmt.Println("Performed actions successfully")
 }
