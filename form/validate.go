@@ -8,8 +8,10 @@ import (
 )
 
 var kindMap = map[string]bool{
-	"text":   true,
-	"select": true,
+	"text":       true,
+	"select":     true,
+	"leftClick":  true,
+	"rightClick": true,
 }
 
 func validate(ins map[string]interface{}) bool {
@@ -24,7 +26,7 @@ func validate(ins map[string]interface{}) bool {
 	v.Check(valOk, "value", "Needs a 'value' property of string")
 	v.Check(desOk, "description", "Needs a description property")
 	v.Check(kindOk, "kind", "Needs a 'kind' property")
-	v.Check(doesNotMatchKind, "noKind", "Needs a 'kind' property of 'text || select'")
+	v.Check(doesNotMatchKind, "noKind", "Needs a 'kind' property of 'text || select || leftClick || rightClick'")
 	if !v.Valid() {
 		for _, v := range v.Errors {
 			fmt.Println(v)

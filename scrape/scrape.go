@@ -59,6 +59,7 @@ func extract(ins instructions, page *rod.Page) {
 	if !ok {
 		log.Fatalln("Wrong instructions format in run form")
 	}
+	validate(mapData)
 	data := helpers.CastToScrape(mapData)
 	text := page.MustElement(data.Field).MustText()
 	extractMap = make(map[string]string)

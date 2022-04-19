@@ -79,7 +79,7 @@ func launchBrowser() {
 	if err != nil {
 		panic(err)
 	}
-	defer browser.Close()
+	// defer browser.Close()
 	parseIns(browser)(instructions["instructions"])
 	fmt.Println("Performed actions successfully")
 }

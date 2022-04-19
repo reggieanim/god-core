@@ -11,7 +11,7 @@ import (
 )
 
 // Print in json output of nested fns
-func Print(data interface{}, page *rod.Page) interface{} {
+func Print(data interface{}, _ *rod.Page) interface{} {
 	if reflect.TypeOf(data).Kind() == reflect.Slice {
 		args, ok := data.([]interface{})
 		if !ok {

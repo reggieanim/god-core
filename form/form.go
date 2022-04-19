@@ -44,6 +44,10 @@ func runForm(ins instructions, page *rod.Page) {
 		text(data, page)
 	case "select":
 		inputSelect(data, page)
+	case "leftClick":
+		leftClick(data, page)
+	case "rightClick":
+		rightClick(data, page)
 	}
 }
 
@@ -59,5 +63,15 @@ func text(data helpers.FormInstructions, page *rod.Page) {
 
 func inputSelect(data helpers.FormInstructions, page *rod.Page) {
 	page.MustElement(data.Field).MustSelect(data.Value)
+	out = append(out, data)
+}
+
+func leftClick(data helpers.FormInstructions, page *rod.Page) {
+	page.MustElement(data.Field).Click("left")
+	out = append(out, data)
+}
+
+func rightClick(data helpers.FormInstructions, page *rod.Page) {
+	page.MustElement(data.Field).Click("right")
 	out = append(out, data)
 }
