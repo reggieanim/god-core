@@ -17,6 +17,16 @@
                 "field": "#search_button_homepage",
                 "value": " "
             }
+        ],
+        "do",
+        [
+            "form",
+            {
+                "description": "Type into Search Bar",
+                "kind": "text",
+                "field": "#search_form_input",
+                "value": "deez nuts"
+            }
         ]
     ]
 }

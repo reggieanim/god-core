@@ -1,0 +1,235 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_EXCMD	mixed	/number, pattern, mixed, or combineV2/
+!_TAG_OUTPUT_FILESEP	slash	/slash or backslash/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PATTERN_LENGTH_LIMIT	96	/0 for no limit/
+!_TAG_PROC_CWD	H:/codes/not-scalping/	//
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	5.9.0	/80ee839/
+0	./file.json	/^      {$/;"	o	array:0.0
+0	./file.json	/^    [$/;"	a	array:0
+0	./file.json	/^  [$/;"	a
+0	./oldsample.json	/^                "scrapeAll",$/;"	s	array:0.instructions.1.1
+0	./oldsample.json	/^            "post",$/;"	s	array:0.instructions.1
+0	./oldsample.json	/^        "do",$/;"	s	array:0.instructions
+0	./oldsample.json	/^{$/;"	o
+0	./sample.json	/^            "form",$/;"	s	array:instructions.1
+0	./sample.json	/^            "form",$/;"	s	array:instructions.3
+0	./sample.json	/^        "do",$/;"	s	array:instructions
+0	./test.json	/^      {$/;"	o	array:0.0
+0	./test.json	/^    [$/;"	a	array:0
+0	./test.json	/^  [$/;"	a
+0	bankscraping.json	/^               "scrapeAll",$/;"	s	array:0.instructions.3.1
+0	bankscraping.json	/^            "form",$/;"	s	array:0.instructions.1
+0	bankscraping.json	/^            "post",$/;"	s	array:0.instructions.3
+0	bankscraping.json	/^         "do",$/;"	s	array:0.instructions
+0	bankscraping.json	/^   {$/;"	o
+1	./file.json	/^      {$/;"	o	array:0.0
+1	./file.json	/^    {$/;"	o	array:0
+1	./oldsample.json	/^                {$/;"	o	array:0.instructions.1.1
+1	./oldsample.json	/^            [$/;"	a	array:0.instructions.1
+1	./oldsample.json	/^        [$/;"	a	array:0.instructions
+1	./sample.json	/^            {$/;"	o	array:instructions.1
+1	./sample.json	/^            {$/;"	o	array:instructions.3
+1	./sample.json	/^        [$/;"	a	array:instructions
+1	./test.json	/^      {$/;"	o	array:0.0
+1	./test.json	/^    {$/;"	o	array:0
+1	bankscraping.json	/^               {$/;"	o	array:0.instructions.3.1
+1	bankscraping.json	/^            [$/;"	a	array:0.instructions.3
+1	bankscraping.json	/^            {$/;"	o	array:0.instructions.1
+1	bankscraping.json	/^         [$/;"	a	array:0.instructions
+2	./file.json	/^      {$/;"	o	array:0.0
+2	./oldsample.json	/^            {$/;"	o	array:0.instructions.1
+2	./oldsample.json	/^            {$/;"	o	array:0.instructions.1.1
+2	./sample.json	/^            {$/;"	o	array:instructions.1
+2	./sample.json	/^        "do",$/;"	s	array:instructions
+2	./test.json	/^      {$/;"	o	array:0.0
+2	bankscraping.json	/^               {$/;"	o	array:0.instructions.3.1
+2	bankscraping.json	/^            {$/;"	o	array:0.instructions.1
+2	bankscraping.json	/^            {$/;"	o	array:0.instructions.3
+2	bankscraping.json	/^         "do",$/;"	s	array:0.instructions
+3	./file.json	/^      {$/;"	o	array:0.0
+3	./sample.json	/^        [$/;"	a	array:instructions
+3	./test.json	/^      {$/;"	o	array:0.0
+3	bankscraping.json	/^               {$/;"	o	array:0.instructions.3.1
+3	bankscraping.json	/^            {$/;"	o	array:0.instructions.1
+3	bankscraping.json	/^         [$/;"	a	array:0.instructions
+4	./file.json	/^      {$/;"	o	array:0.0
+4	./test.json	/^      {$/;"	o	array:0.0
+4	bankscraping.json	/^               {$/;"	o	array:0.instructions.3.1
+4	bankscraping.json	/^            {$/;"	o	array:0.instructions.1
+5	./file.json	/^      {$/;"	o	array:0.0
+5	bankscraping.json	/^            {$/;"	o	array:0.instructions.1
+6	./file.json	/^      {$/;"	o	array:0.0
+6	bankscraping.json	/^            {$/;"	o	array:0.instructions.1
+7	./file.json	/^      {$/;"	o	array:0.0
+8	./file.json	/^      {$/;"	o	array:0.0
+9	./file.json	/^      {$/;"	o	array:0.0
+AddError	./validator/validator.go	/^func (v *Validator) AddError(key, message string) {$/;"	f	struct:validator.Validator
+CastToForm	./helpers/helpers.go	/^func CastToForm(data map[string]interface{}) FormInstructions {$/;"	f	package:helpers	typeref:typename:FormInstructions
+CastToScrape	./helpers/helpers.go	/^func CastToScrape(data map[string]interface{}) ScrapeInstructions {$/;"	f	package:helpers	typeref:typename:ScrapeInstructions
+CastToScrapeAll	./helpers/helpers.go	/^func CastToScrapeAll(data map[string]interface{}) ScrapeAllInstructions {$/;"	f	package:helpers	typeref:typename:ScrapeAllInstructions
+Check	./validator/validator.go	/^func (v *Validator) Check(ok bool, key, message string) {$/;"	f	struct:validator.Validator
+Description	./helpers/helpers.go	/^	Description string$/;"	m	struct:helpers.FormInstructions	typeref:typename:string
+Description	./helpers/helpers.go	/^	Description string$/;"	m	struct:helpers.ScrapeAllInstructions	typeref:typename:string
+Description	./helpers/helpers.go	/^	Description string$/;"	m	struct:helpers.ScrapeInstructions	typeref:typename:string
+Do	./do/do.go	/^func Do(data interface{}, page *rod.Page) interface{} {$/;"	f	package:do	typeref:typename:interface{}
+EmailRX	./validator/validator.go	/^	EmailRX = regexp.MustCompile("^[a-zA-Z0-9.!#$%&'*+\\\\\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]/;"	v	package:validator
+Errors	./validator/validator.go	/^	Errors map[string]string$/;"	m	struct:validator.Validator	typeref:typename:map[string]string
+Field	./helpers/helpers.go	/^	Field       string$/;"	m	struct:helpers.FormInstructions	typeref:typename:string
+Field	./helpers/helpers.go	/^	Field       string$/;"	m	struct:helpers.ScrapeInstructions	typeref:typename:string
+Fns	./fns/fns.go	/^var Fns = map[string]func(interface{}, *rod.Page) interface{}{$/;"	v	package:fns
+Form	./form/form.go	/^func Form(data interface{}, page *rod.Page) interface{} {$/;"	f	package:form	typeref:typename:interface{}
+FormInstructions	./helpers/helpers.go	/^type FormInstructions struct {$/;"	s	package:helpers
+In	./validator/validator.go	/^func In(value string, list ...string) bool {$/;"	f	package:validator	typeref:typename:bool
+Item	./helpers/helpers.go	/^	Item        string$/;"	m	struct:helpers.ScrapeAllInstructions	typeref:typename:string
+Key	./helpers/helpers.go	/^	Key         string$/;"	m	struct:helpers.ScrapeInstructions	typeref:typename:string
+Keys	./helpers/helpers.go	/^	Keys        map[string]interface{}$/;"	m	struct:helpers.ScrapeAllInstructions	typeref:typename:map[string]interface{}
+Kind	./helpers/helpers.go	/^	Kind        string$/;"	m	struct:helpers.FormInstructions	typeref:typename:string
+Map	./main.go	/^func Map(vs interface{}, f func(interface{}) interface{}) interface{} {$/;"	f	package:main	typeref:typename:interface{}
+Matches	./validator/validator.go	/^func Matches(value string, rx *regexp.Regexp) bool {$/;"	f	package:validator	typeref:typename:bool
+New	./validator/validator.go	/^func New() *Validator {$/;"	f	package:validator	typeref:typename:*Validator
+Parent	./helpers/helpers.go	/^	Parent      string$/;"	m	struct:helpers.ScrapeAllInstructions	typeref:typename:string
+Post	./post/post.go	/^func Post(data interface{}, page *rod.Page) interface{} {$/;"	f	package:post	typeref:typename:interface{}
+Print	./print/print.go	/^func Print(data interface{}, _ *rod.Page) interface{} {$/;"	f	package:print	typeref:typename:interface{}
+Scrape	./scrape/scrape.go	/^func Scrape(data interface{}, page *rod.Page) interface{} {$/;"	f	package:scrape	typeref:typename:interface{}
+ScrapeAll	./scrape/scrape.go	/^func ScrapeAll(data interface{}, page *rod.Page) interface{} {$/;"	f	package:scrape	typeref:typename:interface{}
+ScrapeAllInstructions	./helpers/helpers.go	/^type ScrapeAllInstructions struct {$/;"	s	package:helpers
+ScrapeInstructions	./helpers/helpers.go	/^type ScrapeInstructions struct {$/;"	s	package:helpers
+ShdType	./helpers/helpers.go	/^	ShdType     bool$/;"	m	struct:helpers.FormInstructions	typeref:typename:bool
+Status	bankscraping.json	/^                     "Status":"td:nth-child(9)"$/;"	s	object:0.instructions.3.1.1.keys
+Status	bankscraping.json	/^                     "Status":"td:nth-child(9)"$/;"	s	object:0.instructions.3.1.2.keys
+Status	bankscraping.json	/^                     "Status":"td:nth-child(9)"$/;"	s	object:0.instructions.3.1.3.keys
+Unique	./validator/validator.go	/^func Unique(values []string) bool {$/;"	f	package:validator	typeref:typename:bool
+Valid	./validator/validator.go	/^func (v *Validator) Valid() bool {$/;"	f	struct:validator.Validator	typeref:typename:bool
+Validator	./validator/validator.go	/^type Validator struct {$/;"	s	package:validator
+Value	./helpers/helpers.go	/^	Value       string$/;"	m	struct:helpers.FormInstructions	typeref:typename:string
+addKeys	./scrape/scrape.go	/^func addKeys(item *rod.Element, keys map[string]interface{}) map[string]string {$/;"	f	package:scrape	typeref:typename:map[string]string
+applicantName	bankscraping.json	/^                     "applicantName":".applicantName",$/;"	s	object:0.instructions.3.1.1.keys
+applicantName	bankscraping.json	/^                     "applicantName":".applicantName",$/;"	s	object:0.instructions.3.1.2.keys
+applicantName	bankscraping.json	/^                     "applicantName":".applicantName",$/;"	s	object:0.instructions.3.1.3.keys
+click	bankscraping.json	/^								 "click":"input[title='Next Page']"$/;"	s	object:0.instructions.3.1.4
+description	./oldsample.json	/^                    "description": "How duck makes money",$/;"	s	object:0.instructions.1.1.1
+description	./sample.json	/^                "description": "Click Search",$/;"	s	object:instructions.1.2
+description	./sample.json	/^                "description": "Type into Search Bar",$/;"	s	object:instructions.1.1
+description	./sample.json	/^                "description": "Type into Search Bar",$/;"	s	object:instructions.3.1
+description	bankscraping.json	/^                  "description":"How duck makes money",$/;"	s	object:0.instructions.3.1.1
+description	bankscraping.json	/^                  "description":"How duck makes money",$/;"	s	object:0.instructions.3.1.2
+description	bankscraping.json	/^                  "description":"How duck makes money",$/;"	s	object:0.instructions.3.1.3
+description	bankscraping.json	/^               "description":"Change Rows",$/;"	s	object:0.instructions.1.5
+description	bankscraping.json	/^               "description":"Click 60ays",$/;"	s	object:0.instructions.1.4
+description	bankscraping.json	/^               "description":"Click Search",$/;"	s	object:0.instructions.1.3
+description	bankscraping.json	/^               "description":"Click Search",$/;"	s	object:0.instructions.1.6
+description	bankscraping.json	/^               "description":"Type password",$/;"	s	object:0.instructions.1.2
+description	bankscraping.json	/^               "description":"Type username",$/;"	s	object:0.instructions.1.1
+do	./do/do.go	/^package do$/;"	p
+extract	./scrape/scrape.go	/^func extract(ins instructions, page *rod.Page) {$/;"	f	package:scrape
+extractAll	./scrape/scrape.go	/^func extractAll(ins instructions, page *rod.Page) {$/;"	f	package:scrape
+extractMap	./scrape/scrape.go	/^var extractMap map[string]string$/;"	v	package:scrape	typeref:typename:map[string]string
+field	./sample.json	/^                "field": "#search_button_homepage",$/;"	s	object:instructions.1.2
+field	./sample.json	/^                "field": "#search_form_input",$/;"	s	object:instructions.3.1
+field	./sample.json	/^                "field": "#search_form_input_homepage",$/;"	s	object:instructions.1.1
+field	bankscraping.json	/^               "field":"#ContentPlaceHolder1_Login1_LoginButton",$/;"	s	object:0.instructions.1.3
+field	bankscraping.json	/^               "field":"#ContentPlaceHolder1_Login1_Password",$/;"	s	object:0.instructions.1.2
+field	bankscraping.json	/^               "field":"#ContentPlaceHolder1_Login1_UserName",$/;"	s	object:0.instructions.1.1
+field	bankscraping.json	/^               "field":"#ContentPlaceHolder1_PageSizeDropDownBottom",$/;"	s	object:0.instructions.1.5
+field	bankscraping.json	/^               "field":"#ContentPlaceHolder1_PageSizeDropDownBottom",$/;"	s	object:0.instructions.1.6
+field	bankscraping.json	/^               "field":"#dateAndPageNumberContainer > div.quickSelectDateWrapper > ol > li.lastQ/;"	s	object:0.instructions.1.4
+fns	./fns/fns.go	/^package fns$/;"	p
+form	./form/form.go	/^package form$/;"	p
+form	./form/validate.go	/^package form$/;"	p
+heading	./file.json	/^        "heading": "Animal Shelter Simulator is NOW available! Play on Steam! 👇 NEW VIDEO GAM/;"	s	object:0.0.7
+heading	./file.json	/^        "heading": "Are Oleksandr Zinchenko and Arsenal a perfect fit?"$/;"	s	object:0.0.4
+heading	./file.json	/^        "heading": "Check out my drone shot of the Emirates Stadium!"$/;"	s	object:0.0.6
+heading	./file.json	/^        "heading": "Freddie Paxton on Twitter : Arsenal are ‘confident’ that personal terms /;"	s	object:0.0.5
+heading	./file.json	/^        "heading": "Gabriel Jesus and this picture."$/;"	s	object:0.0.8
+heading	./file.json	/^        "heading": "Just visited a city in germany and saw this.It cannot be a coincidence, he's/;"	s	object:0.0.2
+heading	./file.json	/^        "heading": "Stressing about your forex trades? Time to level up your game! Get a free eb/;"	s	object:0.0.1
+heading	./file.json	/^        "heading": "Thierry Henry: poetry in motion - credit: ChampionsLeague"$/;"	s	object:0.0.3
+heading	./file.json	/^        "heading": "Winning team"$/;"	s	object:0.0.9
+heading	./file.json	/^        "heading": "[Ben Jacobs] Oleksandr Zinchenko to #AFC is very close. Verbal agreement in /;"	s	object:0.0.0
+heading	./oldsample.json	/^                        "heading": "._eYtD2XCVieq6emjKBH3m"$/;"	s	object:0.instructions.1.1.1.keys
+heading	./test.json	/^        "heading": "Absolute horrendous take on Gabriel Jesus"$/;"	s	object:0.0.0
+heading	./test.json	/^        "heading": "Are Oleksandr Zinchenko and Arsenal a perfect fit?"$/;"	s	object:0.0.1
+heading	./test.json	/^        "heading": "Check out my drone shot of the Emirates Stadium!"$/;"	s	object:0.0.3
+heading	./test.json	/^        "heading": "Freddie Paxton on Twitter : Arsenal are ‘confident’ that personal terms /;"	s	object:0.0.2
+heading	./test.json	/^        "heading": "Stressing about your forex trades? Time to level up your game! Get a free eb/;"	s	object:0.0.4
+headless	./oldsample.json	/^    "headless": false,$/;"	b	object:0
+headless	./sample.json	/^    "headless": false,$/;"	b
+headless	bankscraping.json	/^      "headless":false,$/;"	b	object:0
+helpers	./helpers/helpers.go	/^package helpers$/;"	p
+inputSelect	./form/form.go	/^func inputSelect(data helpers.FormInstructions, page *rod.Page) {$/;"	f	package:form
+instructions	./form/form.go	/^type instructions interface{}$/;"	i	package:form
+instructions	./main.go	/^var instructions []map[string]interface{}$/;"	v	package:main	typeref:typename:[]map[string]interface{}
+instructions	./oldsample.json	/^    "instructions": [$/;"	a	object:0
+instructions	./sample.json	/^    "instructions": [$/;"	a
+instructions	./scrape/scrape.go	/^type instructions interface{}$/;"	i	package:scrape
+instructions	bankscraping.json	/^      "instructions":[$/;"	a	object:0
+item	./oldsample.json	/^                    "item": "._1oQyIsiPHYt6nx7VOmd1sz ",$/;"	s	object:0.instructions.1.1.1
+item	bankscraping.json	/^                  "item":".counterOffer",$/;"	s	object:0.instructions.3.1.2
+item	bankscraping.json	/^                  "item":".lackOfInfo",$/;"	s	object:0.instructions.3.1.1
+item	bankscraping.json	/^                  "item":"input[class='odd approved']",$/;"	s	object:0.instructions.3.1.3
+keys	./oldsample.json	/^                    "keys": {$/;"	o	object:0.instructions.1.1.1
+keys	bankscraping.json	/^                  "keys":{$/;"	o	object:0.instructions.3.1.1
+keys	bankscraping.json	/^                  "keys":{$/;"	o	object:0.instructions.3.1.2
+keys	bankscraping.json	/^                  "keys":{$/;"	o	object:0.instructions.3.1.3
+kind	./sample.json	/^                "kind": "leftClick",$/;"	s	object:instructions.1.2
+kind	./sample.json	/^                "kind": "text",$/;"	s	object:instructions.1.1
+kind	./sample.json	/^                "kind": "text",$/;"	s	object:instructions.3.1
+kind	bankscraping.json	/^               "kind":"leftClick",$/;"	s	object:0.instructions.1.3
+kind	bankscraping.json	/^               "kind":"leftClick",$/;"	s	object:0.instructions.1.4
+kind	bankscraping.json	/^               "kind":"leftClick",$/;"	s	object:0.instructions.1.6
+kind	bankscraping.json	/^               "kind":"text",$/;"	s	object:0.instructions.1.1
+kind	bankscraping.json	/^               "kind":"text",$/;"	s	object:0.instructions.1.2
+kind	bankscraping.json	/^               "kind":"text",$/;"	s	object:0.instructions.1.5
+kindMap	./form/validate.go	/^var kindMap = map[string]bool{$/;"	v	package:form
+launchBrowser	./main.go	/^func launchBrowser() {$/;"	f	package:main
+leftClick	./form/form.go	/^func leftClick(data helpers.FormInstructions, page *rod.Page) {$/;"	f	package:form
+main	./main.go	/^func main() {$/;"	f	package:main
+main	./main.go	/^package main$/;"	p
+out	./form/form.go	/^var out []interface{}$/;"	v	package:form	typeref:typename:[]interface{}
+out	./post/post.go	/^var out []interface{}$/;"	v	package:post	typeref:typename:[]interface{}
+out	./scrape/scrape.go	/^var out []interface{}$/;"	v	package:scrape	typeref:typename:[]interface{}
+parent	./oldsample.json	/^                    "parent": ".rpBJOHq2PR60pnwJlUyP0",$/;"	s	object:0.instructions.1.1.1
+parent	bankscraping.json	/^                  "parent":"#ContentPlaceHolder1_StatusOfApplicationView > tbody",$/;"	s	object:0.instructions.3.1.1
+parent	bankscraping.json	/^                  "parent":"#ContentPlaceHolder1_StatusOfApplicationView > tbody",$/;"	s	object:0.instructions.3.1.2
+parent	bankscraping.json	/^                  "parent":"#ContentPlaceHolder1_StatusOfApplicationView > tbody",$/;"	s	object:0.instructions.3.1.3
+parseIns	./main.go	/^func parseIns(browser *rod.Page) func(data interface{}) interface{} {$/;"	f	package:main	typeref:typename:func(data interface{}) interface{}
+post	./post/post.go	/^package post$/;"	p
+prettyprint	./post/post.go	/^func prettyprint(b []byte) ([]byte, error) {$/;"	f	package:post	typeref:typename:([]byte, error)
+prettyprint	./print/print.go	/^func prettyprint(b []byte) ([]byte, error) {$/;"	f	package:print	typeref:typename:([]byte, error)
+print	./print/print.go	/^func print(params map[string]interface{}, data []interface{}) {$/;"	f	package:print
+print	./print/print.go	/^package print$/;"	p
+readJson	./main.go	/^func readJson(dir string) {$/;"	f	package:main
+retry	./oldsample.json	/^							"retry": 1 ,$/;"	n	object:0.instructions.1.1.2
+retry	bankscraping.json	/^								 "retry": 5,$/;"	n	object:0.instructions.3.1.4
+rightClick	./form/form.go	/^func rightClick(data helpers.FormInstructions, page *rod.Page) {$/;"	f	package:form
+runForm	./form/form.go	/^func runForm(ins instructions, page *rod.Page) {$/;"	f	package:form
+sanitizeData	./post/post.go	/^func sanitizeData(data []interface{}) []interface{} {$/;"	f	package:post	typeref:typename:[]interface{}
+scrape	./scrape/scrape.go	/^package scrape$/;"	p
+scrape	./scrape/validate.go	/^package scrape$/;"	p
+scroll	./oldsample.json	/^                "scroll":1$/;"	n	object:0.instructions.1.1.2
+startingUrl	./oldsample.json	/^    "startingUrl": "https:\/\/www.reddit.com\/r\/Gunners\/new",$/;"	s	object:0
+startingUrl	./sample.json	/^    "startingUrl": "https:\/\/duckduckgo.com\/",$/;"	s
+startingUrl	bankscraping.json	/^      "startingUrl":"https:\/\/secure.sheffieldfinancial.com\/Default.aspx?AspxAutoDetectCookieS/;"	s	object:0
+text	./form/form.go	/^func text(data helpers.FormInstructions, page *rod.Page) {$/;"	f	package:form
+url	./file.json	/^      "url": "https:\/\/eox8jjez85jq3t4.m.pipedream.net"$/;"	s	object:0.1
+url	./oldsample.json	/^                "url": "https:\/\/eox8jjez85jq3t4.m.pipedream.net"$/;"	s	object:0.instructions.1.2
+url	./test.json	/^      "url": "https:\/\/eox8jjez85jq3t4.m.pipedream.net"$/;"	s	object:0.1
+url	bankscraping.json	/^               "url":"https:\/\/eox8jjez85jq3t4.m.pipedream.net"$/;"	s	object:0.instructions.3.2
+validate	./form/validate.go	/^func validate(ins map[string]interface{}) bool {$/;"	f	package:form	typeref:typename:bool
+validate	./scrape/validate.go	/^func validate(ins map[string]interface{}) bool {$/;"	f	package:scrape	typeref:typename:bool
+validator	./validator/validator.go	/^package validator$/;"	p
+value	./sample.json	/^                "value": " "$/;"	s	object:instructions.1.2
+value	./sample.json	/^                "value": "deez nuts"$/;"	s	object:instructions.1.1
+value	./sample.json	/^                "value": "deez nuts"$/;"	s	object:instructions.3.1
+value	bankscraping.json	/^               "value":""$/;"	s	object:0.instructions.1.1
+value	bankscraping.json	/^               "value":""$/;"	s	object:0.instructions.1.2
+value	bankscraping.json	/^               "value":""$/;"	s	object:0.instructions.1.3
+value	bankscraping.json	/^               "value":""$/;"	s	object:0.instructions.1.4
+value	bankscraping.json	/^               "value":""$/;"	s	object:0.instructions.1.6
+value	bankscraping.json	/^               "value":"100"$/;"	s	object:0.instructions.1.5
+wg	./main.go	/^var wg sync.WaitGroup$/;"	v	package:main	typeref:typename:sync.WaitGroup

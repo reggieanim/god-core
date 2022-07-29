@@ -6,6 +6,7 @@ import (
 	"io/ioutil"
 	"os"
 	"reflect"
+	"sync"
 	"time"
 
 	"github.com/go-rod/rod"
@@ -14,10 +15,12 @@ import (
 	"github.com/reggieanim/not-scalping/fns"
 )
 
-var instructions map[string]interface{}
+var instructions []map[string]interface{}
+var wg sync.WaitGroup
 
 func main() {
 	launchBrowser()
+	wg.Wait()
 }
 
 func parseIns(browser *rod.Page) func(data interface{}) interface{} {
@@ -26,8 +29,9 @@ func parseIns(browser *rod.Page) func(data interface{}) interface{} {
 		switch reflect.TypeOf(data).Kind() {
 		case reflect.Slice:
 			out := data.([]interface{})
-			args := make([]interface{}, 0)
-			args = append(args, out[1:]...)
+			// args := make([]interface{}, 0)
+			// args = append(args, out[1:]...)
+			args := out[1:]
 			fn := fmt.Sprint(out[0])
 			fmt.Printf("Compiling function %v with args %v \n", fn, args)
 			return fns.Fns[fn](Map(args, parseIns(browser)), browser)
@@ -65,21 +69,26 @@ func readJson(dir string) {
 }
 
 func launchBrowser() {
-	readJson("sample.json")
-	path, _ := launcher.LookPath()
-	l := launcher.New().Bin(path).
-		Headless(instructions["headless"].(bool))
-	defer l.Cleanup()
-	url := l.MustLaunch()
-	browser, err := rod.New().
-		ControlURL(url).
-		Trace(true).
-		SlowMotion(5 * time.Millisecond).
-		MustConnect().Page(proto.TargetCreateTarget{URL: instructions["startingUrl"].(string)})
-	if err != nil {
-		panic(err)
+	readJson("bankscraping.json")
+	for _, v := range instructions {
+		wg.Add(1)
+		go func(v map[string]interface{}) {
+			path, _ := launcher.LookPath()
+			l := launcher.New().Bin(path).
+				Headless(v["headless"].(bool))
+			defer l.Cleanup()
+			url := l.MustLaunch()
+			browser, err := rod.New().
+				ControlURL(url).
+				Trace(true).
+				SlowMotion(5 * time.Millisecond).
+				MustConnect().Page(proto.TargetCreateTarget{URL: v["startingUrl"].(string)})
+			if err != nil {
+				panic(err)
+			}
+			// defer browser.Close()
+			data := parseIns(browser)(v["instructions"])
+			fmt.Println("Performed actions successfully", data)
+		}(v)
 	}
-	// defer browser.Close()
-	parseIns(browser)(instructions["instructions"])
-	fmt.Println("Performed actions successfully")
 }

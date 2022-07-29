@@ -1,28 +1,31 @@
+[
+
 {
     "startingUrl": "https://www.reddit.com/r/Gunners/new",
     "headless": false,
     "instructions": [
         "do",
         [
-            "print",
+            "post",
             [
-                "post",
-                [
-                    "scrapeAll",
-                    {
-                        "description": "How duck makes money",
-                        "parent": ".rpBJOHq2PR60pnwJlUyP0",
-                        "item": "._1oQyIsiPHYt6nx7VOmd1sz ",
-                        "keys": {
-                            "heading": "._eYtD2XCVieq6emjKBH3m"
-                        }
-                    }
-                ],
+                "scrapeAll",
                 {
-                    "url": "https://eox8jjez85jq3t4.m.pipedream.net"
-                }
-            ]
+                    "description": "How duck makes money",
+                    "parent": ".rpBJOHq2PR60pnwJlUyP0",
+                    "item": "._1oQyIsiPHYt6nx7VOmd1sz ",
+                    "keys": {
+                        "heading": "._eYtD2XCVieq6emjKBH3m"
+                    }
+                },
+            {
+							"retry": 1 ,
+                "scroll":1
+            }
+            ],
+            {
+                "url": "https://eox8jjez85jq3t4.m.pipedream.net"
+            }
         ]
     ]
 }
-
+]
