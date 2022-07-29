@@ -14,7 +14,6 @@ var Fns = map[string]func(interface{}, *rod.Page) interface{}{
 	"do":        do.Do,
 	"form":      form.Form,
 	"print":     print.Print,
-	"scrape":    scrape.Scrape,
 	"scrapeAll": scrape.ScrapeAll,
 	"post":      post.Post,
 }

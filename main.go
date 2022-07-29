@@ -69,7 +69,7 @@ func readJson(dir string) {
 }
 
 func launchBrowser() {
-	readJson("bankscraping.json")
+	readJson("scrapeAirbnb.json")
 	for _, v := range instructions {
 		wg.Add(1)
 		go func(v map[string]interface{}) {
@@ -86,9 +86,16 @@ func launchBrowser() {
 			if err != nil {
 				panic(err)
 			}
-			// defer browser.Close()
-			data := parseIns(browser)(v["instructions"])
-			fmt.Println("Performed actions successfully", data)
+			for _, ins := range v["instructions"].([]interface{}) {
+				wg.Add(1)
+				fmt.Println("Running instruction", ins)
+				go func(ins interface{}) {
+					defer wg.Done()
+					data := parseIns(browser)(ins)
+					fmt.Println("Performed actions successfully", data)
+
+				}(ins)
+			}
 		}(v)
 	}
 }

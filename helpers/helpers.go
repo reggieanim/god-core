@@ -1,6 +1,9 @@
 package helpers
 
-import "fmt"
+import (
+	"fmt"
+	"log"
+)
 
 // FormInstructions model
 type FormInstructions struct {
@@ -20,10 +23,13 @@ type ScrapeInstructions struct {
 
 // ScrapeAllInstructions model
 type ScrapeAllInstructions struct {
-	Description string
-	Parent      string
-	Item        string
-	Keys        map[string]interface{}
+	Description    string                 `json:"description"`
+	Parent         string                 `json:"parent"`
+	Item           string                 `json:"item"`
+	Kind           string                 `json:"type"`
+	Key            string                 `json:"key"`
+	EvalExpression string                 `json:"evalExpression"`
+	Keys           map[string]interface{} `json:"keys"`
 }
 
 // CastToForm model
@@ -59,15 +65,38 @@ func CastToScrape(data map[string]interface{}) ScrapeInstructions {
 
 // CastToScrapeAll model
 func CastToScrapeAll(data map[string]interface{}) ScrapeAllInstructions {
-	des, desOk := data["description"].(string)
-	parent, parentOk := data["parent"].(string)
-	item, itemOk := data["item"].(string)
-	keys, keysOk := data["keys"].(map[string]interface{})
-	fmt.Println(desOk, parentOk, itemOk, keysOk)
+	des, desOk := data["description"]
+	parent, parentOk := data["parent"]
+	item, itemOk := data["item"]
+	keys, keysOk := data["keys"]
+	key, keyOk := data["key"]
+	kind, kindOk := data["kind"]
+	evalExpression, evalExpressionOk := data["evalExpression"]
+	if !evalExpressionOk {
+		evalExpression = ""
+	}
+
+	if !parentOk {
+		parent = ""
+	}
+
+	if !keyOk {
+		key = ""
+	}
+	if !keysOk {
+		keys = make(map[string]interface{})
+	}
+	log.Println("casting eval expression", evalExpression)
+	if !desOk || !itemOk || !kindOk {
+		log.Fatalln(fmt.Sprintf("Your scrapeAll configuration is wrong: %v", data))
+	}
 	return ScrapeAllInstructions{
-		des,
-		parent,
-		item,
-		keys,
+		des.(string),
+		parent.(string),
+		item.(string),
+		kind.(string),
+		key.(string),
+		evalExpression.(string),
+		keys.(map[string]interface{}),
 	}
 }

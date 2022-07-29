@@ -13,33 +13,15 @@ import (
 type instructions interface{}
 
 var extractMap map[string]string
-
+var page *rod.Page
 var out []interface{}
 
 // Scrape extracts an item in dom
-func Scrape(data interface{}, page *rod.Page) interface{} {
-	fmt.Printf("Doing scrape with args: %v\n", data)
-	page.WaitOpen()
-	switch reflect.TypeOf(data).Kind() {
-	case reflect.Slice:
-		d, ok := data.([]interface{})
-		if !ok {
-			log.Fatalln("Wrong instructions format in form")
-		}
-		for _, v := range d {
-			extract(v, page)
-		}
-	default:
-		return data
-	}
-	return out
-}
-
 // ScrapeAll scrapes a list of items in dom
-func ScrapeAll(data interface{}, page *rod.Page) interface{} {
+func ScrapeAll(data interface{}, p *rod.Page) interface{} {
 	var countRetrys float64
+	page = p
 	fmt.Printf("Doing scrape with args: %v\n", data)
-	page.WaitOpen()
 	switch reflect.TypeOf(data).Kind() {
 	case reflect.Slice:
 		d, ok := data.([]interface{})
@@ -59,10 +41,6 @@ func ScrapeAll(data interface{}, page *rod.Page) interface{} {
 			log.Println("no scroll specified, defaulting to 0")
 			scroll = 0.00
 		}
-		click, ok := options.(map[string]interface{})["click"]
-		if !ok {
-			click = ""
-		}
 		log.Println("scrollll", scroll)
 		for {
 			log.Println("countRetrys", countRetrys)
@@ -72,13 +50,10 @@ func ScrapeAll(data interface{}, page *rod.Page) interface{} {
 				break
 			}
 			for _, v := range instructions {
-				log.Println("Instructions", v)
-				extractAll(v, page)
+				log.Println("Pagee", page)
+				scrapeAll(v, page)
 			}
 			page.Mouse.MustScroll(0, float64(scroll.(float64)))
-			if click != "" {
-				page.MustElement(click.(string)).Eval(`() => this.click()`)
-			}
 			time.Sleep(time.Second * time.Duration(2))
 			countRetrys++
 		}
@@ -90,31 +65,66 @@ func ScrapeAll(data interface{}, page *rod.Page) interface{} {
 	return out
 }
 
-func extract(ins instructions, page *rod.Page) {
-	fmt.Println("run scrape data", ins)
-	mapData, ok := ins.(map[string]interface{})
-	if !ok {
-		log.Fatalln("Wrong instructions format in run form")
-	}
-	validate(mapData)
-	data := helpers.CastToScrape(mapData)
-	text := page.MustElement(data.Field).MustText()
+func extract(data helpers.ScrapeAllInstructions, p *rod.Page) {
+	fmt.Println("run scrape data", data)
+	text := p.MustElement(data.Item).MustText()
 	extractMap = make(map[string]string)
 	extractMap[data.Key] = text
 	log.Println("extractMap", extractMap)
 	out = append(out, extractMap)
 }
 
-func extractAll(ins instructions, page *rod.Page) {
+func scrapeAll(ins instructions, p *rod.Page) {
 	fmt.Println("run scrape data", ins)
 	mapData, ok := ins.(map[string]interface{})
 	if !ok {
 		log.Fatalln("Wrong instructions format in run form")
 	}
-	page.WaitOpen()
+	validate(mapData)
 	data := helpers.CastToScrapeAll(mapData)
-	page.WaitOpen()
-	list := page.MustElement(data.Parent)
+	log.Println("Kind...", data.Kind)
+	if data.Kind == "extractAll" {
+		validateExtract(mapData)
+		scrapeData(data, p)
+	}
+	if data.Kind == "extract" {
+		extract(data, p)
+	}
+	if data.Kind == "leftClick" {
+		validateClick(mapData)
+		leftClick(data, p)
+	}
+	if data.Kind == "rightClick" {
+		rightClick(data, p)
+	}
+	if data.Kind == "eval" {
+		validateEval(mapData)
+		eval(data, p)
+	}
+	// if data.Kind == "pageFind" {
+	// 	findPage(data, page)
+	// }
+	if data.Kind == "nextPage" {
+		nextPage(data, p)
+	}
+	if data.Kind == "prevPage" {
+		prevPage(data, p)
+	}
+	if data.Kind == "closePage" {
+		pageClose(data, p)
+	}
+}
+
+func addKeys(item *rod.Element, keys map[string]interface{}) map[string]string {
+	result := make(map[string]string)
+	for k, v := range keys {
+		result[k] = item.MustElement(v.(string)).MustText()
+	}
+	return result
+}
+
+func scrapeData(data helpers.ScrapeAllInstructions, p *rod.Page) {
+	list := p.MustElement(data.Parent)
 	items := list.MustElements(data.Item)
 	log.Println("list...", list)
 	log.Println("items", items)
@@ -125,10 +135,71 @@ func extractAll(ins instructions, page *rod.Page) {
 	}
 }
 
-func addKeys(item *rod.Element, keys map[string]interface{}) map[string]string {
-	result := make(map[string]string)
-	for k, v := range keys {
-		result[k] = item.MustElement(v.(string)).MustText()
+func leftClick(data helpers.ScrapeAllInstructions, p *rod.Page) {
+	log.Println("Left clicking...", data.Item)
+	p.MustElement(data.Item).Click("left")
+}
+
+func rightClick(data helpers.ScrapeAllInstructions, p *rod.Page) {
+	p.MustElement(data.Item).Click("right")
+}
+
+func eval(data helpers.ScrapeAllInstructions, p *rod.Page) {
+	log.Println(data.EvalExpression)
+	p.MustElement(data.Item).Eval(data.EvalExpression)
+}
+
+// func findPage(data helpers.ScrapeAllInstructions, p *rod.Page) {
+// 	log.Println(data.Item)
+// 	ps := p.Browser().MustPages()
+// 	page = ps[1].MustActivate()
+// 	log.Println("PAGESSSSSS.............", ps)
+// 	log.Println("Page found")
+// }
+
+func nextPage(data helpers.ScrapeAllInstructions, p *rod.Page) {
+	log.Println(data.Item)
+	var newPage *rod.Page
+	ps := p.Browser().MustPages()
+	for i, v := range ps {
+		log.Println("this is page id:", v)
+		log.Println("this is page :", p)
+		if v != p {
+			newPage = ps[i].MustActivate()
+			break
+		}
 	}
-	return result
+	page = newPage
+}
+
+func prevPage(data helpers.ScrapeAllInstructions, p *rod.Page) {
+	log.Println(data.Item)
+	var newPage *rod.Page
+	ps := p.Browser().MustPages()
+	for i, v := range ps {
+		log.Println("this is page id:", v)
+		log.Println("this is page :", p)
+		if v != p {
+			newPage = ps[i].MustActivate()
+			break
+		}
+	}
+	page = newPage
+}
+func pageClose(data helpers.ScrapeAllInstructions, p *rod.Page) {
+	log.Println(p.Browser().MustPages())
+	for _, v := range p.Browser().MustPages() {
+		if v != p {
+			log.Println("closing page", v)
+			v.Close()
+			break
+		}
+	}
+	log.Println(p.Browser().MustPages())
+	// log.Println("Current page", p)
+	page = p.Browser().MustPages()[0].MustActivate()
+}
+
+func wait(data helpers.ScrapeAllInstructions, p *rod.Page) {
+	time.Sleep(time.Second * time.Duration(2))
 }

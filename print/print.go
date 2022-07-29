@@ -30,6 +30,7 @@ func Print(data interface{}, _ *rod.Page) interface{} {
 			log.Fatal("cannot parse args")
 		}
 		data := args[:len(args)-1]
+		data = sanitizeData(data)
 		print(options, data)
 		return args
 	}
@@ -61,4 +62,15 @@ func print(params map[string]interface{}, data []interface{}) {
 		val, _ := prettyprint(s)
 		fmt.Println("Printing:.", string(val))
 	}
+}
+
+func sanitizeData(data []interface{}) []interface{} {
+	var finalData []interface{}
+	for _, v := range data {
+		for _, v2 := range v.([]interface{}) {
+			finalData = append(finalData, v2)
+		}
+	}
+	log.Println("final data:", finalData)
+	return finalData
 }

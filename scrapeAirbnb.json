@@ -1,0 +1,569 @@
+[
+	{
+		"startingUrl": "https://www.airbnb.com/s/Ghana/homes?tab_id=home_tab&refinement_paths%5B%5D=%2Fhomes&flexible_trip_lengths%5B%5D=one_week&date_picker_type=calendar&source=structured_search_input_header&search_type=filter_change",
+		"headless": false,
+		"instructions": [
+			[
+				"do",
+				[
+					"print",
+					[
+						"scrapeAll",
+						{
+							"description": "Click on cards",
+							"kind": "eval",
+							"item": "div[class^='gia']  > div:nth-child(1)  div[aria-labelledby^='title_'] a",
+							"evalExpression": "() => this.click()"
+						},
+						{
+							"description": "Find opened page",
+							"kind": "nextPage",
+							"item": "#flash-container"
+						},
+						{
+							"description": "Scrape opened page",
+							"kind": "extract",
+							"item": "div[data-plugin-in-point-id='TITLE_DEFAULT'] > section > div > span > h1",
+							"key": "LISTING_TITLE"
+						},
+						{
+							"description": "Find opened page",
+							"kind": "prevPage",
+							"item": "#flash-container"
+						},
+						{
+							"description": "Find opened page",
+							"kind": "closePage",
+							"item": "#flash-container"
+						},
+						{
+							"description": "Click on cards",
+							"kind": "eval",
+							"item": "div[class^='gia'] > div:nth-child(2)  div[aria-labelledby^='title_'] a",
+							"evalExpression": "() => this.click()"
+						},
+						{
+							"description": "Find opened page",
+							"kind": "nextPage",
+							"item": "#flash-container"
+						},
+						{
+							"description": "Scrape opened page",
+							"kind": "extract",
+							"item": "div[data-plugin-in-point-id='TITLE_DEFAULT'] > section > div > span > h1",
+							"key": "LISTING_TITLE"
+						},
+						{
+							"description": "Find opened page",
+							"kind": "prevPage",
+							"item": "#flash-container"
+						},
+						{
+							"description": "Find opened page",
+							"kind": "closePage",
+							"item": "#flash-container"
+						},
+						{
+							"description": "Click on cards",
+							"kind": "eval",
+							"item": "div[class^='gia'] > div:nth-child(3)  div[aria-labelledby^='title_'] a",
+							"evalExpression": "() => this.click()"
+						},
+						{
+							"description": "Find opened page",
+							"kind": "nextPage",
+							"item": "#flash-container"
+						},
+						{
+							"description": "Scrape opened page",
+							"kind": "extract",
+							"item": "div[data-plugin-in-point-id='TITLE_DEFAULT'] > section > div > span > h1",
+							"key": "LISTING_TITLE"
+						},
+						{
+							"description": "Find opened page",
+							"kind": "prevPage",
+							"item": "#flash-container"
+						},
+						{
+							"description": "Find opened page",
+							"kind": "closePage",
+							"item": "#flash-container"
+						},
+						{
+							"description": "Click on cards",
+							"kind": "eval",
+							"item": "div[class^='gia'] > div:nth-child(4)  div[aria-labelledby^='title_'] a",
+							"evalExpression": "() => this.click()"
+						},
+						{
+							"description": "Find opened page",
+							"kind": "nextPage",
+							"item": "#flash-container"
+						},
+						{
+							"description": "Scrape opened page",
+							"kind": "extract",
+							"item": "div[data-plugin-in-point-id='TITLE_DEFAULT'] > section > div > span > h1",
+							"key": "LISTING_TITLE"
+						},
+						{
+							"description": "Find opened page",
+							"kind": "prevPage",
+							"item": "#flash-container"
+						},
+						{
+							"description": "Find opened page",
+							"kind": "closePage",
+							"item": "#flash-container"
+						},
+						{
+							"description": "Click on cards",
+							"kind": "eval",
+							"item": "div[class^='gia'] > div:nth-child(5)  div[aria-labelledby^='title_'] a",
+							"evalExpression": "() => this.click()"
+						},
+						{
+							"description": "Find opened page",
+							"kind": "nextPage",
+							"item": "#flash-container"
+						},
+						{
+							"description": "Scrape opened page",
+							"kind": "extract",
+							"item": "div[data-plugin-in-point-id='TITLE_DEFAULT'] > section > div > span > h1",
+							"key": "LISTING_TITLE"
+						},
+						{
+							"description": "Find opened page",
+							"kind": "prevPage",
+							"item": "#flash-container"
+						},
+						{
+							"description": "Find opened page",
+							"kind": "closePage",
+							"item": "#flash-container"
+						},
+						{
+							"description": "Click on cards",
+							"kind": "eval",
+							"item": "div[class^='gia'] > div:nth-child(6)  div[aria-labelledby^='title_'] a",
+							"evalExpression": "() => this.click()"
+						},
+						{
+							"description": "Find opened page",
+							"kind": "nextPage",
+							"item": "#flash-container"
+						},
+						{
+							"description": "Scrape opened page",
+							"kind": "extract",
+							"item": "div[data-plugin-in-point-id='TITLE_DEFAULT'] > section > div > span > h1",
+							"key": "LISTING_TITLE"
+						},
+						{
+							"description": "Find opened page",
+							"kind": "prevPage",
+							"item": "#flash-container"
+						},
+						{
+							"description": "Find opened page",
+							"kind": "closePage",
+							"item": "#flash-container"
+						},
+						{
+							"description": "Click on cards",
+							"kind": "eval",
+							"item": "div[class^='gia'] > div:nth-child(7)  div[aria-labelledby^='title_'] a",
+							"evalExpression": "() => this.click()"
+						},
+						{
+							"description": "Find opened page",
+							"kind": "nextPage",
+							"item": "#flash-container"
+						},
+						{
+							"description": "Scrape opened page",
+							"kind": "extract",
+							"item": "div[data-plugin-in-point-id='TITLE_DEFAULT'] > section > div > span > h1",
+							"key": "LISTING_TITLE"
+						},
+						{
+							"description": "Find opened page",
+							"kind": "prevPage",
+							"item": "#flash-container"
+						},
+						{
+							"description": "Find opened page",
+							"kind": "closePage",
+							"item": "#flash-container"
+						},
+						{
+							"description": "Click on cards",
+							"kind": "eval",
+							"item": "div[class^='gia'] > div:nth-child(8)  div[aria-labelledby^='title_'] a",
+							"evalExpression": "() => this.click()"
+						},
+						{
+							"description": "Find opened page",
+							"kind": "nextPage",
+							"item": "#flash-container"
+						},
+						{
+							"description": "Scrape opened page",
+							"kind": "extract",
+							"item": "div[data-plugin-in-point-id='TITLE_DEFAULT'] > section > div > span > h1",
+							"key": "LISTING_TITLE"
+						},
+						{
+							"description": "Find opened page",
+							"kind": "prevPage",
+							"item": "#flash-container"
+						},
+						{
+							"description": "Find opened page",
+							"kind": "closePage",
+							"item": "#flash-container"
+						},
+						{
+							"description": "Click on cards",
+							"kind": "eval",
+							"item": "div[class^='gia'] > div:nth-child(9)  div[aria-labelledby^='title_'] a",
+							"evalExpression": "() => this.click()"
+						},
+						{
+							"description": "Find opened page",
+							"kind": "nextPage",
+							"item": "#flash-container"
+						},
+						{
+							"description": "Scrape opened page",
+							"kind": "extract",
+							"item": "div[data-plugin-in-point-id='TITLE_DEFAULT'] > section > div > span > h1",
+							"key": "LISTING_TITLE"
+						},
+						{
+							"description": "Find opened page",
+							"kind": "prevPage",
+							"item": "#flash-container"
+						},
+						{
+							"description": "Find opened page",
+							"kind": "closePage",
+							"item": "#flash-container"
+						},
+						{
+							"description": "Click on cards",
+							"kind": "eval",
+							"item": "div[class^='gia'] > div:nth-child(10)  div[aria-labelledby^='title_'] a",
+							"evalExpression": "() => this.click()"
+						},
+						{
+							"description": "Find opened page",
+							"kind": "nextPage",
+							"item": "#flash-container"
+						},
+						{
+							"description": "Scrape opened page",
+							"kind": "extract",
+							"item": "div[data-plugin-in-point-id='TITLE_DEFAULT'] > section > div > span > h1",
+							"key": "LISTING_TITLE"
+						},
+						{
+							"description": "Find opened page",
+							"kind": "prevPage",
+							"item": "#flash-container"
+						},
+						{
+							"description": "Find opened page",
+							"kind": "closePage",
+							"item": "#flash-container"
+						},
+						{
+							"description": "Click on cards",
+							"kind": "eval",
+							"item": "div[class^='gia'] > div:nth-child(11)  div[aria-labelledby^='title_'] a",
+							"evalExpression": "() => this.click()"
+						},
+						{
+							"description": "Find opened page",
+							"kind": "nextPage",
+							"item": "#flash-container"
+						},
+						{
+							"description": "Scrape opened page",
+							"kind": "extract",
+							"item": "div[data-plugin-in-point-id='TITLE_DEFAULT'] > section > div > span > h1",
+							"key": "LISTING_TITLE"
+						},
+						{
+							"description": "Find opened page",
+							"kind": "prevPage",
+							"item": "#flash-container"
+						},
+						{
+							"description": "Find opened page",
+							"kind": "closePage",
+							"item": "#flash-container"
+						},
+						{
+							"description": "Click on cards",
+							"kind": "eval",
+							"item": "div[class^='gia'] > div:nth-child(12)  div[aria-labelledby^='title_'] a",
+							"evalExpression": "() => this.click()"
+						},
+						{
+							"description": "Find opened page",
+							"kind": "nextPage",
+							"item": "#flash-container"
+						},
+						{
+							"description": "Scrape opened page",
+							"kind": "extract",
+							"item": "div[data-plugin-in-point-id='TITLE_DEFAULT'] > section > div > span > h1",
+							"key": "LISTING_TITLE"
+						},
+						{
+							"description": "Find opened page",
+							"kind": "prevPage",
+							"item": "#flash-container"
+						},
+						{
+							"description": "Find opened page",
+							"kind": "closePage",
+							"item": "#flash-container"
+						},
+						{
+							"description": "Click on cards",
+							"kind": "eval",
+							"item": "div[class^='gia'] > div:nth-child(13)  div[aria-labelledby^='title_'] a",
+							"evalExpression": "() => this.click()"
+						},
+						{
+							"description": "Find opened page",
+							"kind": "nextPage",
+							"item": "#flash-container"
+						},
+						{
+							"description": "Scrape opened page",
+							"kind": "extract",
+							"item": "div[data-plugin-in-point-id='TITLE_DEFAULT'] > section > div > span > h1",
+							"key": "LISTING_TITLE"
+						},
+						{
+							"description": "Find opened page",
+							"kind": "prevPage",
+							"item": "#flash-container"
+						},
+						{
+							"description": "Find opened page",
+							"kind": "closePage",
+							"item": "#flash-container"
+						},
+						{
+							"description": "Click on cards",
+							"kind": "eval",
+							"item": "div[class^='gia'] > div:nth-child(14)  div[aria-labelledby^='title_'] a",
+							"evalExpression": "() => this.click()"
+						},
+						{
+							"description": "Find opened page",
+							"kind": "nextPage",
+							"item": "#flash-container"
+						},
+						{
+							"description": "Scrape opened page",
+							"kind": "extract",
+							"item": "div[data-plugin-in-point-id='TITLE_DEFAULT'] > section > div > span > h1",
+							"key": "LISTING_TITLE"
+						},
+						{
+							"description": "Find opened page",
+							"kind": "prevPage",
+							"item": "#flash-container"
+						},
+						{
+							"description": "Find opened page",
+							"kind": "closePage",
+							"item": "#flash-container"
+						},
+						{
+							"description": "Click on cards",
+							"kind": "eval",
+							"item": "div[class^='gia'] > div:nth-child(15)  div[aria-labelledby^='title_'] a",
+							"evalExpression": "() => this.click()"
+						},
+						{
+							"description": "Find opened page",
+							"kind": "nextPage",
+							"item": "#flash-container"
+						},
+						{
+							"description": "Scrape opened page",
+							"kind": "extract",
+							"item": "div[data-plugin-in-point-id='TITLE_DEFAULT'] > section > div > span > h1",
+							"key": "LISTING_TITLE"
+						},
+						{
+							"description": "Find opened page",
+							"kind": "prevPage",
+							"item": "#flash-container"
+						},
+						{
+							"description": "Find opened page",
+							"kind": "closePage",
+							"item": "#flash-container"
+						},
+						{
+							"description": "Click on cards",
+							"kind": "eval",
+							"item": "div[class^='gia'] > div:nth-child(16)  div[aria-labelledby^='title_'] a",
+							"evalExpression": "() => this.click()"
+						},
+						{
+							"description": "Find opened page",
+							"kind": "nextPage",
+							"item": "#flash-container"
+						},
+						{
+							"description": "Scrape opened page",
+							"kind": "extract",
+							"item": "div[data-plugin-in-point-id='TITLE_DEFAULT'] > section > div > span > h1",
+							"key": "LISTING_TITLE"
+						},
+						{
+							"description": "Find opened page",
+							"kind": "prevPage",
+							"item": "#flash-container"
+						},
+						{
+							"description": "Find opened page",
+							"kind": "closePage",
+							"item": "#flash-container"
+						},
+						{
+							"description": "Click on cards",
+							"kind": "eval",
+							"item": "div[class^='gia'] > div:nth-child(17)  div[aria-labelledby^='title_'] a",
+							"evalExpression": "() => this.click()"
+						},
+						{
+							"description": "Find opened page",
+							"kind": "nextPage",
+							"item": "#flash-container"
+						},
+						{
+							"description": "Scrape opened page",
+							"kind": "extract",
+							"item": "div[data-plugin-in-point-id='TITLE_DEFAULT'] > section > div > span > h1",
+							"key": "LISTING_TITLE"
+						},
+						{
+							"description": "Find opened page",
+							"kind": "prevPage",
+							"item": "#flash-container"
+						},
+						{
+							"description": "Find opened page",
+							"kind": "closePage",
+							"item": "#flash-container"
+						},
+						{
+							"description": "Click on cards",
+							"kind": "eval",
+							"item": "div[class^='gia'] > div:nth-child(18)  div[aria-labelledby^='title_'] a",
+							"evalExpression": "() => this.click()"
+						},
+						{
+							"description": "Find opened page",
+							"kind": "nextPage",
+							"item": "#flash-container"
+						},
+						{
+							"description": "Scrape opened page",
+							"kind": "extract",
+							"item": "div[data-plugin-in-point-id='TITLE_DEFAULT'] > section > div > span > h1",
+							"key": "LISTING_TITLE"
+						},
+						{
+							"description": "Find opened page",
+							"kind": "prevPage",
+							"item": "#flash-container"
+						},
+						{
+							"description": "Find opened page",
+							"kind": "closePage",
+							"item": "#flash-container"
+						},
+						{
+							"description": "Click on cards",
+							"kind": "eval",
+							"item": "div[class^='gia'] > div:nth-child(19)  div[aria-labelledby^='title_'] a",
+							"evalExpression": "() => this.click()"
+						},
+						{
+							"description": "Find opened page",
+							"kind": "nextPage",
+							"item": "#flash-container"
+						},
+						{
+							"description": "Scrape opened page",
+							"kind": "extract",
+							"item": "div[data-plugin-in-point-id='TITLE_DEFAULT'] > section > div > span > h1",
+							"key": "LISTING_TITLE"
+						},
+						{
+							"description": "Find opened page",
+							"kind": "prevPage",
+							"item": "#flash-container"
+						},
+						{
+							"description": "Find opened page",
+							"kind": "closePage",
+							"item": "#flash-container"
+						},
+						{
+							"description": "Click on cards",
+							"kind": "eval",
+							"item": "div[class^='gia'] > div:nth-child(20)  div[aria-labelledby^='title_'] a",
+							"evalExpression": "() => this.click()"
+						},
+						{
+							"description": "Find opened page",
+							"kind": "nextPage",
+							"item": "#flash-container"
+						},
+						{
+							"description": "Scrape opened page",
+							"kind": "extract",
+							"item": "div[data-plugin-in-point-id='TITLE_DEFAULT'] > section > div > span > h1",
+							"key": "LISTING_TITLE"
+						},
+						{
+							"description": "Find opened page",
+							"kind": "prevPage",
+							"item": "#flash-container"
+						},
+						{
+							"description": "Find opened page",
+							"kind": "closePage",
+							"item": "#flash-container"
+						},
+						{
+							"description": "click next arrow",
+							"kind": "leftClick",
+							"item": "._1bfat5l"
+						},
+						{
+							"retry": 10
+						}
+					],
+					{
+						"type": "file",
+				  	"filename": "airbnb.json"
+					}
+				]
+			]
+		]
+	}
+]
