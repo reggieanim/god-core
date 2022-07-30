@@ -69,7 +69,7 @@ func readJson(dir string) {
 }
 
 func launchBrowser() {
-	readJson("scrapeAirbnb.json")
+	readJson("cleanNotion.json")
 	for _, v := range instructions {
 		wg.Add(1)
 		go func(v map[string]interface{}) {

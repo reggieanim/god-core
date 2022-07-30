@@ -1,7 +1,7 @@
 [
 	{
 		"startingUrl": "https://www.airbnb.com/s/Ghana/homes?tab_id=home_tab&refinement_paths%5B%5D=%2Fhomes&flexible_trip_lengths%5B%5D=one_week&date_picker_type=calendar&source=structured_search_input_header&search_type=filter_change",
-		"headless": false,
+		"headless": true,
 		"instructions": [
 			[
 				"do",

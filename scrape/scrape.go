@@ -101,6 +101,9 @@ func scrapeAll(ins instructions, p *rod.Page) {
 		validateEval(mapData)
 		eval(data, p)
 	}
+	if data.Kind == "wait" {
+		wait(data, p)
+	}
 	// if data.Kind == "pageFind" {
 	// 	findPage(data, page)
 	// }
@@ -118,6 +121,8 @@ func scrapeAll(ins instructions, p *rod.Page) {
 func addKeys(item *rod.Element, keys map[string]interface{}) map[string]string {
 	result := make(map[string]string)
 	for k, v := range keys {
+		log.Println("key", k)
+		log.Println("value", v)
 		result[k] = item.MustElement(v.(string)).MustText()
 	}
 	return result
@@ -201,5 +206,5 @@ func pageClose(data helpers.ScrapeAllInstructions, p *rod.Page) {
 }
 
 func wait(data helpers.ScrapeAllInstructions, p *rod.Page) {
-	time.Sleep(time.Second * time.Duration(2))
+	time.Sleep(time.Second * time.Duration(50))
 }

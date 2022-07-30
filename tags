@@ -9,6 +9,13 @@
 !_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
 !_TAG_PROGRAM_URL	https://ctags.io/	/official site/
 !_TAG_PROGRAM_VERSION	5.9.0	/80ee839/
+0	./airbnb.json	/^  {$/;"	o
+0	./bankscraping.json	/^		[$/;"	a	array:0.instructions
+0	./bankscraping.json	/^               "scrapeAll",$/;"	s	array:0.instructions.0.3.1
+0	./bankscraping.json	/^            "form",$/;"	s	array:0.instructions.0.1
+0	./bankscraping.json	/^            "post",$/;"	s	array:0.instructions.0.3
+0	./bankscraping.json	/^         "do",$/;"	s	array:0.instructions.0
+0	./bankscraping.json	/^   {$/;"	o
 0	./file.json	/^      {$/;"	o	array:0.0
 0	./file.json	/^    [$/;"	a	array:0
 0	./file.json	/^  [$/;"	a
@@ -19,20 +26,23 @@
 0	./sample.json	/^            "form",$/;"	s	array:instructions.1
 0	./sample.json	/^            "form",$/;"	s	array:instructions.3
 0	./sample.json	/^        "do",$/;"	s	array:instructions
+0	./scrapeAirbnb.json	/^						"scrapeAll",$/;"	s	array:0.instructions.0.1.1
+0	./scrapeAirbnb.json	/^					"print",$/;"	s	array:0.instructions.0.1
+0	./scrapeAirbnb.json	/^				"do",$/;"	s	array:0.instructions.0
+0	./scrapeAirbnb.json	/^			[$/;"	a	array:0.instructions
+0	./scrapeAirbnb.json	/^	{$/;"	o
 0	./test.json	/^      {$/;"	o	array:0.0
 0	./test.json	/^    [$/;"	a	array:0
 0	./test.json	/^  [$/;"	a
-0	bankscraping.json	/^		[$/;"	a	array:0.instructions
-0	bankscraping.json	/^               "scrapeAll",$/;"	s	array:0.instructions.0.3.1
-0	bankscraping.json	/^            "form",$/;"	s	array:0.instructions.0.1
-0	bankscraping.json	/^            "post",$/;"	s	array:0.instructions.0.3
-0	bankscraping.json	/^         "do",$/;"	s	array:0.instructions.0
-0	bankscraping.json	/^   {$/;"	o
-0	scrapeAirbnb.json	/^						"scrapeAll",$/;"	s	array:0.instructions.0.1.1
-0	scrapeAirbnb.json	/^					"print",$/;"	s	array:0.instructions.0.1
-0	scrapeAirbnb.json	/^				"do",$/;"	s	array:0.instructions.0
-0	scrapeAirbnb.json	/^			[$/;"	a	array:0.instructions
-0	scrapeAirbnb.json	/^	{$/;"	o
+0	cleanNotion.json	/^                "scrapeAll",$/;"	s	array:0.instructions.1.1
+0	cleanNotion.json	/^            "post",$/;"	s	array:0.instructions.1
+0	cleanNotion.json	/^        "do",$/;"	s	array:0.instructions
+0	cleanNotion.json	/^{$/;"	o
+1	./airbnb.json	/^  {$/;"	o
+1	./bankscraping.json	/^               {$/;"	o	array:0.instructions.0.3.1
+1	./bankscraping.json	/^            [$/;"	a	array:0.instructions.0.3
+1	./bankscraping.json	/^            {$/;"	o	array:0.instructions.0.1
+1	./bankscraping.json	/^         [$/;"	a	array:0.instructions.0
 1	./file.json	/^      {$/;"	o	array:0.0
 1	./file.json	/^    {$/;"	o	array:0
 1	./oldsample.json	/^                {$/;"	o	array:0.instructions.1.1
@@ -41,390 +51,748 @@
 1	./sample.json	/^            {$/;"	o	array:instructions.1
 1	./sample.json	/^            {$/;"	o	array:instructions.3
 1	./sample.json	/^        [$/;"	a	array:instructions
+1	./scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
+1	./scrapeAirbnb.json	/^					[$/;"	a	array:0.instructions.0.1
+1	./scrapeAirbnb.json	/^				[$/;"	a	array:0.instructions.0
 1	./test.json	/^      {$/;"	o	array:0.0
 1	./test.json	/^    {$/;"	o	array:0
-1	bankscraping.json	/^               {$/;"	o	array:0.instructions.0.3.1
-1	bankscraping.json	/^            [$/;"	a	array:0.instructions.0.3
-1	bankscraping.json	/^            {$/;"	o	array:0.instructions.0.1
-1	bankscraping.json	/^         [$/;"	a	array:0.instructions.0
-1	scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
-1	scrapeAirbnb.json	/^					[$/;"	a	array:0.instructions.0.1
-1	scrapeAirbnb.json	/^				[$/;"	a	array:0.instructions.0
-10	scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
-100	scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
-101	scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
-102	scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
-11	scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
-12	scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
-13	scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
-14	scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
-15	scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
-16	scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
-17	scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
-18	scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
-19	scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
+1	cleanNotion.json	/^								{$/;"	o	array:0.instructions.1.1
+1	cleanNotion.json	/^            [$/;"	a	array:0.instructions.1
+1	cleanNotion.json	/^        [$/;"	a	array:0.instructions
+10	./airbnb.json	/^  {$/;"	o
+10	./scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
+100	./airbnb.json	/^  {$/;"	o
+100	./scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
+101	./airbnb.json	/^  {$/;"	o
+101	./scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
+102	./airbnb.json	/^  {$/;"	o
+102	./scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
+103	./airbnb.json	/^  {$/;"	o
+104	./airbnb.json	/^  {$/;"	o
+105	./airbnb.json	/^  {$/;"	o
+106	./airbnb.json	/^  {$/;"	o
+107	./airbnb.json	/^  {$/;"	o
+108	./airbnb.json	/^  {$/;"	o
+109	./airbnb.json	/^  {$/;"	o
+11	./airbnb.json	/^  {$/;"	o
+11	./scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
+110	./airbnb.json	/^  {$/;"	o
+111	./airbnb.json	/^  {$/;"	o
+112	./airbnb.json	/^  {$/;"	o
+113	./airbnb.json	/^  {$/;"	o
+114	./airbnb.json	/^  {$/;"	o
+115	./airbnb.json	/^  {$/;"	o
+116	./airbnb.json	/^  {$/;"	o
+117	./airbnb.json	/^  {$/;"	o
+118	./airbnb.json	/^  {$/;"	o
+119	./airbnb.json	/^  {$/;"	o
+12	./airbnb.json	/^  {$/;"	o
+12	./scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
+120	./airbnb.json	/^  {$/;"	o
+121	./airbnb.json	/^  {$/;"	o
+122	./airbnb.json	/^  {$/;"	o
+123	./airbnb.json	/^  {$/;"	o
+124	./airbnb.json	/^  {$/;"	o
+125	./airbnb.json	/^  {$/;"	o
+126	./airbnb.json	/^  {$/;"	o
+127	./airbnb.json	/^  {$/;"	o
+128	./airbnb.json	/^  {$/;"	o
+129	./airbnb.json	/^  {$/;"	o
+13	./airbnb.json	/^  {$/;"	o
+13	./scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
+130	./airbnb.json	/^  {$/;"	o
+131	./airbnb.json	/^  {$/;"	o
+132	./airbnb.json	/^  {$/;"	o
+133	./airbnb.json	/^  {$/;"	o
+134	./airbnb.json	/^  {$/;"	o
+135	./airbnb.json	/^  {$/;"	o
+136	./airbnb.json	/^  {$/;"	o
+137	./airbnb.json	/^  {$/;"	o
+138	./airbnb.json	/^  {$/;"	o
+139	./airbnb.json	/^  {$/;"	o
+14	./airbnb.json	/^  {$/;"	o
+14	./scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
+140	./airbnb.json	/^  {$/;"	o
+141	./airbnb.json	/^  {$/;"	o
+142	./airbnb.json	/^  {$/;"	o
+143	./airbnb.json	/^  {$/;"	o
+144	./airbnb.json	/^  {$/;"	o
+145	./airbnb.json	/^  {$/;"	o
+146	./airbnb.json	/^  {$/;"	o
+147	./airbnb.json	/^  {$/;"	o
+148	./airbnb.json	/^  {$/;"	o
+149	./airbnb.json	/^  {$/;"	o
+15	./airbnb.json	/^  {$/;"	o
+15	./scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
+150	./airbnb.json	/^  {$/;"	o
+151	./airbnb.json	/^  {$/;"	o
+152	./airbnb.json	/^  {$/;"	o
+153	./airbnb.json	/^  {$/;"	o
+154	./airbnb.json	/^  {$/;"	o
+155	./airbnb.json	/^  {$/;"	o
+156	./airbnb.json	/^  {$/;"	o
+157	./airbnb.json	/^  {$/;"	o
+158	./airbnb.json	/^  {$/;"	o
+159	./airbnb.json	/^  {$/;"	o
+16	./airbnb.json	/^  {$/;"	o
+16	./scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
+160	./airbnb.json	/^  {$/;"	o
+161	./airbnb.json	/^  {$/;"	o
+162	./airbnb.json	/^  {$/;"	o
+163	./airbnb.json	/^  {$/;"	o
+164	./airbnb.json	/^  {$/;"	o
+165	./airbnb.json	/^  {$/;"	o
+166	./airbnb.json	/^  {$/;"	o
+167	./airbnb.json	/^  {$/;"	o
+168	./airbnb.json	/^  {$/;"	o
+169	./airbnb.json	/^  {$/;"	o
+17	./airbnb.json	/^  {$/;"	o
+17	./scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
+170	./airbnb.json	/^  {$/;"	o
+171	./airbnb.json	/^  {$/;"	o
+172	./airbnb.json	/^  {$/;"	o
+173	./airbnb.json	/^  {$/;"	o
+174	./airbnb.json	/^  {$/;"	o
+175	./airbnb.json	/^  {$/;"	o
+176	./airbnb.json	/^  {$/;"	o
+177	./airbnb.json	/^  {$/;"	o
+178	./airbnb.json	/^  {$/;"	o
+179	./airbnb.json	/^  {$/;"	o
+18	./airbnb.json	/^  {$/;"	o
+18	./scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
+180	./airbnb.json	/^  {$/;"	o
+181	./airbnb.json	/^  {$/;"	o
+182	./airbnb.json	/^  {$/;"	o
+183	./airbnb.json	/^  {$/;"	o
+184	./airbnb.json	/^  {$/;"	o
+185	./airbnb.json	/^  {$/;"	o
+186	./airbnb.json	/^  {$/;"	o
+187	./airbnb.json	/^  {$/;"	o
+188	./airbnb.json	/^  {$/;"	o
+189	./airbnb.json	/^  {$/;"	o
+19	./airbnb.json	/^  {$/;"	o
+19	./scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
+190	./airbnb.json	/^  {$/;"	o
+191	./airbnb.json	/^  {$/;"	o
+192	./airbnb.json	/^  {$/;"	o
+193	./airbnb.json	/^  {$/;"	o
+194	./airbnb.json	/^  {$/;"	o
+195	./airbnb.json	/^  {$/;"	o
+196	./airbnb.json	/^  {$/;"	o
+197	./airbnb.json	/^  {$/;"	o
+198	./airbnb.json	/^  {$/;"	o
+199	./airbnb.json	/^  {$/;"	o
+2	./airbnb.json	/^  {$/;"	o
+2	./bankscraping.json	/^               {$/;"	o	array:0.instructions.0.3.1
+2	./bankscraping.json	/^            {$/;"	o	array:0.instructions.0.1
+2	./bankscraping.json	/^            {$/;"	o	array:0.instructions.0.3
+2	./bankscraping.json	/^         "do",$/;"	s	array:0.instructions.0
 2	./file.json	/^      {$/;"	o	array:0.0
 2	./oldsample.json	/^            {$/;"	o	array:0.instructions.1
 2	./oldsample.json	/^            {$/;"	o	array:0.instructions.1.1
 2	./sample.json	/^            {$/;"	o	array:instructions.1
 2	./sample.json	/^        "do",$/;"	s	array:instructions
+2	./scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
+2	./scrapeAirbnb.json	/^					{$/;"	o	array:0.instructions.0.1
 2	./test.json	/^      {$/;"	o	array:0.0
-2	bankscraping.json	/^               {$/;"	o	array:0.instructions.0.3.1
-2	bankscraping.json	/^            {$/;"	o	array:0.instructions.0.1
-2	bankscraping.json	/^            {$/;"	o	array:0.instructions.0.3
-2	bankscraping.json	/^         "do",$/;"	s	array:0.instructions.0
-2	scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
-2	scrapeAirbnb.json	/^					{$/;"	o	array:0.instructions.0.1
-20	scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
-21	scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
-22	scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
-23	scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
-24	scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
-25	scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
-26	scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
-27	scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
-28	scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
-29	scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
+2	cleanNotion.json	/^                {$/;"	o	array:0.instructions.1.1
+2	cleanNotion.json	/^            {$/;"	o	array:0.instructions.1
+20	./airbnb.json	/^  {$/;"	o
+20	./scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
+21	./airbnb.json	/^  {$/;"	o
+21	./scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
+22	./airbnb.json	/^  {$/;"	o
+22	./scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
+23	./airbnb.json	/^  {$/;"	o
+23	./scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
+24	./airbnb.json	/^  {$/;"	o
+24	./scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
+25	./airbnb.json	/^  {$/;"	o
+25	./scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
+26	./airbnb.json	/^  {$/;"	o
+26	./scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
+27	./airbnb.json	/^  {$/;"	o
+27	./scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
+28	./airbnb.json	/^  {$/;"	o
+28	./scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
+29	./airbnb.json	/^  {$/;"	o
+29	./scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
+3	./airbnb.json	/^  {$/;"	o
+3	./bankscraping.json	/^               {$/;"	o	array:0.instructions.0.3.1
+3	./bankscraping.json	/^            {$/;"	o	array:0.instructions.0.1
+3	./bankscraping.json	/^         [$/;"	a	array:0.instructions.0
 3	./file.json	/^      {$/;"	o	array:0.0
 3	./sample.json	/^        [$/;"	a	array:instructions
+3	./scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
 3	./test.json	/^      {$/;"	o	array:0.0
-3	bankscraping.json	/^               {$/;"	o	array:0.instructions.0.3.1
-3	bankscraping.json	/^            {$/;"	o	array:0.instructions.0.1
-3	bankscraping.json	/^         [$/;"	a	array:0.instructions.0
-3	scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
-30	scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
-31	scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
-32	scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
-33	scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
-34	scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
-35	scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
-36	scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
-37	scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
-38	scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
-39	scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
+3	cleanNotion.json	/^                {$/;"	o	array:0.instructions.1.1
+30	./airbnb.json	/^  {$/;"	o
+30	./scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
+31	./airbnb.json	/^  {$/;"	o
+31	./scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
+32	./airbnb.json	/^  {$/;"	o
+32	./scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
+33	./airbnb.json	/^  {$/;"	o
+33	./scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
+34	./airbnb.json	/^  {$/;"	o
+34	./scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
+35	./airbnb.json	/^  {$/;"	o
+35	./scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
+36	./airbnb.json	/^  {$/;"	o
+36	./scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
+37	./airbnb.json	/^  {$/;"	o
+37	./scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
+38	./airbnb.json	/^  {$/;"	o
+38	./scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
+39	./airbnb.json	/^  {$/;"	o
+39	./scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
+4	./airbnb.json	/^  {$/;"	o
+4	./bankscraping.json	/^               {$/;"	o	array:0.instructions.0.3.1
+4	./bankscraping.json	/^            {$/;"	o	array:0.instructions.0.1
 4	./file.json	/^      {$/;"	o	array:0.0
+4	./scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
 4	./test.json	/^      {$/;"	o	array:0.0
-4	bankscraping.json	/^               {$/;"	o	array:0.instructions.0.3.1
-4	bankscraping.json	/^            {$/;"	o	array:0.instructions.0.1
-4	scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
-40	scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
-41	scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
-42	scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
-43	scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
-44	scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
-45	scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
-46	scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
-47	scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
-48	scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
-49	scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
+40	./airbnb.json	/^  {$/;"	o
+40	./scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
+41	./airbnb.json	/^  {$/;"	o
+41	./scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
+42	./airbnb.json	/^  {$/;"	o
+42	./scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
+43	./airbnb.json	/^  {$/;"	o
+43	./scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
+44	./airbnb.json	/^  {$/;"	o
+44	./scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
+45	./airbnb.json	/^  {$/;"	o
+45	./scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
+46	./airbnb.json	/^  {$/;"	o
+46	./scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
+47	./airbnb.json	/^  {$/;"	o
+47	./scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
+48	./airbnb.json	/^  {$/;"	o
+48	./scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
+49	./airbnb.json	/^  {$/;"	o
+49	./scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
+5	./airbnb.json	/^  {$/;"	o
+5	./bankscraping.json	/^               {$/;"	o	array:0.instructions.0.3.1
+5	./bankscraping.json	/^            {$/;"	o	array:0.instructions.0.1
 5	./file.json	/^      {$/;"	o	array:0.0
-5	bankscraping.json	/^               {$/;"	o	array:0.instructions.0.3.1
-5	bankscraping.json	/^            {$/;"	o	array:0.instructions.0.1
-5	scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
-50	scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
-51	scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
-52	scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
-53	scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
-54	scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
-55	scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
-56	scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
-57	scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
-58	scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
-59	scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
+5	./scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
+50	./airbnb.json	/^  {$/;"	o
+50	./scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
+51	./airbnb.json	/^  {$/;"	o
+51	./scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
+52	./airbnb.json	/^  {$/;"	o
+52	./scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
+53	./airbnb.json	/^  {$/;"	o
+53	./scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
+54	./airbnb.json	/^  {$/;"	o
+54	./scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
+55	./airbnb.json	/^  {$/;"	o
+55	./scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
+56	./airbnb.json	/^  {$/;"	o
+56	./scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
+57	./airbnb.json	/^  {$/;"	o
+57	./scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
+58	./airbnb.json	/^  {$/;"	o
+58	./scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
+59	./airbnb.json	/^  {$/;"	o
+59	./scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
+6	./airbnb.json	/^  {$/;"	o
+6	./bankscraping.json	/^            {$/;"	o	array:0.instructions.0.1
 6	./file.json	/^      {$/;"	o	array:0.0
-6	bankscraping.json	/^            {$/;"	o	array:0.instructions.0.1
-6	scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
-60	scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
-61	scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
-62	scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
-63	scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
-64	scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
-65	scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
-66	scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
-67	scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
-68	scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
-69	scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
+6	./scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
+60	./airbnb.json	/^  {$/;"	o
+60	./scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
+61	./airbnb.json	/^  {$/;"	o
+61	./scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
+62	./airbnb.json	/^  {$/;"	o
+62	./scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
+63	./airbnb.json	/^  {$/;"	o
+63	./scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
+64	./airbnb.json	/^  {$/;"	o
+64	./scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
+65	./airbnb.json	/^  {$/;"	o
+65	./scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
+66	./airbnb.json	/^  {$/;"	o
+66	./scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
+67	./airbnb.json	/^  {$/;"	o
+67	./scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
+68	./airbnb.json	/^  {$/;"	o
+68	./scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
+69	./airbnb.json	/^  {$/;"	o
+69	./scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
+7	./airbnb.json	/^  {$/;"	o
 7	./file.json	/^      {$/;"	o	array:0.0
-7	scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
-70	scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
-71	scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
-72	scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
-73	scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
-74	scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
-75	scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
-76	scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
-77	scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
-78	scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
-79	scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
+7	./scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
+70	./airbnb.json	/^  {$/;"	o
+70	./scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
+71	./airbnb.json	/^  {$/;"	o
+71	./scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
+72	./airbnb.json	/^  {$/;"	o
+72	./scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
+73	./airbnb.json	/^  {$/;"	o
+73	./scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
+74	./airbnb.json	/^  {$/;"	o
+74	./scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
+75	./airbnb.json	/^  {$/;"	o
+75	./scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
+76	./airbnb.json	/^  {$/;"	o
+76	./scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
+77	./airbnb.json	/^  {$/;"	o
+77	./scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
+78	./airbnb.json	/^  {$/;"	o
+78	./scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
+79	./airbnb.json	/^  {$/;"	o
+79	./scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
+8	./airbnb.json	/^  {$/;"	o
 8	./file.json	/^      {$/;"	o	array:0.0
-8	scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
-80	scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
-81	scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
-82	scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
-83	scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
-84	scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
-85	scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
-86	scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
-87	scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
-88	scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
-89	scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
+8	./scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
+80	./airbnb.json	/^  {$/;"	o
+80	./scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
+81	./airbnb.json	/^  {$/;"	o
+81	./scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
+82	./airbnb.json	/^  {$/;"	o
+82	./scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
+83	./airbnb.json	/^  {$/;"	o
+83	./scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
+84	./airbnb.json	/^  {$/;"	o
+84	./scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
+85	./airbnb.json	/^  {$/;"	o
+85	./scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
+86	./airbnb.json	/^  {$/;"	o
+86	./scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
+87	./airbnb.json	/^  {$/;"	o
+87	./scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
+88	./airbnb.json	/^  {$/;"	o
+88	./scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
+89	./airbnb.json	/^  {$/;"	o
+89	./scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
+9	./airbnb.json	/^  {$/;"	o
 9	./file.json	/^      {$/;"	o	array:0.0
-9	scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
-90	scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
-91	scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
-92	scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
-93	scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
-94	scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
-95	scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
-96	scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
-97	scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
-98	scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
-99	scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
+9	./scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
+90	./airbnb.json	/^  {$/;"	o
+90	./scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
+91	./airbnb.json	/^  {$/;"	o
+91	./scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
+92	./airbnb.json	/^  {$/;"	o
+92	./scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
+93	./airbnb.json	/^  {$/;"	o
+93	./scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
+94	./airbnb.json	/^  {$/;"	o
+94	./scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
+95	./airbnb.json	/^  {$/;"	o
+95	./scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
+96	./airbnb.json	/^  {$/;"	o
+96	./scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
+97	./airbnb.json	/^  {$/;"	o
+97	./scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
+98	./airbnb.json	/^  {$/;"	o
+98	./scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
+99	./airbnb.json	/^  {$/;"	o
+99	./scrapeAirbnb.json	/^						{$/;"	o	array:0.instructions.0.1.1
 AddError	./validator/validator.go	/^func (v *Validator) AddError(key, message string) {$/;"	f	struct:validator.Validator
 CastToForm	./helpers/helpers.go	/^func CastToForm(data map[string]interface{}) FormInstructions {$/;"	f	package:helpers	typeref:typename:FormInstructions
-CastToForm	helpers/helpers.go	/^func CastToForm(data map[string]interface{}) FormInstructions {$/;"	f	package:helpers	typeref:typename:FormInstructions
 CastToScrape	./helpers/helpers.go	/^func CastToScrape(data map[string]interface{}) ScrapeInstructions {$/;"	f	package:helpers	typeref:typename:ScrapeInstructions
-CastToScrape	helpers/helpers.go	/^func CastToScrape(data map[string]interface{}) ScrapeInstructions {$/;"	f	package:helpers	typeref:typename:ScrapeInstructions
 CastToScrapeAll	./helpers/helpers.go	/^func CastToScrapeAll(data map[string]interface{}) ScrapeAllInstructions {$/;"	f	package:helpers	typeref:typename:ScrapeAllInstructions
-CastToScrapeAll	helpers/helpers.go	/^func CastToScrapeAll(data map[string]interface{}) ScrapeAllInstructions {$/;"	f	package:helpers	typeref:typename:ScrapeAllInstructions
 Check	./validator/validator.go	/^func (v *Validator) Check(ok bool, key, message string) {$/;"	f	struct:validator.Validator
+Description	./helpers/helpers.go	/^	Description    string                 `json:"description"`$/;"	m	struct:helpers.ScrapeAllInstructions	typeref:typename:string
 Description	./helpers/helpers.go	/^	Description string$/;"	m	struct:helpers.FormInstructions	typeref:typename:string
-Description	./helpers/helpers.go	/^	Description string$/;"	m	struct:helpers.ScrapeAllInstructions	typeref:typename:string
 Description	./helpers/helpers.go	/^	Description string$/;"	m	struct:helpers.ScrapeInstructions	typeref:typename:string
-Description	helpers/helpers.go	/^	Description    string                 `json:"description"`$/;"	m	struct:helpers.ScrapeAllInstructions	typeref:typename:string
-Description	helpers/helpers.go	/^	Description string                 `json:"description"`$/;"	m	struct:helpers.ScrapeAllInstructions	typeref:typename:string
-Description	helpers/helpers.go	/^	Description string `json:"description"`$/;"	m	struct:helpers.ScrapeAllInstructions	typeref:typename:string
-Description	helpers/helpers.go	/^	Description string$/;"	m	struct:helpers.FormInstructions	typeref:typename:string
-Description	helpers/helpers.go	/^	Description string$/;"	m	struct:helpers.ScrapeInstructions	typeref:typename:string
 Do	./do/do.go	/^func Do(data interface{}, page *rod.Page) interface{} {$/;"	f	package:do	typeref:typename:interface{}
 EmailRX	./validator/validator.go	/^	EmailRX = regexp.MustCompile("^[a-zA-Z0-9.!#$%&'*+\\\\\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]/;"	v	package:validator
 Errors	./validator/validator.go	/^	Errors map[string]string$/;"	m	struct:validator.Validator	typeref:typename:map[string]string
-EvalExpression	helpers/helpers.go	/^	EvalExpression string                 `json:"evalExpression"`$/;"	m	struct:helpers.ScrapeAllInstructions	typeref:typename:string
+EvalExpression	./helpers/helpers.go	/^	EvalExpression string                 `json:"evalExpression"`$/;"	m	struct:helpers.ScrapeAllInstructions	typeref:typename:string
 Field	./helpers/helpers.go	/^	Field       string$/;"	m	struct:helpers.FormInstructions	typeref:typename:string
 Field	./helpers/helpers.go	/^	Field       string$/;"	m	struct:helpers.ScrapeInstructions	typeref:typename:string
-Field	helpers/helpers.go	/^	Field       string$/;"	m	struct:helpers.FormInstructions	typeref:typename:string
-Field	helpers/helpers.go	/^	Field       string$/;"	m	struct:helpers.ScrapeInstructions	typeref:typename:string
 Fns	./fns/fns.go	/^var Fns = map[string]func(interface{}, *rod.Page) interface{}{$/;"	v	package:fns
-Fns	fns/fns.go	/^var Fns = map[string]func(interface{}, *rod.Page) interface{}{$/;"	v	package:fns
 Form	./form/form.go	/^func Form(data interface{}, page *rod.Page) interface{} {$/;"	f	package:form	typeref:typename:interface{}
 FormInstructions	./helpers/helpers.go	/^type FormInstructions struct {$/;"	s	package:helpers
-FormInstructions	helpers/helpers.go	/^type FormInstructions struct {$/;"	s	package:helpers
 In	./validator/validator.go	/^func In(value string, list ...string) bool {$/;"	f	package:validator	typeref:typename:bool
-Item	./helpers/helpers.go	/^	Item        string$/;"	m	struct:helpers.ScrapeAllInstructions	typeref:typename:string
-Item	helpers/helpers.go	/^	Item           string                 `json:"item"`$/;"	m	struct:helpers.ScrapeAllInstructions	typeref:typename:string
-Item	helpers/helpers.go	/^	Item        string                 `json:"item"`$/;"	m	struct:helpers.ScrapeAllInstructions	typeref:typename:string
-Item	helpers/helpers.go	/^	Item        string `json:"item"`$/;"	m	struct:helpers.ScrapeAllInstructions	typeref:typename:string
+Item	./helpers/helpers.go	/^	Item           string                 `json:"item"`$/;"	m	struct:helpers.ScrapeAllInstructions	typeref:typename:string
+Key	./helpers/helpers.go	/^	Key            string                 `json:"key"`$/;"	m	struct:helpers.ScrapeAllInstructions	typeref:typename:string
 Key	./helpers/helpers.go	/^	Key         string$/;"	m	struct:helpers.ScrapeInstructions	typeref:typename:string
-Key	helpers/helpers.go	/^	Key            string                 `json:"key"`$/;"	m	struct:helpers.ScrapeAllInstructions	typeref:typename:string
-Key	helpers/helpers.go	/^	Key         string$/;"	m	struct:helpers.ScrapeInstructions	typeref:typename:string
-Keys	./helpers/helpers.go	/^	Keys        map[string]interface{}$/;"	m	struct:helpers.ScrapeAllInstructions	typeref:typename:map[string]interface{}
-Keys	helpers/helpers.go	/^	Keys           map[string]interface{} `json:"keys"`$/;"	m	struct:helpers.ScrapeAllInstructions	typeref:typename:map[string]interface{}
-Keys	helpers/helpers.go	/^	Keys        map[string]interface{} `json:"keys"`$/;"	m	struct:helpers.ScrapeAllInstructions	typeref:typename:map[string]interface{}
-Keys	helpers/helpers.go	/^	Keys map[string]interface{} `json:"keys"`$/;"	m	struct:helpers.ScrapeAllInstructions	typeref:typename:map[string]interface{}
+Keys	./helpers/helpers.go	/^	Keys           map[string]interface{} `json:"keys"`$/;"	m	struct:helpers.ScrapeAllInstructions	typeref:typename:map[string]interface{}
+Kind	./helpers/helpers.go	/^	Kind           string                 `json:"type"`$/;"	m	struct:helpers.ScrapeAllInstructions	typeref:typename:string
 Kind	./helpers/helpers.go	/^	Kind        string$/;"	m	struct:helpers.FormInstructions	typeref:typename:string
-Kind	helpers/helpers.go	/^	Kind           string                 `json:"type"`$/;"	m	struct:helpers.ScrapeAllInstructions	typeref:typename:string
-Kind	helpers/helpers.go	/^	Kind        string                 `json:"type"`$/;"	m	struct:helpers.ScrapeAllInstructions	typeref:typename:string
-Kind	helpers/helpers.go	/^	Kind        string `json:"type"`$/;"	m	struct:helpers.ScrapeAllInstructions	typeref:typename:string
-Kind	helpers/helpers.go	/^	Kind        string$/;"	m	struct:helpers.FormInstructions	typeref:typename:string
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "*New 2 Bed @ RealShala-Galaxy Int.Sch-Adjiringanor"$/;"	s	object:119
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "1 Atlantic Bay"$/;"	s	object:168
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "1 Bed Haven, E. Airport, Free Fast WiFi \\u0026 Parking"$/;"	s	object:163
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "1 bedroom apt B- Wifi \\u0026 Free parking (Apt B)"$/;"	s	object:152
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "1-bed apartment,Henrietta's Residence, Cantonments"$/;"	s	object:183
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "3 Bedroom house or singleroom in Agbogba\/Accra"$/;"	s	object:128
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "A Simply Unique Designer Oasis-200 top reviews!"$/;"	s	object:173
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Adjiringanor Villa"$/;"	s	object:97
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Adorable’s Place.Homey 1-bedroom with free parking"$/;"	s	object:32
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Airport Res. Area very Spacious \\u0026 Comfy Suite"$/;"	s	object:45
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Airport Residential Very Spacious Suite"$/;"	s	object:31
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Amazing riverfront villa 3bdrms \\u0026 rooftop lounge"$/;"	s	object:92
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Ankamafio Place"$/;"	s	object:9
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Artsy 1 Bedroom Adjiringanor Townhome w\/ Balcony"$/;"	s	object:16
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Avocado Dreams"$/;"	s	object:122
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Beach oasis for the discerning traveler!"$/;"	s	object:154
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Beautiful 1 bed apartment with free WiFi"$/;"	s	object:156
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Beautiful 4 bedrooms with hot tub and great yard"$/;"	s	object:145
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Beautiful Bungalow, Manet Court, Spintex, Accra"$/;"	s	object:88
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Beautiful Italian 2 bed apartment in Airport area"$/;"	s	object:57
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Big studio At Embassy Garden spacious \\u0026 good view"$/;"	s	object:11
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Blue Luxe (Studio Apartment), Cantonments"$/;"	s	object:35
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Bright Breezy Room 5 in Osu Flat"$/;"	s	object:78
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Bright Breezy Room 6 in Osu Flat"$/;"	s	object:190
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Central Stylish Home"$/;"	s	object:33
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Cheerful 1-Bedroom House For Vacation Stay"$/;"	s	object:71
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Cheerful beach house with free wifi \\u0026 parking"$/;"	s	object:178
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Clean and cosy 2 bedroom apartment in Osu"$/;"	s	object:39
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Comfortable Ensuite w\/Queen Bed Airport Res. Area"$/;"	s	object:147
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Comfortable Luxury Studio"$/;"	s	object:76
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Comfy 1-bedroom modern condo in Cantonments Accra"$/;"	s	object:137
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Comfy \\u0026 Modern 2BR apartment at Spintex"$/;"	s	object:172
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Comfy private ensuite room close to beach\/town"$/;"	s	object:53
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Cosy 1 Bedroom W\/Pool View"$/;"	s	object:135
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Cosy 1- bedroom serviced apartment in Labone"$/;"	s	object:3
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Cosy loft-style studio apartment in Osu"$/;"	s	object:89
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Cozy 1 Bed, E. Airport,Orange Nest, Unlimited WiFi"$/;"	s	object:37
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Cozy 2 Bedroom AparTmenT in Osu-Accra"$/;"	s	object:91
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Cozy Cantonments Apartment, Embassy Gardens"$/;"	s	object:157
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Cozy Ensuite Bedroom in a well crafted Villa #1"$/;"	s	object:81
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Cozy Gardens Studio, Cantonments"$/;"	s	object:5
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Cozy Studio Apartment in the Heart of the City"$/;"	s	object:47
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Cozy fully furnished studio for your enjoyment!"$/;"	s	object:34
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Cute privateroom in a beautiful home with WiFi"$/;"	s	object:197
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "DC Apartments"$/;"	s	object:196
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Delightful Comfort!"$/;"	s	object:110
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Deluxe 1 Bedroom in Osu, The Pulse of Accra"$/;"	s	object:51
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Deluxe serviced apartment at East Legon"$/;"	s	object:114
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Designer Master Room In Serviced Apartment"$/;"	s	object:69
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Designer Private Room In Serviced Apartment"$/;"	s	object:101
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Designer private room with free breakfast."$/;"	s	object:22
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "East Legon 1-bedroom condo (A\/C \\u0026 Netflix)."$/;"	s	object:103
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Elegant 4 Bedroom Townhouse with pool and gym."$/;"	s	object:126
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Embassy Garden, luxurious studio 2 in Cantonments"$/;"	s	object:86
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Embassy Gardens Studio, Cantonments"$/;"	s	object:40
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Embassy Gardens, Studio Apartment | Cantonments"$/;"	s	object:27
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Ensuite King Bedroom | Beach | Airport | Bars"$/;"	s	object:150
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Entire Exectv Apartment with Pressure Shower Room"$/;"	s	object:36
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Excellent Executive Suite"$/;"	s	object:17
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Executive 1-bedroom with Bathtub, AC and Free Wifi"$/;"	s	object:121
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Executive 1-bedroom with Bathtub, AC and Free Wifi"$/;"	s	object:195
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Executive apartment in gated community."$/;"	s	object:48
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Fi's Place"$/;"	s	object:133
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Free car\/driver, 10min to airport, gated community"$/;"	s	object:144
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Friendly Family | Amazing 1-bedroom apartment"$/;"	s	object:167
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Full comfort and privacy and safety yet cheap cost"$/;"	s	object:123
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Fully Furnished and Serviced home away from home"$/;"	s	object:159
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "GRay Luxe (Studio Apartment), Cantonments"$/;"	s	object:80
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Green Trendy Getaway in Vibrant Osu"$/;"	s	object:174
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Halcyon at Henrietta's"$/;"	s	object:61
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "JayLen - Elegant 2-Bedroom Apartment at Borteyman"$/;"	s	object:10
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Jubilee Suite"$/;"	s	object:148
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Kemsville by sea"$/;"	s	object:166
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Kokrobitey Apartments"$/;"	s	object:87
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "LS1 - 1BR Apartment @ Embassy Gardens"$/;"	s	object:98
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Laboma beach resort-2beds, kitchen, bath \\u0026rooftop"$/;"	s	object:8
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Labone courtyard"$/;"	s	object:180
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Langma Beach House"$/;"	s	object:140
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Life on the Green -@ Embassy Gardens Cantonments"$/;"	s	object:70
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Live In The Heart Of Accra. Great Reviews."$/;"	s	object:132
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Lovely 1 bedroom apartment with free parking"$/;"	s	object:38
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Lovely 1 bedroom unit with pool in gated complex"$/;"	s	object:193
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Lovely 1-bedroom suite; pool, gym \\u0026 onsite cafe"$/;"	s	object:41
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Lovely 2 Bedroom Loft\/Duplex - Labone"$/;"	s	object:192
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Lovely 2 bedroom apartment in spintex, Accra"$/;"	s	object:50
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Lovely 2-bedroom Apartment with pool \\u0026 gym (A)"$/;"	s	object:7
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Lovely 2Bedroom Serviced Apartment @East Legon"$/;"	s	object:182
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Lovely Private En-Suite room with free breakfast"$/;"	s	object:43
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Lovely Serviced Studio Aparthotel @Embassy Gardens"$/;"	s	object:66
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Lovely Serviced Studio Apartment @Cantonments"$/;"	s	object:28
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Lovely Studio suite with balcony"$/;"	s	object:108
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Lovely ensuite bedroom in new house at Tesano - 2"$/;"	s	object:136
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Lovely furnished Studio Apartment@ Embassy Gardens"$/;"	s	object:188
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Lovely hotel style studio over looking the pool."$/;"	s	object:60
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Lovely one bedroom duplex apartment with pool"$/;"	s	object:13
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Lukas Garden Accra with Pool, Gym"$/;"	s	object:106
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Lukas Garden Accra with Pool, Gym"$/;"	s	object:23
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Lukas Garden Accra with Pool, Gym"$/;"	s	object:95
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Lukas Garden Penthouse Accra with Pool, Gym"$/;"	s	object:191
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Lux Apartment LARS in Resort (Pool,Gym\\u0026Rooftop)"$/;"	s	object:49
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Lux House BAABA in Resort (Pool , Gym \\u0026 Rooftop)"$/;"	s	object:19
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Luxurious 1Bed PentHse @RealShala-East Legon Hills"$/;"	s	object:29
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Luxurious House with free breakfast#"$/;"	s	object:6
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Luxurious One bedroom flat with free breakfast."$/;"	s	object:4
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Luxurious Private Room with free breakfast"$/;"	s	object:129
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Luxury 3 Bedroom Ensuite House Located in Accra"$/;"	s	object:104
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Luxury 4-bedroom villa with a pool in Aburi"$/;"	s	object:171
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Luxury One Bedroom Apartment"$/;"	s	object:153
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Luxury Studio Apartment. Free Parking and WiFi."$/;"	s	object:170
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Luxury Studio Serviced Apartment near US Embassy"$/;"	s	object:14
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Luxury Studio Suite"$/;"	s	object:139
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Luxury studio apartment with gym and pool"$/;"	s	object:115
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Luxury studio gallery Suite D"$/;"	s	object:187
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Make Yourself Home Away From Home"$/;"	s	object:175
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Master bedroom Condo with AC, WiFi \\u0026 Workstation"$/;"	s	object:194
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Mini Studio 24"$/;"	s	object:186
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Modern Studio Apartment. Free Parking and WiFi"$/;"	s	object:112
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Modern \\u0026 Comfy 2BR Entire Apt at Spintex"$/;"	s	object:20
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Modern affordable 1 bed flat, East Legon - Flat 2"$/;"	s	object:0
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Modern studio with pool in a serene neighborhood"$/;"	s	object:116
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Modern, serviced apartment close to city center."$/;"	s	object:138
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "NAYAFA Executive Apartment"$/;"	s	object:127
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "NEW High-Ceilinged Studio|KING SIZE MATTRESS |WiFi"$/;"	s	object:82
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "NEW! Luxury Studio at Embassy Gardens"$/;"	s	object:15
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Newly built 1 Bedroom condo"$/;"	s	object:65
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Newly built 2 Bedroom condo"$/;"	s	object:46
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Nyini (Room 1a)"$/;"	s	object:164
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Nyini (room 2a)"$/;"	s	object:94
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "One Bedroom Flat in Nanakrom, near Ashaley Botwe"$/;"	s	object:189
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Orchid Garden Apartment"$/;"	s	object:102
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Osu Beautiful Colonial Restoration"$/;"	s	object:85
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "PARADISE ESTATE (East legon hills) Greater Accra"$/;"	s	object:73
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Pablo BT"$/;"	s	object:117
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Papa Joe's Timber cladded apartment."$/;"	s	object:124
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Paradise 1 bedroom Apartment"$/;"	s	object:26
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Perfect 1bedroom \\u0026 Bathroom at Osu w Ocean Breeze"$/;"	s	object:161
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Peters Home \\u0026 Apartments 2"$/;"	s	object:24
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Peters Home \\u0026 Apartments Pent House"$/;"	s	object:109
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Peters Home \\u0026 Apartments Studio"$/;"	s	object:44
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Picasso Boutique Apartment - Studio Unit #2"$/;"	s	object:99
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Picasso Boutique Apartment - Studio Unit #5"$/;"	s	object:56
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Private 1-bedroom with Hot Water, AC and Free Wifi"$/;"	s	object:107
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Private Room with bath Adjiringanor\/East legon #3"$/;"	s	object:146
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Private room @ Spintex w\/ WiFi and FREE Parking"$/;"	s	object:93
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Private room with AC and Hot Water"$/;"	s	object:100
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "River Cottage No. 2 (1 of 3 cottages)"$/;"	s	object:58
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "River Cottage No.1 (1 of 3 cottages)"$/;"	s	object:176
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Riviera Place"$/;"	s	object:120
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Savvy Estates - 1D"$/;"	s	object:179
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Savvy Estates - 1E"$/;"	s	object:149
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Sea view Apartment in Osu"$/;"	s	object:131
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Serviced studio in iconic Embassy Gardens"$/;"	s	object:177
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Snazzy studio with balcony near city center"$/;"	s	object:12
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Spacious Afrocentric home with outdoor bar \\u0026 pool"$/;"	s	object:160
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Stables Residence R3 -Explore Accra from Its Heart"$/;"	s	object:113
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Standard Camper Unit - Azumah Cabin"$/;"	s	object:111
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Standard Camper Unit -ADINKRA Cabin"$/;"	s	object:199
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Studio Apartment W\/ hotel amenities \\u0026services"$/;"	s	object:52
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Studio Apartment w\/ hotel amenities @ The Gallery"$/;"	s	object:143
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Studio Apartment"$/;"	s	object:62
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Studio apartment in the heart of Osu"$/;"	s	object:141
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Stunning 2 BR - Pearlini Apartments, Labadi"$/;"	s	object:25
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Stylish 1 Bed, E. Airport, Reliable Fibre WiFi"$/;"	s	object:74
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Stylish African-chic Urban Apartment @ East Legon"$/;"	s	object:67
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Stylish Private Room"$/;"	s	object:185
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Superior Villa with a Luxury Private Pool"$/;"	s	object:134
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "TIMES 1 Bedroom 204 Apartment at Accra East Legon"$/;"	s	object:181
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "TIMES 1Bedroom 202 Apartment at Accra East Legon"$/;"	s	object:68
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "TIMES Studio apartment 203 Accrea East Legon"$/;"	s	object:90
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "The Art Gallery Apartment"$/;"	s	object:79
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "The Avery Apartment 2B, East Airport"$/;"	s	object:130
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "The Avery Loft at Embassy Gardens, Cantonments"$/;"	s	object:55
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "The Edge Labone | Fully Furnished Apartment"$/;"	s	object:155
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "The Ella: Stylish 1 Bedroom unit near Oxford St."$/;"	s	object:198
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "The Gallery Luxury 1 bedroom apartment"$/;"	s	object:21
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "The Gallery Luxury Suite 01"$/;"	s	object:125
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "The Gallery Luxury Suite 013"$/;"	s	object:84
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "The Gallery Luxury Suite 13"$/;"	s	object:1
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "The Gallery Luxury Suite 15"$/;"	s	object:42
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "The Gallery Luxury Suite 45"$/;"	s	object:184
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "The Gallery Luxury Suite 53"$/;"	s	object:105
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "The Gallery Luxury Suite 77"$/;"	s	object:63
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "The Gallery Studio C"$/;"	s	object:169
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "The Gallery: 5th floor 2 bedroom with gym \\u0026 pool"$/;"	s	object:118
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "The Guest Haven"$/;"	s	object:165
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "The Kalo - Modern shipping container apartment"$/;"	s	object:2
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "The Kule - Modern shipping container apartment"$/;"	s	object:54
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "The Luxe -@ Embassy Gardens Cantonments"$/;"	s	object:77
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "The Only Place to Stay in Accra"$/;"	s	object:59
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "The Spar - Modern shipping container apartment"$/;"	s	object:64
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "The Yet - Modern shipping container apartment"$/;"	s	object:96
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Tranquil home in the center of town"$/;"	s	object:75
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Trekor House"$/;"	s	object:162
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Tropical Garden Room 2."$/;"	s	object:142
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Twin Tower 3-bedroom Apartments with Pool and Gym"$/;"	s	object:158
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Two (2) Bedroom Apt with a pool in Ridge, Accra"$/;"	s	object:83
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Urban Chic Flat in Osu"$/;"	s	object:72
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "VIP 3BR Deluxe in Cantonments"$/;"	s	object:18
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "Well fitted one bedroom condo"$/;"	s	object:30
+LISTING_TITLE	./airbnb.json	/^    "LISTING_TITLE": "⭐️ Lovely 1 Bed Apt 3 Miles From Kotoka Airport|4"$/;"	s	object:151
 Map	main.go	/^func Map(vs interface{}, f func(interface{}) interface{}) interface{} {$/;"	f	package:main	typeref:typename:interface{}
 Matches	./validator/validator.go	/^func Matches(value string, rx *regexp.Regexp) bool {$/;"	f	package:validator	typeref:typename:bool
 New	./validator/validator.go	/^func New() *Validator {$/;"	f	package:validator	typeref:typename:*Validator
-Parent	./helpers/helpers.go	/^	Parent      string$/;"	m	struct:helpers.ScrapeAllInstructions	typeref:typename:string
-Parent	helpers/helpers.go	/^	Parent         string                 `json:"parent"`$/;"	m	struct:helpers.ScrapeAllInstructions	typeref:typename:string
-Parent	helpers/helpers.go	/^	Parent      string                 `json:"parent"`$/;"	m	struct:helpers.ScrapeAllInstructions	typeref:typename:string
-Parent	helpers/helpers.go	/^	Parent      string `json:"parent"`$/;"	m	struct:helpers.ScrapeAllInstructions	typeref:typename:string
+Parent	./helpers/helpers.go	/^	Parent         string                 `json:"parent"`$/;"	m	struct:helpers.ScrapeAllInstructions	typeref:typename:string
 Post	./post/post.go	/^func Post(data interface{}, page *rod.Page) interface{} {$/;"	f	package:post	typeref:typename:interface{}
 Print	./print/print.go	/^func Print(data interface{}, _ *rod.Page) interface{} {$/;"	f	package:print	typeref:typename:interface{}
-Print	print/print.go	/^func Print(data interface{}, _ *rod.Page) interface{} {$/;"	f	package:print	typeref:typename:interface{}
-Scrape	./scrape/scrape.go	/^func Scrape(data interface{}, page *rod.Page) interface{} {$/;"	f	package:scrape	typeref:typename:interface{}
-Scrape	scrape/scrape.go	/^func Scrape(data interface{}, p *rod.Page) interface{} {$/;"	f	package:scrape	typeref:typename:interface{}
-Scrape	scrape/scrape.go	/^func Scrape(data interface{}, page *rod.Page) interface{} {$/;"	f	package:scrape	typeref:typename:interface{}
-ScrapeAll	./scrape/scrape.go	/^func ScrapeAll(data interface{}, page *rod.Page) interface{} {$/;"	f	package:scrape	typeref:typename:interface{}
+ScrapeAll	./scrape/scrape.go	/^func ScrapeAll(data interface{}, p *rod.Page) interface{} {$/;"	f	package:scrape	typeref:typename:interface{}
 ScrapeAll	scrape/scrape.go	/^func ScrapeAll(data interface{}, p *rod.Page) interface{} {$/;"	f	package:scrape	typeref:typename:interface{}
-ScrapeAll	scrape/scrape.go	/^func ScrapeAll(data interface{}, page *rod.Page) interface{} {$/;"	f	package:scrape	typeref:typename:interface{}
 ScrapeAllInstructions	./helpers/helpers.go	/^type ScrapeAllInstructions struct {$/;"	s	package:helpers
-ScrapeAllInstructions	helpers/helpers.go	/^type ScrapeAllInstructions struct {$/;"	s	package:helpers
 ScrapeInstructions	./helpers/helpers.go	/^type ScrapeInstructions struct {$/;"	s	package:helpers
-ScrapeInstructions	helpers/helpers.go	/^type ScrapeInstructions struct {$/;"	s	package:helpers
 ShdType	./helpers/helpers.go	/^	ShdType     bool$/;"	m	struct:helpers.FormInstructions	typeref:typename:bool
-ShdType	helpers/helpers.go	/^	ShdType     bool$/;"	m	struct:helpers.FormInstructions	typeref:typename:bool
-Status	bankscraping.json	/^                     "Status":"td:nth-child(9)"$/;"	s	object:0.instructions.0.3.1.1.keys
-Status	bankscraping.json	/^                     "Status":"td:nth-child(9)"$/;"	s	object:0.instructions.0.3.1.2.keys
-Status	bankscraping.json	/^                     "Status":"td:nth-child(9)"$/;"	s	object:0.instructions.0.3.1.3.keys
-Type	helpers/helpers.go	/^	Type        string                 `json:"type"`$/;"	m	struct:helpers.ScrapeAllInstructions	typeref:typename:string
+Status	./bankscraping.json	/^                     "Status":"td:nth-child(9)"$/;"	s	object:0.instructions.0.3.1.1.keys
+Status	./bankscraping.json	/^                     "Status":"td:nth-child(9)"$/;"	s	object:0.instructions.0.3.1.2.keys
+Status	./bankscraping.json	/^                     "Status":"td:nth-child(9)"$/;"	s	object:0.instructions.0.3.1.3.keys
 Unique	./validator/validator.go	/^func Unique(values []string) bool {$/;"	f	package:validator	typeref:typename:bool
 Valid	./validator/validator.go	/^func (v *Validator) Valid() bool {$/;"	f	struct:validator.Validator	typeref:typename:bool
 Validator	./validator/validator.go	/^type Validator struct {$/;"	s	package:validator
 Value	./helpers/helpers.go	/^	Value       string$/;"	m	struct:helpers.FormInstructions	typeref:typename:string
-Value	helpers/helpers.go	/^	Value       string$/;"	m	struct:helpers.FormInstructions	typeref:typename:string
 addKeys	./scrape/scrape.go	/^func addKeys(item *rod.Element, keys map[string]interface{}) map[string]string {$/;"	f	package:scrape	typeref:typename:map[string]string
 addKeys	scrape/scrape.go	/^func addKeys(item *rod.Element, keys map[string]interface{}) map[string]string {$/;"	f	package:scrape	typeref:typename:map[string]string
-applicantName	bankscraping.json	/^                     "applicantName":".applicantName",$/;"	s	object:0.instructions.0.3.1.1.keys
-applicantName	bankscraping.json	/^                     "applicantName":".applicantName",$/;"	s	object:0.instructions.0.3.1.2.keys
-applicantName	bankscraping.json	/^                     "applicantName":".applicantName",$/;"	s	object:0.instructions.0.3.1.3.keys
-click	scrape/scrape.go	/^func click(data helpers.ScrapeAllInstructions, page *rod.Page) {$/;"	f	package:scrape
+applicantName	./bankscraping.json	/^                     "applicantName":".applicantName",$/;"	s	object:0.instructions.0.3.1.1.keys
+applicantName	./bankscraping.json	/^                     "applicantName":".applicantName",$/;"	s	object:0.instructions.0.3.1.2.keys
+applicantName	./bankscraping.json	/^                     "applicantName":".applicantName",$/;"	s	object:0.instructions.0.3.1.3.keys
+description	./bankscraping.json	/^                  "description":"How duck makes money",$/;"	s	object:0.instructions.0.3.1.1
+description	./bankscraping.json	/^                  "description":"How duck makes money",$/;"	s	object:0.instructions.0.3.1.2
+description	./bankscraping.json	/^                  "description":"How duck makes money",$/;"	s	object:0.instructions.0.3.1.3
+description	./bankscraping.json	/^                  "description":"How duck makes money",$/;"	s	object:0.instructions.0.3.1.4
+description	./bankscraping.json	/^               "description":"Change Rows",$/;"	s	object:0.instructions.0.1.5
+description	./bankscraping.json	/^               "description":"Click 60ays",$/;"	s	object:0.instructions.0.1.4
+description	./bankscraping.json	/^               "description":"Click Search",$/;"	s	object:0.instructions.0.1.3
+description	./bankscraping.json	/^               "description":"Click Search",$/;"	s	object:0.instructions.0.1.6
+description	./bankscraping.json	/^               "description":"Type password",$/;"	s	object:0.instructions.0.1.2
+description	./bankscraping.json	/^               "description":"Type username",$/;"	s	object:0.instructions.0.1.1
 description	./oldsample.json	/^                    "description": "How duck makes money",$/;"	s	object:0.instructions.1.1.1
 description	./sample.json	/^                "description": "Click Search",$/;"	s	object:instructions.1.2
 description	./sample.json	/^                "description": "Type into Search Bar",$/;"	s	object:instructions.1.1
 description	./sample.json	/^                "description": "Type into Search Bar",$/;"	s	object:instructions.3.1
-description	bankscraping.json	/^                  "description":"How duck makes money",$/;"	s	object:0.instructions.0.3.1.1
-description	bankscraping.json	/^                  "description":"How duck makes money",$/;"	s	object:0.instructions.0.3.1.2
-description	bankscraping.json	/^                  "description":"How duck makes money",$/;"	s	object:0.instructions.0.3.1.3
-description	bankscraping.json	/^                  "description":"How duck makes money",$/;"	s	object:0.instructions.0.3.1.4
-description	bankscraping.json	/^               "description":"Change Rows",$/;"	s	object:0.instructions.0.1.5
-description	bankscraping.json	/^               "description":"Click 60ays",$/;"	s	object:0.instructions.0.1.4
-description	bankscraping.json	/^               "description":"Click Search",$/;"	s	object:0.instructions.0.1.3
-description	bankscraping.json	/^               "description":"Click Search",$/;"	s	object:0.instructions.0.1.6
-description	bankscraping.json	/^               "description":"Type password",$/;"	s	object:0.instructions.0.1.2
-description	bankscraping.json	/^               "description":"Type username",$/;"	s	object:0.instructions.0.1.1
-description	scrapeAirbnb.json	/^							"description": "Click on cards",$/;"	s	object:0.instructions.0.1.1.1
-description	scrapeAirbnb.json	/^							"description": "Click on cards",$/;"	s	object:0.instructions.0.1.1.11
-description	scrapeAirbnb.json	/^							"description": "Click on cards",$/;"	s	object:0.instructions.0.1.1.16
-description	scrapeAirbnb.json	/^							"description": "Click on cards",$/;"	s	object:0.instructions.0.1.1.21
-description	scrapeAirbnb.json	/^							"description": "Click on cards",$/;"	s	object:0.instructions.0.1.1.26
-description	scrapeAirbnb.json	/^							"description": "Click on cards",$/;"	s	object:0.instructions.0.1.1.31
-description	scrapeAirbnb.json	/^							"description": "Click on cards",$/;"	s	object:0.instructions.0.1.1.36
-description	scrapeAirbnb.json	/^							"description": "Click on cards",$/;"	s	object:0.instructions.0.1.1.41
-description	scrapeAirbnb.json	/^							"description": "Click on cards",$/;"	s	object:0.instructions.0.1.1.46
-description	scrapeAirbnb.json	/^							"description": "Click on cards",$/;"	s	object:0.instructions.0.1.1.51
-description	scrapeAirbnb.json	/^							"description": "Click on cards",$/;"	s	object:0.instructions.0.1.1.56
-description	scrapeAirbnb.json	/^							"description": "Click on cards",$/;"	s	object:0.instructions.0.1.1.6
-description	scrapeAirbnb.json	/^							"description": "Click on cards",$/;"	s	object:0.instructions.0.1.1.61
-description	scrapeAirbnb.json	/^							"description": "Click on cards",$/;"	s	object:0.instructions.0.1.1.66
-description	scrapeAirbnb.json	/^							"description": "Click on cards",$/;"	s	object:0.instructions.0.1.1.71
-description	scrapeAirbnb.json	/^							"description": "Click on cards",$/;"	s	object:0.instructions.0.1.1.76
-description	scrapeAirbnb.json	/^							"description": "Click on cards",$/;"	s	object:0.instructions.0.1.1.81
-description	scrapeAirbnb.json	/^							"description": "Click on cards",$/;"	s	object:0.instructions.0.1.1.86
-description	scrapeAirbnb.json	/^							"description": "Click on cards",$/;"	s	object:0.instructions.0.1.1.91
-description	scrapeAirbnb.json	/^							"description": "Click on cards",$/;"	s	object:0.instructions.0.1.1.96
-description	scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.10
-description	scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.100
-description	scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.12
-description	scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.14
-description	scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.15
-description	scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.17
-description	scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.19
-description	scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.2
-description	scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.20
-description	scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.22
-description	scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.24
-description	scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.25
-description	scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.27
-description	scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.29
-description	scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.30
-description	scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.32
-description	scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.34
-description	scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.35
-description	scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.37
-description	scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.39
-description	scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.4
-description	scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.40
-description	scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.42
-description	scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.44
-description	scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.45
-description	scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.47
-description	scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.49
-description	scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.5
-description	scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.50
-description	scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.52
-description	scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.54
-description	scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.55
-description	scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.57
-description	scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.59
-description	scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.60
-description	scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.62
-description	scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.64
-description	scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.65
-description	scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.67
-description	scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.69
-description	scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.7
-description	scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.70
-description	scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.72
-description	scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.74
-description	scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.75
-description	scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.77
-description	scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.79
-description	scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.80
-description	scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.82
-description	scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.84
-description	scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.85
-description	scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.87
-description	scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.89
-description	scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.9
-description	scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.90
-description	scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.92
-description	scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.94
-description	scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.95
-description	scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.97
-description	scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.99
-description	scrapeAirbnb.json	/^							"description": "Scrape opened page",$/;"	s	object:0.instructions.0.1.1.13
-description	scrapeAirbnb.json	/^							"description": "Scrape opened page",$/;"	s	object:0.instructions.0.1.1.18
-description	scrapeAirbnb.json	/^							"description": "Scrape opened page",$/;"	s	object:0.instructions.0.1.1.23
-description	scrapeAirbnb.json	/^							"description": "Scrape opened page",$/;"	s	object:0.instructions.0.1.1.28
-description	scrapeAirbnb.json	/^							"description": "Scrape opened page",$/;"	s	object:0.instructions.0.1.1.3
-description	scrapeAirbnb.json	/^							"description": "Scrape opened page",$/;"	s	object:0.instructions.0.1.1.33
-description	scrapeAirbnb.json	/^							"description": "Scrape opened page",$/;"	s	object:0.instructions.0.1.1.38
-description	scrapeAirbnb.json	/^							"description": "Scrape opened page",$/;"	s	object:0.instructions.0.1.1.43
-description	scrapeAirbnb.json	/^							"description": "Scrape opened page",$/;"	s	object:0.instructions.0.1.1.48
-description	scrapeAirbnb.json	/^							"description": "Scrape opened page",$/;"	s	object:0.instructions.0.1.1.53
-description	scrapeAirbnb.json	/^							"description": "Scrape opened page",$/;"	s	object:0.instructions.0.1.1.58
-description	scrapeAirbnb.json	/^							"description": "Scrape opened page",$/;"	s	object:0.instructions.0.1.1.63
-description	scrapeAirbnb.json	/^							"description": "Scrape opened page",$/;"	s	object:0.instructions.0.1.1.68
-description	scrapeAirbnb.json	/^							"description": "Scrape opened page",$/;"	s	object:0.instructions.0.1.1.73
-description	scrapeAirbnb.json	/^							"description": "Scrape opened page",$/;"	s	object:0.instructions.0.1.1.78
-description	scrapeAirbnb.json	/^							"description": "Scrape opened page",$/;"	s	object:0.instructions.0.1.1.8
-description	scrapeAirbnb.json	/^							"description": "Scrape opened page",$/;"	s	object:0.instructions.0.1.1.83
-description	scrapeAirbnb.json	/^							"description": "Scrape opened page",$/;"	s	object:0.instructions.0.1.1.88
-description	scrapeAirbnb.json	/^							"description": "Scrape opened page",$/;"	s	object:0.instructions.0.1.1.93
-description	scrapeAirbnb.json	/^							"description": "Scrape opened page",$/;"	s	object:0.instructions.0.1.1.98
-description	scrapeAirbnb.json	/^							"description": "click next arrow",$/;"	s	object:0.instructions.0.1.1.101
+description	./scrapeAirbnb.json	/^							"description": "Click on cards",$/;"	s	object:0.instructions.0.1.1.1
+description	./scrapeAirbnb.json	/^							"description": "Click on cards",$/;"	s	object:0.instructions.0.1.1.11
+description	./scrapeAirbnb.json	/^							"description": "Click on cards",$/;"	s	object:0.instructions.0.1.1.16
+description	./scrapeAirbnb.json	/^							"description": "Click on cards",$/;"	s	object:0.instructions.0.1.1.21
+description	./scrapeAirbnb.json	/^							"description": "Click on cards",$/;"	s	object:0.instructions.0.1.1.26
+description	./scrapeAirbnb.json	/^							"description": "Click on cards",$/;"	s	object:0.instructions.0.1.1.31
+description	./scrapeAirbnb.json	/^							"description": "Click on cards",$/;"	s	object:0.instructions.0.1.1.36
+description	./scrapeAirbnb.json	/^							"description": "Click on cards",$/;"	s	object:0.instructions.0.1.1.41
+description	./scrapeAirbnb.json	/^							"description": "Click on cards",$/;"	s	object:0.instructions.0.1.1.46
+description	./scrapeAirbnb.json	/^							"description": "Click on cards",$/;"	s	object:0.instructions.0.1.1.51
+description	./scrapeAirbnb.json	/^							"description": "Click on cards",$/;"	s	object:0.instructions.0.1.1.56
+description	./scrapeAirbnb.json	/^							"description": "Click on cards",$/;"	s	object:0.instructions.0.1.1.6
+description	./scrapeAirbnb.json	/^							"description": "Click on cards",$/;"	s	object:0.instructions.0.1.1.61
+description	./scrapeAirbnb.json	/^							"description": "Click on cards",$/;"	s	object:0.instructions.0.1.1.66
+description	./scrapeAirbnb.json	/^							"description": "Click on cards",$/;"	s	object:0.instructions.0.1.1.71
+description	./scrapeAirbnb.json	/^							"description": "Click on cards",$/;"	s	object:0.instructions.0.1.1.76
+description	./scrapeAirbnb.json	/^							"description": "Click on cards",$/;"	s	object:0.instructions.0.1.1.81
+description	./scrapeAirbnb.json	/^							"description": "Click on cards",$/;"	s	object:0.instructions.0.1.1.86
+description	./scrapeAirbnb.json	/^							"description": "Click on cards",$/;"	s	object:0.instructions.0.1.1.91
+description	./scrapeAirbnb.json	/^							"description": "Click on cards",$/;"	s	object:0.instructions.0.1.1.96
+description	./scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.10
+description	./scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.100
+description	./scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.12
+description	./scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.14
+description	./scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.15
+description	./scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.17
+description	./scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.19
+description	./scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.2
+description	./scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.20
+description	./scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.22
+description	./scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.24
+description	./scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.25
+description	./scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.27
+description	./scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.29
+description	./scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.30
+description	./scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.32
+description	./scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.34
+description	./scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.35
+description	./scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.37
+description	./scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.39
+description	./scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.4
+description	./scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.40
+description	./scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.42
+description	./scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.44
+description	./scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.45
+description	./scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.47
+description	./scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.49
+description	./scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.5
+description	./scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.50
+description	./scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.52
+description	./scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.54
+description	./scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.55
+description	./scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.57
+description	./scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.59
+description	./scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.60
+description	./scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.62
+description	./scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.64
+description	./scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.65
+description	./scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.67
+description	./scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.69
+description	./scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.7
+description	./scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.70
+description	./scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.72
+description	./scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.74
+description	./scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.75
+description	./scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.77
+description	./scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.79
+description	./scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.80
+description	./scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.82
+description	./scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.84
+description	./scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.85
+description	./scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.87
+description	./scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.89
+description	./scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.9
+description	./scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.90
+description	./scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.92
+description	./scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.94
+description	./scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.95
+description	./scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.97
+description	./scrapeAirbnb.json	/^							"description": "Find opened page",$/;"	s	object:0.instructions.0.1.1.99
+description	./scrapeAirbnb.json	/^							"description": "Scrape opened page",$/;"	s	object:0.instructions.0.1.1.13
+description	./scrapeAirbnb.json	/^							"description": "Scrape opened page",$/;"	s	object:0.instructions.0.1.1.18
+description	./scrapeAirbnb.json	/^							"description": "Scrape opened page",$/;"	s	object:0.instructions.0.1.1.23
+description	./scrapeAirbnb.json	/^							"description": "Scrape opened page",$/;"	s	object:0.instructions.0.1.1.28
+description	./scrapeAirbnb.json	/^							"description": "Scrape opened page",$/;"	s	object:0.instructions.0.1.1.3
+description	./scrapeAirbnb.json	/^							"description": "Scrape opened page",$/;"	s	object:0.instructions.0.1.1.33
+description	./scrapeAirbnb.json	/^							"description": "Scrape opened page",$/;"	s	object:0.instructions.0.1.1.38
+description	./scrapeAirbnb.json	/^							"description": "Scrape opened page",$/;"	s	object:0.instructions.0.1.1.43
+description	./scrapeAirbnb.json	/^							"description": "Scrape opened page",$/;"	s	object:0.instructions.0.1.1.48
+description	./scrapeAirbnb.json	/^							"description": "Scrape opened page",$/;"	s	object:0.instructions.0.1.1.53
+description	./scrapeAirbnb.json	/^							"description": "Scrape opened page",$/;"	s	object:0.instructions.0.1.1.58
+description	./scrapeAirbnb.json	/^							"description": "Scrape opened page",$/;"	s	object:0.instructions.0.1.1.63
+description	./scrapeAirbnb.json	/^							"description": "Scrape opened page",$/;"	s	object:0.instructions.0.1.1.68
+description	./scrapeAirbnb.json	/^							"description": "Scrape opened page",$/;"	s	object:0.instructions.0.1.1.73
+description	./scrapeAirbnb.json	/^							"description": "Scrape opened page",$/;"	s	object:0.instructions.0.1.1.78
+description	./scrapeAirbnb.json	/^							"description": "Scrape opened page",$/;"	s	object:0.instructions.0.1.1.8
+description	./scrapeAirbnb.json	/^							"description": "Scrape opened page",$/;"	s	object:0.instructions.0.1.1.83
+description	./scrapeAirbnb.json	/^							"description": "Scrape opened page",$/;"	s	object:0.instructions.0.1.1.88
+description	./scrapeAirbnb.json	/^							"description": "Scrape opened page",$/;"	s	object:0.instructions.0.1.1.93
+description	./scrapeAirbnb.json	/^							"description": "Scrape opened page",$/;"	s	object:0.instructions.0.1.1.98
+description	./scrapeAirbnb.json	/^							"description": "click next arrow",$/;"	s	object:0.instructions.0.1.1.101
+description	cleanNotion.json	/^									"description": "Wait",$/;"	s	object:0.instructions.1.1.1
+description	cleanNotion.json	/^                    "description": "How duck makes money",$/;"	s	object:0.instructions.1.1.2
 do	./do/do.go	/^package do$/;"	p
+eval	./scrape/scrape.go	/^func eval(data helpers.ScrapeAllInstructions, p *rod.Page) {$/;"	f	package:scrape
 eval	scrape/scrape.go	/^func eval(data helpers.ScrapeAllInstructions, p *rod.Page) {$/;"	f	package:scrape
-eval	scrape/scrape.go	/^func eval(data helpers.ScrapeAllInstructions, page *rod.Page) {$/;"	f	package:scrape
-evalExpression	bankscraping.json	/^									"evalExpression":"() => this.click()",$/;"	s	object:0.instructions.0.3.1.4
-evalExpression	scrapeAirbnb.json	/^							"evalExpression": "() => this.click()"$/;"	s	object:0.instructions.0.1.1.1
-evalExpression	scrapeAirbnb.json	/^							"evalExpression": "() => this.click()"$/;"	s	object:0.instructions.0.1.1.11
-evalExpression	scrapeAirbnb.json	/^							"evalExpression": "() => this.click()"$/;"	s	object:0.instructions.0.1.1.16
-evalExpression	scrapeAirbnb.json	/^							"evalExpression": "() => this.click()"$/;"	s	object:0.instructions.0.1.1.21
-evalExpression	scrapeAirbnb.json	/^							"evalExpression": "() => this.click()"$/;"	s	object:0.instructions.0.1.1.26
-evalExpression	scrapeAirbnb.json	/^							"evalExpression": "() => this.click()"$/;"	s	object:0.instructions.0.1.1.31
-evalExpression	scrapeAirbnb.json	/^							"evalExpression": "() => this.click()"$/;"	s	object:0.instructions.0.1.1.36
-evalExpression	scrapeAirbnb.json	/^							"evalExpression": "() => this.click()"$/;"	s	object:0.instructions.0.1.1.41
-evalExpression	scrapeAirbnb.json	/^							"evalExpression": "() => this.click()"$/;"	s	object:0.instructions.0.1.1.46
-evalExpression	scrapeAirbnb.json	/^							"evalExpression": "() => this.click()"$/;"	s	object:0.instructions.0.1.1.51
-evalExpression	scrapeAirbnb.json	/^							"evalExpression": "() => this.click()"$/;"	s	object:0.instructions.0.1.1.56
-evalExpression	scrapeAirbnb.json	/^							"evalExpression": "() => this.click()"$/;"	s	object:0.instructions.0.1.1.6
-evalExpression	scrapeAirbnb.json	/^							"evalExpression": "() => this.click()"$/;"	s	object:0.instructions.0.1.1.61
-evalExpression	scrapeAirbnb.json	/^							"evalExpression": "() => this.click()"$/;"	s	object:0.instructions.0.1.1.66
-evalExpression	scrapeAirbnb.json	/^							"evalExpression": "() => this.click()"$/;"	s	object:0.instructions.0.1.1.71
-evalExpression	scrapeAirbnb.json	/^							"evalExpression": "() => this.click()"$/;"	s	object:0.instructions.0.1.1.76
-evalExpression	scrapeAirbnb.json	/^							"evalExpression": "() => this.click()"$/;"	s	object:0.instructions.0.1.1.81
-evalExpression	scrapeAirbnb.json	/^							"evalExpression": "() => this.click()"$/;"	s	object:0.instructions.0.1.1.86
-evalExpression	scrapeAirbnb.json	/^							"evalExpression": "() => this.click()"$/;"	s	object:0.instructions.0.1.1.91
-evalExpression	scrapeAirbnb.json	/^							"evalExpression": "() => this.click()"$/;"	s	object:0.instructions.0.1.1.96
-extract	./scrape/scrape.go	/^func extract(ins instructions, page *rod.Page) {$/;"	f	package:scrape
+evalExpression	./bankscraping.json	/^									"evalExpression":"() => this.click()",$/;"	s	object:0.instructions.0.3.1.4
+evalExpression	./scrapeAirbnb.json	/^							"evalExpression": "() => this.click()"$/;"	s	object:0.instructions.0.1.1.1
+evalExpression	./scrapeAirbnb.json	/^							"evalExpression": "() => this.click()"$/;"	s	object:0.instructions.0.1.1.11
+evalExpression	./scrapeAirbnb.json	/^							"evalExpression": "() => this.click()"$/;"	s	object:0.instructions.0.1.1.16
+evalExpression	./scrapeAirbnb.json	/^							"evalExpression": "() => this.click()"$/;"	s	object:0.instructions.0.1.1.21
+evalExpression	./scrapeAirbnb.json	/^							"evalExpression": "() => this.click()"$/;"	s	object:0.instructions.0.1.1.26
+evalExpression	./scrapeAirbnb.json	/^							"evalExpression": "() => this.click()"$/;"	s	object:0.instructions.0.1.1.31
+evalExpression	./scrapeAirbnb.json	/^							"evalExpression": "() => this.click()"$/;"	s	object:0.instructions.0.1.1.36
+evalExpression	./scrapeAirbnb.json	/^							"evalExpression": "() => this.click()"$/;"	s	object:0.instructions.0.1.1.41
+evalExpression	./scrapeAirbnb.json	/^							"evalExpression": "() => this.click()"$/;"	s	object:0.instructions.0.1.1.46
+evalExpression	./scrapeAirbnb.json	/^							"evalExpression": "() => this.click()"$/;"	s	object:0.instructions.0.1.1.51
+evalExpression	./scrapeAirbnb.json	/^							"evalExpression": "() => this.click()"$/;"	s	object:0.instructions.0.1.1.56
+evalExpression	./scrapeAirbnb.json	/^							"evalExpression": "() => this.click()"$/;"	s	object:0.instructions.0.1.1.6
+evalExpression	./scrapeAirbnb.json	/^							"evalExpression": "() => this.click()"$/;"	s	object:0.instructions.0.1.1.61
+evalExpression	./scrapeAirbnb.json	/^							"evalExpression": "() => this.click()"$/;"	s	object:0.instructions.0.1.1.66
+evalExpression	./scrapeAirbnb.json	/^							"evalExpression": "() => this.click()"$/;"	s	object:0.instructions.0.1.1.71
+evalExpression	./scrapeAirbnb.json	/^							"evalExpression": "() => this.click()"$/;"	s	object:0.instructions.0.1.1.76
+evalExpression	./scrapeAirbnb.json	/^							"evalExpression": "() => this.click()"$/;"	s	object:0.instructions.0.1.1.81
+evalExpression	./scrapeAirbnb.json	/^							"evalExpression": "() => this.click()"$/;"	s	object:0.instructions.0.1.1.86
+evalExpression	./scrapeAirbnb.json	/^							"evalExpression": "() => this.click()"$/;"	s	object:0.instructions.0.1.1.91
+evalExpression	./scrapeAirbnb.json	/^							"evalExpression": "() => this.click()"$/;"	s	object:0.instructions.0.1.1.96
+extract	./scrape/scrape.go	/^func extract(data helpers.ScrapeAllInstructions, p *rod.Page) {$/;"	f	package:scrape
 extract	scrape/scrape.go	/^func extract(data helpers.ScrapeAllInstructions, p *rod.Page) {$/;"	f	package:scrape
-extract	scrape/scrape.go	/^func extract(ins instructions, p *rod.Page) {$/;"	f	package:scrape
-extract	scrape/scrape.go	/^func extract(ins instructions, page *rod.Page) {$/;"	f	package:scrape
-extractAll	./scrape/scrape.go	/^func extractAll(ins instructions, page *rod.Page) {$/;"	f	package:scrape
-extractAll	scrape/scrape.go	/^func extractAll(ins instructions, page *rod.Page) {$/;"	f	package:scrape
 extractMap	./scrape/scrape.go	/^var extractMap map[string]string$/;"	v	package:scrape	typeref:typename:map[string]string
 extractMap	scrape/scrape.go	/^var extractMap map[string]string$/;"	v	package:scrape	typeref:typename:map[string]string
+field	./bankscraping.json	/^               "field":"#ContentPlaceHolder1_Login1_LoginButton",$/;"	s	object:0.instructions.0.1.3
+field	./bankscraping.json	/^               "field":"#ContentPlaceHolder1_Login1_Password",$/;"	s	object:0.instructions.0.1.2
+field	./bankscraping.json	/^               "field":"#ContentPlaceHolder1_Login1_UserName",$/;"	s	object:0.instructions.0.1.1
+field	./bankscraping.json	/^               "field":"#ContentPlaceHolder1_PageSizeDropDownBottom",$/;"	s	object:0.instructions.0.1.5
+field	./bankscraping.json	/^               "field":"#ContentPlaceHolder1_PageSizeDropDownBottom",$/;"	s	object:0.instructions.0.1.6
+field	./bankscraping.json	/^               "field":"#dateAndPageNumberContainer > div.quickSelectDateWrapper > ol > li.lastQ/;"	s	object:0.instructions.0.1.4
 field	./sample.json	/^                "field": "#search_button_homepage",$/;"	s	object:instructions.1.2
 field	./sample.json	/^                "field": "#search_form_input",$/;"	s	object:instructions.3.1
 field	./sample.json	/^                "field": "#search_form_input_homepage",$/;"	s	object:instructions.1.1
-field	bankscraping.json	/^               "field":"#ContentPlaceHolder1_Login1_LoginButton",$/;"	s	object:0.instructions.0.1.3
-field	bankscraping.json	/^               "field":"#ContentPlaceHolder1_Login1_Password",$/;"	s	object:0.instructions.0.1.2
-field	bankscraping.json	/^               "field":"#ContentPlaceHolder1_Login1_UserName",$/;"	s	object:0.instructions.0.1.1
-field	bankscraping.json	/^               "field":"#ContentPlaceHolder1_PageSizeDropDownBottom",$/;"	s	object:0.instructions.0.1.5
-field	bankscraping.json	/^               "field":"#ContentPlaceHolder1_PageSizeDropDownBottom",$/;"	s	object:0.instructions.0.1.6
-field	bankscraping.json	/^               "field":"#dateAndPageNumberContainer > div.quickSelectDateWrapper > ol > li.lastQ/;"	s	object:0.instructions.0.1.4
-filename	scrapeAirbnb.json	/^				  	"filename": "airbnb.json"$/;"	s	object:0.instructions.0.1.2
-findPage	scrape/scrape.go	/^func findPage(data helpers.ScrapeAllInstructions, p *rod.Page) {$/;"	f	package:scrape
-findPage	scrape/scrape.go	/^func findPage(data helpers.ScrapeAllInstructions, page *rod.Page) {$/;"	f	package:scrape
-firstPage	scrape/scrape.go	/^func firstPage(data helpers.ScrapeAllInstructions, p *rod.Page) {$/;"	f	package:scrape
+filename	./scrapeAirbnb.json	/^				  	"filename": "airbnb.json"$/;"	s	object:0.instructions.0.1.2
 fns	./fns/fns.go	/^package fns$/;"	p
-fns	fns/fns.go	/^package fns$/;"	p
 form	./form/form.go	/^package form$/;"	p
 form	./form/validate.go	/^package form$/;"	p
 heading	./file.json	/^        "heading": "Animal Shelter Simulator is NOW available! Play on Steam! 👇 NEW VIDEO GAM/;"	s	object:0.0.7
@@ -443,342 +811,352 @@ heading	./test.json	/^        "heading": "Are Oleksandr Zinchenko and Arsenal a 
 heading	./test.json	/^        "heading": "Check out my drone shot of the Emirates Stadium!"$/;"	s	object:0.0.3
 heading	./test.json	/^        "heading": "Freddie Paxton on Twitter : Arsenal are ‘confident’ that personal terms /;"	s	object:0.0.2
 heading	./test.json	/^        "heading": "Stressing about your forex trades? Time to level up your game! Get a free eb/;"	s	object:0.0.4
+headless	./bankscraping.json	/^      "headless":false,$/;"	b	object:0
 headless	./oldsample.json	/^    "headless": false,$/;"	b	object:0
 headless	./sample.json	/^    "headless": false,$/;"	b
-headless	bankscraping.json	/^      "headless":false,$/;"	b	object:0
-headless	scrapeAirbnb.json	/^		"headless": false,$/;"	b	object:0
+headless	./scrapeAirbnb.json	/^		"headless": true,$/;"	b	object:0
+headless	cleanNotion.json	/^    "headless": false,$/;"	b	object:0
 helpers	./helpers/helpers.go	/^package helpers$/;"	p
-helpers	helpers/helpers.go	/^package helpers$/;"	p
 inputSelect	./form/form.go	/^func inputSelect(data helpers.FormInstructions, page *rod.Page) {$/;"	f	package:form
+instructions	./bankscraping.json	/^      "instructions":[$/;"	a	object:0
 instructions	./form/form.go	/^type instructions interface{}$/;"	i	package:form
 instructions	./oldsample.json	/^    "instructions": [$/;"	a	object:0
 instructions	./sample.json	/^    "instructions": [$/;"	a
 instructions	./scrape/scrape.go	/^type instructions interface{}$/;"	i	package:scrape
-instructions	bankscraping.json	/^      "instructions":[$/;"	a	object:0
+instructions	./scrapeAirbnb.json	/^		"instructions": [$/;"	a	object:0
+instructions	cleanNotion.json	/^    "instructions": [$/;"	a	object:0
 instructions	main.go	/^var instructions []map[string]interface{}$/;"	v	package:main	typeref:typename:[]map[string]interface{}
 instructions	scrape/scrape.go	/^type instructions interface{}$/;"	i	package:scrape
-instructions	scrapeAirbnb.json	/^		"instructions": [$/;"	a	object:0
+item	./bankscraping.json	/^                  "item":".counterOffer",$/;"	s	object:0.instructions.0.3.1.2
+item	./bankscraping.json	/^                  "item":".lackOfInfo",$/;"	s	object:0.instructions.0.3.1.1
+item	./bankscraping.json	/^                  "item":"input[class='odd approved']",$/;"	s	object:0.instructions.0.3.1.3
+item	./bankscraping.json	/^                  "item":"input[title='Next Page']",$/;"	s	object:0.instructions.0.3.1.4
 item	./oldsample.json	/^                    "item": "._1oQyIsiPHYt6nx7VOmd1sz ",$/;"	s	object:0.instructions.1.1.1
-item	bankscraping.json	/^                  "item":".counterOffer",$/;"	s	object:0.instructions.0.3.1.2
-item	bankscraping.json	/^                  "item":".lackOfInfo",$/;"	s	object:0.instructions.0.3.1.1
-item	bankscraping.json	/^                  "item":"input[class='odd approved']",$/;"	s	object:0.instructions.0.3.1.3
-item	bankscraping.json	/^                  "item":"input[title='Next Page']",$/;"	s	object:0.instructions.0.3.1.4
-item	scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.10
-item	scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.100
-item	scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.12
-item	scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.14
-item	scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.15
-item	scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.17
-item	scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.19
-item	scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.2
-item	scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.20
-item	scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.22
-item	scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.24
-item	scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.25
-item	scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.27
-item	scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.29
-item	scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.30
-item	scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.32
-item	scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.34
-item	scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.35
-item	scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.37
-item	scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.39
-item	scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.4
-item	scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.40
-item	scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.42
-item	scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.44
-item	scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.45
-item	scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.47
-item	scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.49
-item	scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.5
-item	scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.50
-item	scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.52
-item	scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.54
-item	scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.55
-item	scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.57
-item	scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.59
-item	scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.60
-item	scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.62
-item	scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.64
-item	scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.65
-item	scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.67
-item	scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.69
-item	scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.7
-item	scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.70
-item	scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.72
-item	scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.74
-item	scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.75
-item	scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.77
-item	scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.79
-item	scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.80
-item	scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.82
-item	scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.84
-item	scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.85
-item	scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.87
-item	scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.89
-item	scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.9
-item	scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.90
-item	scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.92
-item	scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.94
-item	scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.95
-item	scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.97
-item	scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.99
-item	scrapeAirbnb.json	/^							"item": "._1bfat5l"$/;"	s	object:0.instructions.0.1.1.101
-item	scrapeAirbnb.json	/^							"item": "div[class^='gia']  > div:nth-child(1)  div[aria-labelledby^='title_'] a",$/;"	s	object:0.instructions.0.1.1.1
-item	scrapeAirbnb.json	/^							"item": "div[class^='gia'] > div:nth-child(10)  div[aria-labelledby^='title_'] a",$/;"	s	object:0.instructions.0.1.1.46
-item	scrapeAirbnb.json	/^							"item": "div[class^='gia'] > div:nth-child(11)  div[aria-labelledby^='title_'] a",$/;"	s	object:0.instructions.0.1.1.51
-item	scrapeAirbnb.json	/^							"item": "div[class^='gia'] > div:nth-child(12)  div[aria-labelledby^='title_'] a",$/;"	s	object:0.instructions.0.1.1.56
-item	scrapeAirbnb.json	/^							"item": "div[class^='gia'] > div:nth-child(13)  div[aria-labelledby^='title_'] a",$/;"	s	object:0.instructions.0.1.1.61
-item	scrapeAirbnb.json	/^							"item": "div[class^='gia'] > div:nth-child(14)  div[aria-labelledby^='title_'] a",$/;"	s	object:0.instructions.0.1.1.66
-item	scrapeAirbnb.json	/^							"item": "div[class^='gia'] > div:nth-child(15)  div[aria-labelledby^='title_'] a",$/;"	s	object:0.instructions.0.1.1.71
-item	scrapeAirbnb.json	/^							"item": "div[class^='gia'] > div:nth-child(16)  div[aria-labelledby^='title_'] a",$/;"	s	object:0.instructions.0.1.1.76
-item	scrapeAirbnb.json	/^							"item": "div[class^='gia'] > div:nth-child(17)  div[aria-labelledby^='title_'] a",$/;"	s	object:0.instructions.0.1.1.81
-item	scrapeAirbnb.json	/^							"item": "div[class^='gia'] > div:nth-child(18)  div[aria-labelledby^='title_'] a",$/;"	s	object:0.instructions.0.1.1.86
-item	scrapeAirbnb.json	/^							"item": "div[class^='gia'] > div:nth-child(19)  div[aria-labelledby^='title_'] a",$/;"	s	object:0.instructions.0.1.1.91
-item	scrapeAirbnb.json	/^							"item": "div[class^='gia'] > div:nth-child(2)  div[aria-labelledby^='title_'] a",$/;"	s	object:0.instructions.0.1.1.6
-item	scrapeAirbnb.json	/^							"item": "div[class^='gia'] > div:nth-child(20)  div[aria-labelledby^='title_'] a",$/;"	s	object:0.instructions.0.1.1.96
-item	scrapeAirbnb.json	/^							"item": "div[class^='gia'] > div:nth-child(3)  div[aria-labelledby^='title_'] a",$/;"	s	object:0.instructions.0.1.1.11
-item	scrapeAirbnb.json	/^							"item": "div[class^='gia'] > div:nth-child(4)  div[aria-labelledby^='title_'] a",$/;"	s	object:0.instructions.0.1.1.16
-item	scrapeAirbnb.json	/^							"item": "div[class^='gia'] > div:nth-child(5)  div[aria-labelledby^='title_'] a",$/;"	s	object:0.instructions.0.1.1.21
-item	scrapeAirbnb.json	/^							"item": "div[class^='gia'] > div:nth-child(6)  div[aria-labelledby^='title_'] a",$/;"	s	object:0.instructions.0.1.1.26
-item	scrapeAirbnb.json	/^							"item": "div[class^='gia'] > div:nth-child(7)  div[aria-labelledby^='title_'] a",$/;"	s	object:0.instructions.0.1.1.31
-item	scrapeAirbnb.json	/^							"item": "div[class^='gia'] > div:nth-child(8)  div[aria-labelledby^='title_'] a",$/;"	s	object:0.instructions.0.1.1.36
-item	scrapeAirbnb.json	/^							"item": "div[class^='gia'] > div:nth-child(9)  div[aria-labelledby^='title_'] a",$/;"	s	object:0.instructions.0.1.1.41
-item	scrapeAirbnb.json	/^							"item": "div[data-plugin-in-point-id='TITLE_DEFAULT'] > section > div > span > h1",$/;"	s	object:0.instructions.0.1.1.13
-item	scrapeAirbnb.json	/^							"item": "div[data-plugin-in-point-id='TITLE_DEFAULT'] > section > div > span > h1",$/;"	s	object:0.instructions.0.1.1.18
-item	scrapeAirbnb.json	/^							"item": "div[data-plugin-in-point-id='TITLE_DEFAULT'] > section > div > span > h1",$/;"	s	object:0.instructions.0.1.1.23
-item	scrapeAirbnb.json	/^							"item": "div[data-plugin-in-point-id='TITLE_DEFAULT'] > section > div > span > h1",$/;"	s	object:0.instructions.0.1.1.28
-item	scrapeAirbnb.json	/^							"item": "div[data-plugin-in-point-id='TITLE_DEFAULT'] > section > div > span > h1",$/;"	s	object:0.instructions.0.1.1.3
-item	scrapeAirbnb.json	/^							"item": "div[data-plugin-in-point-id='TITLE_DEFAULT'] > section > div > span > h1",$/;"	s	object:0.instructions.0.1.1.33
-item	scrapeAirbnb.json	/^							"item": "div[data-plugin-in-point-id='TITLE_DEFAULT'] > section > div > span > h1",$/;"	s	object:0.instructions.0.1.1.38
-item	scrapeAirbnb.json	/^							"item": "div[data-plugin-in-point-id='TITLE_DEFAULT'] > section > div > span > h1",$/;"	s	object:0.instructions.0.1.1.43
-item	scrapeAirbnb.json	/^							"item": "div[data-plugin-in-point-id='TITLE_DEFAULT'] > section > div > span > h1",$/;"	s	object:0.instructions.0.1.1.48
-item	scrapeAirbnb.json	/^							"item": "div[data-plugin-in-point-id='TITLE_DEFAULT'] > section > div > span > h1",$/;"	s	object:0.instructions.0.1.1.53
-item	scrapeAirbnb.json	/^							"item": "div[data-plugin-in-point-id='TITLE_DEFAULT'] > section > div > span > h1",$/;"	s	object:0.instructions.0.1.1.58
-item	scrapeAirbnb.json	/^							"item": "div[data-plugin-in-point-id='TITLE_DEFAULT'] > section > div > span > h1",$/;"	s	object:0.instructions.0.1.1.63
-item	scrapeAirbnb.json	/^							"item": "div[data-plugin-in-point-id='TITLE_DEFAULT'] > section > div > span > h1",$/;"	s	object:0.instructions.0.1.1.68
-item	scrapeAirbnb.json	/^							"item": "div[data-plugin-in-point-id='TITLE_DEFAULT'] > section > div > span > h1",$/;"	s	object:0.instructions.0.1.1.73
-item	scrapeAirbnb.json	/^							"item": "div[data-plugin-in-point-id='TITLE_DEFAULT'] > section > div > span > h1",$/;"	s	object:0.instructions.0.1.1.78
-item	scrapeAirbnb.json	/^							"item": "div[data-plugin-in-point-id='TITLE_DEFAULT'] > section > div > span > h1",$/;"	s	object:0.instructions.0.1.1.8
-item	scrapeAirbnb.json	/^							"item": "div[data-plugin-in-point-id='TITLE_DEFAULT'] > section > div > span > h1",$/;"	s	object:0.instructions.0.1.1.83
-item	scrapeAirbnb.json	/^							"item": "div[data-plugin-in-point-id='TITLE_DEFAULT'] > section > div > span > h1",$/;"	s	object:0.instructions.0.1.1.88
-item	scrapeAirbnb.json	/^							"item": "div[data-plugin-in-point-id='TITLE_DEFAULT'] > section > div > span > h1",$/;"	s	object:0.instructions.0.1.1.93
-item	scrapeAirbnb.json	/^							"item": "div[data-plugin-in-point-id='TITLE_DEFAULT'] > section > div > span > h1",$/;"	s	object:0.instructions.0.1.1.98
-key	scrapeAirbnb.json	/^							"key": "LISTING_TITLE"$/;"	s	object:0.instructions.0.1.1.13
-key	scrapeAirbnb.json	/^							"key": "LISTING_TITLE"$/;"	s	object:0.instructions.0.1.1.18
-key	scrapeAirbnb.json	/^							"key": "LISTING_TITLE"$/;"	s	object:0.instructions.0.1.1.23
-key	scrapeAirbnb.json	/^							"key": "LISTING_TITLE"$/;"	s	object:0.instructions.0.1.1.28
-key	scrapeAirbnb.json	/^							"key": "LISTING_TITLE"$/;"	s	object:0.instructions.0.1.1.3
-key	scrapeAirbnb.json	/^							"key": "LISTING_TITLE"$/;"	s	object:0.instructions.0.1.1.33
-key	scrapeAirbnb.json	/^							"key": "LISTING_TITLE"$/;"	s	object:0.instructions.0.1.1.38
-key	scrapeAirbnb.json	/^							"key": "LISTING_TITLE"$/;"	s	object:0.instructions.0.1.1.43
-key	scrapeAirbnb.json	/^							"key": "LISTING_TITLE"$/;"	s	object:0.instructions.0.1.1.48
-key	scrapeAirbnb.json	/^							"key": "LISTING_TITLE"$/;"	s	object:0.instructions.0.1.1.53
-key	scrapeAirbnb.json	/^							"key": "LISTING_TITLE"$/;"	s	object:0.instructions.0.1.1.58
-key	scrapeAirbnb.json	/^							"key": "LISTING_TITLE"$/;"	s	object:0.instructions.0.1.1.63
-key	scrapeAirbnb.json	/^							"key": "LISTING_TITLE"$/;"	s	object:0.instructions.0.1.1.68
-key	scrapeAirbnb.json	/^							"key": "LISTING_TITLE"$/;"	s	object:0.instructions.0.1.1.73
-key	scrapeAirbnb.json	/^							"key": "LISTING_TITLE"$/;"	s	object:0.instructions.0.1.1.78
-key	scrapeAirbnb.json	/^							"key": "LISTING_TITLE"$/;"	s	object:0.instructions.0.1.1.8
-key	scrapeAirbnb.json	/^							"key": "LISTING_TITLE"$/;"	s	object:0.instructions.0.1.1.83
-key	scrapeAirbnb.json	/^							"key": "LISTING_TITLE"$/;"	s	object:0.instructions.0.1.1.88
-key	scrapeAirbnb.json	/^							"key": "LISTING_TITLE"$/;"	s	object:0.instructions.0.1.1.93
-key	scrapeAirbnb.json	/^							"key": "LISTING_TITLE"$/;"	s	object:0.instructions.0.1.1.98
+item	./scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.10
+item	./scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.100
+item	./scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.12
+item	./scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.14
+item	./scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.15
+item	./scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.17
+item	./scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.19
+item	./scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.2
+item	./scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.20
+item	./scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.22
+item	./scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.24
+item	./scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.25
+item	./scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.27
+item	./scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.29
+item	./scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.30
+item	./scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.32
+item	./scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.34
+item	./scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.35
+item	./scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.37
+item	./scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.39
+item	./scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.4
+item	./scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.40
+item	./scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.42
+item	./scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.44
+item	./scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.45
+item	./scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.47
+item	./scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.49
+item	./scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.5
+item	./scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.50
+item	./scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.52
+item	./scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.54
+item	./scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.55
+item	./scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.57
+item	./scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.59
+item	./scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.60
+item	./scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.62
+item	./scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.64
+item	./scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.65
+item	./scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.67
+item	./scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.69
+item	./scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.7
+item	./scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.70
+item	./scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.72
+item	./scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.74
+item	./scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.75
+item	./scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.77
+item	./scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.79
+item	./scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.80
+item	./scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.82
+item	./scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.84
+item	./scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.85
+item	./scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.87
+item	./scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.89
+item	./scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.9
+item	./scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.90
+item	./scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.92
+item	./scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.94
+item	./scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.95
+item	./scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.97
+item	./scrapeAirbnb.json	/^							"item": "#flash-container"$/;"	s	object:0.instructions.0.1.1.99
+item	./scrapeAirbnb.json	/^							"item": "._1bfat5l"$/;"	s	object:0.instructions.0.1.1.101
+item	./scrapeAirbnb.json	/^							"item": "div[class^='gia']  > div:nth-child(1)  div[aria-labelledby^='title_'] a",$/;"	s	object:0.instructions.0.1.1.1
+item	./scrapeAirbnb.json	/^							"item": "div[class^='gia'] > div:nth-child(10)  div[aria-labelledby^='title_'] a",$/;"	s	object:0.instructions.0.1.1.46
+item	./scrapeAirbnb.json	/^							"item": "div[class^='gia'] > div:nth-child(11)  div[aria-labelledby^='title_'] a",$/;"	s	object:0.instructions.0.1.1.51
+item	./scrapeAirbnb.json	/^							"item": "div[class^='gia'] > div:nth-child(12)  div[aria-labelledby^='title_'] a",$/;"	s	object:0.instructions.0.1.1.56
+item	./scrapeAirbnb.json	/^							"item": "div[class^='gia'] > div:nth-child(13)  div[aria-labelledby^='title_'] a",$/;"	s	object:0.instructions.0.1.1.61
+item	./scrapeAirbnb.json	/^							"item": "div[class^='gia'] > div:nth-child(14)  div[aria-labelledby^='title_'] a",$/;"	s	object:0.instructions.0.1.1.66
+item	./scrapeAirbnb.json	/^							"item": "div[class^='gia'] > div:nth-child(15)  div[aria-labelledby^='title_'] a",$/;"	s	object:0.instructions.0.1.1.71
+item	./scrapeAirbnb.json	/^							"item": "div[class^='gia'] > div:nth-child(16)  div[aria-labelledby^='title_'] a",$/;"	s	object:0.instructions.0.1.1.76
+item	./scrapeAirbnb.json	/^							"item": "div[class^='gia'] > div:nth-child(17)  div[aria-labelledby^='title_'] a",$/;"	s	object:0.instructions.0.1.1.81
+item	./scrapeAirbnb.json	/^							"item": "div[class^='gia'] > div:nth-child(18)  div[aria-labelledby^='title_'] a",$/;"	s	object:0.instructions.0.1.1.86
+item	./scrapeAirbnb.json	/^							"item": "div[class^='gia'] > div:nth-child(19)  div[aria-labelledby^='title_'] a",$/;"	s	object:0.instructions.0.1.1.91
+item	./scrapeAirbnb.json	/^							"item": "div[class^='gia'] > div:nth-child(2)  div[aria-labelledby^='title_'] a",$/;"	s	object:0.instructions.0.1.1.6
+item	./scrapeAirbnb.json	/^							"item": "div[class^='gia'] > div:nth-child(20)  div[aria-labelledby^='title_'] a",$/;"	s	object:0.instructions.0.1.1.96
+item	./scrapeAirbnb.json	/^							"item": "div[class^='gia'] > div:nth-child(3)  div[aria-labelledby^='title_'] a",$/;"	s	object:0.instructions.0.1.1.11
+item	./scrapeAirbnb.json	/^							"item": "div[class^='gia'] > div:nth-child(4)  div[aria-labelledby^='title_'] a",$/;"	s	object:0.instructions.0.1.1.16
+item	./scrapeAirbnb.json	/^							"item": "div[class^='gia'] > div:nth-child(5)  div[aria-labelledby^='title_'] a",$/;"	s	object:0.instructions.0.1.1.21
+item	./scrapeAirbnb.json	/^							"item": "div[class^='gia'] > div:nth-child(6)  div[aria-labelledby^='title_'] a",$/;"	s	object:0.instructions.0.1.1.26
+item	./scrapeAirbnb.json	/^							"item": "div[class^='gia'] > div:nth-child(7)  div[aria-labelledby^='title_'] a",$/;"	s	object:0.instructions.0.1.1.31
+item	./scrapeAirbnb.json	/^							"item": "div[class^='gia'] > div:nth-child(8)  div[aria-labelledby^='title_'] a",$/;"	s	object:0.instructions.0.1.1.36
+item	./scrapeAirbnb.json	/^							"item": "div[class^='gia'] > div:nth-child(9)  div[aria-labelledby^='title_'] a",$/;"	s	object:0.instructions.0.1.1.41
+item	./scrapeAirbnb.json	/^							"item": "div[data-plugin-in-point-id='TITLE_DEFAULT'] > section > div > span > h1",$/;"	s	object:0.instructions.0.1.1.13
+item	./scrapeAirbnb.json	/^							"item": "div[data-plugin-in-point-id='TITLE_DEFAULT'] > section > div > span > h1",$/;"	s	object:0.instructions.0.1.1.18
+item	./scrapeAirbnb.json	/^							"item": "div[data-plugin-in-point-id='TITLE_DEFAULT'] > section > div > span > h1",$/;"	s	object:0.instructions.0.1.1.23
+item	./scrapeAirbnb.json	/^							"item": "div[data-plugin-in-point-id='TITLE_DEFAULT'] > section > div > span > h1",$/;"	s	object:0.instructions.0.1.1.28
+item	./scrapeAirbnb.json	/^							"item": "div[data-plugin-in-point-id='TITLE_DEFAULT'] > section > div > span > h1",$/;"	s	object:0.instructions.0.1.1.3
+item	./scrapeAirbnb.json	/^							"item": "div[data-plugin-in-point-id='TITLE_DEFAULT'] > section > div > span > h1",$/;"	s	object:0.instructions.0.1.1.33
+item	./scrapeAirbnb.json	/^							"item": "div[data-plugin-in-point-id='TITLE_DEFAULT'] > section > div > span > h1",$/;"	s	object:0.instructions.0.1.1.38
+item	./scrapeAirbnb.json	/^							"item": "div[data-plugin-in-point-id='TITLE_DEFAULT'] > section > div > span > h1",$/;"	s	object:0.instructions.0.1.1.43
+item	./scrapeAirbnb.json	/^							"item": "div[data-plugin-in-point-id='TITLE_DEFAULT'] > section > div > span > h1",$/;"	s	object:0.instructions.0.1.1.48
+item	./scrapeAirbnb.json	/^							"item": "div[data-plugin-in-point-id='TITLE_DEFAULT'] > section > div > span > h1",$/;"	s	object:0.instructions.0.1.1.53
+item	./scrapeAirbnb.json	/^							"item": "div[data-plugin-in-point-id='TITLE_DEFAULT'] > section > div > span > h1",$/;"	s	object:0.instructions.0.1.1.58
+item	./scrapeAirbnb.json	/^							"item": "div[data-plugin-in-point-id='TITLE_DEFAULT'] > section > div > span > h1",$/;"	s	object:0.instructions.0.1.1.63
+item	./scrapeAirbnb.json	/^							"item": "div[data-plugin-in-point-id='TITLE_DEFAULT'] > section > div > span > h1",$/;"	s	object:0.instructions.0.1.1.68
+item	./scrapeAirbnb.json	/^							"item": "div[data-plugin-in-point-id='TITLE_DEFAULT'] > section > div > span > h1",$/;"	s	object:0.instructions.0.1.1.73
+item	./scrapeAirbnb.json	/^							"item": "div[data-plugin-in-point-id='TITLE_DEFAULT'] > section > div > span > h1",$/;"	s	object:0.instructions.0.1.1.78
+item	./scrapeAirbnb.json	/^							"item": "div[data-plugin-in-point-id='TITLE_DEFAULT'] > section > div > span > h1",$/;"	s	object:0.instructions.0.1.1.8
+item	./scrapeAirbnb.json	/^							"item": "div[data-plugin-in-point-id='TITLE_DEFAULT'] > section > div > span > h1",$/;"	s	object:0.instructions.0.1.1.83
+item	./scrapeAirbnb.json	/^							"item": "div[data-plugin-in-point-id='TITLE_DEFAULT'] > section > div > span > h1",$/;"	s	object:0.instructions.0.1.1.88
+item	./scrapeAirbnb.json	/^							"item": "div[data-plugin-in-point-id='TITLE_DEFAULT'] > section > div > span > h1",$/;"	s	object:0.instructions.0.1.1.93
+item	./scrapeAirbnb.json	/^							"item": "div[data-plugin-in-point-id='TITLE_DEFAULT'] > section > div > span > h1",$/;"	s	object:0.instructions.0.1.1.98
+item	cleanNotion.json	/^									"item": "1"$/;"	s	object:0.instructions.1.1.1
+item	cleanNotion.json	/^                    "item": "div[class='notion-selectable notion-page-block notion-collection-it/;"	s	object:0.instructions.1.1.2
+jobs	cleanNotion.json	/^												"jobs": "div:nth-child(4)",$/;"	s	object:0.instructions.1.1.2.keys
+key	./scrapeAirbnb.json	/^							"key": "LISTING_TITLE"$/;"	s	object:0.instructions.0.1.1.13
+key	./scrapeAirbnb.json	/^							"key": "LISTING_TITLE"$/;"	s	object:0.instructions.0.1.1.18
+key	./scrapeAirbnb.json	/^							"key": "LISTING_TITLE"$/;"	s	object:0.instructions.0.1.1.23
+key	./scrapeAirbnb.json	/^							"key": "LISTING_TITLE"$/;"	s	object:0.instructions.0.1.1.28
+key	./scrapeAirbnb.json	/^							"key": "LISTING_TITLE"$/;"	s	object:0.instructions.0.1.1.3
+key	./scrapeAirbnb.json	/^							"key": "LISTING_TITLE"$/;"	s	object:0.instructions.0.1.1.33
+key	./scrapeAirbnb.json	/^							"key": "LISTING_TITLE"$/;"	s	object:0.instructions.0.1.1.38
+key	./scrapeAirbnb.json	/^							"key": "LISTING_TITLE"$/;"	s	object:0.instructions.0.1.1.43
+key	./scrapeAirbnb.json	/^							"key": "LISTING_TITLE"$/;"	s	object:0.instructions.0.1.1.48
+key	./scrapeAirbnb.json	/^							"key": "LISTING_TITLE"$/;"	s	object:0.instructions.0.1.1.53
+key	./scrapeAirbnb.json	/^							"key": "LISTING_TITLE"$/;"	s	object:0.instructions.0.1.1.58
+key	./scrapeAirbnb.json	/^							"key": "LISTING_TITLE"$/;"	s	object:0.instructions.0.1.1.63
+key	./scrapeAirbnb.json	/^							"key": "LISTING_TITLE"$/;"	s	object:0.instructions.0.1.1.68
+key	./scrapeAirbnb.json	/^							"key": "LISTING_TITLE"$/;"	s	object:0.instructions.0.1.1.73
+key	./scrapeAirbnb.json	/^							"key": "LISTING_TITLE"$/;"	s	object:0.instructions.0.1.1.78
+key	./scrapeAirbnb.json	/^							"key": "LISTING_TITLE"$/;"	s	object:0.instructions.0.1.1.8
+key	./scrapeAirbnb.json	/^							"key": "LISTING_TITLE"$/;"	s	object:0.instructions.0.1.1.83
+key	./scrapeAirbnb.json	/^							"key": "LISTING_TITLE"$/;"	s	object:0.instructions.0.1.1.88
+key	./scrapeAirbnb.json	/^							"key": "LISTING_TITLE"$/;"	s	object:0.instructions.0.1.1.93
+key	./scrapeAirbnb.json	/^							"key": "LISTING_TITLE"$/;"	s	object:0.instructions.0.1.1.98
+keys	./bankscraping.json	/^                  "keys":{$/;"	o	object:0.instructions.0.3.1.1
+keys	./bankscraping.json	/^                  "keys":{$/;"	o	object:0.instructions.0.3.1.2
+keys	./bankscraping.json	/^                  "keys":{$/;"	o	object:0.instructions.0.3.1.3
+keys	./bankscraping.json	/^                  "keys":{$/;"	o	object:0.instructions.0.3.1.4
 keys	./oldsample.json	/^                    "keys": {$/;"	o	object:0.instructions.1.1.1
-keys	bankscraping.json	/^                  "keys":{$/;"	o	object:0.instructions.0.3.1.1
-keys	bankscraping.json	/^                  "keys":{$/;"	o	object:0.instructions.0.3.1.2
-keys	bankscraping.json	/^                  "keys":{$/;"	o	object:0.instructions.0.3.1.3
-keys	bankscraping.json	/^                  "keys":{$/;"	o	object:0.instructions.0.3.1.4
+keys	cleanNotion.json	/^                    "keys": {$/;"	o	object:0.instructions.1.1.2
+kind	./bankscraping.json	/^									"kind": "eval",$/;"	s	object:0.instructions.0.3.1.4
+kind	./bankscraping.json	/^									"kind": "extract",$/;"	s	object:0.instructions.0.3.1.1
+kind	./bankscraping.json	/^									"kind": "extract",$/;"	s	object:0.instructions.0.3.1.2
+kind	./bankscraping.json	/^									"kind": "extract",$/;"	s	object:0.instructions.0.3.1.3
+kind	./bankscraping.json	/^               "kind":"leftClick",$/;"	s	object:0.instructions.0.1.3
+kind	./bankscraping.json	/^               "kind":"leftClick",$/;"	s	object:0.instructions.0.1.4
+kind	./bankscraping.json	/^               "kind":"leftClick",$/;"	s	object:0.instructions.0.1.6
+kind	./bankscraping.json	/^               "kind":"text",$/;"	s	object:0.instructions.0.1.1
+kind	./bankscraping.json	/^               "kind":"text",$/;"	s	object:0.instructions.0.1.2
+kind	./bankscraping.json	/^               "kind":"text",$/;"	s	object:0.instructions.0.1.5
 kind	./sample.json	/^                "kind": "leftClick",$/;"	s	object:instructions.1.2
 kind	./sample.json	/^                "kind": "text",$/;"	s	object:instructions.1.1
 kind	./sample.json	/^                "kind": "text",$/;"	s	object:instructions.3.1
-kind	bankscraping.json	/^									"kind": "eval",$/;"	s	object:0.instructions.0.3.1.4
-kind	bankscraping.json	/^									"kind": "extract",$/;"	s	object:0.instructions.0.3.1.1
-kind	bankscraping.json	/^									"kind": "extract",$/;"	s	object:0.instructions.0.3.1.2
-kind	bankscraping.json	/^									"kind": "extract",$/;"	s	object:0.instructions.0.3.1.3
-kind	bankscraping.json	/^               "kind":"leftClick",$/;"	s	object:0.instructions.0.1.3
-kind	bankscraping.json	/^               "kind":"leftClick",$/;"	s	object:0.instructions.0.1.4
-kind	bankscraping.json	/^               "kind":"leftClick",$/;"	s	object:0.instructions.0.1.6
-kind	bankscraping.json	/^               "kind":"text",$/;"	s	object:0.instructions.0.1.1
-kind	bankscraping.json	/^               "kind":"text",$/;"	s	object:0.instructions.0.1.2
-kind	bankscraping.json	/^               "kind":"text",$/;"	s	object:0.instructions.0.1.5
-kind	scrapeAirbnb.json	/^							"kind": "closePage",$/;"	s	object:0.instructions.0.1.1.10
-kind	scrapeAirbnb.json	/^							"kind": "closePage",$/;"	s	object:0.instructions.0.1.1.100
-kind	scrapeAirbnb.json	/^							"kind": "closePage",$/;"	s	object:0.instructions.0.1.1.15
-kind	scrapeAirbnb.json	/^							"kind": "closePage",$/;"	s	object:0.instructions.0.1.1.20
-kind	scrapeAirbnb.json	/^							"kind": "closePage",$/;"	s	object:0.instructions.0.1.1.25
-kind	scrapeAirbnb.json	/^							"kind": "closePage",$/;"	s	object:0.instructions.0.1.1.30
-kind	scrapeAirbnb.json	/^							"kind": "closePage",$/;"	s	object:0.instructions.0.1.1.35
-kind	scrapeAirbnb.json	/^							"kind": "closePage",$/;"	s	object:0.instructions.0.1.1.40
-kind	scrapeAirbnb.json	/^							"kind": "closePage",$/;"	s	object:0.instructions.0.1.1.45
-kind	scrapeAirbnb.json	/^							"kind": "closePage",$/;"	s	object:0.instructions.0.1.1.5
-kind	scrapeAirbnb.json	/^							"kind": "closePage",$/;"	s	object:0.instructions.0.1.1.50
-kind	scrapeAirbnb.json	/^							"kind": "closePage",$/;"	s	object:0.instructions.0.1.1.55
-kind	scrapeAirbnb.json	/^							"kind": "closePage",$/;"	s	object:0.instructions.0.1.1.60
-kind	scrapeAirbnb.json	/^							"kind": "closePage",$/;"	s	object:0.instructions.0.1.1.65
-kind	scrapeAirbnb.json	/^							"kind": "closePage",$/;"	s	object:0.instructions.0.1.1.70
-kind	scrapeAirbnb.json	/^							"kind": "closePage",$/;"	s	object:0.instructions.0.1.1.75
-kind	scrapeAirbnb.json	/^							"kind": "closePage",$/;"	s	object:0.instructions.0.1.1.80
-kind	scrapeAirbnb.json	/^							"kind": "closePage",$/;"	s	object:0.instructions.0.1.1.85
-kind	scrapeAirbnb.json	/^							"kind": "closePage",$/;"	s	object:0.instructions.0.1.1.90
-kind	scrapeAirbnb.json	/^							"kind": "closePage",$/;"	s	object:0.instructions.0.1.1.95
-kind	scrapeAirbnb.json	/^							"kind": "eval",$/;"	s	object:0.instructions.0.1.1.1
-kind	scrapeAirbnb.json	/^							"kind": "eval",$/;"	s	object:0.instructions.0.1.1.11
-kind	scrapeAirbnb.json	/^							"kind": "eval",$/;"	s	object:0.instructions.0.1.1.16
-kind	scrapeAirbnb.json	/^							"kind": "eval",$/;"	s	object:0.instructions.0.1.1.21
-kind	scrapeAirbnb.json	/^							"kind": "eval",$/;"	s	object:0.instructions.0.1.1.26
-kind	scrapeAirbnb.json	/^							"kind": "eval",$/;"	s	object:0.instructions.0.1.1.31
-kind	scrapeAirbnb.json	/^							"kind": "eval",$/;"	s	object:0.instructions.0.1.1.36
-kind	scrapeAirbnb.json	/^							"kind": "eval",$/;"	s	object:0.instructions.0.1.1.41
-kind	scrapeAirbnb.json	/^							"kind": "eval",$/;"	s	object:0.instructions.0.1.1.46
-kind	scrapeAirbnb.json	/^							"kind": "eval",$/;"	s	object:0.instructions.0.1.1.51
-kind	scrapeAirbnb.json	/^							"kind": "eval",$/;"	s	object:0.instructions.0.1.1.56
-kind	scrapeAirbnb.json	/^							"kind": "eval",$/;"	s	object:0.instructions.0.1.1.6
-kind	scrapeAirbnb.json	/^							"kind": "eval",$/;"	s	object:0.instructions.0.1.1.61
-kind	scrapeAirbnb.json	/^							"kind": "eval",$/;"	s	object:0.instructions.0.1.1.66
-kind	scrapeAirbnb.json	/^							"kind": "eval",$/;"	s	object:0.instructions.0.1.1.71
-kind	scrapeAirbnb.json	/^							"kind": "eval",$/;"	s	object:0.instructions.0.1.1.76
-kind	scrapeAirbnb.json	/^							"kind": "eval",$/;"	s	object:0.instructions.0.1.1.81
-kind	scrapeAirbnb.json	/^							"kind": "eval",$/;"	s	object:0.instructions.0.1.1.86
-kind	scrapeAirbnb.json	/^							"kind": "eval",$/;"	s	object:0.instructions.0.1.1.91
-kind	scrapeAirbnb.json	/^							"kind": "eval",$/;"	s	object:0.instructions.0.1.1.96
-kind	scrapeAirbnb.json	/^							"kind": "extract",$/;"	s	object:0.instructions.0.1.1.13
-kind	scrapeAirbnb.json	/^							"kind": "extract",$/;"	s	object:0.instructions.0.1.1.18
-kind	scrapeAirbnb.json	/^							"kind": "extract",$/;"	s	object:0.instructions.0.1.1.23
-kind	scrapeAirbnb.json	/^							"kind": "extract",$/;"	s	object:0.instructions.0.1.1.28
-kind	scrapeAirbnb.json	/^							"kind": "extract",$/;"	s	object:0.instructions.0.1.1.3
-kind	scrapeAirbnb.json	/^							"kind": "extract",$/;"	s	object:0.instructions.0.1.1.33
-kind	scrapeAirbnb.json	/^							"kind": "extract",$/;"	s	object:0.instructions.0.1.1.38
-kind	scrapeAirbnb.json	/^							"kind": "extract",$/;"	s	object:0.instructions.0.1.1.43
-kind	scrapeAirbnb.json	/^							"kind": "extract",$/;"	s	object:0.instructions.0.1.1.48
-kind	scrapeAirbnb.json	/^							"kind": "extract",$/;"	s	object:0.instructions.0.1.1.53
-kind	scrapeAirbnb.json	/^							"kind": "extract",$/;"	s	object:0.instructions.0.1.1.58
-kind	scrapeAirbnb.json	/^							"kind": "extract",$/;"	s	object:0.instructions.0.1.1.63
-kind	scrapeAirbnb.json	/^							"kind": "extract",$/;"	s	object:0.instructions.0.1.1.68
-kind	scrapeAirbnb.json	/^							"kind": "extract",$/;"	s	object:0.instructions.0.1.1.73
-kind	scrapeAirbnb.json	/^							"kind": "extract",$/;"	s	object:0.instructions.0.1.1.78
-kind	scrapeAirbnb.json	/^							"kind": "extract",$/;"	s	object:0.instructions.0.1.1.8
-kind	scrapeAirbnb.json	/^							"kind": "extract",$/;"	s	object:0.instructions.0.1.1.83
-kind	scrapeAirbnb.json	/^							"kind": "extract",$/;"	s	object:0.instructions.0.1.1.88
-kind	scrapeAirbnb.json	/^							"kind": "extract",$/;"	s	object:0.instructions.0.1.1.93
-kind	scrapeAirbnb.json	/^							"kind": "extract",$/;"	s	object:0.instructions.0.1.1.98
-kind	scrapeAirbnb.json	/^							"kind": "leftClick",$/;"	s	object:0.instructions.0.1.1.101
-kind	scrapeAirbnb.json	/^							"kind": "nextPage",$/;"	s	object:0.instructions.0.1.1.12
-kind	scrapeAirbnb.json	/^							"kind": "nextPage",$/;"	s	object:0.instructions.0.1.1.17
-kind	scrapeAirbnb.json	/^							"kind": "nextPage",$/;"	s	object:0.instructions.0.1.1.2
-kind	scrapeAirbnb.json	/^							"kind": "nextPage",$/;"	s	object:0.instructions.0.1.1.22
-kind	scrapeAirbnb.json	/^							"kind": "nextPage",$/;"	s	object:0.instructions.0.1.1.27
-kind	scrapeAirbnb.json	/^							"kind": "nextPage",$/;"	s	object:0.instructions.0.1.1.32
-kind	scrapeAirbnb.json	/^							"kind": "nextPage",$/;"	s	object:0.instructions.0.1.1.37
-kind	scrapeAirbnb.json	/^							"kind": "nextPage",$/;"	s	object:0.instructions.0.1.1.42
-kind	scrapeAirbnb.json	/^							"kind": "nextPage",$/;"	s	object:0.instructions.0.1.1.47
-kind	scrapeAirbnb.json	/^							"kind": "nextPage",$/;"	s	object:0.instructions.0.1.1.52
-kind	scrapeAirbnb.json	/^							"kind": "nextPage",$/;"	s	object:0.instructions.0.1.1.57
-kind	scrapeAirbnb.json	/^							"kind": "nextPage",$/;"	s	object:0.instructions.0.1.1.62
-kind	scrapeAirbnb.json	/^							"kind": "nextPage",$/;"	s	object:0.instructions.0.1.1.67
-kind	scrapeAirbnb.json	/^							"kind": "nextPage",$/;"	s	object:0.instructions.0.1.1.7
-kind	scrapeAirbnb.json	/^							"kind": "nextPage",$/;"	s	object:0.instructions.0.1.1.72
-kind	scrapeAirbnb.json	/^							"kind": "nextPage",$/;"	s	object:0.instructions.0.1.1.77
-kind	scrapeAirbnb.json	/^							"kind": "nextPage",$/;"	s	object:0.instructions.0.1.1.82
-kind	scrapeAirbnb.json	/^							"kind": "nextPage",$/;"	s	object:0.instructions.0.1.1.87
-kind	scrapeAirbnb.json	/^							"kind": "nextPage",$/;"	s	object:0.instructions.0.1.1.92
-kind	scrapeAirbnb.json	/^							"kind": "nextPage",$/;"	s	object:0.instructions.0.1.1.97
-kind	scrapeAirbnb.json	/^							"kind": "prevPage",$/;"	s	object:0.instructions.0.1.1.14
-kind	scrapeAirbnb.json	/^							"kind": "prevPage",$/;"	s	object:0.instructions.0.1.1.19
-kind	scrapeAirbnb.json	/^							"kind": "prevPage",$/;"	s	object:0.instructions.0.1.1.24
-kind	scrapeAirbnb.json	/^							"kind": "prevPage",$/;"	s	object:0.instructions.0.1.1.29
-kind	scrapeAirbnb.json	/^							"kind": "prevPage",$/;"	s	object:0.instructions.0.1.1.34
-kind	scrapeAirbnb.json	/^							"kind": "prevPage",$/;"	s	object:0.instructions.0.1.1.39
-kind	scrapeAirbnb.json	/^							"kind": "prevPage",$/;"	s	object:0.instructions.0.1.1.4
-kind	scrapeAirbnb.json	/^							"kind": "prevPage",$/;"	s	object:0.instructions.0.1.1.44
-kind	scrapeAirbnb.json	/^							"kind": "prevPage",$/;"	s	object:0.instructions.0.1.1.49
-kind	scrapeAirbnb.json	/^							"kind": "prevPage",$/;"	s	object:0.instructions.0.1.1.54
-kind	scrapeAirbnb.json	/^							"kind": "prevPage",$/;"	s	object:0.instructions.0.1.1.59
-kind	scrapeAirbnb.json	/^							"kind": "prevPage",$/;"	s	object:0.instructions.0.1.1.64
-kind	scrapeAirbnb.json	/^							"kind": "prevPage",$/;"	s	object:0.instructions.0.1.1.69
-kind	scrapeAirbnb.json	/^							"kind": "prevPage",$/;"	s	object:0.instructions.0.1.1.74
-kind	scrapeAirbnb.json	/^							"kind": "prevPage",$/;"	s	object:0.instructions.0.1.1.79
-kind	scrapeAirbnb.json	/^							"kind": "prevPage",$/;"	s	object:0.instructions.0.1.1.84
-kind	scrapeAirbnb.json	/^							"kind": "prevPage",$/;"	s	object:0.instructions.0.1.1.89
-kind	scrapeAirbnb.json	/^							"kind": "prevPage",$/;"	s	object:0.instructions.0.1.1.9
-kind	scrapeAirbnb.json	/^							"kind": "prevPage",$/;"	s	object:0.instructions.0.1.1.94
-kind	scrapeAirbnb.json	/^							"kind": "prevPage",$/;"	s	object:0.instructions.0.1.1.99
+kind	./scrapeAirbnb.json	/^							"kind": "closePage",$/;"	s	object:0.instructions.0.1.1.10
+kind	./scrapeAirbnb.json	/^							"kind": "closePage",$/;"	s	object:0.instructions.0.1.1.100
+kind	./scrapeAirbnb.json	/^							"kind": "closePage",$/;"	s	object:0.instructions.0.1.1.15
+kind	./scrapeAirbnb.json	/^							"kind": "closePage",$/;"	s	object:0.instructions.0.1.1.20
+kind	./scrapeAirbnb.json	/^							"kind": "closePage",$/;"	s	object:0.instructions.0.1.1.25
+kind	./scrapeAirbnb.json	/^							"kind": "closePage",$/;"	s	object:0.instructions.0.1.1.30
+kind	./scrapeAirbnb.json	/^							"kind": "closePage",$/;"	s	object:0.instructions.0.1.1.35
+kind	./scrapeAirbnb.json	/^							"kind": "closePage",$/;"	s	object:0.instructions.0.1.1.40
+kind	./scrapeAirbnb.json	/^							"kind": "closePage",$/;"	s	object:0.instructions.0.1.1.45
+kind	./scrapeAirbnb.json	/^							"kind": "closePage",$/;"	s	object:0.instructions.0.1.1.5
+kind	./scrapeAirbnb.json	/^							"kind": "closePage",$/;"	s	object:0.instructions.0.1.1.50
+kind	./scrapeAirbnb.json	/^							"kind": "closePage",$/;"	s	object:0.instructions.0.1.1.55
+kind	./scrapeAirbnb.json	/^							"kind": "closePage",$/;"	s	object:0.instructions.0.1.1.60
+kind	./scrapeAirbnb.json	/^							"kind": "closePage",$/;"	s	object:0.instructions.0.1.1.65
+kind	./scrapeAirbnb.json	/^							"kind": "closePage",$/;"	s	object:0.instructions.0.1.1.70
+kind	./scrapeAirbnb.json	/^							"kind": "closePage",$/;"	s	object:0.instructions.0.1.1.75
+kind	./scrapeAirbnb.json	/^							"kind": "closePage",$/;"	s	object:0.instructions.0.1.1.80
+kind	./scrapeAirbnb.json	/^							"kind": "closePage",$/;"	s	object:0.instructions.0.1.1.85
+kind	./scrapeAirbnb.json	/^							"kind": "closePage",$/;"	s	object:0.instructions.0.1.1.90
+kind	./scrapeAirbnb.json	/^							"kind": "closePage",$/;"	s	object:0.instructions.0.1.1.95
+kind	./scrapeAirbnb.json	/^							"kind": "eval",$/;"	s	object:0.instructions.0.1.1.1
+kind	./scrapeAirbnb.json	/^							"kind": "eval",$/;"	s	object:0.instructions.0.1.1.11
+kind	./scrapeAirbnb.json	/^							"kind": "eval",$/;"	s	object:0.instructions.0.1.1.16
+kind	./scrapeAirbnb.json	/^							"kind": "eval",$/;"	s	object:0.instructions.0.1.1.21
+kind	./scrapeAirbnb.json	/^							"kind": "eval",$/;"	s	object:0.instructions.0.1.1.26
+kind	./scrapeAirbnb.json	/^							"kind": "eval",$/;"	s	object:0.instructions.0.1.1.31
+kind	./scrapeAirbnb.json	/^							"kind": "eval",$/;"	s	object:0.instructions.0.1.1.36
+kind	./scrapeAirbnb.json	/^							"kind": "eval",$/;"	s	object:0.instructions.0.1.1.41
+kind	./scrapeAirbnb.json	/^							"kind": "eval",$/;"	s	object:0.instructions.0.1.1.46
+kind	./scrapeAirbnb.json	/^							"kind": "eval",$/;"	s	object:0.instructions.0.1.1.51
+kind	./scrapeAirbnb.json	/^							"kind": "eval",$/;"	s	object:0.instructions.0.1.1.56
+kind	./scrapeAirbnb.json	/^							"kind": "eval",$/;"	s	object:0.instructions.0.1.1.6
+kind	./scrapeAirbnb.json	/^							"kind": "eval",$/;"	s	object:0.instructions.0.1.1.61
+kind	./scrapeAirbnb.json	/^							"kind": "eval",$/;"	s	object:0.instructions.0.1.1.66
+kind	./scrapeAirbnb.json	/^							"kind": "eval",$/;"	s	object:0.instructions.0.1.1.71
+kind	./scrapeAirbnb.json	/^							"kind": "eval",$/;"	s	object:0.instructions.0.1.1.76
+kind	./scrapeAirbnb.json	/^							"kind": "eval",$/;"	s	object:0.instructions.0.1.1.81
+kind	./scrapeAirbnb.json	/^							"kind": "eval",$/;"	s	object:0.instructions.0.1.1.86
+kind	./scrapeAirbnb.json	/^							"kind": "eval",$/;"	s	object:0.instructions.0.1.1.91
+kind	./scrapeAirbnb.json	/^							"kind": "eval",$/;"	s	object:0.instructions.0.1.1.96
+kind	./scrapeAirbnb.json	/^							"kind": "extract",$/;"	s	object:0.instructions.0.1.1.13
+kind	./scrapeAirbnb.json	/^							"kind": "extract",$/;"	s	object:0.instructions.0.1.1.18
+kind	./scrapeAirbnb.json	/^							"kind": "extract",$/;"	s	object:0.instructions.0.1.1.23
+kind	./scrapeAirbnb.json	/^							"kind": "extract",$/;"	s	object:0.instructions.0.1.1.28
+kind	./scrapeAirbnb.json	/^							"kind": "extract",$/;"	s	object:0.instructions.0.1.1.3
+kind	./scrapeAirbnb.json	/^							"kind": "extract",$/;"	s	object:0.instructions.0.1.1.33
+kind	./scrapeAirbnb.json	/^							"kind": "extract",$/;"	s	object:0.instructions.0.1.1.38
+kind	./scrapeAirbnb.json	/^							"kind": "extract",$/;"	s	object:0.instructions.0.1.1.43
+kind	./scrapeAirbnb.json	/^							"kind": "extract",$/;"	s	object:0.instructions.0.1.1.48
+kind	./scrapeAirbnb.json	/^							"kind": "extract",$/;"	s	object:0.instructions.0.1.1.53
+kind	./scrapeAirbnb.json	/^							"kind": "extract",$/;"	s	object:0.instructions.0.1.1.58
+kind	./scrapeAirbnb.json	/^							"kind": "extract",$/;"	s	object:0.instructions.0.1.1.63
+kind	./scrapeAirbnb.json	/^							"kind": "extract",$/;"	s	object:0.instructions.0.1.1.68
+kind	./scrapeAirbnb.json	/^							"kind": "extract",$/;"	s	object:0.instructions.0.1.1.73
+kind	./scrapeAirbnb.json	/^							"kind": "extract",$/;"	s	object:0.instructions.0.1.1.78
+kind	./scrapeAirbnb.json	/^							"kind": "extract",$/;"	s	object:0.instructions.0.1.1.8
+kind	./scrapeAirbnb.json	/^							"kind": "extract",$/;"	s	object:0.instructions.0.1.1.83
+kind	./scrapeAirbnb.json	/^							"kind": "extract",$/;"	s	object:0.instructions.0.1.1.88
+kind	./scrapeAirbnb.json	/^							"kind": "extract",$/;"	s	object:0.instructions.0.1.1.93
+kind	./scrapeAirbnb.json	/^							"kind": "extract",$/;"	s	object:0.instructions.0.1.1.98
+kind	./scrapeAirbnb.json	/^							"kind": "leftClick",$/;"	s	object:0.instructions.0.1.1.101
+kind	./scrapeAirbnb.json	/^							"kind": "nextPage",$/;"	s	object:0.instructions.0.1.1.12
+kind	./scrapeAirbnb.json	/^							"kind": "nextPage",$/;"	s	object:0.instructions.0.1.1.17
+kind	./scrapeAirbnb.json	/^							"kind": "nextPage",$/;"	s	object:0.instructions.0.1.1.2
+kind	./scrapeAirbnb.json	/^							"kind": "nextPage",$/;"	s	object:0.instructions.0.1.1.22
+kind	./scrapeAirbnb.json	/^							"kind": "nextPage",$/;"	s	object:0.instructions.0.1.1.27
+kind	./scrapeAirbnb.json	/^							"kind": "nextPage",$/;"	s	object:0.instructions.0.1.1.32
+kind	./scrapeAirbnb.json	/^							"kind": "nextPage",$/;"	s	object:0.instructions.0.1.1.37
+kind	./scrapeAirbnb.json	/^							"kind": "nextPage",$/;"	s	object:0.instructions.0.1.1.42
+kind	./scrapeAirbnb.json	/^							"kind": "nextPage",$/;"	s	object:0.instructions.0.1.1.47
+kind	./scrapeAirbnb.json	/^							"kind": "nextPage",$/;"	s	object:0.instructions.0.1.1.52
+kind	./scrapeAirbnb.json	/^							"kind": "nextPage",$/;"	s	object:0.instructions.0.1.1.57
+kind	./scrapeAirbnb.json	/^							"kind": "nextPage",$/;"	s	object:0.instructions.0.1.1.62
+kind	./scrapeAirbnb.json	/^							"kind": "nextPage",$/;"	s	object:0.instructions.0.1.1.67
+kind	./scrapeAirbnb.json	/^							"kind": "nextPage",$/;"	s	object:0.instructions.0.1.1.7
+kind	./scrapeAirbnb.json	/^							"kind": "nextPage",$/;"	s	object:0.instructions.0.1.1.72
+kind	./scrapeAirbnb.json	/^							"kind": "nextPage",$/;"	s	object:0.instructions.0.1.1.77
+kind	./scrapeAirbnb.json	/^							"kind": "nextPage",$/;"	s	object:0.instructions.0.1.1.82
+kind	./scrapeAirbnb.json	/^							"kind": "nextPage",$/;"	s	object:0.instructions.0.1.1.87
+kind	./scrapeAirbnb.json	/^							"kind": "nextPage",$/;"	s	object:0.instructions.0.1.1.92
+kind	./scrapeAirbnb.json	/^							"kind": "nextPage",$/;"	s	object:0.instructions.0.1.1.97
+kind	./scrapeAirbnb.json	/^							"kind": "prevPage",$/;"	s	object:0.instructions.0.1.1.14
+kind	./scrapeAirbnb.json	/^							"kind": "prevPage",$/;"	s	object:0.instructions.0.1.1.19
+kind	./scrapeAirbnb.json	/^							"kind": "prevPage",$/;"	s	object:0.instructions.0.1.1.24
+kind	./scrapeAirbnb.json	/^							"kind": "prevPage",$/;"	s	object:0.instructions.0.1.1.29
+kind	./scrapeAirbnb.json	/^							"kind": "prevPage",$/;"	s	object:0.instructions.0.1.1.34
+kind	./scrapeAirbnb.json	/^							"kind": "prevPage",$/;"	s	object:0.instructions.0.1.1.39
+kind	./scrapeAirbnb.json	/^							"kind": "prevPage",$/;"	s	object:0.instructions.0.1.1.4
+kind	./scrapeAirbnb.json	/^							"kind": "prevPage",$/;"	s	object:0.instructions.0.1.1.44
+kind	./scrapeAirbnb.json	/^							"kind": "prevPage",$/;"	s	object:0.instructions.0.1.1.49
+kind	./scrapeAirbnb.json	/^							"kind": "prevPage",$/;"	s	object:0.instructions.0.1.1.54
+kind	./scrapeAirbnb.json	/^							"kind": "prevPage",$/;"	s	object:0.instructions.0.1.1.59
+kind	./scrapeAirbnb.json	/^							"kind": "prevPage",$/;"	s	object:0.instructions.0.1.1.64
+kind	./scrapeAirbnb.json	/^							"kind": "prevPage",$/;"	s	object:0.instructions.0.1.1.69
+kind	./scrapeAirbnb.json	/^							"kind": "prevPage",$/;"	s	object:0.instructions.0.1.1.74
+kind	./scrapeAirbnb.json	/^							"kind": "prevPage",$/;"	s	object:0.instructions.0.1.1.79
+kind	./scrapeAirbnb.json	/^							"kind": "prevPage",$/;"	s	object:0.instructions.0.1.1.84
+kind	./scrapeAirbnb.json	/^							"kind": "prevPage",$/;"	s	object:0.instructions.0.1.1.89
+kind	./scrapeAirbnb.json	/^							"kind": "prevPage",$/;"	s	object:0.instructions.0.1.1.9
+kind	./scrapeAirbnb.json	/^							"kind": "prevPage",$/;"	s	object:0.instructions.0.1.1.94
+kind	./scrapeAirbnb.json	/^							"kind": "prevPage",$/;"	s	object:0.instructions.0.1.1.99
+kind	cleanNotion.json	/^										"kind": "extractAll",$/;"	s	object:0.instructions.1.1.2
+kind	cleanNotion.json	/^									"kind": "wait",$/;"	s	object:0.instructions.1.1.1
 kindMap	./form/validate.go	/^var kindMap = map[string]bool{$/;"	v	package:form
 launchBrowser	main.go	/^func launchBrowser() {$/;"	f	package:main
 leftClick	./form/form.go	/^func leftClick(data helpers.FormInstructions, page *rod.Page) {$/;"	f	package:form
+leftClick	./scrape/scrape.go	/^func leftClick(data helpers.ScrapeAllInstructions, p *rod.Page) {$/;"	f	package:scrape
 leftClick	scrape/scrape.go	/^func leftClick(data helpers.ScrapeAllInstructions, p *rod.Page) {$/;"	f	package:scrape
-leftClick	scrape/scrape.go	/^func leftClick(data helpers.ScrapeAllInstructions, page *rod.Page) {$/;"	f	package:scrape
 main	main.go	/^func main() {$/;"	f	package:main
 main	main.go	/^package main$/;"	p
+nextPage	./scrape/scrape.go	/^func nextPage(data helpers.ScrapeAllInstructions, p *rod.Page) {$/;"	f	package:scrape
 nextPage	scrape/scrape.go	/^func nextPage(data helpers.ScrapeAllInstructions, p *rod.Page) {$/;"	f	package:scrape
 out	./form/form.go	/^var out []interface{}$/;"	v	package:form	typeref:typename:[]interface{}
 out	./post/post.go	/^var out []interface{}$/;"	v	package:post	typeref:typename:[]interface{}
 out	./scrape/scrape.go	/^var out []interface{}$/;"	v	package:scrape	typeref:typename:[]interface{}
 out	scrape/scrape.go	/^var out []interface{}$/;"	v	package:scrape	typeref:typename:[]interface{}
-page	scrape/scrape.go	/^var page **rod.Page$/;"	v	package:scrape	typeref:typename:**rod.Page
+owner	cleanNotion.json	/^												"owner": "div:nth-child(6)"$/;"	s	object:0.instructions.1.1.2.keys
+page	./scrape/scrape.go	/^var page *rod.Page$/;"	v	package:scrape	typeref:typename:*rod.Page
 page	scrape/scrape.go	/^var page *rod.Page$/;"	v	package:scrape	typeref:typename:*rod.Page
+pageClose	./scrape/scrape.go	/^func pageClose(data helpers.ScrapeAllInstructions, p *rod.Page) {$/;"	f	package:scrape
 pageClose	scrape/scrape.go	/^func pageClose(data helpers.ScrapeAllInstructions, p *rod.Page) {$/;"	f	package:scrape
+parent	./bankscraping.json	/^                  "parent":"#ContentPlaceHolder1_StatusOfApplicationView > tbody",$/;"	s	object:0.instructions.0.3.1.1
+parent	./bankscraping.json	/^                  "parent":"#ContentPlaceHolder1_StatusOfApplicationView > tbody",$/;"	s	object:0.instructions.0.3.1.2
+parent	./bankscraping.json	/^                  "parent":"#ContentPlaceHolder1_StatusOfApplicationView > tbody",$/;"	s	object:0.instructions.0.3.1.3
 parent	./oldsample.json	/^                    "parent": ".rpBJOHq2PR60pnwJlUyP0",$/;"	s	object:0.instructions.1.1.1
-parent	bankscraping.json	/^                  "parent":"#ContentPlaceHolder1_StatusOfApplicationView > tbody",$/;"	s	object:0.instructions.0.3.1.1
-parent	bankscraping.json	/^                  "parent":"#ContentPlaceHolder1_StatusOfApplicationView > tbody",$/;"	s	object:0.instructions.0.3.1.2
-parent	bankscraping.json	/^                  "parent":"#ContentPlaceHolder1_StatusOfApplicationView > tbody",$/;"	s	object:0.instructions.0.3.1.3
+parent	cleanNotion.json	/^                    "parent": "#notion-app > div > div.notion-cursor-listener > div:nth-child(2)/;"	s	object:0.instructions.1.1.2
 parseIns	main.go	/^func parseIns(browser *rod.Page) func(data interface{}) interface{} {$/;"	f	package:main	typeref:typename:func(data interface{}) interface{}
 post	./post/post.go	/^package post$/;"	p
 prettyprint	./post/post.go	/^func prettyprint(b []byte) ([]byte, error) {$/;"	f	package:post	typeref:typename:([]byte, error)
 prettyprint	./print/print.go	/^func prettyprint(b []byte) ([]byte, error) {$/;"	f	package:print	typeref:typename:([]byte, error)
-prettyprint	print/print.go	/^func prettyprint(b []byte) ([]byte, error) {$/;"	f	package:print	typeref:typename:([]byte, error)
+prevPage	./scrape/scrape.go	/^func prevPage(data helpers.ScrapeAllInstructions, p *rod.Page) {$/;"	f	package:scrape
 prevPage	scrape/scrape.go	/^func prevPage(data helpers.ScrapeAllInstructions, p *rod.Page) {$/;"	f	package:scrape
 print	./print/print.go	/^func print(params map[string]interface{}, data []interface{}) {$/;"	f	package:print
 print	./print/print.go	/^package print$/;"	p
-print	print/print.go	/^func print(params map[string]interface{}, data []interface{}) {$/;"	f	package:print
-print	print/print.go	/^package print$/;"	p
 readJson	main.go	/^func readJson(dir string) {$/;"	f	package:main
+retry	./bankscraping.json	/^								 "retry": 5$/;"	n	object:0.instructions.0.3.1.5
 retry	./oldsample.json	/^							"retry": 1 ,$/;"	n	object:0.instructions.1.1.2
-retry	bankscraping.json	/^								 "retry": 5$/;"	n	object:0.instructions.0.3.1.5
-retry	scrapeAirbnb.json	/^							"retry": 10$/;"	n	object:0.instructions.0.1.1.102
+retry	./scrapeAirbnb.json	/^							"retry": 10$/;"	n	object:0.instructions.0.1.1.102
+retry	cleanNotion.json	/^								"retry": 1 ,$/;"	n	object:0.instructions.1.1.3
 rightClick	./form/form.go	/^func rightClick(data helpers.FormInstructions, page *rod.Page) {$/;"	f	package:form
+rightClick	./scrape/scrape.go	/^func rightClick(data helpers.ScrapeAllInstructions, p *rod.Page) {$/;"	f	package:scrape
 rightClick	scrape/scrape.go	/^func rightClick(data helpers.ScrapeAllInstructions, p *rod.Page) {$/;"	f	package:scrape
-rightClick	scrape/scrape.go	/^func rightClick(data helpers.ScrapeAllInstructions, page *rod.Page) {$/;"	f	package:scrape
 runForm	./form/form.go	/^func runForm(ins instructions, page *rod.Page) {$/;"	f	package:form
 sanitizeData	./post/post.go	/^func sanitizeData(data []interface{}) []interface{} {$/;"	f	package:post	typeref:typename:[]interface{}
-sanitizeData	print/print.go	/^func sanitizeData(data []interface{}) []interface{} {$/;"	f	package:print	typeref:typename:[]interface{}
+sanitizeData	./print/print.go	/^func sanitizeData(data []interface{}) []interface{} {$/;"	f	package:print	typeref:typename:[]interface{}
 scrape	./scrape/scrape.go	/^package scrape$/;"	p
 scrape	./scrape/validate.go	/^package scrape$/;"	p
 scrape	scrape/scrape.go	/^package scrape$/;"	p
-scrape	scrape/validate.go	/^package scrape$/;"	p
+scrapeAll	./scrape/scrape.go	/^func scrapeAll(ins instructions, p *rod.Page) {$/;"	f	package:scrape
 scrapeAll	scrape/scrape.go	/^func scrapeAll(ins instructions, p *rod.Page) {$/;"	f	package:scrape
-scrapeAll	scrape/scrape.go	/^func scrapeAll(ins instructions, page *rod.Page) {$/;"	f	package:scrape
-scrapeData	scrape/scrape.go	/^func scrapeData(data ScrapeInstructions, page *rod.Page) {$/;"	f	package:scrape
+scrapeData	./scrape/scrape.go	/^func scrapeData(data helpers.ScrapeAllInstructions, p *rod.Page) {$/;"	f	package:scrape
 scrapeData	scrape/scrape.go	/^func scrapeData(data helpers.ScrapeAllInstructions, p *rod.Page) {$/;"	f	package:scrape
-scrapeData	scrape/scrape.go	/^func scrapeData(data helpers.ScrapeAllInstructions, page *rod.Page) {$/;"	f	package:scrape
-scrapeData	scrape/scrape.go	/^func scrapeData(data helpers.ScrapeInstructions, page *rod.Page) {$/;"	f	package:scrape
 scroll	./oldsample.json	/^                "scroll":1$/;"	n	object:0.instructions.1.1.2
+scroll	cleanNotion.json	/^                "scroll":1$/;"	n	object:0.instructions.1.1.3
+startingUrl	./bankscraping.json	/^      "startingUrl":"",$/;"	s	object:0
 startingUrl	./oldsample.json	/^    "startingUrl": "https:\/\/www.reddit.com\/r\/Gunners\/new",$/;"	s	object:0
 startingUrl	./sample.json	/^    "startingUrl": "https:\/\/duckduckgo.com\/",$/;"	s
-startingUrl	bankscraping.json	/^      "startingUrl":"",$/;"	s	object:0
-startingUrl	scrapeAirbnb.json	/^		"startingUrl": "https:\/\/www.airbnb.com\/s\/Ghana\/homes?tab_id=home_tab&refinement_paths%5B%/;"	s	object:0
-switchPage	scrape/scrape.go	/^func switchPage(data helpers.ScrapeAllInstructions, p *rod.Page) {$/;"	f	package:scrape
+startingUrl	./scrapeAirbnb.json	/^		"startingUrl": "https:\/\/www.airbnb.com\/s\/Ghana\/homes?tab_id=home_tab&refinement_paths%5B%/;"	s	object:0
+startingUrl	cleanNotion.json	/^    "startingUrl": "https:\/\/www.notion.so\/simpledealer\/Clean-Notion-fcc31e6e116a4d7cb1e8c740/;"	s	object:0
+taskName	cleanNotion.json	/^                        "taskName": "span[style^='li']",$/;"	s	object:0.instructions.1.1.2.keys
 text	./form/form.go	/^func text(data helpers.FormInstructions, page *rod.Page) {$/;"	f	package:form
-type	scrapeAirbnb.json	/^						"type": "file",$/;"	s	object:0.instructions.0.1.2
+type	./scrapeAirbnb.json	/^						"type": "file",$/;"	s	object:0.instructions.0.1.2
+url	./bankscraping.json	/^               "url":"https:\/\/eox8jjez85jq3t4.m.pipedream.net"$/;"	s	object:0.instructions.0.3.2
 url	./file.json	/^      "url": "https:\/\/eox8jjez85jq3t4.m.pipedream.net"$/;"	s	object:0.1
 url	./oldsample.json	/^                "url": "https:\/\/eox8jjez85jq3t4.m.pipedream.net"$/;"	s	object:0.instructions.1.2
 url	./test.json	/^      "url": "https:\/\/eox8jjez85jq3t4.m.pipedream.net"$/;"	s	object:0.1
-url	bankscraping.json	/^               "url":"https:\/\/eox8jjez85jq3t4.m.pipedream.net"$/;"	s	object:0.instructions.0.3.2
+url	cleanNotion.json	/^                "url": "https:\/\/eox8jjez85jq3t4.m.pipedream.net"$/;"	s	object:0.instructions.1.2
 validate	./form/validate.go	/^func validate(ins map[string]interface{}) bool {$/;"	f	package:form	typeref:typename:bool
 validate	./scrape/validate.go	/^func validate(ins map[string]interface{}) bool {$/;"	f	package:scrape	typeref:typename:bool
-validate	scrape/validate.go	/^func validate(ins map[string]interface{}) bool {$/;"	f	package:scrape	typeref:typename:bool
-validateClick	scrape/validate.go	/^func validateClick(ins map[string]interface{}) bool {$/;"	f	package:scrape	typeref:typename:bool
-validateEval	scrape/validate.go	/^func validateEval(ins map[string]interface{}) bool {$/;"	f	package:scrape	typeref:typename:bool
-validateExtract	scrape/validate.go	/^func validateExtract(ins map[string]interface{}) bool {$/;"	f	package:scrape	typeref:typename:bool
+validateClick	./scrape/validate.go	/^func validateClick(ins map[string]interface{}) bool {$/;"	f	package:scrape	typeref:typename:bool
+validateEval	./scrape/validate.go	/^func validateEval(ins map[string]interface{}) bool {$/;"	f	package:scrape	typeref:typename:bool
+validateExtract	./scrape/validate.go	/^func validateExtract(ins map[string]interface{}) bool {$/;"	f	package:scrape	typeref:typename:bool
 validator	./validator/validator.go	/^package validator$/;"	p
+value	./bankscraping.json	/^               "value":""$/;"	s	object:0.instructions.0.1.3
+value	./bankscraping.json	/^               "value":""$/;"	s	object:0.instructions.0.1.4
+value	./bankscraping.json	/^               "value":""$/;"	s	object:0.instructions.0.1.6
+value	./bankscraping.json	/^               "value":"100"$/;"	s	object:0.instructions.0.1.5
+value	./bankscraping.json	/^               "value":"mms175mms"$/;"	s	object:0.instructions.0.1.2
+value	./bankscraping.json	/^               "value":"mmslawrenceville"$/;"	s	object:0.instructions.0.1.1
 value	./sample.json	/^                "value": " "$/;"	s	object:instructions.1.2
 value	./sample.json	/^                "value": "deez nuts"$/;"	s	object:instructions.1.1
 value	./sample.json	/^                "value": "deez nuts"$/;"	s	object:instructions.3.1
-value	bankscraping.json	/^               "value":""$/;"	s	object:0.instructions.0.1.3
-value	bankscraping.json	/^               "value":""$/;"	s	object:0.instructions.0.1.4
-value	bankscraping.json	/^               "value":""$/;"	s	object:0.instructions.0.1.6
-value	bankscraping.json	/^               "value":"100"$/;"	s	object:0.instructions.0.1.5
-value	bankscraping.json	/^               "value":"mms175mms"$/;"	s	object:0.instructions.0.1.2
-value	bankscraping.json	/^               "value":"mmslawrenceville"$/;"	s	object:0.instructions.0.1.1
+wait	./scrape/scrape.go	/^func wait(data helpers.ScrapeAllInstructions, p *rod.Page) {$/;"	f	package:scrape
 wait	scrape/scrape.go	/^func wait(data helpers.ScrapeAllInstructions, p *rod.Page) {$/;"	f	package:scrape
 wg	main.go	/^var wg sync.WaitGroup$/;"	v	package:main	typeref:typename:sync.WaitGroup

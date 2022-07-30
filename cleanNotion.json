@@ -1,0 +1,40 @@
+
+[
+
+{
+    "startingUrl": "https://www.notion.so/simpledealer/Clean-Notion-fcc31e6e116a4d7cb1e8c740854bee49",
+    "headless": false,
+    "instructions": [
+        "do",
+        [
+            "post",
+            [
+                "scrapeAll",
+								{
+									"description": "Wait",
+									"kind": "wait",
+									"item": "1"
+								},
+                {
+                    "description": "How duck makes money",
+                    "parent": "#notion-app > div > div.notion-cursor-listener > div:nth-child(2) > div.notion-frame > div > div.whenContentEditable > div:nth-child(4) > div:nth-child(1) > div > div:nth-child(1) > div > div > div:nth-child(2) > div.notion-selectable.notion-collection_view-block > div:nth-child(2) > div > div > div > div > div:nth-child(3)",
+                    "item": "div[class='notion-selectable notion-page-block notion-collection-item']",
+										"kind": "extractAll",
+                    "keys": {
+                        "taskName": "span[style^='li']",
+												"jobs": "div:nth-child(4)",
+												"owner": "div:nth-child(6)"
+                    }
+                },
+                {
+								"retry": 1 ,
+                "scroll":1
+                 }
+            ],
+            {
+                "url": "https://eox8jjez85jq3t4.m.pipedream.net"
+            }
+        ]
+    ]
+}
+]
