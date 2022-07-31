@@ -1,9 +1,11 @@
 package scrape
 
 import (
+	"encoding/json"
 	"fmt"
 	"log"
 	"reflect"
+	"strconv"
 	"time"
 
 	"github.com/go-rod/rod"
@@ -26,8 +28,10 @@ func ScrapeAll(data interface{}, p *rod.Page) interface{} {
 	case reflect.Slice:
 		d, ok := data.([]interface{})
 		if !ok {
-			log.Fatalln("Wrong instructions format in form")
+			log.Fatalln("Wrong instructions format in scrape")
 		}
+		json, _ := json.Marshal(d)
+		log.Println("scrapeAcrions", string(json))
 		log.Println("option", d)
 		instructions := d[:len(d)-1]
 		options := d[len(d)-1]
@@ -116,6 +120,9 @@ func scrapeAll(ins instructions, p *rod.Page) {
 	if data.Kind == "closePage" {
 		pageClose(data, p)
 	}
+	if data.Kind == "condEval" {
+		condEval(data, p)
+	}
 }
 
 func addKeys(item *rod.Element, keys map[string]interface{}) map[string]string {
@@ -147,6 +154,11 @@ func leftClick(data helpers.ScrapeAllInstructions, p *rod.Page) {
 
 func rightClick(data helpers.ScrapeAllInstructions, p *rod.Page) {
 	p.MustElement(data.Item).Click("right")
+}
+
+func condEval(data helpers.ScrapeAllInstructions, p *rod.Page) {
+	body := data.Body
+	ScrapeAll(body, p)
 }
 
 func eval(data helpers.ScrapeAllInstructions, p *rod.Page) {
@@ -206,5 +218,11 @@ func pageClose(data helpers.ScrapeAllInstructions, p *rod.Page) {
 }
 
 func wait(data helpers.ScrapeAllInstructions, p *rod.Page) {
-	time.Sleep(time.Second * time.Duration(50))
+	timer := data.Item
+	intVar, err := strconv.Atoi(timer)
+	if err != nil {
+		log.Println("Make sure timer is a string")
+	}
+	log.Printf("Sleeping for %v seconds/n", intVar)
+	time.Sleep(time.Second * time.Duration(intVar))
 }

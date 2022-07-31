@@ -2,10 +2,11 @@ module github.com/reggieanim/not-scalping
 
 go 1.18
 
+require github.com/go-rod/rod v0.104.4
+
 require (
 	github.com/TylerBrock/colorjson v0.0.0-20200706003622-8a50f05110d2 // indirect
 	github.com/fatih/color v1.13.0 // indirect
-	github.com/go-rod/rod v0.104.4 // indirect
 	github.com/mattn/go-colorable v0.1.9 // indirect
 	github.com/mattn/go-isatty v0.0.14 // indirect
 	github.com/ysmood/goob v0.3.1 // indirect

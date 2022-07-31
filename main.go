@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
+	"log"
 	"os"
 	"reflect"
 	"sync"
@@ -21,6 +22,7 @@ var wg sync.WaitGroup
 func main() {
 	launchBrowser()
 	wg.Wait()
+	log.Println("Job ran successfully")
 }
 
 func parseIns(browser *rod.Page) func(data interface{}) interface{} {
@@ -77,6 +79,7 @@ func launchBrowser() {
 			l := launcher.New().Bin(path).
 				Headless(v["headless"].(bool))
 			defer l.Cleanup()
+			defer wg.Done()
 			url := l.MustLaunch()
 			browser, err := rod.New().
 				ControlURL(url).

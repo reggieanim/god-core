@@ -1,38 +1,85 @@
 
 [
-
 {
     "startingUrl": "https://www.notion.so/simpledealer/Clean-Notion-fcc31e6e116a4d7cb1e8c740854bee49",
-    "headless": false,
+    "headless": true,
     "instructions": [
+	"do",	
+        [
+
+                "form",
+				{
+					"description": "Type into login",
+					"kind": "text",
+					"field": "#notion-email-input-1",
+					"value": "ranim@simple-dealer.com"
+				},
+				{
+					"description": "Type into login",
+					"kind": "leftClick",
+					"field": "div[class='notion-focusable']:nth-child(5)",
+					"value": "ranim@simple-dealer.com"
+				},
+				{
+					"description": "Type into login",
+					"kind": "text",
+					"field": "#notion-password-input-2",
+					"value": "@Lildon64"
+				},
+				{
+					"description": "Type into login",
+					"kind": "leftClick",
+					"field": "div[class='notion-focusable']:nth-child(6)",
+					"value": "ranim@simple-dealer.com"
+				}
+
+        ],
         "do",
         [
-            "post",
+            "print",
             [
                 "scrapeAll",
-								{
-									"description": "Wait",
-									"kind": "wait",
-									"item": "1"
-								},
+				{
+					"description": "Wait for tasks to load",
+					"kind": "wait",
+					"item": "36"
+				},
                 {
                     "description": "How duck makes money",
                     "parent": "#notion-app > div > div.notion-cursor-listener > div:nth-child(2) > div.notion-frame > div > div.whenContentEditable > div:nth-child(4) > div:nth-child(1) > div > div:nth-child(1) > div > div > div:nth-child(2) > div.notion-selectable.notion-collection_view-block > div:nth-child(2) > div > div > div > div > div:nth-child(3)",
                     "item": "div[class='notion-selectable notion-page-block notion-collection-item']",
-										"kind": "extractAll",
+					"kind": "extractAll",
                     "keys": {
                         "taskName": "span[style^='li']",
-												"jobs": "div:nth-child(4)",
-												"owner": "div:nth-child(6)"
+						"jobs": "div:nth-child(4)",
+						"owner": "div:nth-child(6)"
                     }
                 },
+				{
+					"description": "do an if on certain conditions",
+					"kind":"condEval",
+					"evalExpression": "",
+					"item": "",
+					"body": [
+				{
+					"description": "Wait for tasks to load",
+					"kind": "wait",
+					"item": "36"
+				},
+				{}
+
+					]
+
+				},
                 {
-								"retry": 1 ,
+				"retry": 1 ,
                 "scroll":1
-                 }
+                }
             ],
             {
-                "url": "https://eox8jjez85jq3t4.m.pipedream.net"
+                "url": "https://eox8jjez85jq3t4.m.pipedream.net",
+				"type": "file",
+				"filename": "tasksHeadless.json"
             }
         ]
     ]
