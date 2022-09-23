@@ -1,101 +1,200 @@
 [
    {
-      "startingUrl":"",
-      "headless":false,
-      "instructions":[
-		[
-         "do",
+      "startingUrl": "https://secure.sheffieldfinancial.com/Default.aspx?AspxAutoDetectCookieSupport=1",
+      "headless": false,
+      "instructions": [
          [
-            "form",
-            {
-               "description":"Type username",
-               "kind":"text",
-               "field":"#ContentPlaceHolder1_Login1_UserName",
-               "value":"mmslawrenceville"
-            },
-            {
-               "description":"Type password",
-               "kind":"text",
-               "field":"#ContentPlaceHolder1_Login1_Password",
-               "value":"mms175mms"
-            },
-            {
-               "description":"Click Search",
-               "kind":"leftClick",
-               "field":"#ContentPlaceHolder1_Login1_LoginButton",
-               "value":""
-            },
-            {
-               "description":"Click 60ays",
-               "kind":"leftClick",
-               "field":"#dateAndPageNumberContainer > div.quickSelectDateWrapper > ol > li.lastQuickSelectDateLink > a",
-               "value":""
-            },
-            {
-               "description":"Change Rows",
-               "kind":"text",
-               "field":"#ContentPlaceHolder1_PageSizeDropDownBottom",
-               "value":"100"
-            },
-            {
-               "description":"Click Search",
-               "kind":"leftClick",
-               "field":"#ContentPlaceHolder1_PageSizeDropDownBottom",
-               "value":""
-            }
-         ],
-         "do",
-         [
-            "post",
+            "do",
             [
-               "scrapeAll",
+               "form",
                {
-                  "description":"How duck makes money",
-                  "parent":"#ContentPlaceHolder1_StatusOfApplicationView > tbody",
-                  "item":".lackOfInfo",
-									"kind": "extract",
-                  "keys":{
-                     "applicantName":".applicantName",
-                     "Status":"td:nth-child(9)"
-                  }
+                  "description": "Type username",
+                  "kind": "text",
+                  "field": "#ContentPlaceHolder1_Login1_UserName",
+                  "value": "mmslawrenceville"
                },
                {
-                  "description":"How duck makes money",
-                  "parent":"#ContentPlaceHolder1_StatusOfApplicationView > tbody",
-                  "item":".counterOffer",
-									"kind": "extract",
-                  "keys":{
-                     "applicantName":".applicantName",
-                     "Status":"td:nth-child(9)"
-                  }
-							 },
-               {
-                  "description":"How duck makes money",
-                  "parent":"#ContentPlaceHolder1_StatusOfApplicationView > tbody",
-                  "item":"input[class='odd approved']",
-									"kind": "extract",
-                  "keys":{
-                     "applicantName":".applicantName",
-                     "Status":"td:nth-child(9)"
-                  }
+                  "description": "Type password",
+                  "kind": "text",
+                  "field": "#ContentPlaceHolder1_Login1_Password",
+                  "value": "mms175mms"
                },
                {
-                  "description":"How duck makes money",
-                  "item":"input[title='Next Page']",
-									"kind": "eval",
-									"evalExpression":"() => this.click()",
-                  "keys":{
-                  }
+                  "description": "Click Search",
+                  "kind": "leftClick",
+                  "field": "#ContentPlaceHolder1_Login1_LoginButton",
+                  "value": ""
                },
                {
-								 "retry": 5
+                  "description": "Click 60days",
+                  "kind": "leftClick",
+                  "field": "#dateAndPageNumberContainer > div.quickSelectDateWrapper > ol > li.lastQuickSelectDateLink > a",
+                  "value": ""
+               },
+               {
+                  "description": "Change Rows",
+                  "kind": "text",
+                  "field": "#ContentPlaceHolder1_PageSizeDropDownBottom",
+                  "value": "100"
+               },
+               {
+                  "description": "Click Search",
+                  "kind": "leftClick",
+                  "field": "#ContentPlaceHolder1_PageSizeDropDownBottom",
+                  "value": ""
                }
             ],
-            {
-               "url":"https://eox8jjez85jq3t4.m.pipedream.net"
-            }
+            "do",
+            [
+               "print",
+               [
+                  "scrapeAll",
+                  {
+                     "description": "Get No info data",
+                     "parent": "#ContentPlaceHolder1_StatusOfApplicationView > tbody",
+                     "item": ".counterOffer",
+                     "kind": "extractAll",
+                     "keys": {
+                        "applicantName": ".applicantName",
+                        "Status": "td:nth-child(7)"
+                     }
+                  },
+                  {
+                     "description": "Get odd approved",
+                     "parent": "#ContentPlaceHolder1_StatusOfApplicationView > tbody",
+                     "item": "tr[class='odd approved']",
+                     "kind": "extractAll",
+                     "keys": {
+                        "applicantName": ".applicantName",
+                        "Status": "td:nth-child(7)"
+                     }
+                  },
+                  {
+                     "description": "Get odd approved",
+                     "parent": "#ContentPlaceHolder1_StatusOfApplicationView > tbody",
+                     "item": ".lackOfInfo",
+                     "kind": "extractAll",
+                     "keys": {
+                        "applicantName": ".applicantName",
+                        "Status": "td:nth-child(7)"
+                     }
+                  },
+                  {
+                     "description": "How duck makes money",
+                     "item": "input[title='Next Page']",
+                     "kind": "eval",
+                     "evalExpression": "() => this.click()",
+                     "keys": {}
+                  },
+                  {
+                     "retry": 5
+                  }
+               ],
+               {
+                  "type": "file",
+                  "filename": "sheffield.json"
+               }
+            ]
          ]
-				]
+      ]
+   },
+   {
+      "startingUrl": "https://secure.sheffieldfinancial.com/Default.aspx?AspxAutoDetectCookieSupport=1",
+      "headless": true,
+      "instructions": [
+         [
+            "do",
+            [
+               "form",
+               {
+                  "description": "Type username",
+                  "kind": "text",
+                  "field": "#ContentPlaceHolder1_Login1_UserName",
+                  "value": "mmslawrenceville"
+               },
+               {
+                  "description": "Type password",
+                  "kind": "text",
+                  "field": "#ContentPlaceHolder1_Login1_Password",
+                  "value": "mms175mms"
+               },
+               {
+                  "description": "Click Search",
+                  "kind": "leftClick",
+                  "field": "#ContentPlaceHolder1_Login1_LoginButton",
+                  "value": ""
+               },
+               {
+                  "description": "Click 60days",
+                  "kind": "leftClick",
+                  "field": "#dateAndPageNumberContainer > div.quickSelectDateWrapper > ol > li.lastQuickSelectDateLink > a",
+                  "value": ""
+               },
+               {
+                  "description": "Change Rows",
+                  "kind": "text",
+                  "field": "#ContentPlaceHolder1_PageSizeDropDownBottom",
+                  "value": "100"
+               },
+               {
+                  "description": "Click Search",
+                  "kind": "leftClick",
+                  "field": "#ContentPlaceHolder1_PageSizeDropDownBottom",
+                  "value": ""
+               }
+            ],
+            "do",
+            [
+               "print",
+               [
+                  "scrapeAll",
+                  {
+                     "description": "Get No info data",
+                     "parent": "#ContentPlaceHolder1_StatusOfApplicationView > tbody",
+                     "item": ".counterOffer",
+                     "kind": "extractAll",
+                     "keys": {
+                        "applicantName": ".applicantName",
+                        "Status": "td:nth-child(7)"
+                     }
+                  },
+                  {
+                     "description": "Get odd approved",
+                     "parent": "#ContentPlaceHolder1_StatusOfApplicationView > tbody",
+                     "item": "tr[class='odd approved']",
+                     "kind": "extractAll",
+                     "keys": {
+                        "applicantName": ".applicantName",
+                        "Status": "td:nth-child(7)"
+                     }
+                  },
+                  {
+                     "description": "Get odd approved",
+                     "parent": "#ContentPlaceHolder1_StatusOfApplicationView > tbody",
+                     "item": ".lackOfInfo",
+                     "kind": "extractAll",
+                     "keys": {
+                        "applicantName": ".applicantName",
+                        "Status": "td:nth-child(7)"
+                     }
+                  },
+                  {
+                     "description": "How duck makes money",
+                     "item": "input[title='Next Page']",
+                     "kind": "eval",
+                     "evalExpression": "() => this.click()",
+                     "keys": {}
+                  },
+                  {
+                     "retry": 5
+                  }
+               ],
+               {
+                  "type": "file",
+                  "filename": "sheffieldheadless.json"
+               }
+            ]
+         ]
       ]
    }
 ]
