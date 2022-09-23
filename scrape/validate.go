@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/reggieanim/not-scalping/validator"
+	"github.com/reggieanim/god-core/validator"
 )
 
 func validate(ins map[string]interface{}) bool {

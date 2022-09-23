@@ -2,11 +2,11 @@ package fns
 
 import (
 	"github.com/go-rod/rod"
-	"github.com/reggieanim/not-scalping/do"
-	"github.com/reggieanim/not-scalping/form"
-	"github.com/reggieanim/not-scalping/post"
-	"github.com/reggieanim/not-scalping/print"
-	"github.com/reggieanim/not-scalping/scrape"
+	"github.com/reggieanim/god-core/do"
+	"github.com/reggieanim/god-core/form"
+	"github.com/reggieanim/god-core/post"
+	"github.com/reggieanim/god-core/print"
+	"github.com/reggieanim/god-core/scrape"
 )
 
 // Fns Repository of abstracted functions

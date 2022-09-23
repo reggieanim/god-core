@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/reggieanim/not-scalping/validator"
+	"github.com/reggieanim/god-core/validator"
 )
 
 var kindMap = map[string]bool{

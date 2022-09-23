@@ -13,11 +13,12 @@ import (
 	"github.com/go-rod/rod"
 	"github.com/go-rod/rod/lib/launcher"
 	"github.com/go-rod/rod/lib/proto"
-	"github.com/reggieanim/not-scalping/fns"
+	"github.com/reggieanim/god-core/fns"
 )
 
 var instructions []map[string]interface{}
 var wg sync.WaitGroup
+var mutex = &sync.Mutex{}
 
 func main() {
 	launchBrowser()
@@ -71,7 +72,7 @@ func readJson(dir string) {
 }
 
 func launchBrowser() {
-	readJson("cleanNotion.json")
+	readJson("bankscraping.json")
 	for _, v := range instructions {
 		wg.Add(1)
 		go func(v map[string]interface{}) {
@@ -101,4 +102,5 @@ func launchBrowser() {
 			}
 		}(v)
 	}
+
 }
