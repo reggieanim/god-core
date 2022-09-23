@@ -6,7 +6,9 @@ import (
 	"reflect"
 
 	"github.com/go-rod/rod"
-	"github.com/reggieanim/not-scalping/helpers"
+	"github.com/go-rod/rod/lib/input"
+	"github.com/go-rod/rod/lib/proto"
+	"github.com/reggieanim/god-core/helpers"
 )
 
 type instructions interface{}
@@ -53,8 +55,13 @@ func runForm(ins instructions, page *rod.Page) {
 
 func text(data helpers.FormInstructions, page *rod.Page) {
 	if data.ShdType {
-		val := []rune(data.Value)
-		page.MustElement(data.Field).Press(val...)
+		val := []input.Key(data.Value)
+		el, err := page.Element(data.Field)
+		if err != nil {
+			log.Println("Error finding element", err)
+			return
+		}
+		el.Type(val...)
 		out = append(out, data)
 	} else {
 		page.MustElement(data.Field).Input(data.Value)
@@ -62,16 +69,39 @@ func text(data helpers.FormInstructions, page *rod.Page) {
 }
 
 func inputSelect(data helpers.FormInstructions, page *rod.Page) {
-	page.MustElement(data.Field).MustSelect(data.Value)
+	el, err := page.Element(data.Field)
+	if err != nil {
+		log.Println("Error finding element", err)
+		return
+	}
+	err = el.Select([]string{data.Value}, true, rod.SelectorTypeText)
+	if err != nil {
+		log.Println("Error selecting element", err)
+		return
+	}
 	out = append(out, data)
 }
 
 func leftClick(data helpers.FormInstructions, page *rod.Page) {
-	page.MustElement(data.Field).Click("left")
+	el, err := page.Element(data.Field)
+	if err != nil {
+		log.Println("Error finding element", err)
+		return
+	}
+	el.Click(proto.InputMouseButtonLeft, 1)
 	out = append(out, data)
 }
 
 func rightClick(data helpers.FormInstructions, page *rod.Page) {
-	page.MustElement(data.Field).Click("right")
+	el, err := page.Element(data.Field)
+	if err != nil {
+		log.Println("Error finding element", err)
+		return
+	}
+	err = el.Click(proto.InputMouseButtonRight, 1)
+	if err != nil {
+		log.Println("Error clicking element", err)
+		return
+	}
 	out = append(out, data)
 }

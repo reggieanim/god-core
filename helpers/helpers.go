@@ -30,7 +30,8 @@ type ScrapeAllInstructions struct {
 	Key            string                 `json:"key"`
 	EvalExpression string                 `json:"evalExpression"`
 	Keys           map[string]interface{} `json:"keys"`
-	Body           interface{}            `json:body`
+	Body           interface{}            `json:"body"`
+	Fallback       interface{}            `json:"fallback"`
 }
 
 // CastToForm model
@@ -73,6 +74,7 @@ func CastToScrapeAll(data map[string]interface{}) ScrapeAllInstructions {
 	key, keyOk := data["key"]
 	kind, kindOk := data["kind"]
 	body, bodyOk := data["body"]
+	fallback, fallBackOk := data["fallback"]
 	evalExpression, evalExpressionOk := data["evalExpression"]
 	if !evalExpressionOk {
 		evalExpression = ""
@@ -86,6 +88,9 @@ func CastToScrapeAll(data map[string]interface{}) ScrapeAllInstructions {
 		body = ""
 	}
 
+	if !fallBackOk {
+		fallback = ""
+	}
 	if !keyOk {
 		key = ""
 	}
@@ -105,5 +110,6 @@ func CastToScrapeAll(data map[string]interface{}) ScrapeAllInstructions {
 		evalExpression.(string),
 		keys.(map[string]interface{}),
 		body.(interface{}),
+		fallback.(interface{}),
 	}
 }
