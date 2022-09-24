@@ -16,9 +16,20 @@ import (
 	"github.com/reggieanim/god-core/fns"
 )
 
-var instructions []map[string]interface{}
+var instructions []Instruction
 var wg sync.WaitGroup
 var mutex = &sync.Mutex{}
+
+type Instruction struct {
+	Headless bool     `json:"headless"`
+	Configs  []Config `json:"instructions"`
+}
+
+type Config struct {
+	Name        string        `json:"name"`
+	StartingUrl string        `json:"startingUrl"`
+	Template    []interface{} `json:"template"`
+}
 
 func main() {
 	launchBrowser()
@@ -29,6 +40,11 @@ func main() {
 func parseIns(browser *rod.Page) func(data interface{}) interface{} {
 	return func(data interface{}) interface{} {
 		// var out []interface{}
+		defer func() {
+			if r := recover(); r != nil {
+				fmt.Println("Recovered in f", r)
+			}
+		}()
 		switch reflect.TypeOf(data).Kind() {
 		case reflect.Slice:
 			out := data.([]interface{})
@@ -72,30 +88,33 @@ func readJson(dir string) {
 }
 
 func launchBrowser() {
+
 	readJson("bankscraping.json")
 	for _, v := range instructions {
 		wg.Add(1)
-		go func(v map[string]interface{}) {
+		go func(v Instruction) {
 			path, _ := launcher.LookPath()
 			l := launcher.New().Bin(path).
-				Headless(v["headless"].(bool))
+				Headless(v.Headless)
 			defer l.Cleanup()
 			defer wg.Done()
 			url := l.MustLaunch()
-			browser, err := rod.New().
+			browser := rod.New().
 				ControlURL(url).
 				Trace(true).
 				SlowMotion(5 * time.Millisecond).
-				MustConnect().Page(proto.TargetCreateTarget{URL: v["startingUrl"].(string)})
-			if err != nil {
-				panic(err)
-			}
-			for _, ins := range v["instructions"].([]interface{}) {
+				MustConnect().NoDefaultDevice()
+			for _, ins := range v.Configs {
 				wg.Add(1)
-				fmt.Println("Running instruction", ins)
-				go func(ins interface{}) {
+				log.Println("Running instruction length", len(v.Configs))
+				fmt.Println("Running instruction", ins.Template)
+				go func(ins Config) {
+					browser, err := browser.Page((proto.TargetCreateTarget{URL: ins.StartingUrl}))
+					if err != nil {
+						log.Println(err)
+					}
 					defer wg.Done()
-					data := parseIns(browser)(ins)
+					data := parseIns(browser)(ins.Template)
 					fmt.Println("Performed actions successfully", data)
 
 				}(ins)

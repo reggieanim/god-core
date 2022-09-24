@@ -12,6 +12,8 @@ var kindMap = map[string]bool{
 	"select":     true,
 	"leftClick":  true,
 	"rightClick": true,
+	"wait":       true,
+	"condEval":   true,
 }
 
 func validate(ins map[string]interface{}) bool {
@@ -26,7 +28,23 @@ func validate(ins map[string]interface{}) bool {
 	v.Check(valOk, "value", "Needs a 'value' property of string")
 	v.Check(desOk, "description", "Needs a description property")
 	v.Check(kindOk, "kind", "Needs a 'kind' property")
-	v.Check(doesNotMatchKind, "noKind", "Needs a 'kind' property of 'text || select || leftClick || rightClick'")
+	v.Check(doesNotMatchKind, "noKind", "Needs a 'kind' property of 'text || select || leftClick || rightClick' || 'wait'")
+	if !v.Valid() {
+		for _, v := range v.Errors {
+			fmt.Println(v)
+		}
+		log.Fatalln("Could not validate")
+	}
+	return true
+}
+
+func validateEval(ins map[string]interface{}) bool {
+	fmt.Println(ins)
+	_, evalOk := ins["evalExpression"].(string)
+	_, fieldOk := ins["field"].(string)
+	v := validator.New()
+	v.Check(evalOk, "evalOk", "Needs a 'evalExpression' property of string for extract")
+	v.Check(fieldOk, "field", "Needs an 'field' property of string for extract")
 	if !v.Valid() {
 		for _, v := range v.Errors {
 			fmt.Println(v)
