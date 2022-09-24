@@ -32,7 +32,7 @@ func ScrapeAll(data interface{}, page *rod.Page) interface{} {
 			log.Fatalln("Wrong instructions format in scrape")
 		}
 		json, _ := json.Marshal(d)
-		log.Println("scrapeAcrions", string(json))
+		log.Println("scrapeActions", string(json))
 		log.Println("option", d)
 		instructions := d[:len(d)-1]
 		options := d[len(d)-1]
@@ -57,7 +57,10 @@ func ScrapeAll(data interface{}, page *rod.Page) interface{} {
 			for _, v := range instructions {
 				page = scrapeAll(v, page)
 			}
-			page.Mouse.MustScroll(0, float64(scroll.(float64)))
+			err := page.Mouse.Scroll(0, float64(scroll.(float64)), 0)
+			if err != nil {
+				log.Println("Error scrolling", err)
+			}
 			time.Sleep(time.Second * time.Duration(2))
 			countRetrys++
 		}
@@ -67,15 +70,6 @@ func ScrapeAll(data interface{}, page *rod.Page) interface{} {
 	fmt.Println("leavingg scrape all")
 	log.Println("This is out", out)
 	return out
-}
-
-func extract(data helpers.ScrapeAllInstructions, p *rod.Page) {
-	fmt.Println("run scrape data", data.Key)
-	text := p.MustElement(data.Item).MustText()
-	extractMap = make(map[string]string)
-	extractMap[data.Key] = text
-	log.Println("extractMap", extractMap)
-	out = append(out, extractMap)
 }
 
 func scrapeAll(ins instructions, p *rod.Page) *rod.Page {
@@ -127,12 +121,38 @@ func scrapeAll(ins instructions, p *rod.Page) *rod.Page {
 	return page
 }
 
+func extract(data helpers.ScrapeAllInstructions, p *rod.Page) {
+	fmt.Println("run scrape data", data.Key)
+	el, err := p.Element(data.Item)
+	if err != nil {
+		log.Println("Error finding item", err)
+		return
+	}
+	text, err := el.Text()
+	if err != nil {
+		log.Println("Error finding item", err)
+		return
+	}
+	extractMap = make(map[string]string)
+	extractMap[data.Key] = text
+	log.Println("extractMap", extractMap)
+	out = append(out, extractMap)
+}
+
 func addKeys(item *rod.Element, keys map[string]interface{}) map[string]string {
 	result := make(map[string]string)
 	for k, v := range keys {
 		log.Println("key", k)
 		log.Println("value", v)
-		result[k] = item.MustElement(v.(string)).MustText()
+		el, err := item.Element(v.(string))
+		if err != nil {
+			log.Println("Error finding item", err)
+		}
+		result[k], err = el.Text()
+		if err != nil {
+			log.Println("Error finding item", err)
+		}
+
 	}
 	return result
 }
@@ -142,10 +162,12 @@ func scrapeData(data helpers.ScrapeAllInstructions, p *rod.Page) {
 	list, err := p.Element(data.Parent)
 	if err != nil {
 		log.Println("Error finding parent", err)
+		return
 	}
 	items, err := list.Elements(data.Item)
 	if err != nil {
 		log.Println("Error finding item", err)
+		return
 	}
 	log.Println("list...", list)
 	log.Println("items", items)
@@ -158,15 +180,36 @@ func scrapeData(data helpers.ScrapeAllInstructions, p *rod.Page) {
 
 func leftClick(data helpers.ScrapeAllInstructions, p *rod.Page) {
 	log.Println("Left clicking...", data.Item)
-	p.MustElement(data.Item).Click(proto.InputMouseButtonLeft, 1)
+	el, err := p.Element(data.Item)
+	if err != nil {
+		log.Println("Error finding item left click", err)
+		return
+	}
+	el.Click(proto.InputMouseButtonLeft, 1)
 }
 
 func rightClick(data helpers.ScrapeAllInstructions, p *rod.Page) {
-	p.MustElement(data.Item).Click(proto.InputMouseButtonRight, 1)
+	log.Println("Right clicking...", data.Item)
+	el, err := p.Element(data.Item)
+	if err != nil {
+		log.Println("Error finding item in rightClick", err)
+		return
+	}
+	el.Click(proto.InputMouseButtonRight, 1)
 }
 
 func condEval(data helpers.ScrapeAllInstructions, p *rod.Page) {
-	val := p.MustElement(data.Item).MustEval(data.EvalExpression).Bool()
+	el, err := p.Element(data.Item)
+	if err != nil {
+		log.Println("Error finding item in condEval", err)
+		return
+	}
+	proto, err := el.Eval(data.EvalExpression)
+	if err != nil {
+		log.Println("Error evaluatin eval expression condEval", err)
+		return
+	}
+	val := proto.Value.Bool()
 	log.Println("condEval", val)
 	if val {
 		body := data.Body
@@ -181,9 +224,9 @@ func condEval(data helpers.ScrapeAllInstructions, p *rod.Page) {
 
 func eval(data helpers.ScrapeAllInstructions, p *rod.Page) {
 	log.Println(data.EvalExpression)
-	el, err := p.Timeout(10 * time.Second).Element(data.Item)
+	el, err := p.Element(data.Item)
 	if err != nil {
-		log.Println("Error finding item", err)
+		log.Println("Error getting item in eval", err)
 		return
 	}
 	el.Eval(data.EvalExpression)
@@ -200,12 +243,20 @@ func eval(data helpers.ScrapeAllInstructions, p *rod.Page) {
 func nextPage(data helpers.ScrapeAllInstructions, p *rod.Page) *rod.Page {
 	log.Println(data.Item)
 	var newPage *rod.Page
-	ps := p.Browser().MustPages()
+	ps, err := p.Browser().Pages()
+	if err != nil {
+		log.Println("Error getting pages", err)
+		return p
+	}
 	for i, v := range ps {
 		log.Println("this is page id:", v)
 		log.Println("this is page :", p)
 		if v != p {
-			newPage = ps[i].MustActivate()
+			newPage, err = ps[i].Activate()
+			if err != nil {
+				log.Println("Error activating page", err)
+				return p
+			}
 			break
 		}
 	}
@@ -215,12 +266,20 @@ func nextPage(data helpers.ScrapeAllInstructions, p *rod.Page) *rod.Page {
 func prevPage(data helpers.ScrapeAllInstructions, p *rod.Page) *rod.Page {
 	log.Println(data.Item)
 	var newPage *rod.Page
-	ps := p.Browser().MustPages()
+	ps, err := p.Browser().Pages()
+	if err != nil {
+		log.Println("Error getting pages in prevPage", err)
+		return p
+	}
 	for i, v := range ps {
 		log.Println("this is page id:", v)
 		log.Println("this is page :", p)
 		if v != p {
-			newPage = ps[i].MustActivate()
+			newPage, err = ps[i].Activate()
+			if err != nil {
+				log.Println("Error activating page", err)
+				return p
+			}
 			break
 		}
 	}
@@ -228,16 +287,28 @@ func prevPage(data helpers.ScrapeAllInstructions, p *rod.Page) *rod.Page {
 }
 
 func pageClose(data helpers.ScrapeAllInstructions, p *rod.Page) {
-	log.Println(p.Browser().MustPages())
-	for _, v := range p.Browser().MustPages() {
+	pages, err := p.Browser().Pages()
+	if err != nil {
+		log.Println("Error getting pages in pageClose", err)
+		return
+	}
+	for _, v := range pages {
 		if v != p {
 			log.Println("closing page", v)
 			v.Close()
 			break
 		}
 	}
-	log.Println(p.Browser().MustPages())
-	p = p.Browser().MustPages()[0].MustActivate()
+	if err != nil {
+		log.Println("Error getting pages in pageClose", err)
+		return
+	}
+	// log.Println(p.Browser().MustPages())
+	_, err = pages[0].Activate()
+	if err != nil {
+		log.Println("Error activating page in pageClose", err)
+		return
+	}
 }
 
 func wait(data helpers.ScrapeAllInstructions, p *rod.Page) {

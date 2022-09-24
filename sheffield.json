@@ -5,43 +5,15 @@
   },
   {
     "Status": "-",
-    "applicantName": "BEDOYA, EDWAR E"
+    "applicantName": "EVENS, TOBY R"
   },
   {
     "Status": "-",
-    "applicantName": "MANLEY, JOHNNY L"
+    "applicantName": "HOOD, DAVID B"
   },
   {
     "Status": "-",
-    "applicantName": "WEBSTER, WILLIAM A"
-  },
-  {
-    "Status": "-",
-    "applicantName": "ARCENEAUX, MARQUIS"
-  },
-  {
-    "Status": "-",
-    "applicantName": "ESPINOZA GUZMAN, GERARDO G"
-  },
-  {
-    "Status": "-",
-    "applicantName": "LISY, BRANDON P"
-  },
-  {
-    "Status": "-",
-    "applicantName": "PULLIN, EYRIQ"
-  },
-  {
-    "Status": "-",
-    "applicantName": "PEREZ, HECTOR M"
-  },
-  {
-    "Status": "-",
-    "applicantName": "BAEZ DE POLANCO, ALTAGRACIA J"
-  },
-  {
-    "Status": "Processing",
-    "applicantName": "PARKER, SHERRY D"
+    "applicantName": "LAGOS, GRETCHEN L"
   },
   {
     "Status": "-",
@@ -68,6 +40,14 @@
     "applicantName": "LISY, BRANDON P"
   },
   {
+    "Status": "Funded",
+    "applicantName": "MORUP OLSEN, JACOB"
+  },
+  {
+    "Status": "Funded",
+    "applicantName": "OSBORNE, LOGAN W"
+  },
+  {
     "Status": "-",
     "applicantName": "PULLIN, EYRIQ"
   },
@@ -80,22 +60,6 @@
     "applicantName": "BAEZ DE POLANCO, ALTAGRACIA J"
   },
   {
-    "Status": "Processing",
-    "applicantName": "MORUP OLSEN, JESPER"
-  },
-  {
-    "Status": "Funded",
-    "applicantName": "MORUP OLSEN, JACOB"
-  },
-  {
-    "Status": "Funded",
-    "applicantName": "OSBORNE, LOGAN W"
-  },
-  {
-    "Status": "Funded",
-    "applicantName": "HOGAN, DANIEL R"
-  },
-  {
     "Status": "-",
     "applicantName": "POLANCO ABREU, RAFAEL D"
   },
@@ -116,48 +80,12 @@
     "applicantName": "CAIN, TYWON K"
   },
   {
-    "Status": "-",
-    "applicantName": "TOBAR, JAIME"
-  },
-  {
     "Status": "Processing",
     "applicantName": "MORUP OLSEN, JESPER"
   },
   {
     "Status": "Funded",
-    "applicantName": "MORUP OLSEN, JACOB"
-  },
-  {
-    "Status": "Funded",
-    "applicantName": "OSBORNE, LOGAN W"
-  },
-  {
-    "Status": "Funded",
     "applicantName": "HOGAN, DANIEL R"
-  },
-  {
-    "Status": "-",
-    "applicantName": "POLANCO ABREU, RAFAEL D"
-  },
-  {
-    "Status": "-",
-    "applicantName": "REYES, JENNIFFER M"
-  },
-  {
-    "Status": "-",
-    "applicantName": "REYES, JENNIFFER M"
-  },
-  {
-    "Status": "-",
-    "applicantName": "VILLINES, JAMES B"
-  },
-  {
-    "Status": "-",
-    "applicantName": "CAIN, TYWON K"
-  },
-  {
-    "Status": "-",
-    "applicantName": "TOBAR, JAIME"
   },
   {
     "Status": "Funded",
@@ -181,43 +109,7 @@
   },
   {
     "Status": "-",
-    "applicantName": "CARRIER, JAMES E"
-  },
-  {
-    "Status": "-",
-    "applicantName": "BORDERS, DANA"
-  },
-  {
-    "Status": "-",
-    "applicantName": "PRICE, CAMERON M"
-  },
-  {
-    "Status": "-",
-    "applicantName": "FINCANNON, JACOB"
-  },
-  {
-    "Status": "-",
-    "applicantName": "CALLINA, ALEXANDER J"
-  },
-  {
-    "Status": "Funded",
-    "applicantName": "HARN, CALEB B"
-  },
-  {
-    "Status": "Processing",
-    "applicantName": "BUCKALEW, KEVIN M"
-  },
-  {
-    "Status": "Funded",
-    "applicantName": "CARRIER, JAMES E"
-  },
-  {
-    "Status": "Funded",
-    "applicantName": "THRELKELD, KERRY C"
-  },
-  {
-    "Status": "Funded",
-    "applicantName": "POPWELL, BENJAMIN P"
+    "applicantName": "TOBAR, JAIME"
   },
   {
     "Status": "-",
@@ -268,58 +160,6 @@
     "applicantName": "AJETI, ALI"
   },
   {
-    "Status": "-",
-    "applicantName": "LEWIS, JOSHUA M"
-  },
-  {
-    "Status": "-",
-    "applicantName": "HILL, BRYSON T"
-  },
-  {
-    "Status": "-",
-    "applicantName": "HALL, ANDREA R"
-  },
-  {
-    "Status": "-",
-    "applicantName": "BEGANOVIC, SEMCO"
-  },
-  {
-    "Status": "-",
-    "applicantName": "GREENE, MARCUS E"
-  },
-  {
-    "Status": "-",
-    "applicantName": "HASSAN, DEANDRA"
-  },
-  {
-    "Status": "-",
-    "applicantName": "EDWARDS, JORDAN A"
-  },
-  {
-    "Status": "-",
-    "applicantName": "SCARANO, JOHN P"
-  },
-  {
-    "Status": "-",
-    "applicantName": "BRADY, BRANDON G"
-  },
-  {
-    "Status": "-",
-    "applicantName": "AJETI, ALI"
-  },
-  {
-    "Status": "-",
-    "applicantName": "LEWIS, JOSHUA M"
-  },
-  {
-    "Status": "-",
-    "applicantName": "HILL, BRYSON T"
-  },
-  {
-    "Status": "-",
-    "applicantName": "HALL, ANDREA R"
-  },
-  {
     "Status": "Funded",
     "applicantName": "BARRETT, KHALIL M"
   },
@@ -330,6 +170,18 @@
   {
     "Status": "Funded",
     "applicantName": "KOOISTRA, APRIL D"
+  },
+  {
+    "Status": "-",
+    "applicantName": "LEWIS, JOSHUA M"
+  },
+  {
+    "Status": "-",
+    "applicantName": "HILL, BRYSON T"
+  },
+  {
+    "Status": "-",
+    "applicantName": "HALL, ANDREA R"
   },
   {
     "Status": "-",
@@ -346,57 +198,5 @@
   {
     "Status": "-",
     "applicantName": "HUDGINS, TOMMY L"
-  },
-  {
-    "Status": "-",
-    "applicantName": "MOYEDA DASILVA, AZANY J"
-  },
-  {
-    "Status": "-",
-    "applicantName": "REYES, JOSE LUIS A"
-  },
-  {
-    "Status": "-",
-    "applicantName": "COWART JR, RANDALL T"
-  },
-  {
-    "Status": "Funded",
-    "applicantName": "BARRETT, KHALIL M"
-  },
-  {
-    "Status": "Funded",
-    "applicantName": "ENGLAND, STEVEN"
-  },
-  {
-    "Status": "Funded",
-    "applicantName": "KOOISTRA, APRIL D"
-  },
-  {
-    "Status": "-",
-    "applicantName": "LACEY, ERIC"
-  },
-  {
-    "Status": "-",
-    "applicantName": "WILLIAMS, ERIC D"
-  },
-  {
-    "Status": "-",
-    "applicantName": "LINDQUIST, JOSEPH L"
-  },
-  {
-    "Status": "-",
-    "applicantName": "HUDGINS, TOMMY L"
-  },
-  {
-    "Status": "-",
-    "applicantName": "MOYEDA DASILVA, AZANY J"
-  },
-  {
-    "Status": "-",
-    "applicantName": "REYES, JOSE LUIS A"
-  },
-  {
-    "Status": "-",
-    "applicantName": "COWART JR, RANDALL T"
   }
 ]
