@@ -7,11 +7,14 @@ import (
 
 // FormInstructions model
 type FormInstructions struct {
-	Description string
-	Field       string
-	Value       string
-	ShdType     bool
-	Kind        string
+	Description    string      `json:"description"`
+	Field          string      `json:"field"`
+	Value          string      `json:"value"`
+	ShdType        bool        `json:"shdType"`
+	Kind           string      `json:"kind"`
+	EvalExpression string      `json:"evalExpression"`
+	Body           interface{} `json:"body"`
+	Fallback       interface{} `json:"fallback"`
 }
 
 // ScrapeInstructions model
@@ -40,6 +43,19 @@ func CastToForm(data map[string]interface{}) FormInstructions {
 	fild := data["field"].(string)
 	val := data["value"].(string)
 	shdType, ok := data["shdType"].(bool)
+	evalExpression, evalExpressionOk := data["evalExpression"]
+	body, bodyOk := data["body"]
+	fallback, fallBackOk := data["fallback"]
+	if !bodyOk {
+		body = ""
+	}
+
+	if !fallBackOk {
+		fallback = ""
+	}
+	if !evalExpressionOk {
+		evalExpression = ""
+	}
 	if !ok {
 		shdType = false
 	}
@@ -50,6 +66,9 @@ func CastToForm(data map[string]interface{}) FormInstructions {
 		val,
 		shdType,
 		kind,
+		evalExpression.(string),
+		body,
+		fallback,
 	}
 }
 
