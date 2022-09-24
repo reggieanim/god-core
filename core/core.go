@@ -64,7 +64,7 @@ func launchBrowser(instructions []Instruction) {
 						return
 					}
 					defer wg.Done()
-					data := parseIns(browser)(ins)
+					data := parseIns(browser)(ins.Template)
 					fmt.Println("Performed actions successfully", data)
 				}(ins)
 			}
