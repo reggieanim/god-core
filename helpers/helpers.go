@@ -13,6 +13,7 @@ type FormInstructions struct {
 	ShdType        bool        `json:"shdType"`
 	Kind           string      `json:"kind"`
 	EvalExpression string      `json:"evalExpression"`
+	Timeout        float64     `json:"timeout"`
 	Body           interface{} `json:"body"`
 	Fallback       interface{} `json:"fallback"`
 }
@@ -46,10 +47,13 @@ func CastToForm(data map[string]interface{}) FormInstructions {
 	evalExpression, evalExpressionOk := data["evalExpression"]
 	body, bodyOk := data["body"]
 	fallback, fallBackOk := data["fallback"]
+	timeout, timeoutOk := data["timeout"]
 	if !bodyOk {
 		body = ""
 	}
-
+	if !timeoutOk {
+		timeout = float64(3)
+	}
 	if !fallBackOk {
 		fallback = ""
 	}
@@ -67,6 +71,7 @@ func CastToForm(data map[string]interface{}) FormInstructions {
 		shdType,
 		kind,
 		evalExpression.(string),
+		timeout.(float64),
 		body,
 		fallback,
 	}

@@ -14,6 +14,7 @@ var kindMap = map[string]bool{
 	"rightClick": true,
 	"wait":       true,
 	"condEval":   true,
+	"eval":       true,
 }
 
 func validate(ins map[string]interface{}) bool {
