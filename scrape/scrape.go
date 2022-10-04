@@ -214,6 +214,7 @@ func condEval(data helpers.ScrapeAllInstructions, p *rod.Page) {
 	if val {
 		body := data.Body
 		ScrapeAll(body, p)
+		return
 	}
 	if data.Fallback != "" {
 		log.Println("fallback", data.Fallback)
