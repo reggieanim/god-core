@@ -17,8 +17,10 @@ import (
 var wg sync.WaitGroup
 
 type Instruction struct {
-	Headless bool     `json:"headless"`
-	Configs  []Config `json:"instructions"`
+	Headless   bool     `json:"headless"`
+	SlowMotion int      `json:"slowMotion"`
+	Close      bool     `json:"close"`
+	Configs    []Config `json:"instructions"`
 }
 
 type Config struct {
@@ -52,18 +54,21 @@ func launchBrowser(instructions []Instruction) {
 			browser := rod.New().
 				ControlURL(url).
 				Trace(true).
-				SlowMotion(5 * time.Millisecond).
+				SlowMotion(time.Duration(v.SlowMotion) * time.Millisecond).
 				MustConnect().NoDefaultDevice()
 			for _, ins := range v.Configs {
 				wg.Add(1)
 				fmt.Println("Running instruction", ins)
 				go func(ins Config) {
+					if v.Close {
+						defer browser.Close()
+						defer wg.Done()
+					}
 					browser, err := browser.Page((proto.TargetCreateTarget{URL: ins.StartingUrl}))
 					if err != nil {
 						log.Println("Error creating page", err)
 						return
 					}
-					defer wg.Done()
 					data := parseIns(browser)(ins.Template)
 					fmt.Println("Performed actions successfully", data)
 				}(ins)
@@ -80,12 +85,9 @@ func parseIns(browser *rod.Page) func(data interface{}) interface{} {
 				fmt.Println("Recovered in f", r)
 			}
 		}()
-		// var out []interface{}
 		switch reflect.TypeOf(data).Kind() {
 		case reflect.Slice:
 			out := data.([]interface{})
-			// args := make([]interface{}, 0)
-			// args = append(args, out[1:]...)
 			args := out[1:]
 			fn := fmt.Sprint(out[0])
 			fmt.Printf("Compiling function %v with args %v \n", fn, args)

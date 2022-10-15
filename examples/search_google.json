@@ -1,0 +1,33 @@
+[
+   {
+      "headless": false,
+      "instructions": [
+         {
+            "startingUrl": "https://google.com",
+            "name": "woop",
+            "template": [
+               "do",
+               [
+                  "form",
+                  {
+                     "description": "Type how to make money",
+                     "kind": "text",
+                     "field": "input[title='Search']",
+                     "value": "How to make money forever",
+                     "timeout": 10
+                  },
+                  {
+                     "description": "Click the search button",
+                     "kind": "eval",
+                     "value": "",
+                     "field": ".gNO89b",
+                     "evalExpression": "() => this.click()",
+                     "timeout": 10
+                  },
+                  {}
+               ]
+            ]
+         }
+      ]
+   }
+]

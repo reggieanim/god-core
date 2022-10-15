@@ -89,6 +89,10 @@ func scrapeAll(ins instructions, p *rod.Page) *rod.Page {
 	if data.Kind == "extract" {
 		extract(data, p)
 	}
+
+	// if data.Kind == "pdf" {
+	// 	pdf(data, p)
+	// }
 	if data.Kind == "leftClick" {
 		validateClick(mapData)
 		leftClick(data, p)
@@ -139,6 +143,19 @@ func extract(data helpers.ScrapeAllInstructions, p *rod.Page) {
 	out = append(out, extractMap)
 }
 
+// 	p.MustWaitLoad()
+// 	r, err := p.PDF(&proto.PagePrintToPDF{})
+// 	if err != nil {
+// 		log.Println("Error getting pdf", err)
+// 		return
+// 	}
+// 	bin, err := ioutil.ReadAll(r)
+// 	if err != nil {
+// 		log.Println("Error reading pdf", err)
+// 		return
+// 	}
+// 	log.Println("pdf bytess", bin)
+// }
 func addKeys(item *rod.Element, keys map[string]interface{}) map[string]string {
 	result := make(map[string]string)
 	for k, v := range keys {
