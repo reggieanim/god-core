@@ -99,6 +99,7 @@ func launchBrowser() {
 			log.Println("Launching browser with speed", v.SlowMotion)
 			path, _ := launcher.LookPath()
 			l := launcher.New().Bin(path).
+				Leakless(true).
 				Headless(v.Headless)
 			defer l.Cleanup()
 			defer wg.Done()
