@@ -277,7 +277,7 @@
         ]
     },
     {
-        "headless": true,
+        "headless": false,
         "close": true,
         "trace": true,
         "instructions": [
