@@ -77,6 +77,8 @@ func runForm(ins instructions, page *rod.Page) *rod.Page {
 	switch data.Kind {
 	case "text":
 		text(data, page)
+	case "navigate":
+		navigate(data, page)
 	case "wait":
 		wait(data, page)
 	case "select":
@@ -96,6 +98,7 @@ func runForm(ins instructions, page *rod.Page) *rod.Page {
 }
 
 func text(data helpers.FormInstructions, page *rod.Page) {
+	page.WaitLoad()
 	page = page.Timeout(time.Second * time.Duration(data.Timeout))
 	if data.ShdType {
 		val := []input.Key(data.Value)
@@ -119,6 +122,13 @@ func text(data helpers.FormInstructions, page *rod.Page) {
 	}
 }
 
+func navigate(data helpers.FormInstructions, page *rod.Page) {
+	err := page.Navigate(data.Value)
+	if err != nil {
+		log.Println("Error navigating", err)
+		return
+	}
+}
 func wait(data helpers.FormInstructions, p *rod.Page) {
 	timer := data.Value
 	intVar, err := strconv.Atoi(timer)
@@ -147,7 +157,7 @@ func inputSelect(data helpers.FormInstructions, page *rod.Page) {
 		log.Println("Error finding element", err)
 		return
 	}
-	err = el.Select([]string{data.Value}, true, rod.SelectorTypeText)
+	err = el.Select([]string{data.Value}, true, rod.SelectorTypeCSSSector)
 	if err != nil {
 		log.Println("Error selecting element", err)
 		page.CancelTimeout()

@@ -21,8 +21,11 @@ var wg sync.WaitGroup
 var mutex = &sync.Mutex{}
 
 type Instruction struct {
-	Headless bool     `json:"headless"`
-	Configs  []Config `json:"instructions"`
+	Headless   bool     `json:"headless"`
+	Trace      bool     `json:"trace"`
+	Close      bool     `json:"close"`
+	SlowMotion int64    `json:"slowMotion"`
+	Configs    []Config `json:"instructions"`
 }
 
 type Config struct {
@@ -40,11 +43,11 @@ func main() {
 func parseIns(browser *rod.Page) func(data interface{}) interface{} {
 	return func(data interface{}) interface{} {
 		// var out []interface{}
-		defer func() {
-			if r := recover(); r != nil {
-				fmt.Println("Recovered in f", r)
-			}
-		}()
+		// defer func() {
+		// 	if r := recover(); r != nil {
+		// 		fmt.Println("Recovered in f", r)
+		// 	}
+		// }()
 		switch reflect.TypeOf(data).Kind() {
 		case reflect.Slice:
 			out := data.([]interface{})
@@ -89,10 +92,11 @@ func readJson(dir string) {
 
 func launchBrowser() {
 
-	readJson("bankscraping.json")
+	readJson("examples/bank_autofill_and_scraping.json")
 	for _, v := range instructions {
 		wg.Add(1)
 		go func(v Instruction) {
+			log.Println("Launching browser with speed", v.SlowMotion)
 			path, _ := launcher.LookPath()
 			l := launcher.New().Bin(path).
 				Headless(v.Headless)
@@ -101,22 +105,25 @@ func launchBrowser() {
 			url := l.MustLaunch()
 			browser := rod.New().
 				ControlURL(url).
-				Trace(true).
-				SlowMotion(5 * time.Millisecond).
+				Trace(v.Trace).
+				SlowMotion(time.Duration(v.SlowMotion) * time.Millisecond).
 				MustConnect().NoDefaultDevice()
 			for _, ins := range v.Configs {
 				wg.Add(1)
 				log.Println("Running instruction length", len(v.Configs))
 				fmt.Println("Running instruction", ins.Template)
 				go func(ins Config) {
+					if v.Close {
+						defer browser.Close()
+						defer wg.Done()
+					}
 					browser, err := browser.Page((proto.TargetCreateTarget{URL: ins.StartingUrl}))
 					if err != nil {
 						log.Println(err)
+						return
 					}
-					defer wg.Done()
 					data := parseIns(browser)(ins.Template)
 					fmt.Println("Performed actions successfully", data)
-
 				}(ins)
 			}
 		}(v)
