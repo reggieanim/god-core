@@ -62,6 +62,7 @@ func launchBrowser(instructions []Instruction) {
 				go func(ins Config) {
 					if v.Close {
 						defer browser.Close()
+						defer l.Kill()
 						defer wg.Done()
 					}
 					browser, err := browser.Page((proto.TargetCreateTarget{URL: ins.StartingUrl}))

@@ -1,8 +1,26 @@
 package helpers
 
 import (
+	"bytes"
+	"encoding/json"
 	"fmt"
+	"io"
 	"log"
+	"net/http"
+	"os"
+	"time"
+
+	"github.com/aws/aws-sdk-go/aws"
+	"github.com/aws/aws-sdk-go/aws/session"
+	"github.com/aws/aws-sdk-go/service/s3/s3manager"
+	"github.com/go-rod/rod"
+)
+
+const (
+	AccessKeyId     = "AKIAXDRKAZRKFHIDZZH4"
+	SecretAccessKey = "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"
+	Region          = "us-east-1"
+	Bucket          = "autofill-service-integrations"
 )
 
 // FormInstructions model
@@ -136,4 +154,60 @@ func CastToScrapeAll(data map[string]interface{}) ScrapeAllInstructions {
 		body.(interface{}),
 		fallback.(interface{}),
 	}
+}
+
+func AlertError(p *rod.Page, err error, title string) {
+	currentTime := time.Now()
+	img, err := p.Screenshot(false, nil)
+	if err != nil {
+		log.Println("Error taking screenshot", err)
+		return
+	}
+	imgUrl, err := saveToS3(bytes.NewBuffer(img), fmt.Sprintf("%s/%v.png", currentTime.Format("2006/01/02"), currentTime.Unix()))
+	if err != nil {
+		log.Println("Error saving screenshot to s3", err)
+		return
+	}
+
+	body, _ := json.Marshal(
+		map[string]interface{}{
+			"embeds": []map[string]interface{}{
+				map[string]interface{}{
+					"description": title,
+					"color":       16711680,
+					"url":         imgUrl,
+					"title":       "Error while autofilling",
+				},
+				map[string]interface{}{
+					"thumbnail": map[string]interface{}{
+						"url": "https://upload.wikimedia.org/wikipedia/commons/3/38/4-Nature-Wallpapers-2014-1_ukaavUI.jpg",
+					},
+					"image": map[string]interface{}{
+						"url": imgUrl,
+					},
+				},
+			},
+		},
+	)
+	log.Println("Posting to webhook")
+	http.Post("https://discord.com/api/webhooks/1030911910293540964/8Arb8FmCTDSUu1Jfa1z2pCdhql9tJMKzU0rro8fxpf3vWV4m9Zz_CjK7JLiC5pB01e_D", "application/json", bytes.NewBuffer(body))
+}
+
+func saveToS3(file io.Reader, fileName string) (string, error) {
+	os.Setenv("AWS_ACCESS_KEY_ID", AccessKeyId)
+	os.Setenv("AWS_SECRET_ACCESS_KEY", SecretAccessKey)
+	conf := aws.Config{Region: aws.String(Region)}
+	sess := session.New(&conf)
+
+	uploader := s3manager.NewUploader(sess)
+	result, err := uploader.Upload(&s3manager.UploadInput{
+		Bucket: aws.String(Bucket),
+		Key:    aws.String(fileName),
+		Body:   file,
+		ACL:    aws.String("public-read"),
+	})
+	if err != nil {
+		return "", err
+	}
+	return result.Location, nil
 }

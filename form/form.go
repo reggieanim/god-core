@@ -16,6 +16,12 @@ import (
 type instructions interface{}
 
 var out []interface{}
+var timeouts int
+var navigations int
+var leftClicks int
+var rightClicks int
+var selects int
+var evals int
 
 func Form(data interface{}, page *rod.Page) interface{} {
 	var countRetrys float64
@@ -99,12 +105,18 @@ func runForm(ins instructions, page *rod.Page) *rod.Page {
 
 func text(data helpers.FormInstructions, page *rod.Page) {
 	page.WaitLoad()
+	errP := page
 	page = page.Timeout(time.Second * time.Duration(data.Timeout))
 	if data.ShdType {
 		val := []input.Key(data.Value)
 		el, err := page.Element(data.Field)
 		if err != nil {
-			log.Println("Error finding element", err)
+			m := fmt.Sprintf("Error finding element: %v when: %v", data.Field, data.Description)
+			log.Println("Error finding element in text", err)
+			if timeouts < 6 {
+				go helpers.AlertError(errP, err, m)
+				timeouts++
+			}
 			page.CancelTimeout()
 			return
 		}
@@ -114,7 +126,12 @@ func text(data helpers.FormInstructions, page *rod.Page) {
 	} else {
 		el, err := page.Element(data.Field)
 		if err != nil {
+			m := fmt.Sprintf("Error finding element: %v when: %v", data.Field, data.Description)
 			log.Println("Error finding element in text", err)
+			if timeouts < 8 {
+				go helpers.AlertError(errP, err, m)
+				timeouts++
+			}
 			return
 		}
 		el.Input(data.Value)
@@ -124,11 +141,18 @@ func text(data helpers.FormInstructions, page *rod.Page) {
 
 func navigate(data helpers.FormInstructions, page *rod.Page) {
 	err := page.Navigate(data.Value)
+	errP := page
 	if err != nil {
 		log.Println("Error navigating", err)
+		m := fmt.Sprintf("Error naivgating: %v when: %v", data.Field, data.Description)
+		if navigations < 6 {
+			go helpers.AlertError(errP, err, m)
+			navigations++
+		}
 		return
 	}
 }
+
 func wait(data helpers.FormInstructions, p *rod.Page) {
 	timer := data.Value
 	intVar, err := strconv.Atoi(timer)
@@ -141,25 +165,43 @@ func wait(data helpers.FormInstructions, p *rod.Page) {
 }
 
 func eval(data helpers.FormInstructions, p *rod.Page) {
+	errP := p
 	log.Println(data.EvalExpression)
 	el, err := p.Element(data.Field)
 	if err != nil {
 		log.Println("Error getting item in eval", err)
+		if evals < 6 {
+			m := fmt.Sprintf("Error evaling: %v when: %v", data.Field, data.Description)
+			go helpers.AlertError(errP, err, m)
+			evals++
+		}
 		return
 	}
 	el.Eval(data.EvalExpression)
 }
 
 func inputSelect(data helpers.FormInstructions, page *rod.Page) {
+	errP := page
 	page = page.Timeout(time.Second * time.Duration(data.Timeout))
 	el, err := page.Element(data.Field)
 	if err != nil {
 		log.Println("Error finding element", err)
+		if selects < 6 {
+			m := fmt.Sprintf("Error adding select: %v when: %v", data.Field, data.Description)
+			go helpers.AlertError(errP, err, m)
+			selects++
+		}
+		page.CancelTimeout()
 		return
 	}
 	err = el.Select([]string{data.Value}, true, rod.SelectorTypeCSSSector)
 	if err != nil {
 		log.Println("Error selecting element", err)
+		if selects < 6 {
+			m := fmt.Sprintf("Error adding select: %v when: %v", data.Field, data.Description)
+			go helpers.AlertError(errP, err, m)
+			selects++
+		}
 		page.CancelTimeout()
 		return
 	}
@@ -168,10 +210,15 @@ func inputSelect(data helpers.FormInstructions, page *rod.Page) {
 }
 
 func leftClick(data helpers.FormInstructions, page *rod.Page) {
+	errP := page
 	page = page.Timeout(time.Second * time.Duration(data.Timeout))
 	el, err := page.Element(data.Field)
 	if err != nil {
 		log.Println("Error finding element", err)
+		if leftClicks < 6 {
+			m := fmt.Sprintf("Error left clicking: %v when: %v", data.Field, data.Description)
+			go helpers.AlertError(errP, err, m)
+		}
 		page.CancelTimeout()
 		return
 	}
@@ -181,26 +228,43 @@ func leftClick(data helpers.FormInstructions, page *rod.Page) {
 }
 
 func rightClick(data helpers.FormInstructions, page *rod.Page) {
+	errP := page
 	page = page.Timeout(time.Second * time.Duration(data.Timeout))
 	el, err := page.Element(data.Field)
 	if err != nil {
 		log.Println("Error finding element", err)
+		if rightClicks < 6 {
+			m := fmt.Sprintf("Error right clicking: %v when: %v", data.Field, data.Description)
+			go helpers.AlertError(errP, err, m)
+			rightClicks++
+		}
 		page.CancelTimeout()
 		return
 	}
 	err = el.CancelTimeout().Click(proto.InputMouseButtonRight, 1)
 	if err != nil {
-		log.Println("Error clicking element", err)
+		log.Println("Error finding element", err)
+		if rightClicks < 6 {
+			m := fmt.Sprintf("Error right clicking element: %v when: %v", data.Field, data.Description)
+			go helpers.AlertError(errP, err, m)
+			rightClicks++
+		}
 		return
 	}
 	out = append(out, data)
 }
 
 func condEval(data helpers.FormInstructions, p *rod.Page) {
+	errP := p
 	p = p.Timeout(time.Second * time.Duration(data.Timeout))
 	el, err := p.Element(data.Field)
 	if err != nil {
 		log.Println("Error finding item in condEval", err)
+		if evals < 6 {
+			m := fmt.Sprintf("Error finding item in condEval: %v when: %v", data.Field, data.Description)
+			go helpers.AlertError(errP, err, m)
+			evals++
+		}
 		return
 	}
 	proto, err := el.Eval(data.EvalExpression)
@@ -208,6 +272,11 @@ func condEval(data helpers.FormInstructions, p *rod.Page) {
 	p = p.CancelTimeout()
 	if err != nil {
 		log.Println("Error evaluatin eval expression condEval", err)
+		if evals < 6 {
+			m := fmt.Sprintf("Error evaluating eval expression condEval: %v when: %v", data.Field, data.Description)
+			go helpers.AlertError(errP, err, m)
+			evals++
+		}
 	}
 	val := proto.Value.Bool()
 	log.Println("condEval", val)
