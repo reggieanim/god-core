@@ -3,17 +3,21 @@ package post
 import (
 	"bytes"
 	"encoding/json"
+	"fmt"
 	"log"
 	"net/http"
 	"reflect"
+	"time"
 
 	"github.com/go-rod/rod"
+	"github.com/reggieanim/god-core/helpers"
 )
 
 var out []interface{}
 
 // Post to an endpoint
 func Post(data interface{}, page *rod.Page) interface{} {
+	errP := page
 	var countRetrys float64
 	if reflect.TypeOf(data).Kind() == reflect.Slice {
 		args, ok := data.([]interface{})
@@ -26,11 +30,17 @@ func Post(data interface{}, page *rod.Page) interface{} {
 		data = sanitizeData(data)
 		val, err := json.Marshal(data)
 		if err != nil {
+			m := fmt.Sprintf("cannot post to %s", url)
+			go helpers.AlertError(errP, err, m)
 			log.Fatal("cannot marshal data")
+			return nil
 		}
 		body, err := prettyprint(val)
 		if err != nil {
+			m := fmt.Sprintf("cannot post to %s", url)
+			go helpers.AlertError(errP, err, m)
 			log.Fatal("cannot pretty print data")
+			return nil
 		}
 		retry, ok := options.(map[string]interface{})["retry"]
 		if !ok {
@@ -44,10 +54,16 @@ func Post(data interface{}, page *rod.Page) interface{} {
 				break
 			}
 			log.Println("running", retry, "time(s)")
-			resp, err := http.Post(url.(string), "application/json",
-				bytes.NewBuffer(body))
-			if err != nil {
-				panic(err)
+			log.Println("posting to ", url.(string))
+			resp, err := http.Post(url.(string), "application/json", bytes.NewBuffer(body))
+			log.Println("response:", resp)
+			log.Println("response err:", err)
+			if err != nil || resp.StatusCode > 201 {
+				m := fmt.Sprintf("cannot post to %s", url)
+				log.Println("Alerting...")
+				go helpers.AlertError(errP, err, m)
+				time.Sleep(10 * time.Second)
+				return nil
 			}
 			countRetrys++
 			out = append(out, resp)

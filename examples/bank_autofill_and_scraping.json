@@ -32,6 +32,29 @@
                             "value": ""
                         },
                         {
+                            "description": "Click Fake Login",
+                            "field": "#ContentPlaceHolder1_Login1_LoginButtons",
+                            "kind": "leftClick",
+                            "value": ""
+                        },
+                        {
+                            "body": [
+                                {
+                                    "description": "Type username",
+                                    "field": "#ContentPlaceHolder1_Login1_UserName",
+                                    "kind": "text",
+                                    "value": "body"
+                                },
+                                {}
+                            ],
+                            "description": "Check if logged in fake",
+                            "evalExpression": "() => this.innerText == 'Your login attempt was not successful. Please try again.'",
+                            "field": "#ContentPlaceHolder1_Login1_FailureTexts",
+                            "kind": "condEval",
+                            "timeout": 2,
+                            "value": ""
+                        },
+                        {
                             "body": [
                                 {
                                     "description": "Type username",
@@ -277,7 +300,7 @@
         ]
     },
     {
-        "headless": false,
+        "headless": true,
         "close": true,
         "trace": true,
         "instructions": [
@@ -324,12 +347,6 @@
                             "kind": "text",
                             "field": "#ContentPlaceHolder1_PageSizeDropDownBottom",
                             "value": "100"
-                        },
-                        {
-                            "description": "Click Search",
-                            "kind": "leftClick",
-                            "field": "#ContentPlaceHolder1_PageSizeDropDownBottom",
-                            "value": ""
                         },
                         {
                             "description": "Just Wait",

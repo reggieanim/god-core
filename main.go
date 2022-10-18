@@ -92,7 +92,7 @@ func readJson(dir string) {
 
 func launchBrowser() {
 
-	readJson("examples/bank_autofill_and_scraping.json")
+	readJson("examples/scraping_tutlix_and_hitting_file.json")
 	for _, v := range instructions {
 		wg.Add(1)
 		go func(v Instruction) {
@@ -116,6 +116,7 @@ func launchBrowser() {
 				go func(ins Config) {
 					if v.Close {
 						defer browser.Close()
+						defer l.Kill()
 						defer wg.Done()
 					}
 					browser, err := browser.Page((proto.TargetCreateTarget{URL: ins.StartingUrl}))

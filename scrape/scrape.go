@@ -18,6 +18,11 @@ type instructions interface{}
 var extractMap map[string]string
 
 var out []interface{}
+var timeouts int
+var leftClicks int
+var rightClicks int
+var condEvals int
+var evals int
 
 // Scrape extracts an item in dom
 // ScrapeAll scrapes a list of items in dom
@@ -156,74 +161,141 @@ func extract(data helpers.ScrapeAllInstructions, p *rod.Page) {
 // 	}
 // 	log.Println("pdf bytess", bin)
 // }
-func addKeys(item *rod.Element, keys map[string]interface{}) map[string]string {
+func addKeys(p *rod.Page, item *rod.Element, keys map[string]interface{}) map[string]string {
+	errP := p
 	result := make(map[string]string)
 	for k, v := range keys {
 		log.Println("key", k)
 		log.Println("value", v)
-		el, err := item.Element(v.(string))
+		log.Println("item", v.(map[string]interface{})["element"])
+		el, err := item.Element(v.(map[string]interface{})["element"].(string))
+		log.Println("Getting element...")
 		if err != nil {
 			log.Println("Error finding item", err)
+			m := fmt.Sprintf("Error finding item when extracting keys: %v: %v: %v:", k, v, err)
+			if timeouts < 6 {
+				go helpers.AlertError(errP, err, m)
+				timeouts++
+			}
+			return result
 		}
-		result[k], err = el.Text()
-		if err != nil {
-			log.Println("Error finding item", err)
-		}
+		log.Print("v........djgfhfghfg", v)
+		if v.(map[string]interface{})["type"].(string) == "text" {
+			result[k], err = el.Text()
+			if err != nil {
+				log.Println("Error finding item", err)
+				m := fmt.Sprintf("Error finding item when adding keys: %v: %v: %v:", k, v, err)
+				if timeouts < 6 {
+					go helpers.AlertError(errP, err, m)
+					timeouts++
+				}
+				return result
+			}
+			text, err := el.Text()
+			if err != nil {
+				log.Println("Error texting item", err)
+			}
+			result[k] = fmt.Sprintf("[God-core]%v", text)
 
+		} else {
+			attr, err := el.Eval(v.(map[string]interface{})["eval"].(string))
+			if err != nil {
+				log.Println("Error evaling item", err)
+				return result
+			}
+			if attr.Value.Nil() {
+				return result
+			}
+			result[k] = attr.Value.Str()
+		}
 	}
 	return result
 }
 
 func scrapeData(data helpers.ScrapeAllInstructions, p *rod.Page) {
+	errP := p
 	log.Println("Scraping data...", data.Parent)
 	list, err := p.Element(data.Parent)
 	if err != nil {
 		log.Println("Error finding parent", err)
+		m := fmt.Sprintf("Error finding parent: %s when: %v", data.Parent, data.Description)
+		if timeouts < 6 {
+			go helpers.AlertError(errP, err, m)
+			timeouts++
+		}
 		return
 	}
 	items, err := list.Elements(data.Item)
 	if err != nil {
 		log.Println("Error finding item", err)
+		m := fmt.Sprintf("Error listing elements: %s when: %v", data.Parent, data.Description)
+		if timeouts < 6 {
+			go helpers.AlertError(errP, err, m)
+			timeouts++
+		}
 		return
 	}
 	log.Println("list...", list)
 	log.Println("items", items)
 	for _, v := range items {
-		result := addKeys(v, data.Keys)
+		result := addKeys(p, v, data.Keys)
 		log.Println("Resultt", result)
 		out = append(out, result)
 	}
 }
 
 func leftClick(data helpers.ScrapeAllInstructions, p *rod.Page) {
+	errP := p
 	log.Println("Left clicking...", data.Item)
 	el, err := p.Element(data.Item)
 	if err != nil {
 		log.Println("Error finding item left click", err)
+		m := fmt.Sprintf("Error left clicking: %s when: %v", data.Item, data.Description)
+		if leftClicks < 6 {
+			go helpers.AlertError(errP, err, m)
+			leftClicks++
+		}
 		return
 	}
 	el.Click(proto.InputMouseButtonLeft, 1)
 }
 
 func rightClick(data helpers.ScrapeAllInstructions, p *rod.Page) {
+	errP := p
 	log.Println("Right clicking...", data.Item)
 	el, err := p.Element(data.Item)
 	if err != nil {
 		log.Println("Error finding item in rightClick", err)
+		if rightClicks < 6 {
+			m := fmt.Sprintf("Error right clicking: %s when: %v", data.Item, data.Description)
+			go helpers.AlertError(errP, err, m)
+			rightClicks++
+		}
 		return
 	}
 	el.Click(proto.InputMouseButtonRight, 1)
 }
 
 func condEval(data helpers.ScrapeAllInstructions, p *rod.Page) {
+	errP := p
 	el, err := p.Element(data.Item)
 	if err != nil {
 		log.Println("Error finding item in condEval", err)
+		if condEvals < 6 {
+			m := fmt.Sprintf("Error finding item item in condEval: %s when: %v", data.Item, data.Description)
+			go helpers.AlertError(errP, err, m)
+			condEvals++
+		}
 		return
 	}
 	proto, err := el.Eval(data.EvalExpression)
 	if err != nil {
 		log.Println("Error evaluatin eval expression condEval", err)
+		if condEvals < 6 {
+			m := fmt.Sprintf("Error evaluating js in condEval: %s when: %v", data.EvalExpression, data.Description)
+			go helpers.AlertError(errP, err, m)
+			condEvals++
+		}
 		return
 	}
 	val := proto.Value.Bool()
@@ -241,13 +313,23 @@ func condEval(data helpers.ScrapeAllInstructions, p *rod.Page) {
 }
 
 func eval(data helpers.ScrapeAllInstructions, p *rod.Page) {
+	errP := p
 	log.Println(data.EvalExpression)
 	el, err := p.Element(data.Item)
 	if err != nil {
 		log.Println("Error getting item in eval", err)
 		return
 	}
-	el.Eval(data.EvalExpression)
+	_, err = el.Eval(data.EvalExpression)
+	if err != nil {
+		log.Println("Error evaluating eval expression", err)
+		if evals < 6 {
+			m := fmt.Sprintf("Error evaluating js in condEval: %s when: %v", data.EvalExpression, data.Description)
+			go helpers.AlertError(errP, err, m)
+			evals++
+		}
+		return
+	}
 }
 
 // func findPage(data helpers.ScrapeAllInstructions, p *rod.Page) {
