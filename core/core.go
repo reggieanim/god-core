@@ -42,7 +42,7 @@ func launchBrowser(instructions []Instruction) {
 		wg.Add(1)
 		go func(v Instruction) {
 			path, _ := launcher.LookPath()
-			l := launcher.New().Bin(path).Leakless(true).
+			l := launcher.New().Bin(path).Leakless(false).
 				Headless(v.Headless)
 			defer l.Cleanup()
 			defer wg.Done()
