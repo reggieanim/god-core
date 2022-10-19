@@ -19,6 +19,7 @@ var wg sync.WaitGroup
 type Instruction struct {
 	Headless   bool     `json:"headless"`
 	SlowMotion int      `json:"slowMotion"`
+	Trace      bool     `json:"trace"`
 	Close      bool     `json:"close"`
 	Configs    []Config `json:"instructions"`
 }
@@ -53,7 +54,7 @@ func launchBrowser(instructions []Instruction) {
 			}
 			browser := rod.New().
 				ControlURL(url).
-				Trace(true).
+				Trace(v.Trace).
 				SlowMotion(time.Duration(v.SlowMotion) * time.Millisecond).
 				MustConnect().NoDefaultDevice()
 			for _, ins := range v.Configs {
