@@ -161,12 +161,10 @@ func AlertError(p *rod.Page, err error, title string) {
 	img, err := p.Screenshot(false, nil)
 	if err != nil {
 		log.Println("Error taking screenshot", err)
-		return
 	}
 	imgUrl, err := saveToS3(bytes.NewBuffer(img), fmt.Sprintf("%s/%v.png", currentTime.Format("2006/01/02"), currentTime.Unix()))
 	if err != nil {
 		log.Println("Error saving screenshot to s3", err)
-		return
 	}
 
 	body, _ := json.Marshal(
