@@ -195,7 +195,7 @@ func addKeys(p *rod.Page, item *rod.Element, keys map[string]interface{}) map[st
 			if err != nil {
 				log.Println("Error texting item", err)
 			}
-			result[k] = fmt.Sprintf("[God-core]%v", text)
+			result[k] = text
 
 		} else {
 			attr, err := el.Eval(v.(map[string]interface{})["eval"].(string))
