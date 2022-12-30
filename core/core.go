@@ -7,6 +7,7 @@ import (
 	"reflect"
 	"sync"
 	"time"
+	"context"
 
 	"github.com/go-rod/rod"
 	"github.com/go-rod/rod/lib/launcher"
@@ -35,11 +36,14 @@ func Start(raw []byte) {
 	json.Unmarshal([]byte(raw), &instructions)
 	launchBrowser(instructions)
 	wg.Wait()
-	log.Println("Job ran successfully")
+	log.Println("Job completed")
 }
 
-func launchBrowser(instructions []Instruction) {
-	for _, v := range instructions {
+func launchBrowser(instructions []Instruction) (error) {
+    ctx, cancel := context.WithCancel(context.Background())
+		defer cancel()
+		for _, v := range instructions {
+
 		wg.Add(1)
 		go func(v Instruction) {
 			path, _ := launcher.LookPath()
@@ -50,7 +54,8 @@ func launchBrowser(instructions []Instruction) {
 			url, err := l.Launch()
 			if err != nil {
 				log.Println("Error launching", err)
-				return
+				cancel()
+				return 
 			}
 			browser := rod.New().
 				ControlURL(url).
@@ -69,6 +74,7 @@ func launchBrowser(instructions []Instruction) {
 					browser, err := browser.Page((proto.TargetCreateTarget{URL: ins.StartingUrl}))
 					if err != nil {
 						log.Println("Error creating page", err)
+						cancel()
 						return
 					}
 					data := parseIns(browser)(ins.Template)
@@ -77,6 +83,7 @@ func launchBrowser(instructions []Instruction) {
 			}
 		}(v)
 	}
+	return ctx.Err()
 
 }
 

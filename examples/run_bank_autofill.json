@@ -2,6 +2,7 @@
     {
         "headless": false,
         "slowMotion": 25,
+        "close": true,
         "instructions": [
             {
                 "name": "sheffield",

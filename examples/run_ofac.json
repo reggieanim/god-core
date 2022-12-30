@@ -1,0 +1,65 @@
+[
+    {
+        "headless": false,
+        "slowMotion": 25,
+        "close": true,
+        "instructions": [
+            {
+                "name": "ofac",
+                "startingUrl": "https://sanctionssearch.ofac.treas.gov",
+                "template": [
+                    "do",
+                    [
+                        "form",
+                        {
+                            "description": "Type name",
+                            "field": "#ctl00_MainContent_txtLastName",
+                            "kind": "text",
+                            "shdType": true,
+                            "timeout": 10,
+                            "value": "testing name"
+                        },
+                        {
+                            "description": "Type address",
+                            "field": "#ctl00_MainContent_txtAddress",
+                            "kind": "text",
+                            "timeout": 2,
+                            "shdType": true,
+                            "value": "testing address"
+                        },
+                        {
+                            "description": "Type city",
+                            "field": "#ctl00_MainContent_txtCity",
+                            "kind": "text",
+                            "timeout": 2,
+                            "shdType": true,
+                            "value": "Testing city"
+                        },
+                        {
+                            "description": "Type state",
+                            "field": "#ctl00_MainContent_txtState",
+                            "kind": "text",
+                            "timeout": 2,
+                            "shdType": true,
+                            "value": "Testing state"
+                        },
+                        {
+                            "description": "Click on search",
+                            "field": "#ctl00_MainContent_btnSearch",
+                            "kind": "leftClick",
+                            "value": ""
+                        },
+                        {
+                            "description": "wait for clean up",
+                            "field": "#ofac_cleanup",
+                            "kind": "leftClick",
+                            "timeout": 600,
+                            "value": ""
+                        },
+                        {}
+                    ]
+                ]
+            }
+        ]
+    }
+]
