@@ -92,7 +92,7 @@ func readJson(dir string) {
 
 func launchBrowser() {
 
-	readJson("examples/scraping_tutlix_and_hitting_file.json")
+	readJson("examples/run_ofac.json")
 	for _, v := range instructions {
 		wg.Add(1)
 		go func(v Instruction) {
