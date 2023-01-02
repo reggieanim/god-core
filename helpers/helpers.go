@@ -31,6 +31,7 @@ type FormInstructions struct {
 	ShdType        bool        `json:"shdType"`
 	Kind           string      `json:"kind"`
 	EvalExpression string      `json:"evalExpression"`
+	IframeSelector string      `json:"iframeSelector"`
 	Timeout        float64     `json:"timeout"`
 	Body           interface{} `json:"body"`
 	Fallback       interface{} `json:"fallback"`
@@ -51,6 +52,7 @@ type ScrapeAllInstructions struct {
 	Kind           string                 `json:"type"`
 	Key            string                 `json:"key"`
 	EvalExpression string                 `json:"evalExpression"`
+	IframeSelector string                 `json:"IframeSelector"`
 	Keys           map[string]interface{} `json:"keys"`
 	Body           interface{}            `json:"body"`
 	Fallback       interface{}            `json:"fallback"`
@@ -63,6 +65,7 @@ func CastToForm(data map[string]interface{}) FormInstructions {
 	val := data["value"].(string)
 	shdType, ok := data["shdType"].(bool)
 	evalExpression, evalExpressionOk := data["evalExpression"]
+	iframeSelector, iframeSelectorOk := data["iframeSelector"].(string)
 	body, bodyOk := data["body"]
 	fallback, fallBackOk := data["fallback"]
 	timeout, timeoutOk := data["timeout"]
@@ -78,6 +81,9 @@ func CastToForm(data map[string]interface{}) FormInstructions {
 	if !evalExpressionOk {
 		evalExpression = ""
 	}
+	if !iframeSelectorOk {
+		evalExpression = ""
+	}
 	if !ok {
 		shdType = false
 	}
@@ -89,6 +95,7 @@ func CastToForm(data map[string]interface{}) FormInstructions {
 		shdType,
 		kind,
 		evalExpression.(string),
+		iframeSelector,
 		timeout.(float64),
 		body,
 		fallback,
@@ -118,8 +125,12 @@ func CastToScrapeAll(data map[string]interface{}) ScrapeAllInstructions {
 	body, bodyOk := data["body"]
 	fallback, fallBackOk := data["fallback"]
 	evalExpression, evalExpressionOk := data["evalExpression"]
+	iframeSelector, iframeSelectorOk := data["iframeSelector"]
 	if !evalExpressionOk {
 		evalExpression = ""
+	}
+	if !iframeSelectorOk {
+		iframeSelector = ""
 	}
 
 	if !parentOk {
@@ -150,6 +161,7 @@ func CastToScrapeAll(data map[string]interface{}) ScrapeAllInstructions {
 		kind.(string),
 		key.(string),
 		evalExpression.(string),
+		iframeSelector.(string),
 		keys.(map[string]interface{}),
 		body.(interface{}),
 		fallback.(interface{}),
