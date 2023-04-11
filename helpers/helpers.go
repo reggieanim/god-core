@@ -17,10 +17,10 @@ import (
 )
 
 const (
-	AccessKeyId     = "AKIAXDRKAZRKFHIDZZH4"
-	SecretAccessKey = "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"
+	AccessKeyId     = "AKIAWJLAXSSMVBIOESEV"
+	SecretAccessKey = "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"
 	Region          = "us-east-1"
-	Bucket          = "autofill-service-integrations"
+	Bucket          = "autofill-errors"
 )
 
 // FormInstructions model
@@ -163,8 +163,8 @@ func CastToScrapeAll(data map[string]interface{}) ScrapeAllInstructions {
 		evalExpression.(string),
 		iframeSelector.(string),
 		keys.(map[string]interface{}),
-		body.(interface{}),
-		fallback.(interface{}),
+		body,
+		fallback,
 	}
 }
 
@@ -200,7 +200,7 @@ func AlertError(p *rod.Page, err error, title string) {
 		},
 	)
 	log.Println("Posting to webhook")
-	http.Post("https://discord.com/api/webhooks/1030911910293540964/8Arb8FmCTDSUu1Jfa1z2pCdhql9tJMKzU0rro8fxpf3vWV4m9Zz_CjK7JLiC5pB01e_D", "application/json", bytes.NewBuffer(body))
+	http.Post("https://discord.com/api/webhooks/1095408167111884890/0LZwJBOH_ESnTH1m_RmgaEOQ8LUwX3bozovjpw18f57DB5aWTxL76VBJzJsaAmmcCGy2", "application/json", bytes.NewBuffer(body))
 }
 
 func saveToS3(file io.Reader, fileName string) (string, error) {
