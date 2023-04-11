@@ -86,13 +86,16 @@ func readJson(dir string) {
 		panic(err)
 	}
 	defer file.Close()
-	byteVal, _ := ioutil.ReadAll(file)
+	byteVal, err := ioutil.ReadAll(file)
+	if err != nil {
+		panic(err)
+	}
 	json.Unmarshal([]byte(byteVal), &instructions)
 }
 
 func launchBrowser() {
 
-	readJson("examples/run_ofac.json")
+	readJson("examples/octane_autofill.json")
 	for _, v := range instructions {
 		wg.Add(1)
 		go func(v Instruction) {

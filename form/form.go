@@ -53,6 +53,18 @@ func Form(data interface{}, page *rod.Page) interface{} {
 				log.Println("retry limit reached, aborting")
 				break
 			}
+			iframeSelector, iframeOk := options.(map[string]interface{})["iframeSelector"]
+			if iframeOk {
+				p, err := page.Element(iframeSelector.(string))
+				if err != nil {
+					log.Println("Error in iframe", err)
+				}
+				pg, err := p.Frame()
+				if err != nil {
+					log.Println("Error in iframe", err)
+				}
+				page = pg
+			}
 			for _, v := range instructions {
 				page = runForm(v, page)
 			}

@@ -148,19 +148,19 @@ func extract(data helpers.ScrapeAllInstructions, p *rod.Page) {
 	out = append(out, extractMap)
 }
 
-// 	p.MustWaitLoad()
-// 	r, err := p.PDF(&proto.PagePrintToPDF{})
-// 	if err != nil {
-// 		log.Println("Error getting pdf", err)
-// 		return
-// 	}
-// 	bin, err := ioutil.ReadAll(r)
-// 	if err != nil {
-// 		log.Println("Error reading pdf", err)
-// 		return
-// 	}
-// 	log.Println("pdf bytess", bin)
-// }
+//		p.MustWaitLoad()
+//		r, err := p.PDF(&proto.PagePrintToPDF{})
+//		if err != nil {
+//			log.Println("Error getting pdf", err)
+//			return
+//		}
+//		bin, err := ioutil.ReadAll(r)
+//		if err != nil {
+//			log.Println("Error reading pdf", err)
+//			return
+//		}
+//		log.Println("pdf bytess", bin)
+//	}
 func addKeys(p *rod.Page, item *rod.Element, keys map[string]interface{}) map[string]string {
 	errP := p
 	result := make(map[string]string)

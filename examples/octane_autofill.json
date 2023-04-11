@@ -1,0 +1,210 @@
+[
+    {
+        "headless": false,
+        "slowMotion": 25,
+        "close": true,
+        "trace": true,
+        "instructions": [
+            {
+                "name": "octane",
+                "startingUrl": "https://dealer.octane.co/index.html#!/",
+                "template": [
+                    "do",
+                    [
+                        "form",
+                        {
+                            "description": "Type username",
+                            "field": "#login-form-username",
+                            "kind": "text",
+                            "shdType": true,
+                            "timeout": 100,
+                            "value": "samer@funbikecenter.com"
+                        },
+                        {
+                            "description": "Type password",
+                            "field": "input[type*='password']",
+                            "kind": "text",
+                            "timeout": 2,
+                            "shdType": true,
+                            "value": "Finance@2128"
+                        },
+                        {
+                            "description": "Click Login",
+                            "field": "input[type*='submit']",
+                            "kind": "leftClick",
+                            "value": ""
+                        },
+                        {
+                            "description": "Wait for loging",
+                            "field": "",
+                            "kind": "wait",
+                            "value": "20"
+                        },
+                        {
+                            "description": "Go To New Application",
+                            "field": "#new-deal",
+                            "kind": "navigate",
+                            "value": "https://dealer.octane.co/index.html#!/application/new/Roadrunner%20Financial/",
+                            "timeout": 20
+                        },
+                        {
+                            "description": "Select application type",
+                            "field": "select[name*='applicationType']",
+                            "kind": "select",
+                            "timeout": 15,
+                            "value": "[value='I']"
+                        },
+                        {
+                            "description": "Fill Social Security Number",
+                            "field": "input[name*='ssn1']",
+                            "kind": "text",
+                            "shdType": true,
+                            "value": ""
+                        },
+                        {
+                            "description": "Fill First Name",
+                            "field": "input[name*='firstName']",
+                            "kind": "text",
+                            "shdType": true,
+                            "value": "FirstName"
+                        },
+                        {
+                            "description": "Fill Middle Name",
+                            "field": "input[name*='middleInitial']",
+                            "kind": "text",
+                            "shdType": true,
+                            "value": "M"
+                        },
+                        {
+                            "description": "Fill Last Name",
+                            "field": "input[name*='lastName']",
+                            "kind": "text",
+                            "shdType": true,
+                            "value": "LastName"
+                        },
+                        {
+                            "description": "Fill Contact Email",
+                            "field": "input[name*='emailAddress']",
+                            "kind": "text",
+                            "shdType": true,
+                            "shudType": true,
+                            "value": "test@gmail.com"
+                        },
+                        {
+                            "description": "Fill Current Address Line 1",
+                            "field": "input[name*='primaryAddress']",
+                            "kind": "text",
+                            "shdType": true,
+                            "value": "1234 Main St"
+                        },
+                        {
+                            "description": "Fill Current City",
+                            "field": "input[name*='primaryCity']",
+                            "kind": "text",
+                            "shdType": true,
+                            "value": "San Francisco"
+                        },
+                        {
+                            "description": "Fill Current State",
+                            "field": "input[name*='primaryState']",
+                            "kind": "select",
+                            "value": "[value='TX']"
+                        },
+                        {
+                            "description": "Fill Current Postal Code",
+                            "field": "input[name*='primaryZip']",
+                            "kind": "text",
+                            "shdType": true,
+                            "value": "94110"
+                        },
+                        {
+                            "description": "Fill Date of Birth Month",
+                            "field": "input[name*='dobMonth']",
+                            "kind": "text",
+                            "value": "10"
+                        },
+                        {
+                            "description": "Fill Date of Birth Month",
+                            "field": "input[name*='dobDay']",
+                            "kind": "text",
+                            "shudType": true,
+                            "value": "01"
+                        },
+                        {
+                            "description": "Fill Date of Birth Year",
+                            "field": "input[name*='dobYear']",
+                            "kind": "text",
+                            "value": "1981"
+                        },
+                        {
+                            "description": "Fill Residential Status",
+                            "field": "select[name*='residentialStatus']",
+                            "kind": "select",
+                            "value": "[value='O']"
+                        },
+                        {
+                            "description": "Fill Monthly Rent Payment",
+                            "field": "input[name*='monthlyHousingPayment']",
+                            "kind": "text",
+                            "shdType": true,
+                            "value": "200"
+                        },
+                        {
+                            "description": "Fill Years at Residence",
+                            "field": "input[name*='residentialYears']",
+                            "kind": "text",
+                            "shdtype": true,
+                            "value": "1"
+                        },
+                        {
+                            "description": "Fill Months at Residence",
+                            "field": "input[name*='residentialMonths']",
+                            "kind": "text",
+                            "shdtype": true,
+                            "value": "10"
+                        },
+                        {
+                            "description": "Contact mobile phone",
+                            "field": "input[name*='mPhone1']",
+                            "kind": "text",
+                            "shdType": true,
+                            "value": "5129241221"
+                        },
+                        {
+                            "description": "Contact Mobile Phone home",
+                            "field": "input[name*='hPhone1']",
+                            "kind": "text",
+                            "shdType": true,
+                            "value": "5129241221"
+                        },
+                        {
+                            "description": "Contact Work Phone",
+                            "field": "input[name*='wPhone1']",
+                            "kind": "text",
+                            "shdType": true,
+                            "value": "5127792613"
+                        },
+                        {
+                            "description": "Current Employer Name",
+                            "field": "input[name*='employerName']",
+                            "kind": "text",
+                            "shdType": true,
+                            "value": "JOE BLAND CONSTRUCTION"
+                        },
+                        {
+                            "description": "Hold Browser",
+                            "field": "#HolldBrosweerr.",
+                            "kind": "text",
+                            "shdType": true,
+                            "timeout": 60000000,
+                            "value": "JOE BLAND CONSTRUCTION"
+                        },
+                        {
+                          "iframeSelector": ".LegacyFrame"
+                        }
+                    ]
+                ]
+            }
+        ]
+    }
+]
