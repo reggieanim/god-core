@@ -80,6 +80,7 @@ func checkAlreadyRunningBrowser() (error, string) {
 
 func launchBrowser(instructions []Instruction) error {
 	var url string
+	var connected bool
 	ctx, cancel := context.WithCancel(context.Background())
 	defer cancel()
 	for _, v := range instructions {
@@ -101,6 +102,7 @@ func launchBrowser(instructions []Instruction) error {
 				}
 			} else {
 				url = urlDev
+				connected = true
 			}
 			browser := rod.New().
 				ControlURL(url).
@@ -111,7 +113,7 @@ func launchBrowser(instructions []Instruction) error {
 				wg.Add(1)
 				fmt.Println("Running instruction", ins)
 				go func(ins Config) {
-					if v.Close {
+					if v.Close && !connected {
 						defer browser.Close()
 						defer l.Kill()
 						defer wg.Done()

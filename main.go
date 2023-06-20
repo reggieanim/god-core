@@ -133,6 +133,7 @@ func checkAlreadyRunningBrowser() (error, string) {
 
 func launchBrowser() {
 	var url string
+	var connected bool
 	readJson("examples/octane_autofill.json")
 	for _, v := range instructions {
 		wg.Add(1)
@@ -154,6 +155,7 @@ func launchBrowser() {
 				}
 			} else {
 				url = urlDev
+				connected = true
 			}
 			browser := rod.New().
 				ControlURL(url).
@@ -165,7 +167,7 @@ func launchBrowser() {
 				log.Println("Running instruction length", len(v.Configs))
 				fmt.Println("Running instruction", ins.Template)
 				go func(ins Config) {
-					if v.Close {
+					if v.Close && !connected {
 						defer browser.Close()
 						defer l.Kill()
 						defer wg.Done()
