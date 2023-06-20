@@ -1,13 +1,15 @@
 package core
 
 import (
+	"context"
 	"encoding/json"
 	"fmt"
+	"io/ioutil"
 	"log"
+	"net/http"
 	"reflect"
 	"sync"
 	"time"
-	"context"
 
 	"github.com/go-rod/rod"
 	"github.com/go-rod/rod/lib/launcher"
@@ -25,6 +27,10 @@ type Instruction struct {
 	Configs    []Config `json:"instructions"`
 }
 
+type Chrome struct {
+	Url string `json:"webSocketDebuggerUrl"`
+}
+
 type Config struct {
 	Name        string        `json:"name"`
 	StartingUrl string        `json:"startingUrl"`
@@ -39,23 +45,62 @@ func Start(raw []byte) {
 	log.Println("Job completed")
 }
 
-func launchBrowser(instructions []Instruction) (error) {
-    ctx, cancel := context.WithCancel(context.Background())
-		defer cancel()
-		for _, v := range instructions {
+func checkAlreadyRunningBrowser() (error, string) {
+	var c Chrome
+	// Create a new HTTP request
+	req, err := http.NewRequest("GET", "http://localhost:9222/json/version", nil)
+	if err != nil {
+		fmt.Println("Error creating request:", err)
+		return err, c.Url
+	}
+
+	// Send the request
+	client := &http.Client{}
+	resp, err := client.Do(req)
+	if err != nil {
+		fmt.Println("Error sending request:", err)
+		return err, c.Url
+	}
+	defer resp.Body.Close()
+
+	// Read the response body
+	body, err := ioutil.ReadAll(resp.Body)
+	if err != nil {
+		fmt.Println("Error reading response:", err)
+		return err, c.Url
+	}
+
+	// Print the response
+	err = json.Unmarshal(body, &c)
+	if err != nil {
+		log.Println("No data")
+	}
+	return nil, c.Url
+}
+
+func launchBrowser(instructions []Instruction) error {
+	var url string
+	ctx, cancel := context.WithCancel(context.Background())
+	defer cancel()
+	for _, v := range instructions {
 
 		wg.Add(1)
 		go func(v Instruction) {
 			path, _ := launcher.LookPath()
+			err, urlDev := checkAlreadyRunningBrowser()
 			l := launcher.New().Bin(path).Leakless(false).
 				Headless(v.Headless)
 			defer l.Cleanup()
 			defer wg.Done()
-			url, err := l.Launch()
 			if err != nil {
-				log.Println("Error launching", err)
-				cancel()
-				return 
+				res, err := l.Launch()
+				if err != nil {
+					log.Println(err)
+				} else {
+					url = res
+				}
+			} else {
+				url = urlDev
 			}
 			browser := rod.New().
 				ControlURL(url).

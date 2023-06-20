@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"log"
+	"net/http"
 	"os"
 	"reflect"
 	"sync"
@@ -19,6 +20,10 @@ import (
 var instructions []Instruction
 var wg sync.WaitGroup
 var mutex = &sync.Mutex{}
+
+type Chrome struct {
+	Url string `json:"webSocketDebuggerUrl"`
+}
 
 type Instruction struct {
 	Headless   bool     `json:"headless"`
@@ -93,20 +98,63 @@ func readJson(dir string) {
 	json.Unmarshal([]byte(byteVal), &instructions)
 }
 
-func launchBrowser() {
+func checkAlreadyRunningBrowser() (error, string) {
+	var c Chrome
+	// Create a new HTTP request
+	req, err := http.NewRequest("GET", "http://localhost:9222/json/version", nil)
+	if err != nil {
+		fmt.Println("Error creating request:", err)
+		return err, c.Url
+	}
 
+	// Send the request
+	client := &http.Client{}
+	resp, err := client.Do(req)
+	if err != nil {
+		fmt.Println("Error sending request:", err)
+		return err, c.Url
+	}
+	defer resp.Body.Close()
+
+	// Read the response body
+	body, err := ioutil.ReadAll(resp.Body)
+	if err != nil {
+		fmt.Println("Error reading response:", err)
+		return err, c.Url
+	}
+
+	// Print the response
+	err = json.Unmarshal(body, &c)
+	if err != nil {
+		log.Println("No data")
+	}
+	return nil, c.Url
+}
+
+func launchBrowser() {
+	var url string
 	readJson("examples/octane_autofill.json")
 	for _, v := range instructions {
 		wg.Add(1)
 		go func(v Instruction) {
 			log.Println("Launching browser with speed", v.SlowMotion)
+			err, urlDev := checkAlreadyRunningBrowser()
 			path, _ := launcher.LookPath()
 			l := launcher.New().Bin(path).
-				Leakless(true).
+				Leakless(false).
 				Headless(v.Headless)
 			defer l.Cleanup()
 			defer wg.Done()
-			url := l.MustLaunch()
+			if err != nil {
+				res, err := l.Launch()
+				if err != nil {
+					log.Println(err)
+				} else {
+					url = res
+				}
+			} else {
+				url = urlDev
+			}
 			browser := rod.New().
 				ControlURL(url).
 				Trace(v.Trace).
