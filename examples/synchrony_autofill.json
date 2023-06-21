@@ -1,0 +1,59 @@
+[
+    {
+        "headless": false,
+        "slowMotion": 25,
+        "close": true,
+        "trace": true,
+        "stealth": true,
+        "instructions": [
+            {
+                "name": "synchrony",
+                "startingUrl": "https://businesscenter.synchronybusiness.com/portal/login",
+                "template": [
+                    "do",
+                    [
+                        "form",
+                        {
+                            "description": "Type username",
+                            "field": "#usernameFocus",
+                            "kind": "text",
+                            "shdType": true,
+                            "timeout": 100,
+                            "value": "krfarley"
+                        },
+                        {
+                            "description": "Type password",
+                            "field": "#passwordId",
+                            "kind": "text",
+                            "timeout": 2,
+                            "shdType": true,
+                            "value": "August2022"
+                        },
+                        {
+                            "description": "Click Login",
+                            "field": "#loginSubmitbtn",
+                            "kind": "leftClick",
+                            "value": ""
+                        },
+                        {
+                            "description": "Check security question",
+                            "field": "#checkingSecurityQuestion",
+                            "kind": "leftClick",
+                            "value": ""
+                        },
+                        {
+                            "description": "Hold Browser",
+                            "field": "#HolldBrosweerr",
+                            "kind": "text",
+                            "shdType": true,
+                            "timeout": 60000000,
+                            "value": "JOE BLAND CONSTRUCTION"
+                        },
+                        {
+                        }
+                    ]
+                ]
+            }
+        ]
+    }
+]

@@ -289,6 +289,7 @@ func condEval(data helpers.FormInstructions, p *rod.Page) {
 			go helpers.AlertError(errP, err, m)
 			evals++
 		}
+		return
 	}
 	val := proto.Value.Bool()
 	log.Println("condEval", val)

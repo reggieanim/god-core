@@ -1,17 +1,18 @@
 package core
 
 import (
+	"context"
 	"encoding/json"
 	"fmt"
 	"log"
 	"reflect"
 	"sync"
 	"time"
-	"context"
 
 	"github.com/go-rod/rod"
 	"github.com/go-rod/rod/lib/launcher"
 	"github.com/go-rod/rod/lib/proto"
+	"github.com/go-rod/stealth"
 	"github.com/reggieanim/god-core/fns"
 )
 
@@ -19,6 +20,7 @@ var wg sync.WaitGroup
 
 type Instruction struct {
 	Headless   bool     `json:"headless"`
+	Stealth    bool     `json:"stealth"`
 	SlowMotion int      `json:"slowMotion"`
 	Trace      bool     `json:"trace"`
 	Close      bool     `json:"close"`
@@ -39,10 +41,10 @@ func Start(raw []byte) {
 	log.Println("Job completed")
 }
 
-func launchBrowser(instructions []Instruction) (error) {
-    ctx, cancel := context.WithCancel(context.Background())
-		defer cancel()
-		for _, v := range instructions {
+func launchBrowser(instructions []Instruction) error {
+	ctx, cancel := context.WithCancel(context.Background())
+	defer cancel()
+	for _, v := range instructions {
 
 		wg.Add(1)
 		go func(v Instruction) {
@@ -55,7 +57,7 @@ func launchBrowser(instructions []Instruction) (error) {
 			if err != nil {
 				log.Println("Error launching", err)
 				cancel()
-				return 
+				return
 			}
 			browser := rod.New().
 				ControlURL(url).
@@ -71,14 +73,24 @@ func launchBrowser(instructions []Instruction) (error) {
 						defer l.Kill()
 						defer wg.Done()
 					}
-					browser, err := browser.Page((proto.TargetCreateTarget{URL: ins.StartingUrl}))
-					if err != nil {
-						log.Println("Error creating page", err)
-						cancel()
-						return
+					if v.Stealth {
+						page, err := stealth.Page(browser)
+						page.MustNavigate(ins.StartingUrl)
+						if err != nil {
+							log.Println(err)
+							return
+						}
+						data := parseIns(page)(ins.Template)
+						fmt.Println("Performed actions successfully", data)
+					} else {
+						page, err := browser.Page((proto.TargetCreateTarget{URL: ins.StartingUrl}))
+						if err != nil {
+							log.Println(err)
+							return
+						}
+						data := parseIns(page)(ins.Template)
+						fmt.Println("Performed actions successfully", data)
 					}
-					data := parseIns(browser)(ins.Template)
-					fmt.Println("Performed actions successfully", data)
 				}(ins)
 			}
 		}(v)
