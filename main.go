@@ -14,6 +14,7 @@ import (
 	"github.com/go-rod/rod"
 	"github.com/go-rod/rod/lib/launcher"
 	"github.com/go-rod/rod/lib/proto"
+	"github.com/go-rod/stealth"
 	"github.com/reggieanim/god-core/fns"
 )
 
@@ -27,6 +28,7 @@ type Chrome struct {
 
 type Instruction struct {
 	Headless   bool     `json:"headless"`
+	Stealth    bool     `json:"stealth"`
 	Trace      bool     `json:"trace"`
 	Close      bool     `json:"close"`
 	SlowMotion int64    `json:"slowMotion"`
@@ -134,7 +136,7 @@ func checkAlreadyRunningBrowser() (error, string) {
 func launchBrowser() {
 	var url string
 	var connected bool
-	readJson("examples/octane_autofill.json")
+	readJson("examples/synchrony_autofill.json")
 	for _, v := range instructions {
 		wg.Add(1)
 		go func(v Instruction) {
@@ -172,13 +174,24 @@ func launchBrowser() {
 						defer l.Kill()
 						defer wg.Done()
 					}
-					browser, err := browser.Page((proto.TargetCreateTarget{URL: ins.StartingUrl}))
-					if err != nil {
-						log.Println(err)
-						return
+					if v.Stealth {
+						page, err := stealth.Page(browser)
+						page.MustNavigate(ins.StartingUrl)
+						if err != nil {
+							log.Println(err)
+							return
+						}
+						data := parseIns(page)(ins.Template)
+						fmt.Println("Performed actions successfully", data)
+					} else {
+						page, err := browser.Page((proto.TargetCreateTarget{URL: ins.StartingUrl}))
+						if err != nil {
+							log.Println(err)
+							return
+						}
+						data := parseIns(page)(ins.Template)
+						fmt.Println("Performed actions successfully", data)
 					}
-					data := parseIns(browser)(ins.Template)
-					fmt.Println("Performed actions successfully", data)
 				}(ins)
 			}
 		}(v)
