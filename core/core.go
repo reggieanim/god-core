@@ -105,9 +105,6 @@ func launchBrowser(instructions []Instruction) error {
 			} else {
 				url = urlDev
 				connected = true
-				log.Println("Error launching", err)
-				cancel()
-				return
 			}
 			browser := rod.New().
 				ControlURL(url).
