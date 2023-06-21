@@ -1,0 +1,53 @@
+[
+    {
+        "headless": false,
+        "slowMotion": 25,
+        "close": false,
+        "trace": true,
+        "instructions": [
+            {
+                "name": "octane",
+                "startingUrl": "https://forms.simple-dealer.com/sales/hattiesburg-ms-hat/creditapp",
+                "template": [
+                    "do",
+                    [
+                        "form",
+                        {
+                            "description": "Type name",
+                            "field": "#first_98",
+                            "kind": "wait",
+                            "shdType": true,
+                            "value": "40"
+                        },
+                        {
+                            "description": "Type name",
+                            "field": "#first_98",
+                            "kind": "text",
+                            "shdType": true,
+                            "value": "hacked"
+                        },
+                        {},
+                        "form",
+                        {
+                            "description": "Type name",
+                            "field": "#first_98",
+                            "kind": "wait",
+                            "shdType": true,
+                            "value": "40"
+                        },
+                        {
+                            "description": "Type name",
+                            "field": "#first_98",
+                            "kind": "text",
+                            "shdType": true,
+                            "value": "hacked"
+                        },
+                        {
+                          "iframeSelector": "#JotFormIFrame-221034485058554"
+                        }
+                    ]
+                ]
+            }
+        ]
+    }
+]
