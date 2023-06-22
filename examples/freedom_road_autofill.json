@@ -1,0 +1,460 @@
+[
+    {
+        "headless": false,
+        "slowMotion": 25,
+        "close": true,
+        "trace": true,
+        "stealth": true,
+        "instructions": [
+            {
+                "name": "freedomroad",
+                "startingUrl": "https://decisionlender.solutions/tci/#/auth/dealerLogin/default/dealer/default",
+                "template": [
+                    "do",
+                    [
+                        "form",
+                        {
+                            "description": "wait for page",
+                            "field": "#dealerLogin",
+                            "kind": "leftClick",
+                            "value": "4"
+                        },
+                        {
+                            "description": "Type username",
+                            "field": "#username",
+                            "skip": true,
+                            "kind": "text",
+                            "shdType": false,
+                            "timeout": 5,
+                            "value": "kfarley"
+                        },
+                        {
+                            "description": "Type password",
+                            "field": "#password",
+                            "kind": "text",
+                            "timeout": 2,
+                            "shdType": true,
+                            "value": "Kyleray2023!"
+                        },
+                        {
+                            "description": "Type company id",
+                            "field": "#companyid",
+                            "kind": "text",
+                            "timeout": 2,
+                            "shdType": true,
+                            "value": "FREE560"
+                        },
+                        {
+                            "description": "Type dealer id",
+                            "field": "#dealerid",
+                            "kind": "text",
+                            "timeout": 2,
+                            "shdType": true,
+                            "value": "1241332"
+                        },
+                        {
+                            "description": "Click Login",
+                            "field": "#submit_login",
+                            "kind": "leftClick",
+                            "value": ""
+                        },
+                        {
+                            "description": "Click New Application",
+                            "field": "#side-menu > li.active > ul > li:nth-child(2) > a",
+                            "kind": "leftClick",
+                            "value": "",
+                            "timeout": 20
+                        },
+                        {
+                            "description": "Type Freedom road",
+                            "field": "#printable_content > div:nth-child(3) > div > div > div > div.col-md-4 > div > div > span > i",
+                            "kind": "leftClick",
+                            "value": "",
+                            "timeout": 20
+                        },
+                        {
+                            "description": "wait for page",
+                            "field": "#dealerLogin",
+                            "kind": "wait",
+                            "value": "3"
+                        },
+                        {
+                            "description": "Click Freedom road",
+                            "field": "#ui-select-choices-row-2-",
+                            "kind": "leftClick",
+                            "value": "",
+                            "timeout": 2
+                        },
+                        {
+                            "description": "Type first name",
+                            "field": "#formly_2_input_primaryApplicant\\.firstName_",
+                            "kind": "text",
+                            "timeout": 200,
+                            "shdType": true,
+                            "value": "Reginald"
+                        },
+                        {
+                            "description": "Type middle name",
+                            "field": "#formly_2_input_primaryApplicant\\.middleName_",
+                            "kind": "text",
+                            "timeout": 2,
+                            "shdType": true,
+                            "value": "Paul"
+                        },
+                        {
+                            "description": "Type last name",
+                            "field": "#formly_2_input_primaryApplicant\\.lastName_",
+                            "kind": "text",
+                            "timeout": 2,
+                            "shdType": true,
+                            "value": "Anim"
+                        },
+                        {
+                            "description": "Type date of birth",
+                            "field": "#formly_2_datepicker_primaryApplicant\\.dateOfBirth_",
+                            "kind": "text",
+                            "timeout": 2,
+                            "shdType": true,
+                            "value": "11112011"
+                        },
+                        {
+                            "description": "Type social security",
+                            "field": "#formly_2_input_primaryApplicant\\.SSN_",
+                            "kind": "text",
+                            "timeout": 2,
+                            "shdType": true,
+                            "value": "111111111"
+                        },
+                        {
+                            "description": "Type home phone",
+                            "field": "#formly_2_input_primaryApplicant\\.homePhone_",
+                            "kind": "text",
+                            "timeout": 2,
+                            "shdType": true,
+                            "value": "01041996"
+                        },
+                        {
+                            "description": "Type mobile phone",
+                            "field": "#formly_2_input_primaryApplicant\\.mobilePhone_",
+                            "kind": "text",
+                            "timeout": 2,
+                            "shdType": true,
+                            "value": "01041956"
+                        },
+                        {
+                            "description": "Type email",
+                            "field": "#formly_2_input_primaryApplicant\\.email_",
+                            "kind": "text",
+                            "timeout": 2,
+                            "shdType": true,
+                            "value": "test@gmail.com"
+                        },
+                        {
+                            "description": "Type house number",
+                            "field": "#primaryApplicant\\.addresses_houseNumber_houseNumberprimaryApplicant\\.addresses-0",
+                            "kind": "text",
+                            "timeout": 2,
+                            "shdType": true,
+                            "value": "54"
+                        },
+                        {
+                            "description": "Type street name",
+                            "field": "#primaryApplicant\\.addresses_street_streetprimaryApplicant\\.addresses-0",
+                            "kind": "text",
+                            "timeout": 2,
+                            "shdType": true,
+                            "value": "Queen Street"
+                        },
+                        {
+                            "description": "Type apartment number",
+                            "field": "#primaryApplicant\\.addresses_aptNo_aptNoprimaryApplicant\\.addresses-0",
+                            "kind": "text",
+                            "timeout": 2,
+                            "shdType": true,
+                            "value": "57"
+                        },
+                        {
+                            "description": "Type zip code",
+                            "field": "#primaryApplicant\\.addresses_postalCode_postalCodeprimaryApplicant\\.addresses-0",
+                            "kind": "text",
+                            "timeout": 2,
+                            "shdType": true,
+                            "value": "08859"
+                        },
+                        {
+                            "description": "Type years at residence",
+                            "field": "#primaryApplicant\\.addresses_yearsAtResidence_formly_4_dl4Number_yearsAtResidence_primaryApplicant\\.addresses-0",
+                            "kind": "text",
+                            "timeout": 2,
+                            "shdType": true,
+                            "value": "2"
+                        },
+                        {
+                            "description": "Type months at residence",
+                            "field": "#primaryApplicant\\.addresses_monthsAtResidence_formly_4_dl4Number_monthsAtResidence_primaryApplicant\\.addresses-0",
+                            "kind": "text",
+                            "timeout": 2,
+                            "shdType": true,
+                            "value": "2"
+                        },
+                        {
+                            "description": "Type monthly amount",
+                            "field": "#primaryApplicant\\.addresses_monthlyPayment_formly_4_dl4Number_monthlyPayment_primaryApplicant\\.addresses-0",
+                            "kind": "text",
+                            "timeout": 2,
+                            "shdType": true,
+                            "value": "200"
+                        },
+                        {
+                            "description": "Type Employment Status",
+                            "field": "#primaryApplicant\\.employments_employmentStatus_employmentStatusprimaryApplicant\\.employments-0 > input.form-control.ui-select-search.ng-pristine.ng-valid.ng-empty.ng-touched",
+                            "kind": "text",
+                            "timeout": 2,
+                            "shdType": true,
+                            "value": "200"
+                        },
+                        {
+                            "description": "Type Employment Phone",
+                            "field": "#primaryApplicant\\.employments_phone_phoneprimaryApplicant\\.employments-0",
+                            "kind": "text",
+                            "timeout": 2,
+                            "shdType": true,
+                            "value": "7059925238"
+                        },
+                        {
+                            "description": "Type Employment Years",
+                            "field": "#primaryApplicant\\.employments_yearsEmployed_formly_4_dl4Number_yearsEmployed_primaryApplicant\\.employments-0",
+                            "kind": "text",
+                            "timeout": 2,
+                            "shdType": true,
+                            "value": "15"
+                        },
+                        {
+                            "description": "Type Employment Name",
+                            "field": "#primaryApplicant\\.employments_employerName_employerNameprimaryApplicant\\.employments-0",
+                            "kind": "text",
+                            "timeout": 2,
+                            "shdType": true,
+                            "value": "Forms"
+                        },
+                        {
+                            "description": "Type Employment Income",
+                            "field": "#primaryApplicant\\.employments_grossIncome_formly_4_dl4Number_grossIncome_primaryApplicant\\.employments-0",
+                            "kind": "text",
+                            "timeout": 2,
+                            "shdType": true,
+                            "value": "2000"
+                        },
+                        {
+                            "description": "Type Employment Months",
+                            "field": "#primaryApplicant\\.employments_monthsEmployed_formly_4_dl4Number_monthsEmployed_primaryApplicant\\.employments-0",
+                            "kind": "text",
+                            "timeout": 2,
+                            "shdType": true,
+                            "value": "12"
+                        },
+                        {
+                            "description": "Add reference",
+                            "field": "#References > div.panel-body > div > div > formly-field > div > button",
+                            "kind": "leftClick",
+                            "timeout": 2,
+                            "shdType": true,
+                            "value": "12"
+                        },
+                        {
+                            "description": "Type Contact Name",
+                            "field": "#primaryApplicant\\.references_refName_refNameprimaryApplicant\\.references-0",
+                            "kind": "text",
+                            "timeout": 2,
+                            "shdType": true,
+                            "value": "Bennett"
+                        },
+                        {
+                            "description": "Type Home Phone",
+                            "field": "#primaryApplicant\\.references_homePhone_homePhoneprimaryApplicant\\.references-0",
+                            "kind": "text",
+                            "timeout": 2,
+                            "shdType": true,
+                            "value": "7059925238"
+                        },
+                        {
+                            "description": "Type Mobile Phone",
+                            "field": "#primaryApplicant\\.references_mobilePhone_mobilePhoneprimaryApplicant\\.references-0",
+                            "kind": "text",
+                            "timeout": 2,
+                            "shdType": true,
+                            "value": "7059925238"
+                        },
+                        {}
+                    ],
+                    "do",
+                    [
+                        "form",
+                        {
+                            "description": "Click Add CoApplicant",
+                            "field": "#calx_formula_container > div:nth-child(1) > div:nth-child(2) > div.pull-right > button:nth-child(2)",
+                            "kind": "leftClick",
+                            "value": "",
+                            "timeout": 50
+                        },
+                        {
+                            "description": "Type co applicant first name",
+                            "field": "#formly_2_input_coapplicant\\.firstName_",
+                            "kind": "text",
+                            "timeout": 200,
+                            "shdType": true,
+                            "value": "Reginald"
+                        },
+                        {
+                            "description": "Type co middle name",
+                            "field": "#formly_2_input_coapplicant\\.middleName_",
+                            "kind": "text",
+                            "timeout": 2,
+                            "shdType": true,
+                            "value": "Paul"
+                        },
+                        {
+                            "description": "Type co last name",
+                            "field": "#formly_2_input_coapplicant\\.lastName_",
+                            "kind": "text",
+                            "timeout": 2,
+                            "shdType": true,
+                            "value": "Anim"
+                        },
+                        {
+                            "description": "Type co date of birth",
+                            "field": "#formly_2_datepicker_coapplicant\\.dateOfBirth_",
+                            "kind": "text",
+                            "timeout": 2,
+                            "shdType": true,
+                            "value": "11112012"
+                        },
+                        {
+                            "description": "Type co social security",
+                            "field": "#formly_2_input_coapplicant\\.SSN_",
+                            "kind": "text",
+                            "timeout": 2,
+                            "shdType": true,
+                            "value": "211111111"
+                        },
+                        {
+                            "description": "Type co home phone",
+                            "field": "#formly_2_input_coapplicant\\.homePhone_",
+                            "kind": "text",
+                            "timeout": 2,
+                            "shdType": true,
+                            "value": "7059925238"
+                        },
+                        {
+                            "description": "Type co mobile phone",
+                            "field": "#formly_2_input_coapplicant\\.mobilePhone_",
+                            "kind": "text",
+                            "timeout": 2,
+                            "shdType": true,
+                            "value": "7059925231"
+                        },
+                        {
+                            "description": "Type co email",
+                            "field": "#formly_2_input_coapplicant\\.email_",
+                            "kind": "text",
+                            "timeout": 2,
+                            "shdType": true,
+                            "value": "test2@gmail.com"
+                        },
+                        {
+                            "description": "Click add co address ",
+                            "field": "#Address > div.panel-body > div > div > formly-field > div > button:nth-child(2)",
+                            "kind": "leftClick",
+                            "timeout": 2,
+                            "value": ""
+                        },
+                        {
+                            "description": "Type zip code",
+                            "field": "#coapplicant\\.addresses_postalCode_postalCodecoapplicant\\.addresses-0",
+                            "kind": "text",
+                            "timeout": 2,
+                            "shdType": true,
+                            "value": "08859"
+                        },
+                        {
+                            "description": "Click add co employment ",
+                            "field": "#Employments > div.panel-body > div > div > formly-field > div > button",
+                            "kind": "leftClick",
+                            "timeout": 2,
+                            "value": ""
+                        },
+                        {
+                            "description": "Type Co Employment Status",
+                            "field": "#coApplicant\\.employments_employmentStatus_employmentStatusprimaryApplicant\\.employments-0 > input.form-control.ui-select-search.ng-pristine.ng-valid.ng-empty.ng-touched",
+                            "kind": "text",
+                            "shdType": true,
+                            "value": "200"
+                        },
+                        {
+                            "description": "Type Co Employment Phone",
+                            "field": "#coapplicant\\.employments_phone_phonecoapplicant\\.employments-0",
+                            "kind": "text",
+                            "timeout": 2,
+                            "shdType": true,
+                            "value": "7059925238"
+                        },
+                        {
+                            "description": "Type Co Employment Years",
+                            "field": "#coapplicant\\.employments_yearsEmployed_formly_8_dl4Number_yearsEmployed_coapplicant\\.employments-0",
+                            "kind": "text",
+                            "timeout": 2,
+                            "shdType": true,
+                            "value": "15"
+                        },
+                        {
+                            "description": "Type Co Employment Name",
+                            "field": "#coapplicant\\.employments_employerName_employerNamecoapplicant\\.employments-0",
+                            "kind": "text",
+                            "timeout": 2,
+                            "shdType": true,
+                            "value": "Forms"
+                        },
+                        {
+                            "description": "Type Co Employment Income",
+                            "field": "#coapplicant\\.employments_grossIncome_formly_8_dl4Number_grossIncome_coapplicant\\.employments-0",
+                            "kind": "text",
+                            "timeout": 2,
+                            "shdType": true,
+                            "value": "2000"
+                        },
+                        {
+                            "description": "Type Co Employment Months",
+                            "field": "#coapplicant\\.employments_monthsEmployed_formly_8_dl4Number_monthsEmployed_coapplicant\\.employments-0",
+                            "kind": "text",
+                            "timeout": 2,
+                            "shdType": true,
+                            "value": "12"
+                        },
+                        {
+                            "description": "Type Co Employment Years",
+                            "field": "#coapplicant\\.employments_yearsEmployed_formly_8_dl4Number_yearsEmployed_coapplicant\\.employments-0",
+                            "kind": "text",
+                            "timeout": 2,
+                            "shdType": true,
+                            "value": "12"
+                        },
+                        {}
+                    ],
+                    "do",
+                    [
+                        "form",
+                        {
+                            "description": "Hold Browser",
+                            "field": "#HolldBrosweerr",
+                            "kind": "text",
+                            "shdType": true,
+                            "timeout": 60000000,
+                            "value": "JOE BLAND CONSTRUCTION"
+                        },
+                        {}
+                    ]
+                ]
+            }
+        ]
+    }
+]
