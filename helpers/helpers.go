@@ -33,7 +33,7 @@ type FormInstructions struct {
 	EvalExpression string      `json:"evalExpression"`
 	IframeSelector string      `json:"iframeSelector"`
 	Timeout        float64     `json:"timeout"`
-	Skip           bool        `json:"skip"`
+	Skip           string      `json:"skip"`
 	Body           interface{} `json:"body"`
 	Fallback       interface{} `json:"fallback"`
 }
@@ -64,7 +64,7 @@ func CastToForm(data map[string]interface{}) FormInstructions {
 	des := data["description"].(string)
 	fild := data["field"].(string)
 	val := data["value"].(string)
-	skip, skipOk := data["skip"].(bool)
+	skip, skipOk := data["skip"].(string)
 	shdType, ok := data["shdType"].(bool)
 	evalExpression, evalExpressionOk := data["evalExpression"]
 	iframeSelector, iframeSelectorOk := data["iframeSelector"].(string)
@@ -75,7 +75,7 @@ func CastToForm(data map[string]interface{}) FormInstructions {
 		body = ""
 	}
 	if !skipOk {
-		skip = false
+		skip = ""
 	}
 	if !timeoutOk {
 		timeout = float64(3)
