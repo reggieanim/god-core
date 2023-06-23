@@ -92,7 +92,7 @@ func runForm(ins instructions, page *rod.Page) *rod.Page {
 	}
 	validate(mapData)
 	data := helpers.CastToForm(mapData)
-	if data.Skip {
+	if data.Skip == "true" {
 		return page
 	}
 	switch data.Kind {
