@@ -36,6 +36,7 @@ type FormInstructions struct {
 	Skip           string      `json:"skip"`
 	Body           interface{} `json:"body"`
 	Fallback       interface{} `json:"fallback"`
+	Mute           bool        `json:"mute"`
 }
 
 // ScrapeInstructions model
@@ -66,6 +67,7 @@ func CastToForm(data map[string]interface{}) FormInstructions {
 	val := data["value"].(string)
 	skip, skipOk := data["skip"].(string)
 	shdType, ok := data["shdType"].(bool)
+	mute, mok := data["mute"].(bool)
 	evalExpression, evalExpressionOk := data["evalExpression"]
 	iframeSelector, iframeSelectorOk := data["iframeSelector"].(string)
 	body, bodyOk := data["body"]
@@ -76,6 +78,9 @@ func CastToForm(data map[string]interface{}) FormInstructions {
 	}
 	if !skipOk {
 		skip = ""
+	}
+	if !mok {
+		mute = false
 	}
 	if !timeoutOk {
 		timeout = float64(3)
@@ -105,6 +110,7 @@ func CastToForm(data map[string]interface{}) FormInstructions {
 		skip,
 		body,
 		fallback,
+		mute,
 	}
 }
 
@@ -206,7 +212,7 @@ func AlertError(p *rod.Page, err error, title string) {
 		},
 	)
 	log.Println("Posting to webhook")
-	http.Post("https://discord.com/api/webhooks/1095408167111884890/0LZwJBOH_ESnTH1m_RmgaEOQ8LUwX3bozovjpw18f57DB5aWTxL76VBJzJsaAmmcCGy2", "application/json", bytes.NewBuffer(body))
+	http.Post("https://discord.com/api/webhooks/1121478988947275786/nWiQ2K1F00Rs67osFmYxkr_NfKqAEXq2J7tSzvPA1yeJVcoiVgQ3JD4_C77m4iOakiBy", "application/json", bytes.NewBuffer(body))
 }
 
 func saveToS3(file io.Reader, fileName string) (string, error) {

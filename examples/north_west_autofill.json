@@ -87,6 +87,14 @@
                             "value": "Reginald"
                         },
                         {
+                            "description": "Type first name",
+                            "field": "#formly_2_ui-select_primaryApplicant\\.driverState_ > div > span",
+                            "kind": "text",
+                            "timeout": 200,
+                            "shdType": true,
+                            "value": "California"
+                        },
+                        {
                             "description": "Type middle name",
                             "field": "#formly_2_input_primaryApplicant\\.middleName_",
                             "kind": "text",

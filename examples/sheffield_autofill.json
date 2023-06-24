@@ -1,0 +1,489 @@
+[
+    {
+        "headless": false,
+        "slowMotion": 25,
+        "close": true,
+        "instructions": [
+            {
+                "name": "sheffield",
+                "startingUrl": "https://secure.sheffieldfinancial.com/Default.aspx?AspxAutoDetectCookieSupport=1",
+                "template": [
+                    "do",
+                    [
+                        "form",
+                        {
+                            "description": "Type username",
+                            "field": "#ContentPlaceHolder1_Login1_UserName",
+                            "kind": "text",
+                            "shdType": true,
+                            "timeout": 10,
+                            "value": "midstatemarine"
+                        },
+                        {
+                            "description": "Type password",
+                            "field": "#ContentPlaceHolder1_Login1_Password",
+                            "kind": "text",
+                            "shdType": true,
+                            "value": "Mickey2014!"
+                        },
+                        {
+                            "description": "Click Login",
+                            "field": "#ContentPlaceHolder1_Login1_LoginButton",
+                            "kind": "leftClick",
+                            "value": ""
+                        },
+                        {
+                            "body": [
+                                {
+                                    "description": "Type username",
+                                    "field": "#ContentPlaceHolder1_Login1_UserName",
+                                    "kind": "text",
+                                    "value": "body"
+                                },
+                                {}
+                            ],
+                            "description": "Check if logged in ",
+                            "evalExpression": "() =\u003e this.innerText == 'Your login attempt was not successful. Please try again.'",
+                            "field": "#ContentPlaceHolder1_Login1_FailureText",
+                            "kind": "condEval",
+                            "mute": true,
+                            "timeout": 2,
+                            "value": ""
+                        },
+                        {
+                            "description": "Click New Application",
+                            "field": "#newApplication",
+                            "kind": "leftClick",
+                            "timeout": 20,
+                            "value": ""
+                        },
+                        {
+                            "description": "click on the applicant type",
+                            "field": "#ContentPlaceHolder1_IndividualApplicantRadioButton",
+                            "kind": "leftClick",
+                            "value": ""
+                        },
+                        {
+                            "description": "click used",
+                            "field": "#ContentPlaceHolder1_ProductUsedRadioButton",
+                            "kind": "leftClick",
+                            "skip": "true",
+                            "value": ""
+                        },
+                        {
+                            "description": "Select preowned manufacturer propagate dom",
+                            "field": "#ContentPlaceHolder1_manufacturer",
+                            "kind": "leftClick",
+                            "skip": "true",
+                            "timeout": 10,
+                            "value": ""
+                        },
+                        {
+                            "description": "Select preowned manufacturer",
+                            "field": "#ContentPlaceHolder1_manufacturer",
+                            "kind": "select",
+                            "skip": "true",
+                            "timeout": 10,
+                            "value": "[value='269']"
+                        },
+                        {
+                            "description": "wait",
+                            "field": "",
+                            "kind": "wait",
+                            "skip": "true",
+                            "value": "2"
+                        },
+                        {
+                            "description": "Select Model Type Propagate",
+                            "field": "#ModelTypeDropDown",
+                            "kind": "leftClick",
+                            "skip": "true",
+                            "timeout": 10,
+                            "value": ""
+                        },
+                        {
+                            "description": "wait",
+                            "field": "",
+                            "kind": "wait",
+                            "skip": "true",
+                            "value": "2"
+                        },
+                        {
+                            "description": "Select Model Type",
+                            "field": "#ModelTypeDropDown",
+                            "kind": "select",
+                            "skip": "true",
+                            "timeout": 10,
+                            "value": "[value='5']"
+                        },
+                        {
+                            "description": "Fill Social Security Number",
+                            "field": "#ContentPlaceHolder1_SocialSecurityNumber1",
+                            "kind": "text",
+                            "value": "111111111"
+                        },
+                        {
+                            "description": "wait",
+                            "field": "",
+                            "kind": "wait",
+                            "value": "2"
+                        },
+                        {
+                            "description": "Fill First Name",
+                            "field": "#ContentPlaceHolder1_firstName",
+                            "kind": "text",
+                            "timeout": 5000,
+                            "value": "Yuili"
+                        },
+                        {
+                            "description": "Fill Middle Name",
+                            "field": "#ContentPlaceHolder1_middleName",
+                            "kind": "text",
+                            "value": "Paul"
+                        },
+                        {
+                            "description": "Fill Last Name",
+                            "field": "#ContentPlaceHolder1_lastName",
+                            "kind": "text",
+                            "value": "Anim"
+                        },
+                        {
+                            "description": "Fill Current Address Line 1",
+                            "field": "#ContentPlaceHolder1_address",
+                            "kind": "text",
+                            "value": "1234 Main St"
+                        },
+                        {
+                            "description": "Fill Current City",
+                            "field": "#ContentPlaceHolder1_city",
+                            "kind": "text",
+                            "value": "San Francisco"
+                        },
+                        {
+                            "description": "Fill Current State",
+                            "field": "#ContentPlaceHolder1_state",
+                            "kind": "select",
+                            "value": "[value='KY']"
+                        },
+                        {
+                            "description": "Fill Current Postal Code",
+                            "field": "#ContentPlaceHolder1_zip",
+                            "kind": "text",
+                            "value": "94110"
+                        },
+                        {
+                            "description": "Fill Date of Birth Day",
+                            "field": "#ContentPlaceHolder1_DOBDay",
+                            "kind": "select",
+                            "value": "[value='24']"
+                        },
+                        {
+                            "description": "Fill Date of Birth Month",
+                            "field": "#ContentPlaceHolder1_DOBMonth",
+                            "kind": "select",
+                            "value": "[value='01']"
+                        },
+                        {
+                            "description": "Fill Date of Birth Year",
+                            "field": "#ContentPlaceHolder1_DOBYear",
+                            "kind": "select",
+                            "value": "[value='1996']"
+                        },
+                        {
+                            "description": "Fill Residential Status",
+                            "field": "#ContentPlaceHolder1_resiStatusDropDown",
+                            "kind": "select",
+                            "value": "[value='O']"
+                        },
+                        {
+                            "description": "Fill Monthly Rent",
+                            "field": "#ContentPlaceHolder1_monthlyAmountTextBox",
+                            "kind": "text",
+                            "value": "83"
+                        },
+                        {
+                            "description": "Fill Yearly Rent",
+                            "field": "#ContentPlaceHolder1_YearsAtRes",
+                            "kind": "text",
+                            "value": "50"
+                        },
+                        {
+                            "description": "Fill Contact Email",
+                            "field": "#ContentPlaceHolder1_emailAddress",
+                            "kind": "text",
+                            "value": "reggieanim@gmail.com"
+                        },
+                        {
+                            "description": "Contact Mobile Phone",
+                            "field": "#ContentPlaceHolder1_homePhone1",
+                            "kind": "text",
+                            "value": "7059925234"
+                        },
+                        {
+                            "description": "Contact Mobile Phone",
+                            "field": "#ContentPlaceHolder1_cellPhone1",
+                            "kind": "text",
+                            "value": "7058839546"
+                        },
+                        {
+                            "description": "Fill Employment Status",
+                            "field": "#ContentPlaceHolder1_employmentStatusDropDown",
+                            "kind": "select",
+                            "value": "[value='E']"
+                        },
+                        {
+                            "description": "Current Monthly Gross Salary",
+                            "field": "#ContentPlaceHolder1_monthlyGrossIncome",
+                            "kind": "text",
+                            "value": "16"
+                        },
+                        {
+                            "description": "Current Employer Name",
+                            "field": "#ContentPlaceHolder1_employerName",
+                            "kind": "text",
+                            "value": "Rob Pike"
+                        },
+                        {
+                            "description": "Current Job City",
+                            "field": "#ContentPlaceHolder1_employerCity",
+                            "kind": "text",
+                            "value": "San Francisco"
+                        },
+                        {
+                            "description": "Current Job Duration",
+                            "field": "#ContentPlaceHolder1_YearsAtEmpl",
+                            "kind": "text",
+                            "value": "0"
+                        },
+                        {
+                            "description": "Contact Work Phone",
+                            "field": "#ContentPlaceHolder1_workPhone1",
+                            "kind": "text",
+                            "value": "7057724356"
+                        },
+                        {
+                            "description": "Reference 1 First Name",
+                            "field": "#ContentPlaceHolder1_nearestRelativeName",
+                            "kind": "text",
+                            "value": "Bennett Anim"
+                        },
+                        {
+                            "description": "Reference 1 City",
+                            "field": "#ContentPlaceHolder1_nearestRelativeCity",
+                            "kind": "text",
+                            "value": "Bennett Anim"
+                        },
+                        {
+                            "description": "Reference 1 State",
+                            "field": "#ContentPlaceHolder1_nearestRelativeState",
+                            "kind": "select",
+                            "value": "[value='HI']"
+                        },
+                        {
+                            "description": "Reference 1 Mobile Phone",
+                            "field": "#ContentPlaceHolder1_nearestRelativePhone",
+                            "kind": "text",
+                            "value": "7056678907"
+                        },
+                        {}
+                    ],
+                    "do",
+                    [
+                        "form",
+                        {
+                            "description": "Add co Applicant",
+                            "field": "#ContentPlaceHolder1_manufacturer",
+                            "kind": "leftClick",
+                            "skip": "false",
+                            "value": ""
+                        },
+                        {
+                            "description": "Fill Social Security Number",
+                            "field": "#ContentPlaceHolder1_SecondSocialSecurityNumber1",
+                            "kind": "text",
+                            "skip": "false",
+                            "value": "668796789"
+                        },
+                        {
+                            "description": "Fill First Name",
+                            "field": "#ContentPlaceHolder1_SecondFirstName",
+                            "kind": "text",
+                            "skip": "false",
+                            "value": "Yuili"
+                        },
+                        {
+                            "description": "Fill Middle Name",
+                            "field": "#ContentPlaceHolder1_SecondMiddleName",
+                            "kind": "text",
+                            "skip": "false",
+                            "value": "Okle"
+                        },
+                        {
+                            "description": "Fill Last Name",
+                            "field": "#ContentPlaceHolder1_SecondLastName",
+                            "kind": "text",
+                            "skip": "false",
+                            "value": "Anim"
+                        },
+                        {
+                            "description": "Fill Current Address Line 1",
+                            "field": "#ContentPlaceHolder1_SecondAddress",
+                            "kind": "text",
+                            "skip": "false",
+                            "value": "1234 Main St"
+                        },
+                        {
+                            "description": "Fill Current City",
+                            "field": "#ContentPlaceHolder1_secondCity",
+                            "kind": "text",
+                            "skip": "false",
+                            "value": "San Francisco"
+                        },
+                        {
+                            "description": "Fill Current State",
+                            "field": "#ContentPlaceHolder1_secondState",
+                            "kind": "select",
+                            "skip": "false",
+                            "value": "[value='NJ']"
+                        },
+                        {
+                            "description": "Fill Current Postal Code",
+                            "field": "#ContentPlaceHolder1_secondZip",
+                            "kind": "text",
+                            "skip": "false",
+                            "value": "94110"
+                        },
+                        {
+                            "description": "Fill Date of Birth Day",
+                            "field": "#ContentPlaceHolder1_SecondDOBDay",
+                            "kind": "select",
+                            "skip": "false",
+                            "value": "[value='17']"
+                        },
+                        {
+                            "description": "Fill Date of Birth Month",
+                            "field": "#ContentPlaceHolder1_SecondDOBMonth",
+                            "kind": "select",
+                            "skip": "false",
+                            "value": "[value='01']"
+                        },
+                        {
+                            "description": "Fill Date of Birth Year",
+                            "field": "#ContentPlaceHolder1_SecondDOBYear",
+                            "kind": "select",
+                            "skip": "false",
+                            "value": "[value='1986']"
+                        },
+                        {
+                            "description": "Fill Yearly Rent",
+                            "field": "#ContentPlaceHolder1_SecondYearsAtRes",
+                            "kind": "text",
+                            "skip": "false",
+                            "value": "50"
+                        },
+                        {
+                            "description": "Fill Contact Email",
+                            "field": "#ContentPlaceHolder1_SecondEmailAddress",
+                            "kind": "text",
+                            "skip": "false",
+                            "value": "bennettanim@gmail.com"
+                        },
+                        {
+                            "description": "Contact Mobile Phone",
+                            "field": "#ContentPlaceHolder1_SecondHomePhone",
+                            "kind": "text",
+                            "skip": "false",
+                            "value": "1234567890"
+                        },
+                        {
+                            "description": "Contact Mobile Phone",
+                            "field": "#ContentPlaceHolder1_SecondCellPhone",
+                            "kind": "text",
+                            "skip": "false",
+                            "value": "9015568902"
+                        },
+                        {
+                            "description": "Fill Employment Status",
+                            "field": "#ContentPlaceHolder1_employmentStatusDropDown",
+                            "kind": "select",
+                            "skip": "false",
+                            "value": "[value='E']"
+                        },
+                        {
+                            "description": "Current Monthly Gross Salary",
+                            "field": "#ContentPlaceHolder1_SecondMonthlyGross",
+                            "kind": "text",
+                            "skip": "false",
+                            "value": "8333"
+                        },
+                        {
+                            "description": "Current Employer Name",
+                            "field": "#ContentPlaceHolder1_SecondEmployerName",
+                            "kind": "text",
+                            "skip": "false",
+                            "value": "Rob Pike"
+                        },
+                        {
+                            "description": "Current Job City",
+                            "field": "#ContentPlaceHolder1_SecondEmployerCity",
+                            "kind": "text",
+                            "skip": "false",
+                            "value": "San Francisco"
+                        },
+                        {
+                            "description": "Current Job Duration",
+                            "field": "#ContentPlaceHolder1_SecondYearsAtEmpl",
+                            "kind": "text",
+                            "skip": "false",
+                            "value": "5"
+                        },
+                        {
+                            "description": "Contact Work Phone",
+                            "field": "#ContentPlaceHolder1_SecondWorkPhone",
+                            "kind": "text",
+                            "skip": "false",
+                            "value": "1234567890"
+                        },
+                        {
+                            "description": "Reference 1 First Name",
+                            "field": "#ContentPlaceHolder1_nearestRelativeName",
+                            "kind": "text",
+                            "skip": "false",
+                            "value": "Bennett Anim"
+                        },
+                        {
+                            "description": "Reference 1 City",
+                            "field": "#ContentPlaceHolder1_secondNearestRelativeCity",
+                            "kind": "text",
+                            "skip": "false",
+                            "value": "Bennett Anim"
+                        },
+                        {
+                            "description": "Reference 1 State",
+                            "field": "#ContentPlaceHolder1_secondNearestRelativeState",
+                            "kind": "select",
+                            "skip": "false",
+                            "value": "[value='CA']"
+                        },
+                        {
+                            "description": "Reference 1 Mobile Phone",
+                            "field": "#ContentPlaceHolder1_nearestRelativePhone",
+                            "kind": "text",
+                            "skip": "false",
+                            "value": "1234567890"
+                        },
+                        {
+                            "description": "wait for clean up",
+                            "field": "#sheffield_cleanup",
+                            "kind": "text",
+                            "timeout": 60000000,
+                            "value": "5126323800"
+                        },
+                        {}
+                    ]
+                ]
+            }
+        ],
+        "stealth": true
+    }
+]

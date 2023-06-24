@@ -35,7 +35,7 @@ func validate(ins map[string]interface{}) bool {
 		for _, v := range v.Errors {
 			fmt.Println(v)
 		}
-		log.Fatalln("Could not validate")
+		log.Println("Could not validate")
 	}
 	return true
 }
@@ -51,7 +51,7 @@ func validateEval(ins map[string]interface{}) bool {
 		for _, v := range v.Errors {
 			fmt.Println(v)
 		}
-		log.Fatalln("Could not validate")
+		log.Println("Could not validate")
 	}
 	return true
 }
