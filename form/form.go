@@ -128,7 +128,7 @@ func text(data helpers.FormInstructions, page *rod.Page) {
 		if err != nil {
 			m := fmt.Sprintf("Error finding element: %v when: %v", data.Field, data.Description)
 			log.Println("Error finding element in text", err)
-			if timeouts < 6 {
+			if timeouts < 6 && !data.Mute {
 				go helpers.AlertError(errP, err, m)
 				timeouts++
 			}
@@ -185,7 +185,7 @@ func eval(data helpers.FormInstructions, p *rod.Page) {
 	el, err := p.Element(data.Field)
 	if err != nil {
 		log.Println("Error getting item in eval", err)
-		if evals < 6 {
+		if evals < 6 && !data.Mute {
 			m := fmt.Sprintf("Error evaling: %v when: %v", data.Field, data.Description)
 			go helpers.AlertError(errP, err, m)
 			evals++
@@ -201,7 +201,7 @@ func inputSelect(data helpers.FormInstructions, page *rod.Page) {
 	el, err := page.Element(data.Field)
 	if err != nil {
 		log.Println("Error finding element", err)
-		if selects < 6 {
+		if selects < 6 && !data.Mute {
 			m := fmt.Sprintf("Error adding select: %v when: %v", data.Field, data.Description)
 			go helpers.AlertError(errP, err, m)
 			selects++
@@ -230,7 +230,7 @@ func leftClick(data helpers.FormInstructions, page *rod.Page) {
 	el, err := page.Element(data.Field)
 	if err != nil {
 		log.Println("Error finding element", err)
-		if leftClicks < 6 {
+		if leftClicks < 6 && !data.Mute {
 			m := fmt.Sprintf("Error left clicking: %v when: %v", data.Field, data.Description)
 			go helpers.AlertError(errP, err, m)
 		}
@@ -248,7 +248,7 @@ func rightClick(data helpers.FormInstructions, page *rod.Page) {
 	el, err := page.Element(data.Field)
 	if err != nil {
 		log.Println("Error finding element", err)
-		if rightClicks < 6 {
+		if rightClicks < 6 && !data.Mute {
 			m := fmt.Sprintf("Error right clicking: %v when: %v", data.Field, data.Description)
 			go helpers.AlertError(errP, err, m)
 			rightClicks++
@@ -275,7 +275,7 @@ func condEval(data helpers.FormInstructions, p *rod.Page) {
 	el, err := p.Element(data.Field)
 	if err != nil {
 		log.Println("Error finding item in condEval", err)
-		if evals < 6 {
+		if evals < 6 && !data.Mute {
 			m := fmt.Sprintf("Error finding item in condEval: %v when: %v", data.Field, data.Description)
 			go helpers.AlertError(errP, err, m)
 			evals++
