@@ -136,7 +136,7 @@ func checkAlreadyRunningBrowser() (error, string) {
 func launchBrowser() {
 	var url string
 	var connected bool
-	readJson("examples/sheffield_autofill.json")
+	readJson("examples/octane_autofill.json")
 	for _, v := range instructions {
 		wg.Add(1)
 		go func(v Instruction) {

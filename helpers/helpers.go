@@ -62,6 +62,7 @@ type ScrapeAllInstructions struct {
 
 // CastToForm model
 func CastToForm(data map[string]interface{}) FormInstructions {
+
 	des := data["description"].(string)
 	fild := data["field"].(string)
 	val := data["value"].(string)

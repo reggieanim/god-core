@@ -12,6 +12,14 @@
                   {
                      "description": "Type how to make money",
                      "kind": "text",
+                     "field": "#APjFqb",
+                     "shdType": true,
+                     "value": "How to make money forever \r",
+                     "timeout": 10
+                  },
+                  {
+                     "description": "notify",
+                     "kind": "notify",
                      "field": "input[title='Search']",
                      "value": "How to make money forever",
                      "timeout": 10

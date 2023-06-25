@@ -7,6 +7,7 @@ import (
 	"strconv"
 	"time"
 
+	beep "github.com/gen2brain/beeep"
 	"github.com/go-rod/rod"
 	"github.com/go-rod/rod/lib/input"
 	"github.com/go-rod/rod/lib/proto"
@@ -100,6 +101,10 @@ func runForm(ins instructions, page *rod.Page) *rod.Page {
 		text(data, page)
 	case "navigate":
 		navigate(data, page)
+	case "notify":
+		notify(data, page)
+	case "press":
+		notify(data, page)
 	case "wait":
 		wait(data, page)
 	case "select":
@@ -160,6 +165,20 @@ func navigate(data helpers.FormInstructions, page *rod.Page) {
 	if err != nil {
 		log.Println("Error navigating", err)
 		m := fmt.Sprintf("Error naivgating: %v when: %v", data.Field, data.Description)
+		if navigations < 6 {
+			go helpers.AlertError(errP, err, m)
+			navigations++
+		}
+		return
+	}
+}
+
+func notify(data helpers.FormInstructions, page *rod.Page) {
+	err := beep.Notify("Autofill", data.Value, "")
+	errP := page
+	if err != nil {
+		log.Println("Error navigating", err)
+		m := fmt.Sprintf("Error notifying: %v when: %v", data.Field, data.Description)
 		if navigations < 6 {
 			go helpers.AlertError(errP, err, m)
 			navigations++
@@ -282,7 +301,8 @@ func condEval(data helpers.FormInstructions, p *rod.Page) {
 		}
 		return
 	}
-	proto, err := el.Eval(data.EvalExpression)
+	log.Println("eval", data.EvalExpression)
+	proto, err := el.Eval(data.Value)
 	el.CancelTimeout()
 	p = p.CancelTimeout()
 	if err != nil {
