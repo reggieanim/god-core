@@ -24,13 +24,19 @@
                             "field": "#ContentPlaceHolder1_Login1_Password",
                             "kind": "text",
                             "shdType": true,
-                            "value": "Mickey2014!"
+                            "value": "Mickey204!"
                         },
                         {
                             "description": "Click Login",
                             "field": "#ContentPlaceHolder1_Login1_LoginButton",
                             "kind": "leftClick",
                             "value": ""
+                        },
+                         {
+                            "description": "Wait for loging",
+                            "field": "",
+                            "kind": "wait",
+                            "value": "5"
                         },
                         {
                             "body": [
@@ -43,13 +49,13 @@
                                 {}
                             ],
                             "description": "Check if logged in ",
-                            "evalExpression": "() =\u003e this.innerText == 'Your login attempt was not successful. Please try again.'",
+                            "evalExpression": "() => this.innerText == 'Your login attempt was not successful. Please try again.'",
                             "field": "#ContentPlaceHolder1_Login1_FailureText",
                             "kind": "condEval",
                             "mute": true,
-                            "timeout": 2,
                             "value": ""
                         },
+
                         {
                             "description": "Click New Application",
                             "field": "#newApplication",

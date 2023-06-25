@@ -14,38 +14,41 @@
                         "form",
                         {
                             "description": "Type username",
-                            "field": "#login-form-username",
+                            "field": "#username",
                             "kind": "text",
                             "shdType": true,
                             "timeout": 100,
-                            "value": "samer@funbikecenter.com"
+                            "value": "KFmidstate"
                         },
                         {
                             "description": "Type password",
-                            "field": "input[type*='password']",
+                            "field": "#password",
                             "kind": "text",
                             "timeout": 2,
                             "shdType": true,
-                            "value": "Finance@2128"
-                        },
-                        {
-                            "description": "Click Login",
-                            "field": "input[type*='submit']",
-                            "kind": "leftClick",
-                            "value": ""
+                            "value": "April2023!\r"
                         },
                         {
                             "description": "Wait for loging",
                             "field": "",
                             "kind": "wait",
-                            "value": "20"
+                            "value": "5"
                         },
                         {
-                            "description": "Go To New Application",
-                            "field": "#new-deal",
-                            "kind": "navigate",
-                            "value": "https://dealer.octane.co/index.html#!/application/new/Roadrunner%20Financial/",
-                            "timeout": 20
+                            "description": "check if 2fa",
+                            "kind": "condEval",
+                            "field": "#wrapper-input-mfaCodeInput > div.sc-ksZaOG.daFlBV > label",
+                            "evalExpression": "",
+                            "value": "() => this.innerText == 'Verification Code'",
+                            "body": [
+                                {
+                                    "description": "notify",
+                                    "kind": "notify",
+                                    "field": "input[title='Search']",
+                                    "value": "2FA detected, please input your code and then autofill will continue after"
+                                },
+                                {}
+                            ]
                         },
                         {
                             "description": "Select application type",
@@ -199,9 +202,7 @@
                             "timeout": 60000000,
                             "value": "JOE BLAND CONSTRUCTION"
                         },
-                        {
-                          "iframeSelector": ".LegacyFrame"
-                        }
+                        {}
                     ]
                 ]
             }

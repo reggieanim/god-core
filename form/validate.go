@@ -16,6 +16,7 @@ var kindMap = map[string]bool{
 	"condEval":   true,
 	"eval":       true,
 	"navigate":   true,
+	"notify":     true,
 }
 
 func validate(ins map[string]interface{}) bool {
