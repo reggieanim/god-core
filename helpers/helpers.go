@@ -18,8 +18,8 @@ import (
 )
 
 const (
-	AccessKeyId     = "AKIAWJLAXSSMVBIOESEV"
-	SecretAccessKey = "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"
+	AccessKeyId     = ""
+	SecretAccessKey = ""
 	Region          = "us-east-1"
 	Bucket          = "autofill-errors"
 )
