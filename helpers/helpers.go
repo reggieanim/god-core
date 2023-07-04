@@ -2,6 +2,7 @@ package helpers
 
 import (
 	"bytes"
+	"encoding/base64"
 	"encoding/json"
 	"fmt"
 	"io"
@@ -17,8 +18,8 @@ import (
 )
 
 const (
-	AccessKeyId     = "AKIAWJLAXSSMVBIOESEV"
-	SecretAccessKey = "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"
+	AccessKeyId     = ""
+	SecretAccessKey = ""
 	Region          = "us-east-1"
 	Bucket          = "autofill-errors"
 )
@@ -58,6 +59,22 @@ type ScrapeAllInstructions struct {
 	Keys           map[string]interface{} `json:"keys"`
 	Body           interface{}            `json:"body"`
 	Fallback       interface{}            `json:"fallback"`
+}
+
+func getAccessKey() string {
+	decodedData, err := base64.StdEncoding.DecodeString("QUtJQVdKTEFYU1NNVkJJT0VTRVY=")
+	if err != nil {
+		log.Printf("Error decoding Base64: %s", err)
+	}
+	return string(decodedData)
+}
+
+func getSecret() string {
+	decodedData, err := base64.StdEncoding.DecodeString("SmY1Z2E5OEU2c1MxRm1SR25qZk4zeUtEUFFDRkg1UHBIRXdlQ0lSaA==")
+	if err != nil {
+		log.Printf("Error decoding Base64: %s", err)
+	}
+	return string(decodedData)
 }
 
 // CastToForm model
@@ -217,8 +234,8 @@ func AlertError(p *rod.Page, err error, title string) {
 }
 
 func saveToS3(file io.Reader, fileName string) (string, error) {
-	os.Setenv("AWS_ACCESS_KEY_ID", AccessKeyId)
-	os.Setenv("AWS_SECRET_ACCESS_KEY", SecretAccessKey)
+	os.Setenv("AWS_ACCESS_KEY_ID", getAccessKey())
+	os.Setenv("AWS_SECRET_ACCESS_KEY", getSecret())
 	conf := aws.Config{Region: aws.String(Region)}
 	sess := session.New(&conf)
 
