@@ -93,13 +93,8 @@ func launchBrowser(instructions []Instruction) error {
 		go func(v Instruction) {
 			path, _ := launcher.LookPath()
 			err, urlDev := checkAlreadyRunningBrowser()
-			if v.FreshBrowser {
-				l = launcher.New().Bin(path).Leakless(false).
-					Headless(v.Headless)
-			} else {
-				l = launcher.NewUserMode().Bin(path).Leakless(false).
-					Headless(v.Headless)
-			}
+			l := launcher.New().Bin(path).Leakless(false).
+				Headless(v.Headless)
 			defer l.Cleanup()
 			defer wg.Done()
 			if err != nil {
