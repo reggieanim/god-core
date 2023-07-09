@@ -84,7 +84,6 @@ func checkAlreadyRunningBrowser() (error, string) {
 func launchBrowser(instructions []Instruction) error {
 	var url string
 	var connected bool
-	var l *launcher.Launcher
 	ctx, cancel := context.WithCancel(context.Background())
 	defer cancel()
 	for _, v := range instructions {
