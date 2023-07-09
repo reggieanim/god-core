@@ -21,12 +21,13 @@ import (
 var wg sync.WaitGroup
 
 type Instruction struct {
-	Headless   bool     `json:"headless"`
-	Stealth    bool     `json:"stealth"`
-	SlowMotion int      `json:"slowMotion"`
-	Trace      bool     `json:"trace"`
-	Close      bool     `json:"close"`
-	Configs    []Config `json:"instructions"`
+	Headless     bool     `json:"headless"`
+	Stealth      bool     `json:"stealth"`
+	FreshBrowser bool     `json:"freshBrowser"`
+	SlowMotion   int      `json:"slowMotion"`
+	Trace        bool     `json:"trace"`
+	Close        bool     `json:"close"`
+	Configs      []Config `json:"instructions"`
 }
 
 type Chrome struct {
@@ -83,6 +84,7 @@ func checkAlreadyRunningBrowser() (error, string) {
 func launchBrowser(instructions []Instruction) error {
 	var url string
 	var connected bool
+	var l *launcher.Launcher
 	ctx, cancel := context.WithCancel(context.Background())
 	defer cancel()
 	for _, v := range instructions {
@@ -91,8 +93,13 @@ func launchBrowser(instructions []Instruction) error {
 		go func(v Instruction) {
 			path, _ := launcher.LookPath()
 			err, urlDev := checkAlreadyRunningBrowser()
-			l := launcher.New().Bin(path).Leakless(false).
-				Headless(v.Headless)
+			if v.FreshBrowser {
+				l = launcher.New().Bin(path).Leakless(false).
+					Headless(v.Headless)
+			} else {
+				l = launcher.NewUserMode().Bin(path).Leakless(false).
+					Headless(v.Headless)
+			}
 			defer l.Cleanup()
 			defer wg.Done()
 			if err != nil {

@@ -42,16 +42,21 @@ func Form(data interface{}, page *rod.Page) interface{} {
 			retry = 1.00
 		}
 		scroll, ok := options.(map[string]interface{})["scroll"]
+		skip, sOk := options.(map[string]interface{})["skip"]
 		if !ok {
-			log.Println("no scroll specified, defaulting to 0")
 			scroll = 0.00
 		}
-		log.Println("scrollll", scroll)
+		if !sOk {
+			skip = ""
+		}
 		for {
 			log.Println("countRetrys", countRetrys)
 			log.Println("retry", retry)
 			if retry == countRetrys {
 				log.Println("retry limit reached, aborting")
+				break
+			}
+			if skip == "true" {
 				break
 			}
 			iframeSelector, iframeOk := options.(map[string]interface{})["iframeSelector"]
@@ -124,6 +129,9 @@ func runForm(ins instructions, page *rod.Page) *rod.Page {
 }
 
 func text(data helpers.FormInstructions, page *rod.Page) {
+	if data.Value == "" {
+		return
+	}
 	page.WaitLoad()
 	errP := page
 	page = page.Timeout(time.Second * time.Duration(data.Timeout))

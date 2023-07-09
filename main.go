@@ -27,12 +27,13 @@ type Chrome struct {
 }
 
 type Instruction struct {
-	Headless   bool     `json:"headless"`
-	Stealth    bool     `json:"stealth"`
-	Trace      bool     `json:"trace"`
-	Close      bool     `json:"close"`
-	SlowMotion int64    `json:"slowMotion"`
-	Configs    []Config `json:"instructions"`
+	Headless     bool     `json:"headless"`
+	Stealth      bool     `json:"stealth"`
+	Trace        bool     `json:"trace"`
+	Close        bool     `json:"close"`
+	FreshBrowser bool     `json:"freshBrowser"`
+	SlowMotion   int64    `json:"slowMotion"`
+	Configs      []Config `json:"instructions"`
 }
 
 type Config struct {
@@ -136,16 +137,21 @@ func checkAlreadyRunningBrowser() (error, string) {
 func launchBrowser() {
 	var url string
 	var connected bool
-	readJson("examples/octane_autofill.json")
+	var l *launcher.Launcher
+	readJson("examples/appone_autofill.json")
 	for _, v := range instructions {
 		wg.Add(1)
 		go func(v Instruction) {
 			log.Println("Launching browser with speed", v.SlowMotion)
 			err, urlDev := checkAlreadyRunningBrowser()
 			path, _ := launcher.LookPath()
-			l := launcher.New().Bin(path).
-				Leakless(false).
-				Headless(v.Headless)
+			if v.FreshBrowser {
+				l = launcher.New().Bin(path).Leakless(false).
+					Headless(v.Headless)
+			} else {
+				l = launcher.NewUserMode().Bin(path).Leakless(false).
+					Headless(v.Headless)
+			}
 			defer l.Cleanup()
 			defer wg.Done()
 			if err != nil {
@@ -170,9 +176,9 @@ func launchBrowser() {
 				fmt.Println("Running instruction", ins.Template)
 				go func(ins Config) {
 					if v.Close && !connected {
+						defer wg.Done()
 						defer browser.Close()
 						defer l.Kill()
-						defer wg.Done()
 					}
 					if v.Stealth {
 						page, err := stealth.Page(browser)
