@@ -14,6 +14,7 @@ import (
 	"github.com/go-rod/rod"
 	"github.com/go-rod/rod/lib/launcher"
 	"github.com/go-rod/rod/lib/proto"
+	"github.com/go-rod/rod/lib/utils"
 	"github.com/go-rod/stealth"
 	"github.com/reggieanim/god-core/fns"
 )
@@ -43,7 +44,7 @@ type Config struct {
 func Start(raw []byte) {
 	var instructions []Instruction
 	json.Unmarshal([]byte(raw), &instructions)
-	launchBrowser(instructions)
+	LaunchBrowser(instructions)
 	wg.Wait()
 	log.Println("Job completed")
 }
@@ -81,7 +82,7 @@ func checkAlreadyRunningBrowser() (error, string) {
 	return nil, c.Url
 }
 
-func launchBrowser(instructions []Instruction) error {
+func LaunchBrowser(instructions []Instruction) error {
 	var url string
 	var connected bool
 	ctx, cancel := context.WithCancel(context.Background())
@@ -107,11 +108,7 @@ func launchBrowser(instructions []Instruction) error {
 				url = urlDev
 				connected = true
 			}
-			browser := rod.New().
-				ControlURL(url).
-				Trace(v.Trace).
-				SlowMotion(time.Duration(v.SlowMotion) * time.Millisecond).
-				MustConnect().NoDefaultDevice()
+			browser := rod.New().ControlURL(url).Trace(v.Trace).SlowMotion(time.Duration(v.SlowMotion) * time.Millisecond).MustConnect().NoDefaultDevice()
 			for _, ins := range v.Configs {
 				wg.Add(1)
 				fmt.Println("Running instruction", ins)
@@ -121,6 +118,30 @@ func launchBrowser(instructions []Instruction) error {
 						defer l.Kill()
 						defer wg.Done()
 					}
+					go func() {
+						for {
+							pages, err := browser.Pages()
+							if err != nil {
+								log.Println(err)
+								utils.Sleep(0.5)
+								break
+							}
+
+							if len(pages) == 0 {
+								log.Println("zero pages...")
+								utils.Sleep(0.5)
+
+								err := browser.Close()
+								l.Kill()
+								if err != nil {
+									log.Println(err)
+								}
+								break
+							}
+							utils.Sleep(0.5)
+						}
+					}()
+
 					if v.Stealth {
 						page, err := stealth.Page(browser)
 						page.MustNavigate(ins.StartingUrl)
@@ -141,6 +162,7 @@ func launchBrowser(instructions []Instruction) error {
 					}
 				}(ins)
 			}
+
 		}(v)
 	}
 	return ctx.Err()
