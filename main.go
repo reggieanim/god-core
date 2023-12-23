@@ -9,12 +9,9 @@ import (
 	"os"
 	"reflect"
 	"sync"
-	"time"
 
 	"github.com/go-rod/rod"
-	"github.com/go-rod/rod/lib/launcher"
-	"github.com/go-rod/rod/lib/proto"
-	"github.com/go-rod/stealth"
+	"github.com/reggieanim/god-core/core"
 	"github.com/reggieanim/god-core/fns"
 )
 
@@ -88,7 +85,7 @@ func Map(vs interface{}, f func(interface{}) interface{}) interface{} {
 	return out
 }
 
-func readJson(dir string) {
+func readJson(dir string) []byte {
 	file, err := os.Open(dir)
 	if err != nil {
 		panic(err)
@@ -98,7 +95,8 @@ func readJson(dir string) {
 	if err != nil {
 		panic(err)
 	}
-	json.Unmarshal([]byte(byteVal), &instructions)
+	return byteVal
+	// json.Unmarshal([]byte(byteVal), &instructions)
 }
 
 func checkAlreadyRunningBrowser() (error, string) {
@@ -135,66 +133,6 @@ func checkAlreadyRunningBrowser() (error, string) {
 }
 
 func launchBrowser() {
-	var url string
-	var connected bool
-	readJson("examples/honda_autofill.json")
-	for _, v := range instructions {
-		wg.Add(1)
-		go func(v Instruction) {
-			log.Println("Launching browser with speed", v.SlowMotion)
-			err, urlDev := checkAlreadyRunningBrowser()
-			path, _ := launcher.LookPath()
-			l := launcher.New().Bin(path).Leakless(false).
-				Headless(v.Headless)
-			defer l.Cleanup()
-			defer wg.Done()
-			if err != nil {
-				res, err := l.Launch()
-				if err != nil {
-					log.Println(err)
-				} else {
-					url = res
-				}
-			} else {
-				url = urlDev
-				connected = true
-			}
-			browser := rod.New().
-				ControlURL(url).
-				Trace(v.Trace).
-				SlowMotion(time.Duration(v.SlowMotion) * time.Millisecond).
-				MustConnect().NoDefaultDevice()
-			for _, ins := range v.Configs {
-				wg.Add(1)
-				log.Println("Running instruction length", len(v.Configs))
-				fmt.Println("Running instruction", ins.Template)
-				go func(ins Config) {
-					if v.Close && !connected {
-						defer wg.Done()
-						defer browser.Close()
-						defer l.Kill()
-					}
-					if v.Stealth {
-						page, err := stealth.Page(browser)
-						page.MustNavigate(ins.StartingUrl)
-						if err != nil {
-							log.Println(err)
-							return
-						}
-						data := parseIns(page)(ins.Template)
-						fmt.Println("Performed actions successfully", data)
-					} else {
-						page, err := browser.Page((proto.TargetCreateTarget{URL: ins.StartingUrl}))
-						if err != nil {
-							log.Println(err)
-							return
-						}
-						data := parseIns(page)(ins.Template)
-						fmt.Println("Performed actions successfully", data)
-					}
-				}(ins)
-			}
-		}(v)
-	}
-
+	bytes := readJson("examples/honda_autofill.json")
+	core.Start(bytes)
 }
