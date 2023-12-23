@@ -108,6 +108,11 @@ func runForm(ins instructions, page *rod.Page) *rod.Page {
 		navigate(data, page)
 	case "notify":
 		notify(data, page)
+	case "nextPage":
+		page := nextPage(data, page)
+		return page
+	case "prevPage":
+		prevPage(data, page)
 	case "press":
 		notify(data, page)
 	case "wait":
@@ -126,6 +131,52 @@ func runForm(ins instructions, page *rod.Page) *rod.Page {
 		eval(data, page)
 	}
 	return page
+}
+
+func nextPage(data helpers.FormInstructions, p *rod.Page) *rod.Page {
+	var newPage *rod.Page
+	ps, err := p.Browser().Pages()
+	if err != nil {
+		log.Println("Error getting pages", err)
+		return p
+	}
+	for i, v := range ps {
+		log.Println("this is page id:", v)
+		log.Println("this is page :", p)
+		if v != p {
+			newPage, err = ps[i].Activate()
+			if err != nil {
+				log.Println("Error activating page", err)
+				return p
+			}
+			p = newPage
+			break
+		}
+		log.Println("this is page returning:", p.MustInfo())
+	}
+	return p
+}
+
+func prevPage(data helpers.FormInstructions, p *rod.Page) *rod.Page {
+	var newPage *rod.Page
+	ps, err := p.Browser().Pages()
+	if err != nil {
+		log.Println("Error getting pages in prevPage", err)
+		return p
+	}
+	for i, v := range ps {
+		log.Println("this is page id:", v)
+		log.Println("this is page :", p)
+		if v != p {
+			newPage, err = ps[i].Activate()
+			if err != nil {
+				log.Println("Error activating page", err)
+				return p
+			}
+			break
+		}
+	}
+	return newPage
 }
 
 func text(data helpers.FormInstructions, page *rod.Page) {
