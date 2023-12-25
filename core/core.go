@@ -120,6 +120,7 @@ func LaunchBrowser(instructions []Instruction) error {
 					}
 					go func() {
 						for {
+							utils.Sleep(1)
 							pages, err := browser.Pages()
 							if err != nil {
 								log.Println(err)
