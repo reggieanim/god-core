@@ -22,13 +22,13 @@ import (
 var wg sync.WaitGroup
 
 type Instruction struct {
-	Headless     bool     `json:"headless"`
-	Stealth      bool     `json:"stealth"`
-	FreshBrowser bool     `json:"freshBrowser"`
-	SlowMotion   int      `json:"slowMotion"`
-	Trace        bool     `json:"trace"`
-	Close        bool     `json:"close"`
-	Configs      []Config `json:"instructions"`
+	Headless   bool     `json:"headless"`
+	SaveState  bool     `json:"saveState"`
+	Stealth    bool     `json:"stealth"`
+	SlowMotion int      `json:"slowMotion"`
+	Trace      bool     `json:"trace"`
+	Close      bool     `json:"close"`
+	Configs    []Config `json:"instructions"`
 }
 
 type Chrome struct {
@@ -95,7 +95,6 @@ func LaunchBrowser(instructions []Instruction) error {
 			err, urlDev := checkAlreadyRunningBrowser()
 			l := launcher.New().Bin(path).Leakless(false).
 				Headless(v.Headless)
-			defer l.Cleanup()
 			defer wg.Done()
 			if err != nil {
 				res, err := l.Launch()

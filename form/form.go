@@ -72,6 +72,7 @@ func Form(data interface{}, page *rod.Page) interface{} {
 				page = pg
 			}
 			for _, v := range instructions {
+				page.WaitLoad()
 				page = runForm(v, page)
 			}
 			err := page.Mouse.Scroll(0, float64(scroll.(float64)), 0)
@@ -106,6 +107,10 @@ func runForm(ins instructions, page *rod.Page) *rod.Page {
 		text(data, page)
 	case "navigate":
 		navigate(data, page)
+	case "saveState":
+		saveCookie(data, page)
+	case "loadState":
+		loadCookie(data, page)
 	case "notify":
 		notify(data, page)
 	case "nextPage":
@@ -230,6 +235,58 @@ func navigate(data helpers.FormInstructions, page *rod.Page) {
 		}
 		return
 	}
+}
+
+func saveCookie(data helpers.FormInstructions, page *rod.Page) {
+	filename := data.Value
+	cookies, err := page.Cookies([]string{})
+	errP := page
+	if err != nil {
+		log.Println("Error saving cookies", err)
+		m := fmt.Sprintf("Error saving cookies: %v when: %v", data.Field, data.Description)
+		go helpers.AlertError(errP, err, m)
+		navigations++
+		return
+	}
+	err = helpers.SaveCookiesToFile(cookies, fmt.Sprintf("%s.json", filename))
+	if err != nil {
+		go helpers.AlertError(errP, err, "error saving cookies")
+	}
+	localStorageData := page.MustEval(`() => { return JSON.stringify(localStorage); }`).String()
+	err = helpers.SaveLocalStorageToFile(localStorageData, fmt.Sprintf("%s-localstorage.json", filename))
+	if err != nil {
+		go helpers.AlertError(errP, err, "error saving local storage")
+	}
+}
+
+func loadCookie(data helpers.FormInstructions, page *rod.Page) {
+	filename := data.Value
+	cookies, err := helpers.LoadCookiesFromFile(fmt.Sprintf("%s.json", filename))
+	errP := page
+	if err != nil {
+		log.Println("Error loading cookies", err)
+		m := fmt.Sprintf("Error loading cookies: %v when: %v", data.Field, data.Description)
+		go helpers.AlertError(errP, err, m)
+		return
+	}
+	err = page.SetCookies(cookies)
+	if err != nil {
+		go helpers.AlertError(errP, err, "error loading cookies")
+	}
+	err = page.Reload()
+	if err != nil {
+		go helpers.AlertError(errP, err, "error refreshing")
+	}
+	// localStorageData, err := helpers.LoadLocalStorageFromFile(fmt.Sprintf("%s-localstorage.json", filename))
+	if err != nil {
+		go helpers.AlertError(errP, err, "error loading local storage")
+		return
+	}
+	// _, err = page.Eval(fmt.Sprintf(`localStorage.setItem('data', '%s');`, localStorageData))
+	// if err != nil {
+	// 	log.Println(err)
+	// 	go helpers.AlertError(errP, err, "error loading local storage to browser")
+	// }
 }
 
 func notify(data helpers.FormInstructions, page *rod.Page) {
