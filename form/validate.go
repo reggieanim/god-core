@@ -12,6 +12,8 @@ var kindMap = map[string]bool{
 	"select":     true,
 	"leftClick":  true,
 	"rightClick": true,
+	"saveState":  true,
+	"loadState":  true,
 	"nextPage":   true,
 	"wait":       true,
 	"condEval":   true,

@@ -133,6 +133,6 @@ func checkAlreadyRunningBrowser() (error, string) {
 }
 
 func launchBrowser() {
-	bytes := readJson("examples/honda_autofill.json")
+	bytes := readJson("examples/freedom_road_autofill.json")
 	core.Start(bytes)
 }
