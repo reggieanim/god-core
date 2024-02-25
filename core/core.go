@@ -115,32 +115,8 @@ func LaunchBrowser(instructions []Instruction) error {
 					if v.Close && !connected {
 						defer browser.Close()
 						defer l.Kill()
-						defer wg.Done()
+						defer l.Cleanup()
 					}
-					go func() {
-						for {
-							utils.Sleep(1)
-							pages, err := browser.Pages()
-							if err != nil {
-								log.Println(err)
-								utils.Sleep(0.5)
-								break
-							}
-
-							if len(pages) == 0 {
-								log.Println("zero pages...")
-								utils.Sleep(0.5)
-
-								err := browser.Close()
-								l.Kill()
-								if err != nil {
-									log.Println(err)
-								}
-								break
-							}
-							utils.Sleep(0.5)
-						}
-					}()
 
 					if v.Stealth {
 						page, err := stealth.Page(browser)
@@ -162,6 +138,33 @@ func LaunchBrowser(instructions []Instruction) error {
 					}
 				}(ins)
 			}
+			go func() {
+				for {
+					utils.Sleep(1)
+					pages, err := browser.Pages()
+					if err != nil {
+						log.Println(err)
+						utils.Sleep(0.5)
+						break
+					}
+
+					if len(pages) == 0 {
+						log.Println("zero pages...")
+						utils.Sleep(0.5)
+
+						err := browser.Close()
+						l.Kill()
+						for range v.Configs {
+							defer wg.Done()
+						}
+						if err != nil {
+							log.Println(err)
+						}
+						break
+					}
+					utils.Sleep(0.5)
+				}
+			}()
 
 		}(v)
 	}
