@@ -9,6 +9,7 @@ import (
 
 var kindMap = map[string]bool{
 	"text":       true,
+	"block":      true,
 	"select":     true,
 	"leftClick":  true,
 	"rightClick": true,

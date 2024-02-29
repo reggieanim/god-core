@@ -14,6 +14,13 @@
                     [
                         "form",
                         {
+                            "description": "load state",
+                            "field": "",
+                            "kind": "loadState",
+                            "value": "sheffield",
+                            "timeout": 20
+                        },
+                        {
                             "description": "wait for page",
                             "field": "#dealerLogin",
                             "kind": "leftClick",
@@ -34,7 +41,7 @@
                             "kind": "text",
                             "timeout": 2,
                             "shdType": true,
-                            "value": "Kyleray2023!"
+                            "value": "Midstate2024!"
                         },
                         {
                             "description": "Type company id",
@@ -63,6 +70,13 @@
                             "field": "#side-menu > li.active > ul > li:nth-child(2) > a",
                             "kind": "leftClick",
                             "value": "",
+                            "timeout": 20
+                        },
+                        {
+                            "description": "Save state",
+                            "field": "",
+                            "kind": "saveState",
+                            "value": "sheffield",
                             "timeout": 20
                         },
                         {
