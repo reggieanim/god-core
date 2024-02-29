@@ -113,6 +113,8 @@ func runForm(ins instructions, page *rod.Page) *rod.Page {
 		loadCookie(data, page)
 	case "notify":
 		notify(data, page)
+	case "block":
+		block(data, page)
 	case "nextPage":
 		page := nextPage(data, page)
 		return page
@@ -356,6 +358,27 @@ func inputSelect(data helpers.FormInstructions, page *rod.Page) {
 		return
 	}
 	el.CancelTimeout()
+	out = append(out, data)
+}
+
+func block(data helpers.FormInstructions, page *rod.Page) {
+	jsCode := `(data) => {
+    document.body.insertAdjacentHTML('beforeend', '<style>@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap"); .mui-button { display: inline-block; padding: 10px 20px; font-size: 13px; color: black; text-transform: uppercase; background-color: #fff; border: 1px solid black; border-radius: 3px; cursor: pointer; font-family: "Roboto", sans-serif; transition: background-color 0.3s, color 0.3s, border-color 0.3s; } .mui-button:hover { background-color: black; color: #fff; border-color: black; } #customBanner { position: fixed; top: 50%; right: -200px; transform: translateY(-50%); width: 250px; background-color: #fff; color: #333; text-align: center; padding: 10px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08); z-index: 9999; transition: right 0.5s ease-out; font-family: "Roboto", sans-serif; } #logo { width: 150px; height: auto; margin-bottom: 10px; } .log { font-size: 12px; text-transform: uppercase; color: rgb(132, 81, 225); opacity: 0.5; }</style><div id="customBanner"><p class="log">My Approval Engine</p><button id="startAutofill" class="mui-button">' + data + '</button></div>');
+
+    setTimeout(function() {
+        document.getElementById('customBanner').style.right = '0';
+    }, 1000); // Adjust the delay as needed
+}`
+	jsCode2 := `() => document.getElementById('startAutofill').addEventListener('click', function() { window.startAutofill = true; document.getElementById('customBanner').remove()  })`
+	page.MustEval(jsCode, data.Value)
+	page.MustEval(jsCode2)
+	err := page.Wait(rod.Eval(`() => window.startAutofill == true`))
+	if err != nil {
+		m := fmt.Sprintf("Error blocking: %v when: %v", data.Field, data.Description)
+		go helpers.AlertError(page, err, m)
+	}
+	reset := `() => window.startAutofill = false`
+	page.MustEval(reset)
 	out = append(out, data)
 }
 
