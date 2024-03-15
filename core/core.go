@@ -22,13 +22,13 @@ import (
 var wg sync.WaitGroup
 
 type Instruction struct {
-	Headless     bool     `json:"headless"`
-	Stealth      bool     `json:"stealth"`
-	FreshBrowser bool     `json:"freshBrowser"`
-	SlowMotion   int      `json:"slowMotion"`
-	Trace        bool     `json:"trace"`
-	Close        bool     `json:"close"`
-	Configs      []Config `json:"instructions"`
+	Headless   bool     `json:"headless"`
+	SaveState  bool     `json:"saveState"`
+	Stealth    bool     `json:"stealth"`
+	SlowMotion int      `json:"slowMotion"`
+	Trace      bool     `json:"trace"`
+	Close      bool     `json:"close"`
+	Configs    []Config `json:"instructions"`
 }
 
 type Chrome struct {
@@ -95,7 +95,6 @@ func LaunchBrowser(instructions []Instruction) error {
 			err, urlDev := checkAlreadyRunningBrowser()
 			l := launcher.New().Bin(path).Leakless(false).
 				Headless(v.Headless)
-			defer l.Cleanup()
 			defer wg.Done()
 			if err != nil {
 				res, err := l.Launch()
@@ -116,32 +115,8 @@ func LaunchBrowser(instructions []Instruction) error {
 					if v.Close && !connected {
 						defer browser.Close()
 						defer l.Kill()
-						defer wg.Done()
+						defer l.Cleanup()
 					}
-					go func() {
-						for {
-							utils.Sleep(1)
-							pages, err := browser.Pages()
-							if err != nil {
-								log.Println(err)
-								utils.Sleep(0.5)
-								break
-							}
-
-							if len(pages) == 0 {
-								log.Println("zero pages...")
-								utils.Sleep(0.5)
-
-								err := browser.Close()
-								l.Kill()
-								if err != nil {
-									log.Println(err)
-								}
-								break
-							}
-							utils.Sleep(0.5)
-						}
-					}()
 
 					if v.Stealth {
 						page, err := stealth.Page(browser)
@@ -163,6 +138,33 @@ func LaunchBrowser(instructions []Instruction) error {
 					}
 				}(ins)
 			}
+			go func() {
+				for {
+					utils.Sleep(1)
+					pages, err := browser.Pages()
+					if err != nil {
+						log.Println(err)
+						utils.Sleep(0.5)
+						break
+					}
+
+					if len(pages) == 0 {
+						log.Println("zero pages...")
+						utils.Sleep(0.5)
+
+						err := browser.Close()
+						l.Kill()
+						for range v.Configs {
+							defer wg.Done()
+						}
+						if err != nil {
+							log.Println(err)
+						}
+						break
+					}
+					utils.Sleep(0.5)
+				}
+			}()
 
 		}(v)
 	}

@@ -6,6 +6,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"io"
+	"io/ioutil"
 	"log"
 	"net/http"
 	"os"
@@ -15,6 +16,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/s3/s3manager"
 	"github.com/go-rod/rod"
+	"github.com/go-rod/rod/lib/proto"
 )
 
 const (
@@ -196,6 +198,54 @@ func CastToScrapeAll(data map[string]interface{}) ScrapeAllInstructions {
 		body,
 		fallback,
 	}
+}
+
+func SaveCookiesToFile(cookies []*proto.NetworkCookie, filename string) error {
+	cookiesJSON, err := json.Marshal(cookies)
+	if err != nil {
+		return err
+	}
+
+	err = ioutil.WriteFile(filename, cookiesJSON, 0644)
+	if err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func SaveLocalStorageToFile(localStorageData string, filename string) error {
+	err := ioutil.WriteFile(filename, []byte(localStorageData), 0644)
+	if err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func LoadCookiesFromFile(filename string) ([]*proto.NetworkCookieParam, error) {
+	cookiesJSON, err := ioutil.ReadFile(filename)
+	if err != nil {
+		return nil, err
+	}
+
+	var cookies []*proto.NetworkCookieParam
+	err = json.Unmarshal(cookiesJSON, &cookies)
+	if err != nil {
+		return nil, err
+	}
+
+	return cookies, nil
+}
+
+// Function to load local storage data from a file
+func LoadLocalStorageFromFile(filename string) (string, error) {
+	localStorageData, err := ioutil.ReadFile(filename)
+	if err != nil {
+		return "", err
+	}
+
+	return string(localStorageData), nil
 }
 
 func AlertError(p *rod.Page, err error, title string) {
