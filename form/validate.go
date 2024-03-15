@@ -9,9 +9,12 @@ import (
 
 var kindMap = map[string]bool{
 	"text":       true,
+	"block":      true,
 	"select":     true,
 	"leftClick":  true,
 	"rightClick": true,
+	"saveState":  true,
+	"loadState":  true,
 	"nextPage":   true,
 	"wait":       true,
 	"condEval":   true,
