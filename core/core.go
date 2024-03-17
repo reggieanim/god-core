@@ -13,6 +13,7 @@ import (
 
 	"github.com/go-rod/rod"
 	"github.com/go-rod/rod/lib/launcher"
+	"github.com/go-rod/rod/lib/launcher/flags"
 	"github.com/go-rod/rod/lib/proto"
 	"github.com/go-rod/rod/lib/utils"
 	"github.com/go-rod/stealth"
@@ -23,6 +24,7 @@ var wg sync.WaitGroup
 
 type Instruction struct {
 	Headless   bool     `json:"headless"`
+	Lender     string   `json:"lender"`
 	SaveState  bool     `json:"saveState"`
 	Stealth    bool     `json:"stealth"`
 	SlowMotion int      `json:"slowMotion"`
@@ -85,6 +87,7 @@ func checkAlreadyRunningBrowser() (error, string) {
 func LaunchBrowser(instructions []Instruction) error {
 	var url string
 	var connected bool
+	var l *launcher.Launcher
 	ctx, cancel := context.WithCancel(context.Background())
 	defer cancel()
 	for _, v := range instructions {
@@ -93,8 +96,12 @@ func LaunchBrowser(instructions []Instruction) error {
 		go func(v Instruction) {
 			path, _ := launcher.LookPath()
 			err, urlDev := checkAlreadyRunningBrowser()
-			l := launcher.New().Bin(path).Leakless(false).
-				Headless(v.Headless)
+			if v.Lender == "" {
+				l = launcher.New().Bin(path).Leakless(false)
+			} else {
+				l = launcher.New().Bin(path).Set(flags.UserDataDir, v.Lender).Leakless(false).
+					Headless(v.Headless)
+			}
 			defer wg.Done()
 			if err != nil {
 				res, err := l.Launch()
