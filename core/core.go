@@ -87,7 +87,6 @@ func checkAlreadyRunningBrowser() (error, string) {
 func LaunchBrowser(instructions []Instruction) error {
 	var url string
 	var connected bool
-	var l *launcher.Launcher
 	ctx, cancel := context.WithCancel(context.Background())
 	defer cancel()
 	for _, v := range instructions {
@@ -96,12 +95,13 @@ func LaunchBrowser(instructions []Instruction) error {
 		go func(v Instruction) {
 			path, _ := launcher.LookPath()
 			err, urlDev := checkAlreadyRunningBrowser()
-			if v.Lender == "" {
-				l = launcher.New().Bin(path).Leakless(false)
-			} else {
-				l = launcher.New().Bin(path).Set(flags.UserDataDir, v.Lender).Leakless(false).
-					Headless(v.Headless)
+			l := launcher.New().Bin(path).Leakless(false).
+				Headless(v.Headless)
+
+			if v.Lender != "" {
+				l = l.Set(flags.UserDataDir, v.Lender)
 			}
+
 			defer wg.Done()
 			if err != nil {
 				res, err := l.Launch()
