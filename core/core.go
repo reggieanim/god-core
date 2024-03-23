@@ -99,7 +99,7 @@ func LaunchBrowser(instructions []Instruction) error {
 				Headless(v.Headless)
 
 			if v.Lender != "" {
-				l = l.Set(flags.UserDataDir, v.Lender)
+				l = l.Set(flags.UserDataDir, v.Lender).Leakless(false)
 			}
 
 			defer wg.Done()
