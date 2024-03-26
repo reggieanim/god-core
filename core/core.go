@@ -93,9 +93,10 @@ func LaunchBrowser(instructions []Instruction) error {
 
 		wg.Add(1)
 		go func(v Instruction) {
+			var l *launcher.Launcher
 			path, _ := launcher.LookPath()
 			err, urlDev := checkAlreadyRunningBrowser()
-			l := launcher.New().Bin(path).Leakless(false).
+			l = launcher.New().Bin(path).Leakless(false).
 				Headless(v.Headless)
 
 			if v.Lender != "" {
