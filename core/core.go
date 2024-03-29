@@ -105,7 +105,7 @@ func LaunchBrowser(instructions []Instruction) error {
 
 			defer wg.Done()
 			if err != nil {
-				res, err := l.Launch()
+				res, err := l.Leakless(false).Launch()
 				if err != nil {
 					log.Println(err)
 				} else {
