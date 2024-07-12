@@ -25,7 +25,7 @@ var wg sync.WaitGroup
 type Instruction struct {
 	Headless   bool     `json:"headless"`
 	Lender     string   `json:"lender"`
-	InBrowser  string   `json:"inBrowser"`
+	InBrowser  bool     `json:"inBrowser"`
 	SaveState  bool     `json:"saveState"`
 	Stealth    bool     `json:"stealth"`
 	SlowMotion int      `json:"slowMotion"`
@@ -113,7 +113,7 @@ func LaunchBrowser(instructions []Instruction) error {
 					url = res
 				}
 			} else {
-				if v.InBrowser != "" {
+				if v.InBrowser {
 					url = urlDev
 					connected = true
 				}
