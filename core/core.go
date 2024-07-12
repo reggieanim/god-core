@@ -3,6 +3,7 @@ package core
 import (
 	"context"
 	"encoding/json"
+	"errors"
 	"fmt"
 	"io/ioutil"
 	"log"
@@ -52,8 +53,11 @@ func Start(raw []byte) {
 	log.Println("Job completed")
 }
 
-func checkAlreadyRunningBrowser() (error, string) {
+func checkAlreadyRunningBrowser(browser bool) (error, string) {
 	var c Chrome
+	if !browser {
+		return errors.New("Not in browser"), c.Url
+	}
 	// Create a new HTTP request
 	req, err := http.NewRequest("GET", "http://localhost:9222/json/version", nil)
 	if err != nil {
@@ -96,7 +100,7 @@ func LaunchBrowser(instructions []Instruction) error {
 		go func(v Instruction) {
 			var l *launcher.Launcher
 			path, _ := launcher.LookPath()
-			err, urlDev := checkAlreadyRunningBrowser()
+			err, urlDev := checkAlreadyRunningBrowser(v.InBrowser)
 			l = launcher.New().Bin(path).Leakless(false).
 				Headless(v.Headless)
 
@@ -113,10 +117,8 @@ func LaunchBrowser(instructions []Instruction) error {
 					url = res
 				}
 			} else {
-				if v.InBrowser {
-					url = urlDev
-					connected = true
-				}
+				url = urlDev
+				connected = true
 			}
 			browser := rod.New().ControlURL(url).Trace(v.Trace).SlowMotion(time.Duration(v.SlowMotion) * time.Millisecond).MustConnect().NoDefaultDevice()
 			for _, ins := range v.Configs {
