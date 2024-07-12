@@ -25,6 +25,7 @@ var wg sync.WaitGroup
 type Instruction struct {
 	Headless   bool     `json:"headless"`
 	Lender     string   `json:"lender"`
+	InBrowser  string   `json:"inBrowser"`
 	SaveState  bool     `json:"saveState"`
 	Stealth    bool     `json:"stealth"`
 	SlowMotion int      `json:"slowMotion"`
@@ -112,8 +113,10 @@ func LaunchBrowser(instructions []Instruction) error {
 					url = res
 				}
 			} else {
-				url = urlDev
-				connected = true
+				if v.InBrowser != "" {
+					url = urlDev
+					connected = true
+				}
 			}
 			browser := rod.New().ControlURL(url).Trace(v.Trace).SlowMotion(time.Duration(v.SlowMotion) * time.Millisecond).MustConnect().NoDefaultDevice()
 			for _, ins := range v.Configs {
