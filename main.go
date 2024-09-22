@@ -60,7 +60,7 @@ func parseIns(browser *rod.Page) func(data interface{}) interface{} {
 			// args = append(args, out[1:]...)
 			args := out[1:]
 			fn := fmt.Sprint(out[0])
-			fmt.Printf("Compiling function %v with args %v \n", fn, args)
+			// fmt.Printf("Compiling function %v with args %v \n", fn, args)
 			return fns.Fns[fn](Map(args, parseIns(browser)), browser)
 		}
 		if reflect.TypeOf(data).Kind() != reflect.Slice {
@@ -133,6 +133,9 @@ func checkAlreadyRunningBrowser() (error, string) {
 }
 
 func launchBrowser() {
-	bytes := readJson("examples/new_synchrony.json")
+	bytes := readJson("examples/run_ofac.json")
+	core.SetConfig(core.LogConfig{
+		WebhookURL: "https://discord.com/api/webhooks/1121478988947275786/nWiQ2K1F00Rs67osFmYxkr_NfKqAEXq2J7tSzvPA1yeJVcoiVgQ3JD4_C77m4iOakiBy",
+	})
 	core.Start(bytes)
 }
