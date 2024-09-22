@@ -1,13 +1,17 @@
 package core
 
 import (
+	"bytes"
 	"context"
 	"encoding/json"
+	"errors"
 	"fmt"
 	"io/ioutil"
 	"log"
 	"net/http"
+	"os"
 	"reflect"
+	"runtime"
 	"sync"
 	"time"
 
@@ -15,16 +19,26 @@ import (
 	"github.com/go-rod/rod/lib/launcher"
 	"github.com/go-rod/rod/lib/launcher/flags"
 	"github.com/go-rod/rod/lib/proto"
-	"github.com/go-rod/rod/lib/utils"
 	"github.com/go-rod/stealth"
 	"github.com/reggieanim/god-core/fns"
 )
 
 var wg sync.WaitGroup
 
+type LogConfig struct {
+	WebhookURL string
+}
+
+var config LogConfig
+
+func SetConfig(c LogConfig) {
+	config = c
+}
+
 type Instruction struct {
 	Headless   bool     `json:"headless"`
 	Lender     string   `json:"lender"`
+	InBrowser  bool     `json:"inBrowser"`
 	SaveState  bool     `json:"saveState"`
 	Stealth    bool     `json:"stealth"`
 	SlowMotion int      `json:"slowMotion"`
@@ -43,6 +57,86 @@ type Config struct {
 	Template    []interface{} `json:"template"`
 }
 
+// WebhookPayload is the structure of the message to be sent to Discord webhook
+type WebhookPayload struct {
+	Embeds []map[string]interface{} `json:"embeds"`
+}
+
+// SystemInfo returns system information such as OS, architecture, and hostname
+func SystemInfo() map[string]string {
+	host, _ := os.Hostname()
+
+	return map[string]string{
+		"OS":           runtime.GOOS,
+		"Architecture": runtime.GOARCH,
+		"Hostname":     host,
+	}
+}
+
+// sendToWebhook sends error logs with system info to a Discord webhook
+func sendToWebhook(errMsg string) {
+	if config.WebhookURL == "" {
+		log.Println("No webhook URL configured")
+		return
+	}
+
+	// Get system info
+	sysInfo := SystemInfo()
+
+	// Create the payload with system info and error details
+	body, _ := json.Marshal(
+		map[string]interface{}{
+			"embeds": []map[string]interface{}{
+				{
+					"description": errMsg,
+					"title":       "Error Occurred",
+					"color":       16711680, // Red color
+					"fields": []map[string]interface{}{
+						{
+							"name":  "Operating System",
+							"value": sysInfo["OS"],
+						},
+						{
+							"name":  "Architecture",
+							"value": sysInfo["Architecture"],
+						},
+						{
+							"name":  "Hostname",
+							"value": sysInfo["Hostname"],
+						},
+					},
+				},
+				{
+					"thumbnail": map[string]interface{}{
+						"url": "https://upload.wikimedia.org/wikipedia/commons/3/38/4-Nature-Wallpapers-2014-1_ukaavUI.jpg",
+					},
+				},
+			},
+		},
+	)
+
+	// Send the POST request to Discord webhook
+	req, err := http.NewRequest("POST", config.WebhookURL, bytes.NewBuffer(body))
+	if err != nil {
+		log.Println("Error creating Discord webhook request:", err)
+		return
+	}
+	req.Header.Set("Content-Type", "application/json")
+
+	client := &http.Client{}
+	resp, err := client.Do(req)
+	if err != nil {
+		log.Println("Error sending Discord webhook request:", err)
+		return
+	}
+	defer resp.Body.Close()
+
+	if resp.StatusCode != http.StatusOK {
+		log.Println("Discord webhook responded with status:", resp.StatusCode)
+	}
+}
+
+// Start processes the raw instructions
 func Start(raw []byte) {
 	var instructions []Instruction
 	json.Unmarshal([]byte(raw), &instructions)
@@ -51,12 +145,16 @@ func Start(raw []byte) {
 	log.Println("Job completed")
 }
 
-func checkAlreadyRunningBrowser() (error, string) {
+func checkAlreadyRunningBrowser(browser bool) (error, string) {
 	var c Chrome
+	if !browser {
+		return errors.New("Not in browser"), c.Url
+	}
 	// Create a new HTTP request
 	req, err := http.NewRequest("GET", "http://localhost:9222/json/version", nil)
 	if err != nil {
-		fmt.Println("Error creating request:", err)
+		log.Println("Error creating request:", err)
+		go sendToWebhook(fmt.Sprintf("Error creating request: %v", err))
 		return err, c.Url
 	}
 
@@ -64,7 +162,8 @@ func checkAlreadyRunningBrowser() (error, string) {
 	client := &http.Client{}
 	resp, err := client.Do(req)
 	if err != nil {
-		fmt.Println("Error sending request:", err)
+		log.Println("Error sending request:", err)
+		go sendToWebhook(fmt.Sprintf("Error sending request: %v", err))
 		return err, c.Url
 	}
 	defer resp.Body.Close()
@@ -72,14 +171,16 @@ func checkAlreadyRunningBrowser() (error, string) {
 	// Read the response body
 	body, err := ioutil.ReadAll(resp.Body)
 	if err != nil {
-		fmt.Println("Error reading response:", err)
+		log.Println("Error reading response:", err)
+		go sendToWebhook(fmt.Sprintf("Error reading response: %v", err))
 		return err, c.Url
 	}
 
-	// Print the response
+	// Parse the response
 	err = json.Unmarshal(body, &c)
 	if err != nil {
-		log.Println("No data")
+		log.Println("Error unmarshalling response:", err)
+		go sendToWebhook(fmt.Sprintf("Error unmarshalling response: %v", err))
 	}
 	return nil, c.Url
 }
@@ -95,19 +196,20 @@ func LaunchBrowser(instructions []Instruction) error {
 		go func(v Instruction) {
 			var l *launcher.Launcher
 			path, _ := launcher.LookPath()
-			err, urlDev := checkAlreadyRunningBrowser()
-			l = launcher.New().Bin(path).Leakless(false).
+			err, urlDev := checkAlreadyRunningBrowser(v.InBrowser)
+			l = launcher.New().Bin(path).
 				Headless(v.Headless)
 
 			if v.Lender != "" {
-				l = l.Set(flags.UserDataDir, v.Lender).Leakless(false)
+				l = l.Set(flags.UserDataDir, v.Lender)
 			}
 
 			defer wg.Done()
 			if err != nil {
-				res, err := l.Leakless(false).Launch()
+				res, err := l.Launch()
 				if err != nil {
 					log.Println(err)
+					go sendToWebhook(fmt.Sprintf("Error launching browser: %v", err))
 				} else {
 					url = res
 				}
@@ -118,7 +220,6 @@ func LaunchBrowser(instructions []Instruction) error {
 			browser := rod.New().ControlURL(url).Trace(v.Trace).SlowMotion(time.Duration(v.SlowMotion) * time.Millisecond).MustConnect().NoDefaultDevice()
 			for _, ins := range v.Configs {
 				wg.Add(1)
-				fmt.Println("Running instruction", ins)
 				go func(ins Config) {
 					if v.Close && !connected {
 						defer browser.Close()
@@ -126,65 +227,37 @@ func LaunchBrowser(instructions []Instruction) error {
 						defer l.Cleanup()
 					}
 
+					var page *rod.Page
+					var err error
 					if v.Stealth {
-						page, err := stealth.Page(browser)
-						page.MustNavigate(ins.StartingUrl)
-						if err != nil {
-							log.Println(err)
-							return
-						}
-						data := parseIns(page)(ins.Template)
-						fmt.Println("Performed actions successfully", data)
+						page, err = stealth.Page(browser)
 					} else {
-						page, err := browser.Page((proto.TargetCreateTarget{URL: ins.StartingUrl}))
-						if err != nil {
-							log.Println(err)
-							return
-						}
-						data := parseIns(page)(ins.Template)
-						fmt.Println("Performed actions successfully", data)
+						page, err = browser.Page(proto.TargetCreateTarget{URL: ins.StartingUrl})
 					}
-				}(ins)
-			}
-			go func() {
-				for {
-					utils.Sleep(1)
-					pages, err := browser.Pages()
+
 					if err != nil {
 						log.Println(err)
-						utils.Sleep(0.5)
-						break
+						go sendToWebhook(fmt.Sprintf("Error navigating to page: %v", err))
+						return
 					}
 
-					if len(pages) == 0 {
-						log.Println("zero pages...")
-						utils.Sleep(0.5)
-
-						err := browser.Close()
-						l.Kill()
-						for range v.Configs {
-							defer wg.Done()
-						}
-						if err != nil {
-							log.Println(err)
-						}
-						break
-					}
-					utils.Sleep(0.5)
-				}
-			}()
-
+					data := parseIns(page)(ins.Template)
+					fmt.Println("Performed actions successfully", data)
+				}(ins)
+			}
 		}(v)
 	}
 	return ctx.Err()
-
 }
 
+// parseIns parses the instructions
 func parseIns(browser *rod.Page) func(data interface{}) interface{} {
 	return func(data interface{}) interface{} {
 		defer func() {
 			if r := recover(); r != nil {
-				fmt.Println("Recovered in f", r)
+				errMsg := fmt.Sprintf("Recovered in f: %v", r)
+				log.Println(errMsg)
+				go sendToWebhook(errMsg)
 			}
 		}()
 		switch reflect.TypeOf(data).Kind() {
@@ -192,14 +265,9 @@ func parseIns(browser *rod.Page) func(data interface{}) interface{} {
 			out := data.([]interface{})
 			args := out[1:]
 			fn := fmt.Sprint(out[0])
-			fmt.Printf("Compiling function %v with args %v \n", fn, args)
 			return fns.Fns[fn](Map(args, parseIns(browser)), browser)
 		}
-		if reflect.TypeOf(data).Kind() != reflect.Slice {
-			return data
-		}
-
-		return nil
+		return data
 	}
 }
 
@@ -213,6 +281,5 @@ func Map(vs interface{}, f func(interface{}) interface{}) interface{} {
 			out = append(out, res)
 		}
 	}
-
 	return out
 }
