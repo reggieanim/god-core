@@ -101,16 +101,16 @@ func LaunchBrowser(instructions []Instruction) error {
 			var l *launcher.Launcher
 			path, _ := launcher.LookPath()
 			err, urlDev := checkAlreadyRunningBrowser(v.InBrowser)
-			l = launcher.New().Bin(path).Leakless(false).
+			l = launcher.New().Bin(path).
 				Headless(v.Headless)
 
 			if v.Lender != "" {
-				l = l.Set(flags.UserDataDir, v.Lender).Leakless(false)
+				l = l.Set(flags.UserDataDir, v.Lender)
 			}
 
 			defer wg.Done()
 			if err != nil {
-				res, err := l.Leakless(false).Launch()
+				res, err := l.Launch()
 				if err != nil {
 					log.Println(err)
 				} else {
