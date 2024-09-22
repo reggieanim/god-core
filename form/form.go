@@ -98,6 +98,7 @@ func runForm(ins instructions, page *rod.Page) *rod.Page {
 		log.Fatalln("Wrong instructions format in run form")
 	}
 	validate(mapData)
+
 	data := helpers.CastToForm(mapData)
 	if data.Skip == "true" {
 		return page
