@@ -25,4 +25,4 @@ require (
 	golang.org/x/sys v0.22.0 // indirect
 )
 
-replace github.com/go-rod/rod => github.com/reggieanim/rod v0.116.7
+replace github.com/go-rod/rod => github.com/reggieanim/rod v0.116.8
