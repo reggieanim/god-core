@@ -1,8 +1,7 @@
 [
     {
+        "close": false,
         "headless": false,
-        "slowMotion": 25,
-        "close": true,
         "instructions": [
             {
                 "name": "ofac",
@@ -17,31 +16,31 @@
                             "kind": "text",
                             "shdType": true,
                             "timeout": 10,
-                            "value": "testing name"
+                            "value": "Earnie Isaac"
                         },
                         {
                             "description": "Type address",
                             "field": "#ctl00_MainContent_txtAddress",
                             "kind": "text",
-                            "timeout": 2,
                             "shdType": true,
-                            "value": "testing address"
+                            "timeout": 2,
+                            "value": "1031 muddy creek rd "
                         },
                         {
                             "description": "Type city",
                             "field": "#ctl00_MainContent_txtCity",
                             "kind": "text",
-                            "timeout": 2,
                             "shdType": true,
-                            "value": "Testing city"
+                            "timeout": 2,
+                            "value": "winchester "
                         },
                         {
                             "description": "Type state",
                             "field": "#ctl00_MainContent_txtState",
                             "kind": "text",
-                            "timeout": 2,
                             "shdType": true,
-                            "value": "Testing state"
+                            "timeout": 2,
+                            "value": "KY"
                         },
                         {
                             "description": "Click on search",
@@ -49,17 +48,12 @@
                             "kind": "leftClick",
                             "value": ""
                         },
-                        {
-                            "description": "wait for clean up",
-                            "field": "#ofac_cleanup",
-                            "kind": "leftClick",
-                            "timeout": 600,
-                            "value": ""
-                        },
                         {}
                     ]
                 ]
             }
-        ]
+        ],
+        "slowMotion": 23,
+        "stealth": true
     }
 ]

@@ -231,12 +231,16 @@ func LaunchBrowser(instructions []Instruction) error {
 					var err error
 					if v.Stealth {
 						page, err = stealth.Page(browser)
+						if err != nil {
+							go sendToWebhook(fmt.Sprintf("Error navigating to page: %v", err))
+							return
+						}
+						err = page.Navigate(ins.StartingUrl)
 					} else {
 						page, err = browser.Page(proto.TargetCreateTarget{URL: ins.StartingUrl})
 					}
 
 					if err != nil {
-						log.Println(err)
 						go sendToWebhook(fmt.Sprintf("Error navigating to page: %v", err))
 						return
 					}
