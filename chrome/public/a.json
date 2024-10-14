@@ -1,0 +1,29 @@
+[
+  {
+    "headless": false,
+    "slowMotion": 25,
+    "close": false,
+    "trace": true,
+    "instructions": [
+      {
+        "name": "yamaha",
+        "startingUrl": "https://www.yamaha-dealers.com/connect/ymus/e/finance/common.credit.application.ApplicationListPanel?ydsSelectedType=yamahaCard&showNewCard=true",
+        "template": [
+          "do",
+          [
+            "form",
+            {
+              "kind": "condEval",
+              "description": "Check if logged in",
+              "timeout": 5,
+              "field": "#root > div.flex-column.width-100-percent.height-100-percent > div:nth-child(2) > div > form > div:nth-child(8) > b",
+              "evalExpression": "innerText",
+              "value": "FORGOT PASSWORD?"
+            },
+            {}
+          ]
+        ]
+      }
+    ]
+  }
+]

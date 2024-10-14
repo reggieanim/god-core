@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "My Approval Autofill",
+  "version": "0.1.0",
+  "description": "Autofills an approved webpage.",
+  "action": { "default_popup": "index.html" },
+  "permissions": ["tabs", "activeTab", "storage", "debugger", "webNavigation", "scripting"],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["src/content.ts"]
+    }
+  ],
+  "content_security_policy": {
+    "extension_page": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self'"
+  },
+  "background": {
+    "service_worker": "src/core/core.ts"
+  },
+  "icons": {
+    "16": "icons/approval16.png",
+    "48": "icons/approval48.png",
+    "128": "icons/approval128.png"
+  }
+}
