@@ -133,7 +133,7 @@ func checkAlreadyRunningBrowser() (error, string) {
 }
 
 func launchBrowser() {
-	bytes := readJson("examples/run_ofac.json")
+	bytes := readJson("examples/synchrony_autofill.json")
 	core.SetConfig(core.LogConfig{
 		WebhookURL: "https://discord.com/api/webhooks/1121478988947275786/nWiQ2K1F00Rs67osFmYxkr_NfKqAEXq2J7tSzvPA1yeJVcoiVgQ3JD4_C77m4iOakiBy",
 	})

@@ -49,7 +49,7 @@
                                 {}
                             ],
                             "description": "Check if logged in ",
-                            "evalExpression": "() => this.innerText == 'Your login attempt was not successful. Please try again.'",
+                            "evalExpression": "'() => this.innerText == 'Your login attempt was not successful. Please try again.'",
                             "field": "#ContentPlaceHolder1_Login1_FailureText",
                             "kind": "condEval",
                             "mute": true,

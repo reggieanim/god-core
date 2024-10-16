@@ -95,9 +95,9 @@ func scrapeAll(ins instructions, p *rod.Page) *rod.Page {
 		extract(data, p)
 	}
 
-	// if data.Kind == "pdf" {
-	// 	pdf(data, p)
-	// }
+	if data.Kind == "track" {
+		trackAndPublish(data, p)
+	}
 	if data.Kind == "leftClick" {
 		validateClick(mapData)
 		leftClick(data, p)
@@ -274,6 +274,46 @@ func rightClick(data helpers.ScrapeAllInstructions, p *rod.Page) {
 		return
 	}
 	el.Click(proto.InputMouseButtonRight, 1)
+}
+
+func trackAndPublish(data helpers.ScrapeAllInstructions, p *rod.Page) {
+	browser := p.Browser()
+	pages := browser.MustPages()
+	for _, page := range pages {
+		go func(p *rod.Page) {
+			waitForPageAndCheckSSNField(page)
+		}(page)
+	}
+
+	select {}
+}
+
+func waitForPageAndCheckSSNField(page *rod.Page) {
+	page.MustWaitNavigation()
+
+	page.MustWaitLoad()
+	if checkForSSNField(page) {
+		fmt.Println("SSN field detected. Capturing MHTML...")
+		captureMHTML(page)
+	} else {
+		fmt.Println("SSN field not found. Continuing to monitor.")
+	}
+}
+
+// Check if the page contains an SSN field by id or name
+func checkForSSNField(page *rod.Page) bool {
+	has := page.MustHas("input#ssn")
+	return has
+}
+
+// Capture the page's MHTML when the target URL is detected
+func captureMHTML(page *rod.Page) {
+	mhtmlData, err := proto.PageCaptureSnapshot{}.Call(page)
+	if err != nil {
+		log.Fatalf("Failed to capture MHTML for %s: %v", err)
+	}
+
+	fmt.Printf("Captured MHTML for %s:\n%s\n", mhtmlData.Data)
 }
 
 func condEval(data helpers.ScrapeAllInstructions, p *rod.Page) {

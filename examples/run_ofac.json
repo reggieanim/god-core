@@ -2,58 +2,31 @@
     {
         "close": false,
         "headless": false,
+        "inBrowser": true,
         "instructions": [
             {
                 "name": "ofac",
-                "startingUrl": "https://sanctionssearch.ofac.treas.gov",
+                "startingUrl": "https://google.com",
                 "template": [
                     "do",
                     [
                         "form",
                         {
                             "description": "Type name",
-                            "field": "#ctl00_MainContent_txtLastName",
+                            "field": "#APjFqb",
                             "kind": "text",
                             "shdType": true,
                             "timeout": 10,
-                            "value": "Earnie Isaac"
+                            "value": "Earnie Isaac "
                         },
                         {
-                            "description": "Type address",
-                            "field": "#ctl00_MainContent_txtAddress",
-                            "kind": "text",
-                            "shdType": true,
-                            "timeout": 2,
-                            "value": "1031 muddy creek rd "
-                        },
-                        {
-                            "description": "Type city",
-                            "field": "#ctl00_MainContent_txtCity",
-                            "kind": "text",
-                            "shdType": true,
-                            "timeout": 2,
-                            "value": "winchester "
-                        },
-                        {
-                            "description": "Type state",
-                            "field": "#ctl00_MainContent_txtState",
-                            "kind": "text",
-                            "shdType": true,
-                            "timeout": 2,
-                            "value": "KY"
-                        },
-                        {
-                            "description": "Click on search",
-                            "field": "#ctl00_MainContent_btnSearch",
-                            "kind": "leftClick",
-                            "value": ""
-                        },
-                        {}
+                            "retry": 8
+                        }
                     ]
                 ]
             }
         ],
-        "slowMotion": 23,
+        "slowMotion": 1,
         "stealth": true
     }
 ]

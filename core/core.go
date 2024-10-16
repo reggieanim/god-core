@@ -199,6 +199,7 @@ func LaunchBrowser(instructions []Instruction) error {
 			err, urlDev := checkAlreadyRunningBrowser(v.InBrowser)
 			l = launcher.New().Bin(path).
 				Headless(v.Headless)
+			l.Set(flags.RemoteDebuggingPort, "9222")
 
 			if v.Lender != "" {
 				l = l.Set(flags.UserDataDir, v.Lender)

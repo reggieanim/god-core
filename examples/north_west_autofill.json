@@ -77,11 +77,11 @@
                             "description": "wait for page",
                             "field": "#dealerLogin",
                             "kind": "wait",
-                            "value": "3"
+                            "value": "4"
                         },
                         {
                             "description": "Type first name",
-                            "field": "#formly_2_input_primaryApplicant\\.firstName_",
+                            "field": "#formly_3_input_primaryApplicant\\.firstName_",
                             "kind": "text",
                             "timeout": 200,
                             "shdType": true,
@@ -89,23 +89,23 @@
                         },
                         {
                             "description": "Type middle name",
-                            "field": "#formly_2_input_primaryApplicant\\.middleName_",
+                            "field": "#formly_3_input_primaryApplicant\\.middleName_",
                             "kind": "text",
-                            "timeout": 2,
+                            "timeout": 3,
                             "shdType": true,
                             "value": "Paul"
                         },
                         {
                             "description": "Type last name",
-                            "field": "#formly_2_input_primaryApplicant\\.lastName_",
+                            "field": "#formly_3_input_primaryApplicant\\.lastName_",
                             "kind": "text",
-                            "timeout": 2,
+                            "timeout": 3,
                             "shdType": true,
                             "value": "Anim"
                         },
                         {
                             "description": "Type date of birth",
-                            "field": "#formly_2_datepicker_primaryApplicant\\.dateOfBirth_",
+                            "field": "#formly_3_datepicker_primaryApplicant\\.dateOfBirth_",
                             "kind": "text",
                             "timeout": 2,
                             "shdType": true,

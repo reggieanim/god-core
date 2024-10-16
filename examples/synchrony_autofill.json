@@ -1,8 +1,8 @@
 [
     {
+        "close": false,
         "headless": false,
-        "slowMotion": 25,
-        "close": true,
+        "inBrowser": true,
         "instructions": [
             {
                 "name": "synchrony",
@@ -12,20 +12,58 @@
                     [
                         "form",
                         {
+                            "description": "Wait For Customer To Dismiss Notification",
+                            "field": "#usernameFocus",
+                            "kind": "condEval",
+                            "value": "() => this.value = '60'",
+                            "body": [
+                                 {
+                            "description": "Wait For Customer To Dismiss Notification",
+                            "field": "",
+                            "kind": "wait",
+                            "value": "1"
+                                }       ,
+                                {}
+                            ]
+                        },
+                       
+                        {
                             "description": "Type username",
                             "field": "#usernameFocus",
                             "kind": "text",
                             "shdType": true,
                             "timeout": 100,
-                            "value": "krfarley"
+                            "value": "'Backspace'"
                         },
                         {
                             "description": "Type password",
                             "field": "#passwordId",
                             "kind": "text",
                             "shdType": true,
-                            "timeout": 2,
-                            "value": "August2022"
+                            "timeout": 100,
+                            "value": "Foxrider888*Backspace"
+                        },
+                        {
+                            "description": "Type username",
+                            "evalExpression": "() => this[0].value = '60'",
+                            "field": "#usernameFocus",
+                            "kind": "eval",
+                            "timeout": 100,
+                            "value": "swarr3710"
+                        },
+                        {
+                            "description": "Type password",
+                            "evalExpression": "() => this.value = 'Foxrider888*'",
+                            "field": "#passwordId",
+                            "kind": "eval",
+                            "timeout": 100,
+                            "value": "swarr3710"
+                        },
+                        {
+                            "description": "Wait For Customer To Dismiss Notification",
+                            "field": "",
+                            "kind": "wait",
+                            "value": "1"
                         },
                         {
                             "description": "Click Login",
@@ -45,139 +83,139 @@
                             "field": "#primaryFirstName",
                             "kind": "text",
                             "timeout": 1500,
-                            "value": "Paul"
+                            "value": "sidney"
                         },
                         {
                             "description": "Type Middle Name",
                             "field": "#primaryInitial",
                             "kind": "text",
-                            "value": "Horatio"
+                            "value": "Lane"
                         },
                         {
                             "description": "Type Last Name",
                             "field": "#primaryLastName",
                             "kind": "text",
-                            "value": "Cree"
+                            "value": "allen"
                         },
                         {
                             "description": "Type Dob",
                             "field": "#appBirthDate",
                             "kind": "text",
-                            "value": "01141988"
+                            "value": "08211962"
                         },
                         {
                             "description": "Type SSN",
                             "field": "#appSSN",
                             "kind": "text",
-                            "value": "555501234"
+                            "value": "402022334"
                         },
                         {
                             "description": "Type Email",
                             "field": "#primaryEmail",
                             "kind": "text",
-                            "value": "animreggie@gmail.com"
+                            "value": "elliottmotors@mrtc.com"
                         },
                         {
                             "description": "Type Home Phone",
                             "field": "#appHPhone",
                             "kind": "text",
-                            "value": "7059925238"
+                            "value": "6063592399"
                         },
                         {
                             "description": "Type Work Phone",
                             "field": "#appWPhone",
                             "kind": "text",
-                            "value": "7056678964"
+                            "value": "6065485466"
                         },
                         {
                             "description": "Type Mobile Phone",
                             "field": "#appCellPhone",
                             "kind": "text",
-                            "value": "7059985238"
+                            "value": ""
                         },
                         {
                             "description": "Type Street Address",
                             "field": "#appCurAddr1",
                             "kind": "text",
-                            "value": "1234 Main St"
+                            "value": "1818 ky 2027"
                         },
                         {
                             "description": "Type City",
                             "field": "#appCurCity",
                             "kind": "text",
-                            "value": "San Francisco"
+                            "value": "campton"
                         },
                         {
                             "description": "Select state",
                             "field": "#appCurState",
                             "kind": "select",
-                            "value": "[value='CA']"
+                            "value": "[value='']"
                         },
                         {
                             "description": "Type Zip",
                             "field": "#appCurZip",
                             "kind": "text",
-                            "value": "94110"
+                            "value": "41301"
                         },
                         {
                             "description": "Click Own house",
-                            "field": "#houseTypeGroup \u003e label:nth-child(1)",
+                            "field": "#houseTypeGroup > label:nth-child(1)",
                             "kind": "leftClick",
                             "skip": "true",
                             "value": ""
                         },
                         {
                             "description": "Click Own house",
-                            "field": "#houseTypeGroup \u003e label:nth-child(1)",
+                            "field": "#houseTypeGroup > label:nth-child(1)",
                             "kind": "leftClick",
                             "skip": "true",
                             "value": ""
                         },
                         {
                             "description": "Click Rent house",
-                            "field": "#houseTypeGroup \u003e label:nth-child(3)",
+                            "field": "#houseTypeGroup > label:nth-child(3)",
                             "kind": "leftClick",
                             "skip": "true",
                             "value": "08859"
                         },
                         {
                             "description": "Click Rent house",
-                            "field": "#houseTypeGroup \u003e label:nth-child(3)",
+                            "field": "#houseTypeGroup > label:nth-child(3)",
                             "kind": "leftClick",
                             "skip": "true",
                             "value": "08859"
                         },
                         {
                             "description": "Click Other house",
-                            "field": "#otherhosueLabel",
+                            "field": "#otherhosueLabels",
                             "kind": "leftClick",
-                            "skip": "true",
+                            "skip": "false",
                             "value": "08859"
                         },
                         {
                             "description": "Click Other house",
                             "field": "#otherhosueLabel",
                             "kind": "leftClick",
-                            "skip": "true",
+                            "skip": "false",
                             "value": "08859"
                         },
                         {
                             "description": "Type Rent Payment",
                             "field": "#primaryResPmt",
                             "kind": "text",
-                            "value": "166"
+                            "value": "0"
                         },
                         {
                             "description": "Type Years at Residence",
                             "field": "#primaryYrsRes",
                             "kind": "text",
-                            "value": "4"
+                            "value": "15"
                         },
                         {
                             "description": "Type Employer Name",
                             "field": "#primaryEmpName",
                             "kind": "text",
-                            "value": "Rob Pike"
+                            "value": "eagle Chevrolet "
                         },
                         {
                             "description": "Type Years at Work",
@@ -189,7 +227,7 @@
                             "description": "Type Annual Income",
                             "field": "#primaryIncAmt",
                             "kind": "text",
-                            "value": "100000"
+                            "value": "150000"
                         },
                         {
                             "description": "Type Other income",
@@ -205,8 +243,8 @@
                         },
                         {
                             "description": "Choose other income frequency",
-                            "field": "#applyCheckboxes \u003e label:nth-child(1)",
-                            "kind": "text",
+                            "field": "#applyCheckboxes > label:nth-child(1)",
+                            "kind": "leftClick",
                             "value": ""
                         },
                         {
@@ -219,13 +257,31 @@
                             "description": "Select Issuing State",
                             "field": "#primaryIdState",
                             "kind": "select",
-                            "value": "[value='TX']"
+                            "value": "[value='']"
                         },
                         {
                             "description": "Type Expiry Date",
                             "field": "#primaryExpDate",
                             "kind": "text",
-                            "value": "022025"
+                            "value": ""
+                        },
+                        {
+                            "description": "Select Credit Card",
+                            "field": "#primarySecIdType",
+                            "kind": "select",
+                            "value": "[value='Credit Card']"
+                        },
+                        {
+                            "description": "Type issuer",
+                            "field": "#primarySecIssuer",
+                            "kind": "text",
+                            "value": "Visa"
+                        },
+                        {
+                            "description": "Expiry DAte",
+                            "field": "#secondaryExpDate",
+                            "kind": "text",
+                            "value": "10/2026"
                         },
                         {
                             "description": "wait",
@@ -311,21 +367,21 @@
                         },
                         {
                             "description": "Click Own house",
-                            "field": "#cohouseTypeGroup \u003e label:nth-child(1)",
+                            "field": "#cohouseTypeGroup > label:nth-child(1)",
                             "kind": "leftClick",
                             "skip": "true",
                             "value": "08859"
                         },
                         {
                             "description": "Click Own house",
-                            "field": "#cohouseTypeGroup \u003e label:nth-child(1)",
+                            "field": "#cohouseTypeGroup > label:nth-child(1)",
                             "kind": "leftClick",
                             "skip": "true",
                             "value": "08859"
                         },
                         {
                             "description": "Click Rent house",
-                            "field": "#cohouseTypeGroup \u003e label:nth-child(3)",
+                            "field": "#cohouseTypeGroup > label:nth-child(3)",
                             "kind": "leftClick",
                             "skip": "true",
                             "value": "08859"
@@ -334,7 +390,7 @@
                             "description": "Click Other house",
                             "field": "#appCurResStatNLabel",
                             "kind": "leftClick",
-                            "skip": "true",
+                            "skip": "false",
                             "value": "08859"
                         },
                         {
@@ -384,7 +440,7 @@
                             "field": "#coIdState",
                             "kind": "select",
                             "skip": "true",
-                            "value": "[value='TX']"
+                            "value": "[value='']"
                         },
                         {
                             "description": "Type Expiry Date",
@@ -392,6 +448,27 @@
                             "kind": "text",
                             "skip": "true",
                             "value": ""
+                        },
+                        {
+                            "description": "Select Credit Card",
+                            "field": "#coSecIdType",
+                            "kind": "select",
+                            "skip": "true",
+                            "value": "[value='Credit Card']"
+                        },
+                        {
+                            "description": "Type issuer",
+                            "field": "#coSecIssuer",
+                            "kind": "text",
+                            "skip": "true",
+                            "value": "Visa"
+                        },
+                        {
+                            "description": "Expiry Date",
+                            "field": "#cosecondaryExpDate",
+                            "kind": "text",
+                            "skip": "true",
+                            "value": "10/2026"
                         },
                         {}
                     ],
@@ -402,56 +479,59 @@
                             "description": "Add unit",
                             "field": "#click-add-unit > i",
                             "kind": "leftClick",
-                            "timeout": 500,
+                            "timeout": 5500,
                             "value": ""
                         },
                         {
                             "description": "Add new",
                             "field": "#newradio",
                             "kind": "leftClick",
+                            "skip": "false",
                             "value": ""
                         },
                         {
                             "description": "Add used",
                             "field": "#usedradio",
                             "kind": "leftClick",
+                            "skip": "true",
                             "value": ""
                         },
                         {
                             "description": "Select Category",
                             "field": "#category",
                             "kind": "select",
-                            "timeout": 10,
-                            "value": "[value='OFF-ROAD MOTORCYCLE']"
+                            "skip": "true",
+                            "timeout": 20,
+                            "value": "[value='']"
                         },
                         {
                             "description": "Select Manufacturer",
                             "field": "#make",
                             "kind": "select",
-                            "timeout": 10,
-                            "value": "[value='GASGASMakeNum:1689']"
+                            "value": "[value='']"
                         },
                         {
                             "description": "Select Year",
                             "field": "#year",
                             "kind": "select",
-                            "timeout": 10,
-                            "value": "[value='2022']"
+                            "skip": "true",
+                            "timeout": 20,
+                            "value": "[value='']"
                         },
                         {
-                            "description": "Hold Browser",
-                            "field": "#HolldBrosweerr",
+                            "description": "Type Model",
+                            "field": "#modelText",
                             "kind": "text",
-                            "mute": true,
-                            "shdType": true,
-                            "timeout": 60000000,
-                            "value": "JOE BLAND CONSTRUCTION"
+                            "skip": "false",
+                            "timeout": 20,
+                            "value": "ridge Limited"
                         },
                         {}
                     ]
                 ]
             }
         ],
-        "stealth": true
+        "lender": "synchrony",
+        "slowMotion": 23
     }
 ]
