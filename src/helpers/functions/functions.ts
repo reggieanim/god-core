@@ -1,8 +1,4 @@
-export const waitForElement = async (
-  selector: string,
-  timeout: number = 5000,
-  page: Document
-): Promise<Element> => {
+export const waitForElement = async (selector: string, timeout: number = 30, page: Document): Promise<Element> => {
   const startTime = Date.now();
   while (Date.now() - startTime < timeout * 1000) {
     const element = page.querySelector(selector);

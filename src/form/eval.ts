@@ -12,7 +12,6 @@ export class Eval {
         const propertyOrMethod = instruction.evalExpression;
 
         if (propertyOrMethod in element) {
-          // @ts-ignore
           const result =
             typeof element[propertyOrMethod] === "function"
               ? element[propertyOrMethod]()

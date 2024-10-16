@@ -4,8 +4,6 @@ console.log("Content script loaded");
 
 chrome.runtime.onMessage.addListener((message, _sender, sendResponse) => {
   if (message.action === "executeTemplate") {
-    console.log(message.tabID);
-
     const result = executeTemplate(message.template);
     sendResponse({ result });
   }

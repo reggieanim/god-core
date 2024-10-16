@@ -3,7 +3,7 @@ export class Wait {
 
   public async wait(timeToWait: string): Promise<void> {
     return new Promise((resolve) => {
-      setTimeout(resolve, Number(timeToWait));
+      setTimeout(resolve, Number(timeToWait) * 1000);
     });
   }
 }

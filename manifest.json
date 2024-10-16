@@ -4,7 +4,7 @@
   "version": "0.1.0",
   "description": "Autofills an approved webpage.",
   "action": { "default_popup": "index.html" },
-  "permissions": ["tabs", "activeTab", "storage", "debugger", "webNavigation", "scripting"],
+  "permissions": ["tabs", "activeTab", "storage", "debugger", "webNavigation", "scripting", "notifications"],
   "content_scripts": [
     {
       "matches": ["<all_urls>"],

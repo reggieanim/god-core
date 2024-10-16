@@ -28,6 +28,9 @@ export class Click {
           cancelable: true,
           view: window,
           button: 2,
+          buttons: 2,
+          clientX: element.getBoundingClientRect().x,
+          clientY: element.getBoundingClientRect().y,
         });
         element.focus();
         element.dispatchEvent(event);

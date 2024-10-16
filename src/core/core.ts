@@ -36,3 +36,19 @@ export class InstructionProcessor {
     }
   };
 }
+
+chrome.runtime.onMessage.addListener((request, _sender, _sendResponse) => {
+  if (request.action === "notify") {
+    createNotification(request.title, request.message);
+  }
+});
+
+function createNotification(title: string, message: string) {
+  chrome.notifications.create({
+    type: "basic",
+    iconUrl: "./icons/approval80.jpg",
+    title: title,
+    message: message,
+    priority: 2,
+  });
+}

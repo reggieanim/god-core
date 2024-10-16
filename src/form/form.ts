@@ -1,6 +1,6 @@
 import { FormInstructions, Options } from "../types/types";
 import { validate } from "../helpers/validation/validate";
-import { Click, Eval, Text, Wait } from "./index";
+import { Click, Eval, Notify, Text, Wait } from "./index";
 
 export class Form {
   private readonly instructions: FormInstructions[];
@@ -90,6 +90,10 @@ export class Form {
 
         case "condEval":
           await new Eval().detectFieldPresence(instruction, contextDocument);
+          break;
+
+        case "notify":
+          await new Notify().sendNotification(instruction);
           break;
 
         default:
