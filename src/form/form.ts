@@ -11,7 +11,7 @@ export class Form {
       throw new Error("Wrong instructions format in form");
     }
 
-    this.instructions = data.slice(0, -1);
+    this.instructions = data;
     this.options = data.slice(0, -1) as Options;
   }
 
@@ -48,8 +48,10 @@ export class Form {
         contextDocument = iframeDocument;
       }
 
-      for (const instruction of this.instructions) {
+      for (let _ = 0; _ < this.instructions.length; _++) {
+        const instruction = this.instructions.shift()!;
         await this.runForm(instruction, contextDocument);
+        chrome.storage.session.set({ args: this.instructions });
       }
 
       // @ts-ignore
@@ -58,6 +60,14 @@ export class Form {
       countRetrys++;
     }
   }
+
+  public continueAction = async (instructions: FormInstructions[], page: Document) => {
+    for (let _ = 0; _ < instructions.length; _++) {
+      const instruction = instructions.shift()!;
+      await this.runForm(instruction, page);
+      chrome.storage.session.set({ args: instructions });
+    }
+  };
 
   private async runForm(instruction: FormInstructions, contextDocument: Document) {
     console.log("Running Form with instruction", instruction);
