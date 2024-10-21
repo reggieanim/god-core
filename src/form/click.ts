@@ -18,7 +18,7 @@ export class Click {
     }
   };
 
-  public executeRightClick = async (instruction: FormInstructions, page: Document) => {
+  public executeRightClick = async (instruction: FormInstructions, page: Document): Promise<void> => {
     try {
       const element = await waitForElement(instruction.field, instruction.timeout, page);
 

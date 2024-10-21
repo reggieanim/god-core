@@ -41,3 +41,7 @@ export interface Options {
   skip?: string;
   iframeSelector?: string;
 }
+
+export type FunctionMap = {
+  [key: string]: (value: string) => void;
+};

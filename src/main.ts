@@ -1,11 +1,13 @@
-import { InstructionProcessor } from "./core/core.ts";
+import { CreateNewWindowOrTab, getStartingURL } from "./helpers/functions/serviceWorker";
 
 document.getElementById("startButton")!.addEventListener("click", async () => {
   try {
-    const response = await fetch("/b.json");
+    const response = await fetch("/a.json");
     const rawInstructions = await response.text();
-    const processor = new InstructionProcessor(rawInstructions);
-    processor.start();
+    const startingUrl = getStartingURL(rawInstructions);
+    await chrome.storage.session.set({ startingUrl: startingUrl });
+    await chrome.storage.session.set({ instructions: rawInstructions });
+    await CreateNewWindowOrTab(rawInstructions);
   } catch (error) {
     console.error("Error starting instruction processor:", error);
   }

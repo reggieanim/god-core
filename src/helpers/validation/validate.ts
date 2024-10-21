@@ -9,6 +9,7 @@ const kindMap: { [key: string]: boolean } = {
   wait: true,
   eval: true,
   condEval: true,
+  block: true,
 };
 
 class Validator {
@@ -42,7 +43,7 @@ export const validate = (ins: FormInstructions): boolean => {
   v.check(
     doesNotMatchExpectedKind,
     "noKind",
-    "Needs a 'kind' property of 'text' || condEval || select || leftClick || rightClick' || 'wait' || 'notify' || 'eval'"
+    "Needs a 'kind' property of 'text' || condEval || select || leftClick || rightClick' || 'wait' || 'notify' || 'eval' || block"
   );
 
   if (!v.valid()) {

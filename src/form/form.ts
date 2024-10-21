@@ -1,6 +1,7 @@
 import { FormInstructions, Options } from "../types/types";
 import { validate } from "../helpers/validation/validate";
-import { Click, Eval, Notify, Text, Wait } from "./index";
+import { Block, Click, Eval, Notify, Select, Text, Wait } from "./index";
+import { clearStorage } from "../helpers/functions/functions";
 
 export class Form {
   private readonly instructions: FormInstructions[];
@@ -24,6 +25,8 @@ export class Form {
 
     while (true) {
       if (retry === countRetrys) {
+        await clearStorage();
+        // Close all windows here. Should we do it or they should do it?
         break;
       }
       if (skip === "true") {
@@ -61,14 +64,6 @@ export class Form {
     }
   }
 
-  public continueAction = async (instructions: FormInstructions[], page: Document) => {
-    for (let _ = 0; _ < instructions.length; _++) {
-      const instruction = instructions.shift()!;
-      await this.runForm(instruction, page);
-      chrome.storage.session.set({ args: instructions });
-    }
-  };
-
   private async runForm(instruction: FormInstructions, contextDocument: Document) {
     console.log("Running Form with instruction", instruction);
 
@@ -76,7 +71,7 @@ export class Form {
       throw new Error("Invalid fields");
     }
 
-    if (instruction.skip) {
+    if (instruction.skip === "true") {
       return;
     }
 
@@ -104,6 +99,14 @@ export class Form {
 
         case "notify":
           await new Notify().sendNotification(instruction);
+          break;
+
+        case "select":
+          await new Select().inputSelect(instruction, contextDocument);
+          break;
+
+        case "block":
+          await new Block().executeBlock(instruction);
           break;
 
         default:
