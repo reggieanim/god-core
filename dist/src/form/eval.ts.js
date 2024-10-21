@@ -1,30 +1,19 @@
-import { waitForElement } from "../helpers/functions/functions.ts";
-import { FormInstructions } from "../types/types.ts";
-
+import { waitForElement } from "/src/helpers/functions/functions.ts.js";
 export class Eval {
-  constructor() {}
-
-  public conditionalEvaluate = async (instruction: FormInstructions, page: Document) => {
+  constructor() {
+  }
+  conditionalEvaluate = async (instruction, page) => {
     const result = this.detectFieldPresence(instruction, page);
-    if (result !== undefined) {
+    if (result !== void 0) {
     }
-
-    // if (this.detectFieldPresence(instruction, page)) {}
   };
-
-  private detectFieldPresence = async (instruction: FormInstructions, page: Document) => {
+  detectFieldPresence = async (instruction, page) => {
     try {
       const element = await waitForElement(instruction.field, instruction.timeout, page);
-
       if (element instanceof HTMLElement) {
         const propertyOrMethod = instruction.evalExpression;
-
         if (propertyOrMethod in element) {
-          const result =
-            typeof element[propertyOrMethod] === "function"
-              ? element[propertyOrMethod]()
-              : element[propertyOrMethod];
-
+          const result = typeof element[propertyOrMethod] === "function" ? element[propertyOrMethod]() : element[propertyOrMethod];
           return result === instruction.value;
         } else {
           throw new Error(`Property or method ${propertyOrMethod} does not exist on the element`);
@@ -38,16 +27,13 @@ export class Eval {
       return false;
     }
   };
-
-  private evaluate = async (instruction: FormInstructions, page: Document) => {
-    function evaluate(element: HTMLElement, codeToExecute: string) {
+  evaluate = async (instruction, page) => {
+    function evaluate(element, codeToExecute) {
       const func = new Function("return " + codeToExecute).bind(element);
       return func();
     }
-
     try {
       const element = await waitForElement(instruction.field, instruction.timeout, page);
-
       if (element instanceof HTMLElement) {
         const evaluation = evaluate(element, instruction.evalExpression);
         return evaluation();

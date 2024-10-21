@@ -66,8 +66,15 @@ export const CreateNewWindowOrTab = async (rawInstructions: string) => {
   const parsedInstructions: Instruction[] = JSON.parse(rawInstructions);
 
   if (Array.isArray(parsedInstructions)) {
+    let idx = 0;
+    let url: string;
     for (const instructionSet of parsedInstructions) {
-      const windowID = await createNewWindow("");
+      url = idx == 0 ? instructionSet.instructions[0].startingUrl : "";
+      const windowID = await createNewWindow(url);
+      if (idx == 0) {
+        idx++;
+        continue;
+      }
       if (windowID !== undefined) {
         const instructions = instructionSet.instructions;
 

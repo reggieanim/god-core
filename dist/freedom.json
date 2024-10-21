@@ -1,0 +1,375 @@
+[
+  {
+    "close": false,
+    "headless": false,
+    "instructions": [
+      {
+        "name": "freedomroad",
+        "startingUrl": "https://decisionlender.solutions/tci/#/auth/dealerLogin/default/dealer/default",
+        "template": [
+          "do",
+          [
+            "form",
+            {
+              "description": "Type username",
+              "field": "#username",
+              "kind": "text",
+              "shdType": false,
+              "timeout": 5,
+              "value": "KFARLEY"
+            },
+            {
+              "description": "Type password",
+              "field": "#password",
+              "kind": "text",
+              "shdType": true,
+              "timeout": 2,
+              "value": "Midstate2025!!"
+            },
+            {
+              "description": "Type company id",
+              "field": "#companyid",
+              "kind": "text",
+              "shdType": true,
+              "timeout": 2,
+              "value": "FREE560"
+            },
+            {
+              "description": "Type dealer id",
+              "field": "#dealerid",
+              "kind": "text",
+              "shdType": true,
+              "timeout": 2,
+              "value": "1241332"
+            },
+            {
+              "description": "Click Login",
+              "field": "#submit_login",
+              "kind": "leftClick",
+              "value": ""
+            },
+            {
+              "description": "Click New Application",
+              "field": "#side-menu > li.active > ul > li:nth-child(2) > a",
+              "kind": "leftClick",
+              "timeout": 20,
+              "value": ""
+            },
+            {
+              "description": "Type username",
+              "field": "#jhfkgj",
+              "kind": "block",
+              "value": "Click here to autofill when the form appears and you have selected the freedom road lender"
+            },
+            {
+              "description": "Type first name",
+              "field": "#formly_2_input_primaryApplicant\\.firstName_",
+              "kind": "text",
+              "shdType": true,
+              "timeout": 300,
+              "value": "Niesha"
+            },
+            {
+              "description": "Type middle name",
+              "field": "#formly_2_input_primaryApplicant\\.middleName_",
+              "kind": "text",
+              "shdType": true,
+              "timeout": 2,
+              "value": ""
+            },
+            {
+              "description": "Type last name",
+              "field": "#formly_2_input_primaryApplicant\\.lastName_",
+              "kind": "text",
+              "shdType": true,
+              "timeout": 2,
+              "value": "Greenfelder"
+            },
+            {
+              "description": "Type date of birth",
+              "field": "#formly_2_datepicker_primaryApplicant\\.dateOfBirth_",
+              "kind": "text",
+              "shdType": true,
+              "timeout": 2,
+              "value": "01171986"
+            },
+            {
+              "description": "Type social security",
+              "field": "#formly_2_input_primaryApplicant\\.SSN_",
+              "kind": "text",
+              "shdType": true,
+              "timeout": 2,
+              "value": "642-32-4629"
+            },
+            {
+              "description": "Type home phone",
+              "field": "#formly_2_input_primaryApplicant\\.homePhone_",
+              "kind": "text",
+              "shdType": true,
+              "timeout": 2,
+              "value": "617-773-5500"
+            },
+            {
+              "description": "Type mobile phone",
+              "field": "#formly_2_input_primaryApplicant\\.mobilePhone_",
+              "kind": "text",
+              "shdType": true,
+              "timeout": 2,
+              "value": ""
+            },
+            {
+              "description": "Type email",
+              "field": "#formly_2_input_primaryApplicant\\.email_",
+              "kind": "text",
+              "shdType": true,
+              "timeout": 2,
+              "value": "radiant-lawngreen-dunlin-s2q8vf10um@e.rainforestqa.com"
+            },
+            {
+              "description": "Type house number",
+              "field": "#primaryApplicant\\.addresses_houseNumber_houseNumberprimaryApplicant\\.addresses-0",
+              "kind": "text",
+              "shdType": true,
+              "timeout": 2,
+              "value": ""
+            },
+            {
+              "description": "Type street name",
+              "field": "#primaryApplicant\\.addresses_street_streetprimaryApplicant\\.addresses-0",
+              "kind": "text",
+              "shdType": true,
+              "timeout": 2,
+              "value": "767 Green Divide"
+            },
+            {
+              "description": "Type apartment number",
+              "field": "#primaryApplicant\\.addresses_aptNo_aptNoprimaryApplicant\\.addresses-0",
+              "kind": "text",
+              "shdType": true,
+              "timeout": 2,
+              "value": ""
+            },
+            {
+              "description": "Type zip code",
+              "field": "#primaryApplicant\\.addresses_postalCode_postalCodeprimaryApplicant\\.addresses-0",
+              "kind": "text",
+              "shdType": true,
+              "timeout": 2,
+              "value": "19478"
+            },
+            {
+              "description": "Click housing ownwership",
+              "field": "#primaryApplicant\\.addresses_ownershipType_ownershipTypeprimaryApplicant\\.addresses-0 > div > span",
+              "kind": "leftClick",
+              "shdType": true,
+              "timeout": 2,
+              "value": "19478"
+            },
+            {
+              "description": "Type housing ownwership",
+              "field": "input[aria-owns='ui-select-choices-13']",
+              "kind": "text",
+              "shdType": true,
+              "timeout": 2,
+              "value": "Own a home \r"
+            },
+            {
+              "description": "Type years at residence",
+              "field": "#primaryApplicant\\.addresses_yearsAtResidence_formly_4_dl4Number_yearsAtResidence_primaryApplicant\\.addresses-0",
+              "kind": "text",
+              "shdType": true,
+              "timeout": 2,
+              "value": "0"
+            },
+            {
+              "description": "Type months at residence",
+              "field": "#primaryApplicant\\.addresses_monthsAtResidence_formly_4_dl4Number_monthsAtResidence_primaryApplicant\\.addresses-0",
+              "kind": "text",
+              "shdType": true,
+              "timeout": 2,
+              "value": "4"
+            },
+            {
+              "description": "Type monthly amount",
+              "field": "#primaryApplicant\\.addresses_monthlyPayment_formly_4_dl4Number_monthlyPayment_primaryApplicant\\.addresses-0",
+              "kind": "text",
+              "shdType": true,
+              "timeout": 2,
+              "value": "20000"
+            },
+            {
+              "description": "Type Employment Status",
+              "field": "#primaryApplicant\\.employments_employmentStatus_employmentStatusprimaryApplicant\\.employments-0 > input.form-control.ui-select-search.ng-pristine.ng-valid.ng-empty.ng-touched",
+              "kind": "text",
+              "shdType": true,
+              "timeout": 2,
+              "value": "200"
+            },
+            {
+              "description": "Type Employment Phone",
+              "field": "#primaryApplicant\\.employments_phone_phoneprimaryApplicant\\.employments-0",
+              "kind": "text",
+              "shdType": true,
+              "timeout": 2,
+              "value": "617-773-5500"
+            },
+            {
+              "description": "Type Employment Years",
+              "field": "#primaryApplicant\\.employments_yearsEmployed_formly_4_dl4Number_yearsEmployed_primaryApplicant\\.employments-0",
+              "kind": "text",
+              "shdType": true,
+              "timeout": 2,
+              "value": ""
+            },
+            {
+              "description": "Type Employment Name",
+              "field": "#primaryApplicant\\.employments_employerName_employerNameprimaryApplicant\\.employments-0",
+              "kind": "text",
+              "shdType": true,
+              "timeout": 2,
+              "value": "Crona LLC Group"
+            },
+            {
+              "description": "Type Employment Income",
+              "field": "#primaryApplicant\\.employments_grossIncome_formly_4_dl4Number_grossIncome_primaryApplicant\\.employments-0",
+              "kind": "text",
+              "shdType": true,
+              "timeout": 2,
+              "value": "75000"
+            },
+            {
+              "description": "Type Employment Years",
+              "field": "#primaryApplicant\\.employments_yearsEmployed_formly_4_dl4Number_yearsEmployed_primaryApplicant\\.employments-0",
+              "kind": "text",
+              "shdType": true,
+              "timeout": 2,
+              "value": "0"
+            },
+            {
+              "description": "Type Employment Months",
+              "field": "#primaryApplicant\\.employments_monthsEmployed_formly_4_dl4Number_monthsEmployed_primaryApplicant\\.employments-0",
+              "kind": "text",
+              "shdType": true,
+              "timeout": 2,
+              "value": "6"
+            },
+            {
+              "description": "Add reference",
+              "field": "#References > div.panel-body > div > div > formly-field > div > button",
+              "kind": "leftClick",
+              "shdType": true,
+              "timeout": 2,
+              "value": "12"
+            },
+            {
+              "description": "wait reference",
+              "field": "",
+              "kind": "wait",
+              "timeout": 2,
+              "value": "1"
+            },
+            {
+              "description": "Type Contact Name",
+              "field": "#primaryApplicant\\.references_refName_refNameprimaryApplicant\\.references-0",
+              "kind": "text",
+              "shdType": true,
+              "timeout": 2,
+              "value": ""
+            },
+            {
+              "description": "Type Home Phone",
+              "field": "#primaryApplicant\\.references_homePhone_homePhoneprimaryApplicant\\.references-0",
+              "kind": "text",
+              "shdType": true,
+              "timeout": 2,
+              "value": "617-773-5500"
+            },
+            {
+              "description": "Type Mobile Phone",
+              "field": "#primaryApplicant\\.references_mobilePhone_mobilePhoneprimaryApplicant\\.references-0",
+              "kind": "text",
+              "shdType": true,
+              "timeout": 2,
+              "value": "617-773-5500"
+            },
+            {
+              "description": "Click Vehicle Condition",
+              "field": "#loanInformation\\.collaterals_vehicleCondition_vehicleConditionMotorcycle-0 > div > span",
+              "kind": "leftClick",
+              "shdType": true,
+              "timeout": 2,
+              "value": ""
+            },
+            {
+              "description": "Type Vehicle Condition",
+              "field": "input[aria-owns='ui-select-choices-15']",
+              "kind": "text",
+              "shdType": true,
+              "timeout": 2,
+              "value": "Used \r"
+            },
+            {
+              "description": "Click Vehicle Year",
+              "field": "#loanInformation\\.collaterals_year_yearMotorcycle-0 > div > span",
+              "kind": "leftClick",
+              "shdType": true,
+              "timeout": 2,
+              "value": ""
+            },
+            {
+              "description": "Type Vehicle Year",
+              "field": "input[aria-owns='ui-select-choices-16']",
+              "kind": "text",
+              "shdType": true,
+              "timeout": 2,
+              "value": "2020 \r"
+            },
+            {
+              "description": "Click Vehicle Make",
+              "field": "#loanInformation\\.collaterals_make_makeMotorcycle-0 > div > span",
+              "kind": "leftClick",
+              "shdType": true,
+              "timeout": 2,
+              "value": ""
+            },
+            {
+              "description": "Type Vehicle Make",
+              "field": "input[aria-owns='ui-select-choices-22'],input[aria-owns='ui-select-choices-18']",
+              "kind": "text",
+              "shdType": true,
+              "timeout": 2,
+              "value": "Artic Cat \r"
+            },
+            {
+              "description": "Click Vehicle Model",
+              "field": "#loanInformation\\.collaterals_model_modelMotorcycle-0 > div > span",
+              "kind": "leftClick",
+              "shdType": true,
+              "timeout": 2,
+              "value": "Artic Cat \r"
+            },
+            {
+              "description": "Type Vehicle Model",
+              "field": "input[aria-owns='ui-select-choices-19']",
+              "kind": "text",
+              "shdType": true,
+              "timeout": 2,
+              "value": "Cobrakai \r"
+            },
+            {
+              "description": "Type Vehicle Down payment",
+              "field": "#formly_2_dl4Number_loanInformation\\.loanVersions\\[0\\]\\.downPayment_",
+              "kind": "text",
+              "shdType": true,
+              "timeout": 2,
+              "value": "25000"
+            },
+            {}
+          ]
+        ]
+      }
+    ],
+    "slowMotion": 23,
+    "stealth": true
+  }
+]

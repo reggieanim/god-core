@@ -1,0 +1,262 @@
+[
+  {
+    "close": false,
+    "headless": false,
+    "inBrowser": true,
+    "instructions": [
+      {
+        "name": "synchrony",
+        "startingUrl": "https://businesscenter.synchronybusiness.com/portal/login",
+        "template": [
+          "do",
+          [
+            "form",
+            {
+              "description": "Type username",
+              "field": "#usernameFocus",
+              "kind": "text",
+              "shdType": true,
+              "timeout": 100,
+              "value": "swarr3710"
+            },
+            {
+              "description": "Type password",
+              "field": "#passwordId",
+              "kind": "text",
+              "shdType": true,
+              "timeout": 2,
+              "value": "Foxrider888*"
+            },
+            {
+              "description": "Click Login",
+              "field": "#loginSubmitbtn",
+              "kind": "leftClick",
+              "value": ""
+            },
+            {
+              "description": "Click new application",
+              "field": "#newApplication",
+              "kind": "leftClick",
+              "timeout": 500,
+              "value": ""
+            },
+            {
+              "description": "Type First Name",
+              "field": "#primaryFirstName",
+              "kind": "text",
+              "timeout": 1500,
+              "value": "Marvin "
+            },
+            {
+              "description": "Type Middle Name",
+              "field": "#primaryInitial",
+              "kind": "text",
+              "value": "Jonathan "
+            },
+            {
+              "description": "Type Last Name",
+              "field": "#primaryLastName",
+              "kind": "text",
+              "value": "Leonard"
+            },
+            {
+              "description": "Type Dob",
+              "field": "#appBirthDate",
+              "kind": "text",
+              "value": "11141988"
+            },
+            {
+              "description": "Type SSN",
+              "field": "#appSSN",
+              "kind": "text",
+              "value": "256676776"
+            },
+            {
+              "description": "Type Email",
+              "field": "#primaryEmail",
+              "kind": "text",
+              "value": "Marvinleonard111988@gmail.com"
+            },
+            {
+              "description": "Type Home Phone",
+              "field": "#appHPhone",
+              "kind": "text",
+              "value": "4077254775"
+            },
+            {
+              "description": "Type Work Phone",
+              "field": "#appWPhone",
+              "kind": "text",
+              "value": "4077254775"
+            },
+            {
+              "description": "Type Mobile Phone",
+              "field": "#appCellPhone",
+              "kind": "text",
+              "value": ""
+            },
+            {
+              "description": "Type Street Address",
+              "field": "#appCurAddr1",
+              "kind": "text",
+              "value": "2255 Pelinion St"
+            },
+            {
+              "description": "Type City",
+              "field": "#appCurCity",
+              "kind": "text",
+              "value": "Apopka"
+            },
+            {
+              "description": "Select state",
+              "field": "#appCurState",
+              "kind": "select",
+              "value": "[value='FL']"
+            },
+            {
+              "description": "Type Zip",
+              "field": "#appCurZip",
+              "kind": "text",
+              "value": "32712"
+            },
+            {
+              "description": "Click Own house",
+              "field": "#houseTypeGroup > label:nth-child(1)",
+              "kind": "leftClick",
+              "skip": "true",
+              "value": ""
+            },
+            {
+              "description": "Click Own house",
+              "field": "#houseTypeGroup > label:nth-child(1)",
+              "kind": "leftClick",
+              "skip": "true",
+              "value": ""
+            },
+            {
+              "description": "Click Rent house",
+              "field": "#houseTypeGroup > label:nth-child(3)",
+              "kind": "leftClick",
+              "skip": "false",
+              "value": "08859"
+            },
+            {
+              "description": "Click Rent house",
+              "field": "#houseTypeGroup > label:nth-child(3)",
+              "kind": "leftClick",
+              "skip": "false",
+              "value": "08859"
+            },
+            {
+              "description": "Click Other house",
+              "field": "#otherhosueLabels",
+              "kind": "leftClick",
+              "skip": "true",
+              "value": "08859"
+            },
+            {
+              "description": "Click Other house",
+              "field": "#otherhosueLabel",
+              "kind": "leftClick",
+              "skip": "true",
+              "value": "08859"
+            },
+            {
+              "description": "Type Rent Payment",
+              "field": "#primaryResPmt",
+              "kind": "text",
+              "value": "104"
+            },
+            {
+              "description": "Type Years at Residence",
+              "field": "#primaryYrsRes",
+              "kind": "text",
+              "value": "48"
+            },
+            {
+              "description": "Type Employer Name",
+              "field": "#primaryEmpName",
+              "kind": "text",
+              "value": "Pump repair services "
+            },
+            {
+              "description": "Type Years at Work",
+              "field": "#primaryEmpYrs",
+              "kind": "text",
+              "value": ""
+            },
+            {
+              "description": "Type Annual Income",
+              "field": "#primaryIncAmt",
+              "kind": "text",
+              "value": "85000"
+            },
+            {
+              "description": "Type Other income",
+              "field": "#otherIncAmt",
+              "kind": "text",
+              "value": ""
+            },
+            {
+              "description": "Type Other source",
+              "field": "#otherIncSrc",
+              "kind": "text",
+              "value": ""
+            },
+            {
+              "description": "Choose other income frequency",
+              "field": "#applyCheckboxes > label:nth-child(1)",
+              "kind": "leftClick",
+              "value": ""
+            },
+            {
+              "description": "Select Driver's license",
+              "field": "#primaryIdType",
+              "kind": "select",
+              "value": "[value='DRIVERS LICENSE']"
+            },
+            {
+              "description": "Select Issuing State",
+              "field": "#primaryIdState",
+              "kind": "select",
+              "value": "[value='FL']"
+            },
+            {
+              "description": "Type Expiry Date",
+              "field": "#primaryExpDate",
+              "kind": "text",
+              "value": "112028"
+            },
+            {
+              "description": "Select Credit Card",
+              "field": "#primarySecIdType",
+              "kind": "select",
+              "value": "[value='Credit Card']"
+            },
+            {
+              "description": "Type issuer",
+              "field": "#primarySecIssuer",
+              "kind": "text",
+              "value": "Visa"
+            },
+            {
+              "description": "Expiry DAte",
+              "field": "#secondaryExpDate",
+              "kind": "text",
+              "value": "10/2026"
+            },
+            {
+              "description": "wait",
+              "field": "",
+              "kind": "wait",
+              "value": "2"
+            },
+            {}
+          ]
+        ]
+      }
+    ],
+    "lender": "synchrony",
+    "slowMotion": 23
+  }
+]
