@@ -1,12 +1,12 @@
 // import { AesEncryptUtil } from "./helpers/functions/aesEncrypt";
-import { CreateNewWindowOrTab, getStartingURL } from "./helpers/functions/serviceWorker";
+import { CreateNewWindowOrTab, getStartingURLs } from "./helpers/functions/serviceWorker";
 
 document.getElementById("startButton")!.addEventListener("click", async () => {
   try {
-    const response = await fetch("/zz.json");
+    const response = await fetch("/bb.json");
     const rawInstructions = await response.text();
-    const startingUrl = getStartingURL(rawInstructions);
-    await chrome.storage.session.set({ startingUrl: startingUrl });
+    const startingUrls = getStartingURLs(rawInstructions);
+    await chrome.storage.session.set({ startingUrls: startingUrls });
     await chrome.storage.session.set({ instructions: rawInstructions });
     await CreateNewWindowOrTab(rawInstructions);
   } catch (error) {

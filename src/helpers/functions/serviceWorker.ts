@@ -57,9 +57,12 @@ export const createNewWindow = async (startingUrl: string): Promise<number | und
   return newWindow?.id;
 };
 
-export const getStartingURL = (rawInstructions: string): string => {
+export const getStartingURLs = (rawInstructions: string): string[] => {
   const parsedInstructions: Instruction[] = JSON.parse(rawInstructions);
-  return parsedInstructions[0].instructions[0].startingUrl;
+
+  return parsedInstructions.flatMap((instructionSet) =>
+    instructionSet.instructions.map((instruction) => instruction.startingUrl).filter(Boolean)
+  );
 };
 
 export const CreateNewWindowOrTab = async (rawInstructions: string) => {
@@ -71,15 +74,16 @@ export const CreateNewWindowOrTab = async (rawInstructions: string) => {
     for (const instructionSet of parsedInstructions) {
       url = idx == 0 ? instructionSet.instructions[0].startingUrl : "";
       const windowID = await createNewWindow(url);
-      if (idx == 0) {
-        idx++;
-        continue;
-      }
+
       if (windowID !== undefined) {
         const instructions = instructionSet.instructions;
 
         if (Array.isArray(instructions)) {
           for (const instruction of instructions) {
+            if (idx === 0) {
+              idx++;
+              continue;
+            }
             const instructionStartingURL = instruction.startingUrl;
             if (instructionStartingURL && instructionStartingURL !== "") {
               await createNewTab(instructionStartingURL, windowID);
@@ -91,18 +95,20 @@ export const CreateNewWindowOrTab = async (rawInstructions: string) => {
   }
 };
 
-export const processInstruction = async (instruction: Instruction, tabID: number): Promise<void> => {
+export const processInstruction = async (instruction: Instruction, tabID: number, url: string): Promise<void> => {
   for (const config of instruction.instructions) {
-    try {
-      await chrome.tabs.sendMessage(tabID, {
-        action: "executeTemplate",
-        template: config.template,
-      });
-      await chrome.storage.session.setAccessLevel({ accessLevel: "TRUSTED_AND_UNTRUSTED_CONTEXTS" });
+    if (config.startingUrl === url) {
+      try {
+        await chrome.tabs.sendMessage(tabID, {
+          action: "executeTemplate",
+          template: config.template,
+        });
+        await chrome.storage.session.setAccessLevel({ accessLevel: "TRUSTED_AND_UNTRUSTED_CONTEXTS" });
 
-      console.log("Performed actions successfully");
-    } catch (error) {
-      console.error("Error processing instruction:");
+        console.log("Performed actions successfully");
+      } catch (error) {
+        console.error("Error processing instruction:");
+      }
     }
   }
 };

@@ -64,9 +64,16 @@ chrome.webNavigation.onCommitted.addListener(function listener(
 });
 
 chrome.tabs.onCreated.addListener(async function listener(tab: chrome.tabs.Tab): Promise<boolean> {
-  const storageRetrievalResult = await chrome.storage.session.get(["startingUrl", "instructions"]);
+  console.log("Tab created");
+
+  const storageRetrievalResult = await chrome.storage.session.get(["startingUrls", "instructions"]);
+
+  const startingUrls: string[] = storageRetrievalResult.startingUrls as string[];
+
   if (
-    tab.pendingUrl === storageRetrievalResult.startingUrl &&
+    startingUrls !== undefined &&
+    startingUrls.length > 0 &&
+    startingUrls.includes(tab.pendingUrl!) === true &&
     storageRetrievalResult.instructions !== undefined &&
     tab.id !== undefined
   ) {
@@ -86,11 +93,14 @@ chrome.tabs.onCreated.addListener(async function listener(tab: chrome.tabs.Tab):
 
           try {
             const response = await chrome.tabs.sendMessage(tabId, { action: "ping" });
+            console.log(response);
+
             if (response && response.status === "ready") {
               await processInstructions();
               await clearStorage();
+
               await chrome.storage.session.set({ tabID: tabId });
-              chrome.tabs.onUpdated.removeListener(updatedListener);
+              // chrome.tabs.onUpdated.removeListener(updatedListener);
             } else {
               attempts++;
               setTimeout(checkReadiness, 400);
@@ -103,7 +113,7 @@ chrome.tabs.onCreated.addListener(async function listener(tab: chrome.tabs.Tab):
         };
 
         const processInstructions = async () => {
-          instructions.forEach((instruction) => processInstruction(instruction, tab.id!));
+          instructions.forEach((instruction) => processInstruction(instruction, tab.id!, tab.pendingUrl!));
         };
 
         checkReadiness();
@@ -111,6 +121,6 @@ chrome.tabs.onCreated.addListener(async function listener(tab: chrome.tabs.Tab):
     });
   }
 
-  chrome.tabs.onCreated.removeListener(listener);
+  // chrome.tabs.onCreated.removeListener(listener);
   return true;
 });
