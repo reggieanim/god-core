@@ -30,9 +30,10 @@ export interface FormInstructions {
   iframeSelector: string;
   timeout: number;
   skip: string;
-  body: Object;
+  body: object[];
   fallback: Object;
   mute: boolean;
+  finished: boolean;
 }
 
 export interface Options {

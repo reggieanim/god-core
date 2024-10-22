@@ -9,10 +9,10 @@ chrome.runtime.onMessage.addListener((message, _sender, sendResponse) => {
       sendResponse({ status: "ready" });
       return true;
     case "executeTemplate":
-      result = executeTemplate(message.template);
+      result = executeTemplate(message.template, message.templateUrl);
       break;
     case "continueExecutingTemplate":
-      result = continueExecutingTemplate(message.template);
+      result = continueExecutingTemplate(message.template, message.templateUrl);
       break;
     default:
       result = { error: "Unknown action" };
@@ -20,34 +20,49 @@ chrome.runtime.onMessage.addListener((message, _sender, sendResponse) => {
   sendResponse({ result });
 });
 
-const executeTemplate = (template: any[]): any => {
-  return template.map(async (item) => {
-    if (Array.isArray(item)) {
-      const [action, ...args] = item;
-      switch (action) {
-        case "form":
-          chrome.storage.session.set({ args: [args] });
-          await new Form(args).start();
-          break;
-        case "print":
-          console.log("Printing args", args);
-          break;
-        default:
-          console.log(`Unknown action: ${action}`);
+let isTemplateExecuting = false;
+
+const executeTemplate = async (template: any[], templateUrl: string): Promise<void> => {
+  if (isTemplateExecuting) {
+    console.log("Template is already executing. Skipping execution.");
+    return;
+  }
+  isTemplateExecuting = true;
+
+  try {
+    for (const item of template) {
+      if (Array.isArray(item)) {
+        const [action, ...args] = item;
+        switch (action) {
+          case "form":
+            const storageRetrievalResult = (await chrome.storage.session.get(["args"])) || {};
+            storageRetrievalResult[templateUrl] = [...args];
+            await chrome.storage.session.set({ args: storageRetrievalResult });
+            await new Form(args, templateUrl).start();
+            break;
+          case "print":
+            console.log("Printing args", args);
+            break;
+          default:
+            console.log(`Unknown action: ${action}`);
+        }
       }
     }
-    return item;
-  });
+  } catch (error) {
+    console.error("Error executing template:", error);
+  } finally {
+    isTemplateExecuting = false;
+  }
 };
 
 let isExecuting = false;
-const continueExecutingTemplate = async (template: any[]): Promise<void> => {
+const continueExecutingTemplate = async (template: any[], templateUrl: string): Promise<void> => {
   if (isExecuting) {
     return;
   }
   isExecuting = true;
   if (template !== undefined) {
-    await new Form(template).start();
+    await new Form(template, templateUrl).start();
   }
   isExecuting = false;
 };

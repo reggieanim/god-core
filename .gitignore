@@ -25,4 +25,4 @@ dist-ssr
 
 # Custom directories
 [Ff][Oo][Oo]/
-.env
+.DS_Store

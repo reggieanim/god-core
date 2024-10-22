@@ -21,6 +21,7 @@
   "icons": {
     "16": "icons/approval16.png",
     "48": "icons/approval48.png",
+    "80": "icons/approval80.jpg",
     "128": "icons/approval128.png"
   },
   "host_permissions": ["https://*/*"]

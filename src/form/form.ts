@@ -6,14 +6,16 @@ import { clearStorage } from "../helpers/functions/functions";
 export class Form {
   private readonly instructions: FormInstructions[];
   private options: Options;
+  private readonly templateUrl: string;
 
-  constructor(data: unknown) {
+  constructor(data: unknown, templateUrl: string = "") {
     if (!Array.isArray(data)) {
       throw new Error("Wrong instructions format in form");
     }
 
     this.instructions = data;
     this.options = data.slice(0, -1) as Options;
+    this.templateUrl = templateUrl;
   }
 
   public async start() {
@@ -51,10 +53,21 @@ export class Form {
         contextDocument = iframeDocument;
       }
 
-      for (let _ = 0; _ < this.instructions.length; _++) {
-        const instruction = this.instructions.shift()!;
+      for (const instruction of [...this.instructions]) {
+        if (instruction.finished) {
+          console.log("Instructions finished. Stopping content script.");
+          await clearStorage();
+          await chrome.runtime.sendMessage({ action: "finished" });
+          return;
+        }
+
         await this.runForm(instruction, contextDocument);
-        chrome.storage.session.set({ args: this.instructions });
+        this.instructions.shift();
+
+        const storageRetrievalResult = (await chrome.storage.session.get("args")) || {};
+        const args = storageRetrievalResult.args || {};
+        args[this.templateUrl] = [...this.instructions];
+        await chrome.storage.session.set({ args });
       }
 
       // @ts-ignore
@@ -94,7 +107,7 @@ export class Form {
           break;
 
         case "condEval":
-          await new Eval().detectFieldPresence(instruction, contextDocument);
+          await new Eval().conditionalEvaluate(instruction, contextDocument, this.templateUrl);
           break;
 
         case "notify":
@@ -114,8 +127,6 @@ export class Form {
       }
     } catch (error) {
       console.error("An error occurred:", error);
-      return;
-    } finally {
       return;
     }
   }
