@@ -23,6 +23,8 @@ chrome.runtime.onMessage.addListener((message, _sender, sendResponse) => {
 let isTemplateExecuting = false;
 
 const executeTemplate = async (template: any[], templateUrl: string): Promise<void> => {
+  console.log("Called executeTemplate function");
+
   if (isTemplateExecuting) {
     console.log("Template is already executing. Skipping execution.");
     return;
@@ -35,9 +37,6 @@ const executeTemplate = async (template: any[], templateUrl: string): Promise<vo
         const [action, ...args] = item;
         switch (action) {
           case "form":
-            const storageRetrievalResult = (await chrome.storage.session.get(["args"])) || {};
-            storageRetrievalResult[templateUrl] = [...args];
-            await chrome.storage.session.set({ args: storageRetrievalResult });
             await new Form(args, templateUrl).start();
             break;
           case "print":
@@ -55,14 +54,8 @@ const executeTemplate = async (template: any[], templateUrl: string): Promise<vo
   }
 };
 
-let isExecuting = false;
 const continueExecutingTemplate = async (template: any[], templateUrl: string): Promise<void> => {
-  if (isExecuting) {
-    return;
-  }
-  isExecuting = true;
-  if (template !== undefined) {
-    await new Form(template, templateUrl).start();
-  }
-  isExecuting = false;
+  console.log("Called continueExecutingTemplate function");
+
+  if (template !== undefined) await new Form(template, templateUrl).start();
 };

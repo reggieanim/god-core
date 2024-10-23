@@ -27,7 +27,7 @@ export class Form {
 
     while (true) {
       if (retry === countRetrys) {
-        await clearStorage();
+        // await clearStorage();
         // Close all windows here. Should we do it or they should do it?
         break;
       }
@@ -56,7 +56,7 @@ export class Form {
       for (const instruction of [...this.instructions]) {
         if (instruction.finished) {
           console.log("Instructions finished. Stopping content script.");
-          await clearStorage();
+          // await clearStorage();
           await chrome.runtime.sendMessage({ action: "finished" });
           return;
         }

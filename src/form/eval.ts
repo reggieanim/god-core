@@ -12,7 +12,7 @@ export class Eval {
       return;
     }
 
-    if (Object.keys(instruction.fallback).length !== 0) {
+    if (instruction.fallback !== undefined && Object.keys(instruction.fallback).length !== 0) {
       await new Form(instruction.fallback, templateName).start();
       return;
     }
@@ -43,26 +43,6 @@ export class Eval {
       );
       return false;
     }
-  };
-
-  private evaluate = async (instruction: FormInstructions, page: Document) => {
-    function evaluate(element: HTMLElement, codeToExecute: string) {
-      const func = new Function("return " + codeToExecute).bind(element);
-      return func();
-    }
-
-    try {
-      const element = await waitForElement(instruction.field, instruction.timeout, page);
-
-      if (element instanceof HTMLElement) {
-        const evaluation = evaluate(element, instruction.evalExpression);
-        return evaluation();
-      }
-    } catch (err) {
-      console.error(err);
-      console.log(
-        `Error executing code on element: ${instruction.field} with function: ${instruction.evalExpression}`
-      );
-    }
+    return false;
   };
 }

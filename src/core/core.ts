@@ -2,7 +2,6 @@ import {
   createNotification,
   executeScriptInActiveTab,
   onTabCreatedListener,
-  removeTabUpdateListener,
   webNavigationOnCommittedListener,
 } from "../helpers/functions/serviceWorker";
 
@@ -12,12 +11,11 @@ chrome.runtime.onInstalled.addListener(() => {
 
 chrome.runtime.onMessage.addListener(async (request, sender, sendResponse) => {
   if (request.action === "notify" && sender.tab?.id !== undefined) {
-    await createNotification(request.title, request.message);
+    createNotification(request.title, request.message);
   }
 
   if (request.action === "finished" && sender.tab?.id !== undefined) {
     chrome.tabs.onCreated.removeListener(onTabCreatedListener);
-    removeTabUpdateListener();
   }
 
   if (
@@ -40,8 +38,7 @@ export function checkHasListener() {
   if (!chrome.tabs.onCreated.hasListener(onTabCreatedListener)) {
     console.log("No Listeners registered");
     chrome.tabs.onCreated.addListener(onTabCreatedListener);
-    chrome.webNavigation.onCommitted.addListener(webNavigationOnCommittedListener);
   }
 }
 
-// chrome.webNavigation.onCommitted.removeListener(webNavigationOnCommittedListener);
+chrome.webNavigation.onCommitted.addListener(webNavigationOnCommittedListener);

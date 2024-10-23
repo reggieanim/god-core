@@ -1,5 +1,7 @@
+import _ from "underscore";
+
 import { FunctionMap, Instruction } from "../../types/types";
-import { clearStorage, insertCustomBanner, removeCustomBanner, setWindowToFalse } from "./functions";
+import { insertCustomBanner, removeCustomBanner, setWindowToFalse } from "./functions";
 
 export const getCurrentlyActiveTab = async (): Promise<chrome.tabs.Tab[]> => {
   return chrome.tabs.query({
@@ -12,7 +14,7 @@ export const createNotification = (title: string, message: string): void => {
   try {
     chrome.notifications.create({
       type: "basic",
-      iconUrl: "./icons/approval80.jpg",
+      iconUrl: "./icons/approval48.png",
       title: title,
       message: message,
       priority: 2,
@@ -106,7 +108,7 @@ export const processInstruction = async (instruction: Instruction, tabID: number
         await chrome.tabs.sendMessage(tabID, {
           action: "executeTemplate",
           template: config.template,
-          templateUrl: config.startingUrl,
+          templateUrl: new URL(config.startingUrl).host,
         });
         await chrome.storage.session.setAccessLevel({ accessLevel: "TRUSTED_AND_UNTRUSTED_CONTEXTS" });
 
@@ -118,32 +120,44 @@ export const processInstruction = async (instruction: Instruction, tabID: number
   }
 };
 
+let isExecuting = false;
+
 export function webNavigationOnCommittedListener(
   details: chrome.webNavigation.WebNavigationTransitionCallbackDetails
 ): void {
+  if (details.frameId !== 0) return;
+
   if (details.transitionType === "auto_subframe" || details.transitionType === "form_submit") {
-    const continueProcess = async () => {
-      const storageRetrievalResult = await chrome.storage.session.get(["args"]);
+    chrome.storage.session.get(["args"]).then(async (storageRetrievalResult) => {
+      console.log(storageRetrievalResult);
 
-      if (storageRetrievalResult !== undefined && details.tabId && details.url) {
-        const response = await chrome.tabs.sendMessage(details.tabId, {
-          action: "continueExecutingTemplate",
-          template: storageRetrievalResult.args[details.url],
-          templateUrl: details.url,
-        });
+      if (storageRetrievalResult !== undefined && details.tabId) {
+        const listener = async (tabCompletedDetails: chrome.webNavigation.WebNavigationFramedCallbackDetails) => {
+          const baseUrl = new URL(tabCompletedDetails.url).host;
+          // isExecuting = true;
 
-        await new Promise((resolve) => setTimeout(resolve, 90 * 1000));
-        return response;
+          if (
+            details.tabId === tabCompletedDetails.tabId &&
+            storageRetrievalResult.args?.[baseUrl] !== undefined &&
+            storageRetrievalResult.args[baseUrl].length > 0
+          ) {
+            console.log("Calling content script with data:", storageRetrievalResult.args[baseUrl]);
+
+            await chrome.tabs.sendMessage(details.tabId, {
+              action: "continueExecutingTemplate",
+              template: storageRetrievalResult.args[baseUrl],
+              templateUrl: baseUrl,
+            });
+
+            chrome.webNavigation.onCompleted.removeListener(listener);
+            // isExecuting = false;
+          }
+        };
+
+        const debouncedListener = _.debounce(listener, 300);
+        chrome.webNavigation.onCompleted.addListener(debouncedListener);
       }
-    };
-
-    continueProcess()
-      .then((result) => {
-        console.log(result);
-      })
-      .catch((error) => {
-        console.error("An error occurred:", error);
-      });
+    });
   }
 }
 
@@ -164,9 +178,33 @@ export async function onTabCreatedListener(tab: chrome.tabs.Tab): Promise<void> 
     tab.id !== undefined
   ) {
     const instructions: Instruction[] = JSON.parse(storageRetrievalResult.instructions);
+    const maxAttempts = 75;
+    let attempts = 0;
 
-    tabUpdateListener = handleTabUpdate(instructions, tab);
-    chrome.tabs.onUpdated.addListener(tabUpdateListener);
+    const checkReadiness = async () => {
+      if (attempts >= maxAttempts) {
+        console.error("Max attempts reached. Page not ready.");
+        return;
+      }
+
+      try {
+        const response = await chrome.tabs.sendMessage(tab.id!, { action: "ping" });
+        if (response && response.status === "ready") {
+          await processInstructions(instructions, tab);
+          // await clearStorage();
+          // await chrome.storage.session.set({ tabID: tabId });
+        } else {
+          attempts++;
+          setTimeout(checkReadiness, 400);
+        }
+      } catch (error) {
+        console.error("Error checking readiness:", error);
+        attempts++;
+        setTimeout(checkReadiness, 400);
+      }
+    };
+
+    checkReadiness();
   }
 }
 
@@ -197,8 +235,7 @@ export function handleTabUpdate(instructions: Instruction[], tab: chrome.tabs.Ta
 
           if (response && response.status === "ready") {
             await processInstructions(instructions, tab);
-            await clearStorage();
-            // await chrome.storage.session.set({ tabID: tabId });
+            // await clearStorage();
           } else {
             attempts++;
             setTimeout(checkReadiness, 400);
