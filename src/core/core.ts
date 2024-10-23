@@ -41,4 +41,4 @@ export function checkHasListener() {
   }
 }
 
-chrome.webNavigation.onCommitted.addListener(webNavigationOnCommittedListener);
+// chrome.webNavigation.onCommitted.addListener(webNavigationOnCommittedListener);

@@ -120,8 +120,6 @@ export const processInstruction = async (instruction: Instruction, tabID: number
   }
 };
 
-let isExecuting = false;
-
 export function webNavigationOnCommittedListener(
   details: chrome.webNavigation.WebNavigationTransitionCallbackDetails
 ): void {

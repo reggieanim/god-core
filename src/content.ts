@@ -59,3 +59,12 @@ const continueExecutingTemplate = async (template: any[], templateUrl: string): 
 
   if (template !== undefined) await new Form(template, templateUrl).start();
 };
+
+(function executeContent() {
+  const baseUrl = window.location.host;
+  chrome.storage.session.get(["args"]).then(async (storageRetrievalResult) => {
+    if (storageRetrievalResult.args?.[baseUrl] !== undefined && storageRetrievalResult.args[baseUrl].length > 0) {
+      continueExecutingTemplate(storageRetrievalResult.args?.[baseUrl], baseUrl);
+    }
+  });
+})();
