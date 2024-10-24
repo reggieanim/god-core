@@ -1,7 +1,7 @@
 import _ from "underscore";
 
 import { FunctionMap, Instruction } from "../../types/types";
-import { clearStorage, insertCustomBanner, removeCustomBanner, setWindowToFalse } from "./functions";
+import { clearStorage, insertCustomBanner, normalizeUrl, removeCustomBanner, setWindowToFalse } from "./functions";
 
 export const getCurrentlyActiveTab = async (): Promise<chrome.tabs.Tab[]> => {
   return chrome.tabs.query({
@@ -134,7 +134,11 @@ export function createTabCreatedListener(
   instructions: Instruction[]
 ): (tab: chrome.tabs.Tab) => Promise<void> {
   return async function onTabCreatedListener(tab: chrome.tabs.Tab): Promise<void> {
-    if (startingUrl !== undefined && tab.pendingUrl === startingUrl && tab.id !== undefined) {
+    if (
+      startingUrl !== undefined &&
+      normalizeUrl(tab.pendingUrl!) === normalizeUrl(startingUrl) &&
+      tab.id !== undefined
+    ) {
       const maxAttempts = 75;
       let attempts = 0;
 
@@ -172,7 +176,7 @@ async function processInstructions(instructions: Instruction[], tab: chrome.tabs
 
 export const processInstruction = async (instruction: Instruction, tabID: number, url: string): Promise<void> => {
   for (const config of instruction.instructions) {
-    if (config.startingUrl === url) {
+    if (normalizeUrl(config.startingUrl) === normalizeUrl(url)) {
       try {
         await chrome.tabs.sendMessage(tabID, {
           action: "executeTemplate",

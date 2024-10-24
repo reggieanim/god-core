@@ -86,3 +86,7 @@ export const clearStorage = async (keys: string[] = []) => {
     console.error("Error clearing storage:", error);
   }
 };
+
+export function normalizeUrl(url: string): string {
+  return url.replace(/\/$/, "");
+}

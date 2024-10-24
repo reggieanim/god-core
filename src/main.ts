@@ -10,10 +10,8 @@ document.getElementById("startButton")!.addEventListener("click", async () => {
     const response = await fetch("/bb.json");
     const rawInstructions = await response.text();
     const parsedInstructions: Instruction[] = JSON.parse(rawInstructions);
-    console.log(parsedInstructions);
 
     const startingUrls = getStartingURLs(parsedInstructions);
-    console.log(startingUrls);
 
     for (const url of startingUrls) {
       await chrome.storage.session.set({ [`startingUrl_${url}`]: url });
