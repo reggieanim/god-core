@@ -53,13 +53,6 @@ export class Form {
       }
 
       for (const instruction of [...this.instructions]) {
-        if (instruction.finished) {
-          console.log("Instructions finished. Stopping content script.");
-          await clearStorage([this.templateUrl]);
-          await chrome.runtime.sendMessage({ action: "finished" });
-          return;
-        }
-
         await this.runForm(instruction, contextDocument);
         this.instructions.shift();
 

@@ -101,45 +101,53 @@ export const CreateNewWindowOrTab = async (rawInstructions: string) => {
   }
 };
 
-export async function onTabCreatedListener(tab: chrome.tabs.Tab): Promise<void> {
-  const storageRetrievalResult = await chrome.storage.session.get(["startingUrls", "instructions"]);
+export function createTabCreatedListener(
+  startingUrl: string,
+  instructions: Instruction[]
+): (tab: chrome.tabs.Tab) => Promise<void> {
+  return async function onTabCreatedListener(tab: chrome.tabs.Tab): Promise<void> {
+    if (startingUrl !== undefined && tab.pendingUrl === startingUrl && tab.id !== undefined) {
+      const maxAttempts = 75;
+      let attempts = 0;
 
-  const startingUrls: string[] = storageRetrievalResult.startingUrls as string[];
+      const checkReadiness = async () => {
+        if (attempts >= maxAttempts) {
+          console.error("Max attempts reached. Page not ready.");
+          return;
+        }
 
-  if (
-    startingUrls !== undefined &&
-    startingUrls.length > 0 &&
-    startingUrls.includes(tab.pendingUrl!) &&
-    storageRetrievalResult.instructions !== undefined &&
-    tab.id !== undefined
-  ) {
-    const instructions: Instruction[] = JSON.parse(storageRetrievalResult.instructions);
-    const maxAttempts = 75;
-    let attempts = 0;
-
-    const checkReadiness = async () => {
-      if (attempts >= maxAttempts) {
-        console.error("Max attempts reached. Page not ready.");
-        return;
-      }
-
-      try {
-        const response = await chrome.tabs.sendMessage(tab.id!, { action: "ping" });
-        if (response && response.status === "ready") {
-          await processInstructions(instructions, tab);
-          await clearStorage(["startingUrls", "instructions"]);
-        } else {
+        try {
+          const response = await chrome.tabs.sendMessage(tab.id!, { action: "ping" });
+          if (response && response.status === "ready") {
+            await processInstructions(instructions, tab);
+            await clearStorage(["startingUrls", "instructions"]);
+            chrome.tabs.onCreated.removeListener(onTabCreatedListener);
+          } else {
+            attempts++;
+            setTimeout(checkReadiness, 400);
+          }
+        } catch (error) {
+          console.error("Error checking readiness:", error);
           attempts++;
           setTimeout(checkReadiness, 400);
         }
-      } catch (error) {
-        console.error("Error checking readiness:", error);
-        attempts++;
-        setTimeout(checkReadiness, 400);
-      }
-    };
+      };
 
-    checkReadiness();
+      checkReadiness();
+    }
+  };
+}
+
+export async function addListenersForStartingUrls(): Promise<void> {
+  const storageRetrievalResult = await chrome.storage.session.get(["startingUrls", "instructions"]);
+  const startingUrls: string[] = storageRetrievalResult.startingUrls as string[];
+  const instructions: Instruction[] = JSON.parse(storageRetrievalResult.instructions);
+
+  if (startingUrls !== undefined && instructions !== undefined) {
+    startingUrls.forEach((url) => {
+      const listener = createTabCreatedListener(url, instructions);
+      chrome.tabs.onCreated.addListener(listener);
+    });
   }
 }
 

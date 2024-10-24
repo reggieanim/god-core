@@ -1,7 +1,7 @@
 import {
   createNotification,
   executeScriptInActiveTab,
-  onTabCreatedListener,
+  // onTabCreatedListener,
 } from "../helpers/functions/serviceWorker";
 
 chrome.runtime.onInstalled.addListener(() => {
@@ -11,10 +11,6 @@ chrome.runtime.onInstalled.addListener(() => {
 chrome.runtime.onMessage.addListener(async (request, sender, sendResponse) => {
   if (request.action === "notify" && sender.tab?.id !== undefined) {
     createNotification(request.title, request.message);
-  }
-
-  if (request.action === "finished" && sender.tab?.id !== undefined) {
-    chrome.tabs.onCreated.removeListener(onTabCreatedListener);
   }
 
   if (
@@ -32,12 +28,5 @@ chrome.runtime.onMessage.addListener(async (request, sender, sendResponse) => {
       });
   }
 });
-
-export function checkHasListener() {
-  if (!chrome.tabs.onCreated.hasListener(onTabCreatedListener)) {
-    console.log("No Listeners registered");
-    chrome.tabs.onCreated.addListener(onTabCreatedListener);
-  }
-}
 
 chrome.storage.session.setAccessLevel({ accessLevel: "TRUSTED_AND_UNTRUSTED_CONTEXTS" });
