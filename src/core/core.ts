@@ -1,10 +1,14 @@
-import {
-  createNotification,
-  executeScriptInActiveTab,
-} from "../helpers/functions/serviceWorker";
+import { createNotification, executeScriptInActiveTab, startProcess } from "../helpers/functions/serviceWorker";
+import { Instruction } from "../types/types";
 
 chrome.runtime.onInstalled.addListener(() => {
   console.log("Extension installed");
+});
+
+chrome.runtime.onMessageExternal.addListener(function (request, _sender, _sendResponse) {
+  if (request.data) {
+    startProcess(request.data as Instruction[]);
+  }
 });
 
 chrome.runtime.onMessage.addListener(async (request, sender, sendResponse) => {

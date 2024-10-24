@@ -40,6 +40,22 @@ export const executeScriptInActiveTab = async (funcName: string, args: string, t
     .then(() => console.log("Executed function:", funcName));
 };
 
+export const startProcess = async (data: Instruction[]) => {
+  try {
+    const startingUrls = getStartingURLs(data);
+
+    for (const url of startingUrls) {
+      await chrome.storage.session.set({ [`startingUrl_${url}`]: url });
+      await chrome.storage.session.set({ [`instructions_${url}`]: data });
+    }
+
+    await addListenersForStartingUrls();
+    await CreateNewWindowOrTab(data);
+  } catch (error) {
+    console.error("Error starting instruction processor:", error);
+  }
+};
+
 export const createNewTab = async (startingUrl: string, windowID?: number): Promise<number | undefined> => {
   const createTabOptions: chrome.tabs.CreateProperties = { url: startingUrl, active: true };
 
@@ -63,17 +79,13 @@ export const createNewWindow = async (startingUrl: string): Promise<number | und
   return newWindow?.id;
 };
 
-export const getStartingURLs = (rawInstructions: string): string[] => {
-  const parsedInstructions: Instruction[] = JSON.parse(rawInstructions);
-
+export const getStartingURLs = (parsedInstructions: Instruction[]): string[] => {
   return parsedInstructions.flatMap((instructionSet) =>
     instructionSet.instructions.map((instruction) => instruction.startingUrl).filter(Boolean)
   );
 };
 
-export const CreateNewWindowOrTab = async (rawInstructions: string) => {
-  const parsedInstructions: Instruction[] = JSON.parse(rawInstructions);
-
+export const CreateNewWindowOrTab = async (parsedInstructions: Instruction[]) => {
   if (Array.isArray(parsedInstructions)) {
     let idx = 0;
     let url: string;
@@ -108,7 +120,7 @@ export async function addListenersForStartingUrls(): Promise<void> {
   for (const key of keys) {
     const startingUrl = storageRetrievalResult[key];
     const instructionsKey = `instructions_${startingUrl}`;
-    const instructions: Instruction[] = JSON.parse(storageRetrievalResult[instructionsKey]);
+    const instructions: Instruction[] = storageRetrievalResult[instructionsKey];
 
     if (startingUrl !== undefined && instructions !== undefined) {
       const listener = createTabCreatedListener(startingUrl, instructions);
