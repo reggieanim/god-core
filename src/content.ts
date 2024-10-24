@@ -20,16 +20,8 @@ chrome.runtime.onMessage.addListener((message, _sender, sendResponse) => {
   sendResponse({ result });
 });
 
-let isTemplateExecuting = false;
-
 const executeTemplate = async (template: any[], templateUrl: string): Promise<void> => {
   console.log("Called executeTemplate function");
-
-  if (isTemplateExecuting) {
-    console.log("Template is already executing. Skipping execution.");
-    return;
-  }
-  isTemplateExecuting = true;
 
   try {
     for (const item of template) {
@@ -50,7 +42,6 @@ const executeTemplate = async (template: any[], templateUrl: string): Promise<vo
   } catch (error) {
     console.error("Error executing template:", error);
   } finally {
-    isTemplateExecuting = false;
   }
 };
 

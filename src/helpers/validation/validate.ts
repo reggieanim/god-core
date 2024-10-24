@@ -26,11 +26,13 @@ class Validator {
   }
 }
 
-export const validate = (ins: FormInstructions): boolean => {
-  const isValidDescription = typeof ins.description === "string";
-  const isValidField = typeof ins.field === "string";
-  const isValidValue = typeof ins.value === "string";
-  const insKind = ins.kind;
+export const validate = (instructions: FormInstructions): boolean => {
+  if (Object.keys(instructions).length === 0) return true;
+
+  const isValidDescription = typeof instructions.description === "string";
+  const isValidField = typeof instructions.field === "string";
+  const isValidValue = typeof instructions.value === "string";
+  const insKind = instructions.kind;
   const isValidKind = typeof insKind === "string";
   const doesNotMatchExpectedKind = insKind ? kindMap[insKind] : false;
 

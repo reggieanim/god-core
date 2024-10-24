@@ -9,8 +9,12 @@ document.getElementById("startButton")!.addEventListener("click", async () => {
     const response = await fetch("/bb.json");
     const rawInstructions = await response.text();
     const startingUrls = getStartingURLs(rawInstructions);
-    await chrome.storage.session.set({ startingUrls: startingUrls });
-    await chrome.storage.session.set({ instructions: rawInstructions });
+
+    for (const url of startingUrls) {
+      await chrome.storage.session.set({ [`startingUrl_${url}`]: url });
+      await chrome.storage.session.set({ [`instructions_${url}`]: rawInstructions });
+    }
+
     await addListenersForStartingUrls();
     await CreateNewWindowOrTab(rawInstructions);
   } catch (error) {

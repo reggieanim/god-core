@@ -101,6 +101,22 @@ export const CreateNewWindowOrTab = async (rawInstructions: string) => {
   }
 };
 
+export async function addListenersForStartingUrls(): Promise<void> {
+  const storageRetrievalResult = await chrome.storage.session.get(null);
+  const keys = Object.keys(storageRetrievalResult).filter((key) => key.startsWith("startingUrl_"));
+
+  for (const key of keys) {
+    const startingUrl = storageRetrievalResult[key];
+    const instructionsKey = `instructions_${startingUrl}`;
+    const instructions: Instruction[] = JSON.parse(storageRetrievalResult[instructionsKey]);
+
+    if (startingUrl !== undefined && instructions !== undefined) {
+      const listener = createTabCreatedListener(startingUrl, instructions);
+      chrome.tabs.onCreated.addListener(listener);
+    }
+  }
+}
+
 export function createTabCreatedListener(
   startingUrl: string,
   instructions: Instruction[]
@@ -120,7 +136,7 @@ export function createTabCreatedListener(
           const response = await chrome.tabs.sendMessage(tab.id!, { action: "ping" });
           if (response && response.status === "ready") {
             await processInstructions(instructions, tab);
-            await clearStorage(["startingUrls", "instructions"]);
+            await clearStorage([`startingUrl_${startingUrl}`, `instructions_${startingUrl}`]);
             chrome.tabs.onCreated.removeListener(onTabCreatedListener);
           } else {
             attempts++;
@@ -136,19 +152,6 @@ export function createTabCreatedListener(
       checkReadiness();
     }
   };
-}
-
-export async function addListenersForStartingUrls(): Promise<void> {
-  const storageRetrievalResult = await chrome.storage.session.get(["startingUrls", "instructions"]);
-  const startingUrls: string[] = storageRetrievalResult.startingUrls as string[];
-  const instructions: Instruction[] = JSON.parse(storageRetrievalResult.instructions);
-
-  if (startingUrls !== undefined && instructions !== undefined) {
-    startingUrls.forEach((url) => {
-      const listener = createTabCreatedListener(url, instructions);
-      chrome.tabs.onCreated.addListener(listener);
-    });
-  }
 }
 
 async function processInstructions(instructions: Instruction[], tab: chrome.tabs.Tab) {
