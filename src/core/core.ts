@@ -39,3 +39,5 @@ export function checkHasListener() {
     chrome.tabs.onCreated.addListener(onTabCreatedListener);
   }
 }
+
+chrome.storage.session.setAccessLevel({ accessLevel: "TRUSTED_AND_UNTRUSTED_CONTEXTS" });
