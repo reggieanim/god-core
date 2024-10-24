@@ -14,7 +14,7 @@ export class Form {
     }
 
     this.instructions = data;
-    this.options = data.slice(-1) as Options;
+    this.options = data.slice(-1)[0] as Options;
     this.templateUrl = templateUrl;
   }
 
