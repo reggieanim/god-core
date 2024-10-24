@@ -1,7 +1,6 @@
 import {
   createNotification,
   executeScriptInActiveTab,
-  // onTabCreatedListener,
 } from "../helpers/functions/serviceWorker";
 
 chrome.runtime.onInstalled.addListener(() => {
