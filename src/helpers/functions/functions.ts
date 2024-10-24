@@ -77,11 +77,11 @@ export const until = (conditionFunction: () => boolean): Promise<void> => {
   return new Promise<void>(poll);
 };
 
-export const clearStorage = async () => {
+export const clearStorage = async (keys: string[] = []) => {
   try {
-    await chrome.storage.local.clear();
-    await chrome.storage.session.clear();
+    keys.length > 0 ? chrome.storage.session.remove(keys) : chrome.storage.session.clear();
     await chrome.storage.sync.clear();
+    await chrome.storage.local.clear();
   } catch (error) {
     console.error("Error clearing storage:", error);
   }

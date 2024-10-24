@@ -62,9 +62,9 @@ const continueExecutingTemplate = async (template: any[], templateUrl: string): 
 
 (function executeContent() {
   const baseUrl = window.location.host;
-  chrome.storage.session.get(["args"]).then(async (storageRetrievalResult) => {
-    if (storageRetrievalResult.args?.[baseUrl] !== undefined && storageRetrievalResult.args[baseUrl].length > 0) {
-      continueExecutingTemplate(storageRetrievalResult.args?.[baseUrl], baseUrl);
+  chrome.storage.session.get([baseUrl]).then(async (storageRetrievalResult) => {
+    if (storageRetrievalResult[baseUrl] !== undefined && storageRetrievalResult[baseUrl].length > 0) {
+      continueExecutingTemplate(storageRetrievalResult[baseUrl], baseUrl);
     }
   });
 })();

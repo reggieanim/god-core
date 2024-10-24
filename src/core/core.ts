@@ -2,7 +2,6 @@ import {
   createNotification,
   executeScriptInActiveTab,
   onTabCreatedListener,
-  webNavigationOnCommittedListener,
 } from "../helpers/functions/serviceWorker";
 
 chrome.runtime.onInstalled.addListener(() => {
@@ -40,5 +39,3 @@ export function checkHasListener() {
     chrome.tabs.onCreated.addListener(onTabCreatedListener);
   }
 }
-
-// chrome.webNavigation.onCommitted.addListener(webNavigationOnCommittedListener);

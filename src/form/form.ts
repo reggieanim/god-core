@@ -27,8 +27,7 @@ export class Form {
 
     while (true) {
       if (retry === countRetrys) {
-        // await clearStorage();
-        // Close all windows here. Should we do it or they should do it?
+        await clearStorage([this.templateUrl]);
         break;
       }
       if (skip === "true") {
@@ -56,7 +55,7 @@ export class Form {
       for (const instruction of [...this.instructions]) {
         if (instruction.finished) {
           console.log("Instructions finished. Stopping content script.");
-          // await clearStorage();
+          await clearStorage([this.templateUrl]);
           await chrome.runtime.sendMessage({ action: "finished" });
           return;
         }
@@ -64,10 +63,7 @@ export class Form {
         await this.runForm(instruction, contextDocument);
         this.instructions.shift();
 
-        const storageRetrievalResult = (await chrome.storage.session.get("args")) || {};
-        const args = storageRetrievalResult.args || {};
-        args[this.templateUrl] = [...this.instructions];
-        await chrome.storage.session.set({ args });
+        await chrome.storage.session.set({ [this.templateUrl]: [...this.instructions] });
       }
 
       // @ts-ignore

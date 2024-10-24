@@ -1,7 +1,7 @@
 import _ from "underscore";
 
 import { FunctionMap, Instruction } from "../../types/types";
-import { insertCustomBanner, removeCustomBanner, setWindowToFalse } from "./functions";
+import { clearStorage, insertCustomBanner, removeCustomBanner, setWindowToFalse } from "./functions";
 
 export const getCurrentlyActiveTab = async (): Promise<chrome.tabs.Tab[]> => {
   return chrome.tabs.query({
@@ -120,49 +120,6 @@ export const processInstruction = async (instruction: Instruction, tabID: number
   }
 };
 
-export function webNavigationOnCommittedListener(
-  details: chrome.webNavigation.WebNavigationTransitionCallbackDetails
-): void {
-  if (details.frameId !== 0) return;
-
-  if (details.transitionType === "auto_subframe" || details.transitionType === "form_submit") {
-    chrome.storage.session.get(["args"]).then(async (storageRetrievalResult) => {
-      console.log(storageRetrievalResult);
-
-      if (storageRetrievalResult !== undefined && details.tabId) {
-        const listener = async (tabCompletedDetails: chrome.webNavigation.WebNavigationFramedCallbackDetails) => {
-          const baseUrl = new URL(tabCompletedDetails.url).host;
-          // isExecuting = true;
-
-          if (
-            details.tabId === tabCompletedDetails.tabId &&
-            storageRetrievalResult.args?.[baseUrl] !== undefined &&
-            storageRetrievalResult.args[baseUrl].length > 0
-          ) {
-            console.log("Calling content script with data:", storageRetrievalResult.args[baseUrl]);
-
-            await chrome.tabs.sendMessage(details.tabId, {
-              action: "continueExecutingTemplate",
-              template: storageRetrievalResult.args[baseUrl],
-              templateUrl: baseUrl,
-            });
-
-            chrome.webNavigation.onCompleted.removeListener(listener);
-            // isExecuting = false;
-          }
-        };
-
-        const debouncedListener = _.debounce(listener, 300);
-        chrome.webNavigation.onCompleted.addListener(debouncedListener);
-      }
-    });
-  }
-}
-
-let tabUpdateListener:
-  | ((tabId: number, changeInfo: chrome.tabs.TabChangeInfo, _updatedTab: chrome.tabs.Tab) => void)
-  | null = null;
-
 export async function onTabCreatedListener(tab: chrome.tabs.Tab): Promise<void> {
   const storageRetrievalResult = await chrome.storage.session.get(["startingUrls", "instructions"]);
 
@@ -189,8 +146,7 @@ export async function onTabCreatedListener(tab: chrome.tabs.Tab): Promise<void> 
         const response = await chrome.tabs.sendMessage(tab.id!, { action: "ping" });
         if (response && response.status === "ready") {
           await processInstructions(instructions, tab);
-          // await clearStorage();
-          // await chrome.storage.session.set({ tabID: tabId });
+          await clearStorage(["startingUrls", "instructions"]);
         } else {
           attempts++;
           setTimeout(checkReadiness, 400);
@@ -208,52 +164,4 @@ export async function onTabCreatedListener(tab: chrome.tabs.Tab): Promise<void> 
 
 async function processInstructions(instructions: Instruction[], tab: chrome.tabs.Tab) {
   instructions.forEach((instruction) => processInstruction(instruction, tab.id!, tab.pendingUrl!));
-}
-
-export function handleTabUpdate(instructions: Instruction[], tab: chrome.tabs.Tab) {
-  return function updatedListener(
-    tabId: number,
-    changeInfo: chrome.tabs.TabChangeInfo,
-    _updatedTab: chrome.tabs.Tab
-  ) {
-    if (tabId === tab.id && changeInfo.status === "complete") {
-      const maxAttempts = 75;
-      let attempts = 0;
-
-      const checkReadiness = async () => {
-        if (attempts >= maxAttempts) {
-          console.error("Max attempts reached. Page not ready.");
-          chrome.tabs.onUpdated.removeListener(updatedListener);
-          return;
-        }
-
-        try {
-          const response = await chrome.tabs.sendMessage(tabId, { action: "ping" });
-          console.log(response);
-
-          if (response && response.status === "ready") {
-            await processInstructions(instructions, tab);
-            // await clearStorage();
-          } else {
-            attempts++;
-            setTimeout(checkReadiness, 400);
-          }
-        } catch (error) {
-          console.error("Error checking readiness:", error);
-          attempts++;
-          setTimeout(checkReadiness, 400);
-        }
-      };
-
-      checkReadiness();
-    }
-  };
-}
-
-export function removeTabUpdateListener() {
-  if (tabUpdateListener) {
-    console.log("Removing listener");
-    chrome.tabs.onUpdated.removeListener(tabUpdateListener);
-    tabUpdateListener = null;
-  }
 }
