@@ -14,7 +14,7 @@ export class Form {
     }
 
     this.instructions = data;
-    this.options = data.slice(0, -1) as Options;
+    this.options = data.slice(-1) as Options;
     this.templateUrl = templateUrl;
   }
 
@@ -69,12 +69,12 @@ export class Form {
   private async runForm(instruction: FormInstructions, contextDocument: Document) {
     console.log("Running Form with instruction", instruction);
 
-    if (!validate(instruction)) {
-      throw new Error("Invalid fields");
-    }
-
     if (instruction.skip === "true") {
       return;
+    }
+
+    if (!validate(instruction)) {
+      throw new Error("Invalid fields");
     }
 
     try {

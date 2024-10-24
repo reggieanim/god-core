@@ -7,7 +7,7 @@ import { Instruction } from "./types/types";
 
 document.getElementById("startButton")!.addEventListener("click", async () => {
   try {
-    const response = await fetch("/bb.json");
+    const response = await fetch("/y.json");
     const rawInstructions = await response.text();
     const parsedInstructions: Instruction[] = JSON.parse(rawInstructions);
 
