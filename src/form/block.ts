@@ -16,7 +16,7 @@ export class Block {
       args: "",
     });
 
-    await until(() => window.startAutofill == true);
+    await until(() => window.startAutofill === true);
 
     await chrome.runtime.sendMessage({
       action: "scripting",
